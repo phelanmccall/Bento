@@ -2,7 +2,13 @@
 {
   currentUser: {
     id: 1,
-    username: "user"
+    username: "user",
+    email: "email@email.com",
+    password_digest: "digest",
+    info: "I like to organize my food in bentos.",
+    memberships: [
+      "Awesome team", "Another team"
+    ]
   },
   forms: {
     signUp: {errors: []},
@@ -14,7 +20,7 @@
       id: 1,
       team_name: "Awesome team",
       members: {
-        
+
       }
     }
   }
@@ -33,6 +39,6 @@
       body: "Plan out all the little things",
       project_id: 343
     }
-  },
+  }
 }
 ```
