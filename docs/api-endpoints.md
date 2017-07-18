@@ -11,7 +11,7 @@
 ### Users
 
 - `POST /api/users`
-- `PATCH /api/users`
+- `PATCH /api/users/:id`
 - `GET /api/users/:id`
   - User Profile
 
@@ -19,6 +19,13 @@
 
 - `POST /api/session`
 - `DELETE /api/session`
+
+### Teams
+
+- `GET /api/teams`
+- `POST /api/teams`
+- `GET /api/teams/:id`
+- `DELETE /api/teams/:id`
 
 ### Projects
 
@@ -29,19 +36,8 @@
 - `PATCH /api/projects/:id`
 - `DELETE /api/projects/:id`
 
-### Teams
-
-- `GET /api/teams`
-- `POST /api/teams`
-- `GET /api/teams/:id`
-- `DELETE /api/teams/:id`
-- `GET /api/teams/:id/projects`
-  - index of all projects for a team
-
 ### Tasks
 - `GET /api/tasks`
 - `POST /api/tasks`
 - `GET /api/tasks/:id`
 - `DELETE /api/tasks/:id`
-- `GET /api/tasks/:id/project/:id`
-  - the project for this task
