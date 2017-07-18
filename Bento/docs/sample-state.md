@@ -6,9 +6,8 @@
     email: "email@email.com",
     password_digest: "digest",
     info: "I like to organize my food in bentos.",
-    memberships: [
-      "Awesome team", "Another team"
-    ]
+    memberships: {1:, 2:}
+    // a slice that points users to my teams, so if i have a slice i get all the memberships. elliot looking into this.
   },
   forms: {
     signUp: {errors: []},
@@ -16,6 +15,13 @@
     createTask: {errors: ["body can't be blank"]}
   },
   teams: {
+    1: {
+      id: 1,
+      team_name: "Awesome team",
+      members: {
+
+      }
+    },
     1: {
       id: 1,
       team_name: "Awesome team",
