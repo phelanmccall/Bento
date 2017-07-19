@@ -12,4 +12,7 @@ const configureStore = (preloadedState = {}) => (
   )
 );
 
+let store = configureStore();
+window.store = store;
+
 export default configureStore;
