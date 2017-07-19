@@ -7,8 +7,10 @@ import SessionFormContainer from './session_form_component/session_form_containe
 const App = () => (
   <div className="app">
     <header>
-      <h1>Hi from App</h1>
-      <SplashContainer />
+      <div className="header-container">
+        <h1>Bento</h1>
+      </div>
+        <SplashContainer className="SplashContainer"/>
     </header>
 
     <Route

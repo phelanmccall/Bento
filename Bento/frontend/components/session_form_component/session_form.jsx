@@ -4,46 +4,36 @@ import { Link, withRouter } from 'react-router-dom';
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state= {
+    this.state = {
       username: '',
       password: ''
     };
-
-    this .handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    const user = this.state;
-    this.props.processForm({ user });
-  }
-
-  componentWillReceiveProps(newProps) {
-    if (newProps.loggedIn) {
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.loggedIn) {
       this.props.history.push('/');
     }
   }
 
   update(field) {
-    return (e) => this.setState({
+    return e => this.setState({
       [field]: e.currentTarget.value
-    })
+    });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const user = this.state;
+    this.props.processForm({user});
   }
 
   navLink() {
     if (this.props.formType === 'login') {
-      return
-      <Link
-        to ="/signup">
-        Sign up!
-      </Link>;
+      return <Link to="/signup">sign up instead</Link>;
     } else {
-      return
-      <Link
-        to="/login"
-        >
-        Log in!
-      </Link>;
+      return <Link to="/login">log in instead</Link>;
     }
   }
 
@@ -52,7 +42,7 @@ class SessionForm extends React.Component {
       <ul>
         {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>
-            { error }
+            {error}
           </li>
         ))}
       </ul>
@@ -96,11 +86,11 @@ class SessionForm extends React.Component {
 
               <br />
 
-              <input type="Submit" value="Submit" />
+              <input type="submit" value="Submit" />
           </div>
         </form>
       </div>
-    )
+    );
   }
 }
 

@@ -5,7 +5,7 @@ export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 
 export const receiveCurrentUser = currentUser => ({
   type: RECEIVE_CURRENT_USER,
-  current_user
+  currentUser
 });
 
 export const receiveErrors = errors => ({
@@ -16,8 +16,7 @@ export const receiveErrors = errors => ({
 export const signup = user => dispatch => (
   APIUtil.signup(user).then(user => (
     dispatch(receiveCurrentUser(user))
-  ),
-  err => (
+  ), err => (
     dispatch(receiveErrors(err.responseJSON))
   ))
 );
@@ -25,8 +24,7 @@ export const signup = user => dispatch => (
 export const login = user => dispatch => (
   APIUtil.login(user).then(user => (
     dispatch(receiveCurrentUser(user))
-  ),
-  err => (
+  ), err => (
     dispatch(receiveErrors(err.responseJSON))
   ))
 );
