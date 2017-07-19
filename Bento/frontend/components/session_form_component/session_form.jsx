@@ -97,22 +97,11 @@ class SessionForm extends React.Component {
               <br />
 
               <input type="Submit" value="Submit" />
-          </div>  // login form
+          </div>
         </form>
-      </div>  // login form container
+      </div>
     )
   }
+}
 
 export default withRouter(SessionForm);
-
-
-
-
-
-
-
-
-
-
-
-}

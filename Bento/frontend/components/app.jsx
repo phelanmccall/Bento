@@ -2,6 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 
 import SplashContainer from './splash/splash_container';
+import SessionFormContainer from './session_form_component/session_form_container'
 
 const App = () => (
   <div className="app">
