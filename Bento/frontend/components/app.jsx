@@ -5,8 +5,19 @@ import SplashContainer from './splash/splash_container';
 
 const App = () => (
   <div className="app">
-    <h1>Hi from App</h1>
-    <SplashContainer />
+    <header>
+      <h1>Hi from App</h1>
+      <SplashContainer />
+    </header>
+
+    <Route
+      path="/login"
+      component={ SessionFormContainer }
+    />
+    <Route
+      path="/signup"
+      component={ SessionFormContainer }
+    />
   </div>
 );
 
