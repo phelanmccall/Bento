@@ -3,15 +3,17 @@ import { Link } from 'react-router-dom';
 
 const sessionLinks = () => (
   <nav className="login-signup-flex-container">
-    <div className="login-and-signup">
+    <div className="login-and-signup-buttons">
       <Link
+        className="login-button"
         to="/login">
-        Login
+        log in
       </Link>
       <div className="spacer"></div>
       <Link
+        className="signup-button"
         to="/signup">
-        Sign up!
+        sign up
       </Link>
       <div className="spacer"></div>
     </div>

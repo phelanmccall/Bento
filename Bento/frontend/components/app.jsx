@@ -6,6 +6,7 @@ import SessionFormContainer from './session_form_component/session_form_containe
 
 const App = () => (
   <div className="app">
+
     <div className="header-flex-container">
       <header>
         <div className="header-container">
@@ -23,7 +24,7 @@ const App = () => (
       />
     </div>
 
-    <SplashContainer className="SplashContainer"/>
+    <SplashContainer className="splash-container"/>
 
   </div>
 );

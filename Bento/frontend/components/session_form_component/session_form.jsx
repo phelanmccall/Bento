@@ -30,7 +30,6 @@ class SessionForm extends React.Component {
   }
 
   handleGuestLogin(e) {
-    e.preventDefault();
     const user = {username: "guest", password: "password"};
     this.props.processForm({user});
   }
@@ -57,7 +56,7 @@ class SessionForm extends React.Component {
   render () {
     return (
       <div className="container-container">
-        <button onClick={ handleGuestLogin }>Guest Login</button>
+        <button onClick={ () => this.handleGuestLogin() }>Guest Login</button>
       <div className="login-form-container">
         <form
           onSubmit={ this.handleSubmit }
