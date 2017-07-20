@@ -4,7 +4,7 @@
 
 [Trello link][trello]
 
-[heroku]: http://www.herokuapp.com
+[heroku]: http://ben-to.herokuapp.com
 [trello]: https://trello.com/b/UGFK5ng3/bento-board
 
 ## Minimum Viable Product
