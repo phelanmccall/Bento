@@ -1,12 +1,4 @@
 html {
-// display: flex;
-// justify-content: center;
-//
-// max-width:110%;
-// margin-left:0;
-// padding: 0;
-// width: 100%;
-// height: 110 px;
 
 background: linear-gradient(90deg, rgba(253, 212, 182, 0.5) 24.57%, rgba(252, 205, 205, 0.5) 24.57%, rgba(253, 212, 182, 0.5) 34.26%, rgba(255, 226, 137, 0.5) 60.41%, rgba(239, 255, 174, 0.5) 99.99%);
 
@@ -21,54 +13,19 @@ letter-spacing: .10em;
 color: #000000;
 }
 
+body {
+  margin: 0px;
+  width: 100%;
+}
+
 h1 {
   font-family: 'Dosis', sans-serif;
-  font-weight: 200;
-  font-size: 18px;
+  font-weight: 800;
+  font-size: 26px;
   line-height: 1em;
   text-align: center;
   letter-spacing: .10em;
 }
-
-// .login-button {
-//   display: flex;
-//   text-decoration: none;
-//   align-items: center;
-//
-//   padding: 5px;
-//   background: #FCCDCD;
-//   border: 0px solid rgba(255, 255, 255, 0.5);
-// }
-// .signup-button {
-//   text-decoration: none;
-//   align-items: center;
-//
-//   padding: 5px;
-//   background: #FCCDCD;
-//   border: 0px solid rgba(255, 255, 255, 0.5);
-// }
-
-.login-button:hover {
-  display: flex;
-  text-decoration: none;
-  align-items: center;
-
-
-}
-
-.signup-button:hover {
-  text-decoration: none;
-  align-items: center;
-
-  padding: 5px;
-  background: #FCCDCD;
-  border: 5px solid rgba(255, 255, 255, 0.5);
-}
-
-// .root {
-//   display: flex;
-//   justify-content: center;
-// }
 
 .login-form-container {
   /* Pink Base Box */
@@ -82,6 +39,7 @@ top: 125px;
 
 background: #FCCDCD;
 border: 15px solid rgba(255, 255, 255, 0.5);
+
 
 }
 
@@ -114,12 +72,13 @@ box-sizing: border-box;
 .header-flex-container {
   display: flex;
   justify-content: space-around;
+  background-color: white;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .spacer {
   display: flex;
-  // flex: 0 1 20px;
-  // margin: 0 20px;
   flex: 1;
 }
 
@@ -146,6 +105,14 @@ box-sizing: border-box;
   flex: 5;
   justify-content: space-around;
   align-items: center;
+
+  font-family: 'Dosis', sans-serif;
+  font-weight: 200;
+  font-size: 18px;
+  font-style: normal;
+  line-height: 1em;
+  text-align: center;
+  letter-spacing: .10em;
 }
 
 .login-and-signup-buttons {
@@ -154,59 +121,70 @@ box-sizing: border-box;
 }
 
 
-.login-button .signup-button {
+.login-button, .signup-button {
+
+  text-decoration: none;
+}
+
+.login-and-signup {
   display: flex;
-  flex: 1;
+  justify-content: space-around;
+
+  text-decoration: none;
+}
+
+.login-button, .signup-button {
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+
+  color: black;
+
+  padding: 10px;
+  background: #FCCDCD;
+  border: 0px solid rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+
+  transition: all 0.25s ease;
+}
+
+.login-button:hover, .signup-button:hover {
+  box-shadow: 2px 2px 4px darken(rgba(252, 205, 205, 0.5), 10%);
+
 }
 
 
 
+.session-form-containers, .container-container {
+  display: flex;
+  justify-content: center;
+}
 
 
 
-
-
-
-
-
-
-
-
-// .app {
-//   display: flex;
-//   flex-flow: row wrap;
-//   justify-content: space-around;
-// }
-
-// .header-flex-container {
-//   display: flex;
-//   justify-content: center;
-// }
+// display: flex;
+// justify-content: center;
 //
-// .header-flex {
-//   display: flex;
-//   flex-grow: 3;
-//   justify-content: center;
-// }
-//
-// .header-container {
-//   position: fixed;
+// max-width:110%;
+// margin-left:0;
+// padding: 0;
+// width: 100%;
+// height: 110 px;
+
+
+// .signup-button {
+//   text-decoration: none;
 //   align-items: center;
+//
+//   padding: 5px;
+//   background: #FCCDCD;
+//   border: 0px solid rgba(255, 255, 255, 0.5);
 // }
-// .login-signup-flex-container {
-//
-//   display: flex;
-//   justify-content: flex-end;
-//
-//   font-family: 'Dosis', sans-serif;
-//   font-weight: 200;
-//   font-size: 18px;
-//   line-height: 1em;
-//   text-align: center;
-//   letter-spacing: .10em;
-// }
-//
-// .login-and-signup {
-//   display: flex;
-//   justify-content: space-around;
+
+// .top-box {
+//   padding: 0 15px;
+//   max-width: 1230px;
+//   margin: 0 auto;
+//   width: 100%;
+//   background-color: black;
 // }

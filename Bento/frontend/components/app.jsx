@@ -27,15 +27,20 @@ const App = () => (
         <div className="spacer"></div>
       </div>
     </div>
-
-    <Route
-      path="/login"
-      component={ SessionFormContainer }
-    />
-    <Route
-      path="/signup"
-      component={ SessionFormContainer }
-    />
+    <div className="session-form-containers">
+      <Route
+        path="/"
+        component={ SessionFormContainer }
+      />
+      <Route
+        path="/login"
+        component={ SessionFormContainer }
+      />
+      <Route
+        path="/signup"
+        component={ SessionFormContainer }
+      />
+    </div>
   </div>
 );
 
