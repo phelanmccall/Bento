@@ -24,7 +24,7 @@
     },
     1: {
       id: 1,
-      team_name: "Awesome team",
+      team_name: "Awesome team2",
       members: {
 
       }
