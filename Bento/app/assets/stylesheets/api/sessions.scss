@@ -26,6 +26,7 @@ h1 {
   text-align: center;
   letter-spacing: .10em;
   animation: fadein 2s;
+  transition: all 0.55s ease;
 }
 
 .gradient { /* Our base */
