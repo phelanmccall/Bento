@@ -151,10 +151,14 @@ img {
 .login-button:hover, .signup-button:hover {
   color: black;
   box-shadow: 2px 2px 4px darken(rgba(252, 205, 205, 0.5), 10%);
-  -webkit-animation: shake 0.2s ease-in-out 0.3s infinite alternate;
-  -webkit-animation: rotate 0.1s ease-in-out 0.0s infinite alternate;
 
+  -webkit-animation: wiggle 0.1s ease-in-out 0.1s alternate 6;
 }
+
+
+// .login-button, .signup-button{
+//   -webkit-transition: shake 0.2s ease-in-out 0.3s  alternate 2;
+// }
 
 
 
@@ -222,17 +226,17 @@ box-sizing: border-box;
   }
 
 
-@-webkit-keyframes shake {
-  from {
-     -webkit-transform: translate(-1px, 0px);
-  }
-  to {
-    -webkit-transform-origin:center center;
-    -webkit-transform: translate(0px, 1px);
-  }
-}
+// @-webkit-keyframes shake {
+//   from {
+//      -webkit-transform: translate(-1px, 0px);
+//   }
+//   to {
+//     -webkit-transform-origin:center center;
+//     -webkit-transform: translate(0px, 1px);
+//   }
+// }
 
-@-webkit-keyframes rotate {
+@-webkit-keyframes wiggle {
   from {
      -webkit-transform: rotate(2deg);
   }
