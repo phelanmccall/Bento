@@ -6,26 +6,36 @@ import SessionFormContainer from './session_form_component/session_form_containe
 
 const App = () => (
   <div className="app">
-
     <div className="header-flex-container">
-      <header>
-        <div className="header-container">
-          <h1>Bento</h1>
-        </div>
-      </header>
+      <div className="spacer"></div>
 
-      <Route
-        path="/login"
-        component={ SessionFormContainer }
-      />
-      <Route
-        path="/signup"
-        component={ SessionFormContainer }
-      />
+      <div className="spacer"></div>
+
+      <div className="header-container">
+        <header>
+            <h1>Bento</h1>
+        </header>
+      </div>
+
+      <div className="spacer"></div>
+
+      <div className="splash-container">
+        <div className="spacer"></div>
+          <div className="splash-spacer">
+            <SplashContainer />
+          </div>
+        <div className="spacer"></div>
+      </div>
     </div>
 
-    <SplashContainer className="splash-container"/>
-
+    <Route
+      path="/login"
+      component={ SessionFormContainer }
+    />
+    <Route
+      path="/signup"
+      component={ SessionFormContainer }
+    />
   </div>
 );
 

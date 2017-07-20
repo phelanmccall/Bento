@@ -13,7 +13,7 @@ background: linear-gradient(90deg, rgba(253, 212, 182, 0.5) 24.57%, rgba(252, 20
 font-family: 'Dosis', sans-serif;
 font-weight: 200;
 font-size: 12px;
-line-height: 1em;
+// line-height: 1em;
 text-transform: lowercase;
 text-align: center;
 letter-spacing: .10em;
@@ -30,31 +30,23 @@ h1 {
   letter-spacing: .10em;
 }
 
-.spacer {
-
-  flex: 0 1 20px;
-  margin: 0 20px;
-}
-
-
-
-.login-button {
-  display: flex;
-  text-decoration: none;
-  align-items: center;
-
-  padding: 5px;
-  background: #FCCDCD;
-  border: 0px solid rgba(255, 255, 255, 0.5);
-}
-.signup-button {
-  text-decoration: none;
-  align-items: center;
-
-  padding: 5px;
-  background: #FCCDCD;
-  border: 0px solid rgba(255, 255, 255, 0.5);
-}
+// .login-button {
+//   display: flex;
+//   text-decoration: none;
+//   align-items: center;
+//
+//   padding: 5px;
+//   background: #FCCDCD;
+//   border: 0px solid rgba(255, 255, 255, 0.5);
+// }
+// .signup-button {
+//   text-decoration: none;
+//   align-items: center;
+//
+//   padding: 5px;
+//   background: #FCCDCD;
+//   border: 0px solid rgba(255, 255, 255, 0.5);
+// }
 
 .login-button:hover {
   display: flex;
@@ -63,8 +55,6 @@ h1 {
 
 
 }
-
-
 
 .signup-button:hover {
   text-decoration: none;
@@ -75,10 +65,10 @@ h1 {
   border: 5px solid rgba(255, 255, 255, 0.5);
 }
 
-.root {
-  display: flex;
-  justify-content: center;
-}
+// .root {
+//   display: flex;
+//   justify-content: center;
+// }
 
 .login-form-container {
   /* Pink Base Box */
@@ -121,9 +111,53 @@ box-sizing: border-box;
   margin-top:50px;
 }
 
+.header-flex-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.spacer {
+  display: flex;
+  // flex: 0 1 20px;
+  // margin: 0 20px;
+  flex: 1;
+}
+
+.header-container {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.splash-container {
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+}
+
+.splash-spacer {
+  display: flex;
+  flex: 5;
+  justify-content: space-around;
+}
+
+.login-signup-flex-container {
+  display: flex;
+  flex: 5;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.login-and-signup-buttons {
+  display: flex;
+  justify-content: space-around;
+}
 
 
-
+.login-button .signup-button {
+  display: flex;
+  flex: 1;
+}
 
 
 
