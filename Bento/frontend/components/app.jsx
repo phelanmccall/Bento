@@ -28,10 +28,7 @@ const App = () => (
       </div>
     </div>
     <div className="session-form-containers">
-      <Route
-        path="/"
-        component={ SessionFormContainer }
-      />
+      
       <Route
         path="/login"
         component={ SessionFormContainer }

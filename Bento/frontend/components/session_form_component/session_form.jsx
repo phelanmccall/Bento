@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
+import SplashContainer from '../splash/splash_container'
+
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
@@ -56,16 +58,14 @@ class SessionForm extends React.Component {
   render () {
     return (
       <div className="container-container">
-        <button onClick={ () => this.handleGuestLogin() }>Guest Login</button>
-        
+
         <div className="login-form-container">
           <form
             onSubmit={ this.handleSubmit }
             className="login-form-box"
           >
-            Welcome to the login thing!
-            <br />
-            Please { this.props.formType } or { this.navLink() }
+
+          <SplashContainer />
 
           { this.renderErrors() }
 
@@ -94,6 +94,13 @@ class SessionForm extends React.Component {
                 <br />
 
                 <input className="submit-button" type="submit" value="Submit" />
+
+              <button
+                className="guest-button"
+                onClick={ () => this.handleGuestLogin() }>
+                Guest Login
+              </button>
+
             </div>
           </form>
         </div>
