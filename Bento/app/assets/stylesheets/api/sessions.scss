@@ -45,6 +45,8 @@ h1 {
   background-color: white;
   padding-top: 15px;
   padding-bottom: 15px;
+  font-style: normal;
+  text-decoration: none;
 }
 
 .spacer {
@@ -56,7 +58,10 @@ h1 {
   display: flex;
   flex: 1;
   justify-content: center;
+  font-style: normal;
+  text-decoration: none;
 }
+
 
 .splash-container {
   display: flex;
@@ -219,8 +224,11 @@ box-sizing: border-box;
 
 
 
-
-
+a:-webkit-any-link {
+    color: black;
+    cursor: auto;
+    text-decoration: none;
+}
 
 @keyframes fadein {
   from { opacity: 0; }

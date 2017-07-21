@@ -19,7 +19,7 @@ const App = () => (
 
       <div className="header-container">
         <header>
-            <Link to="/"><h1>Bento</h1></Link>
+            <Link to="/"><h1 className="fix-me">Bento</h1></Link>
         </header>
       </div>
 
