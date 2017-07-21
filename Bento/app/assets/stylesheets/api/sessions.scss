@@ -20,8 +20,6 @@ body {
 
 h1 {
   font-family: 'Dosis', sans-serif;
-  font-style: normal;
-  text-decoration: none;
   font-weight: 800;
   font-size: 26px;
   line-height: 1em;
@@ -29,6 +27,8 @@ h1 {
   letter-spacing: .10em;
   animation: fadein 2s;
   transition: all 0.55s ease;
+  font-style: normal;
+  text-decoration: none;
 }
 
 .gradient { /* Our base */
