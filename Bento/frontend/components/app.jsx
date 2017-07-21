@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 
 import SplashContainer from './splash/splash_container';
 import SessionFormContainer from './session_form_component/session_form_container'
@@ -11,7 +11,7 @@ const App = () => (
 
         <div className="logo-container">
 
-          <img src="http://res.cloudinary.com/atomc/image/upload/v1500531260/Bento-Logo_fjv1os.png"></img>
+          <Link to="/"><img src="http://res.cloudinary.com/atomc/image/upload/v1500531260/Bento-Logo_fjv1os.png"></img></Link>
         </div>
       </div>
 
@@ -19,7 +19,7 @@ const App = () => (
 
       <div className="header-container">
         <header>
-            <h1>Bento</h1>
+            <Link to="/"><h1>Bento</h1></Link>
         </header>
       </div>
 

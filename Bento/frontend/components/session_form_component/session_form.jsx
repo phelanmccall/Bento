@@ -11,6 +11,7 @@ class SessionForm extends React.Component {
       password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleGuestLogin = this.handleGuestLogin.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -18,6 +19,8 @@ class SessionForm extends React.Component {
       this.props.history.push('/');
     }
   }
+  // if nexstprops.formtype !== this.props.formtype
+  // dispatch clearErrors
 
   update(field) {
     return e => this.setState({
@@ -32,8 +35,9 @@ class SessionForm extends React.Component {
   }
 
   handleGuestLogin(e) {
+    e.preventDefault();
     const user = {username: "guest", password: "password"};
-    this.props.processForm({user});
+    this.props.guestLogin({user});
   }
 
   navLink() {
@@ -71,6 +75,7 @@ class SessionForm extends React.Component {
 
             <div className="login-form">
                 <br />
+                HELLOWEOAWEJASJHDF
                 <label>Username:
                   <input
                     type="text"
@@ -95,15 +100,16 @@ class SessionForm extends React.Component {
 
                 <input className="submit-button" type="submit" value="Submit" />
 
+                  <button
+                    className="guest-button"
+                    onClick={ this.handleGuestLogin }>
+                    Guest Login
+                  </button>
 
             </div>
           </form>
         </div>
-        <button
-          className="guest-button"
-          onClick={ this.handleGuestLogin }>
-          Guest Login
-        </button>
+
       </div>
     );
   }
