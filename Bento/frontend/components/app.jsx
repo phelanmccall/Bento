@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
 
+import NavContainer from './navBar/navbar_container';
 import SplashContainer from './splash/splash_container';
 import SessionFormContainer from './session_form_component/session_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
@@ -28,7 +29,7 @@ const App = () => (
 
       <div className="splash-container">
           <div className="splash-spacer">
-            <SplashContainer />
+            <NavContainer />
           </div>
           <div className="spacer"></div>
       </div>

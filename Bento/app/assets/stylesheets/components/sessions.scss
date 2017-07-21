@@ -95,7 +95,7 @@ img {
   max-width: 50px;
 }
 
-.login-signup-flex-container {
+.nav-login-signup-flex-container {
   display: flex;
   flex: 1;
   justify-content: space-around;
@@ -110,7 +110,7 @@ img {
   letter-spacing: .10em;
 }
 
-.login-signup-flex-container .spacer {
+.nav-login-signup-flex-container .spacer {
   display: flex;
   flex: 1;
   justify-content: space-around;
@@ -123,7 +123,7 @@ img {
   justify-content: center;
 }
 
-.login-signup-flex-container .login-button, .login-signup-flex-container .signup-button {
+.nav-login-signup-flex-container .login-button, .nav-login-signup-flex-container .signup-button {
   display: flex;
   flex: 1;
   min-width: 65px;
@@ -140,7 +140,7 @@ img {
   text-decoration: none;
 }
 
-.logout-container {
+.nav-logout-container {
   display: flex;
   flex: 1;
   justify-content: center;
@@ -150,7 +150,7 @@ img {
   text-decoration: none;
 }
 
-.logout-button {
+.nav-logout-button {
   font-family: 'Dosis', sans-serif;
   font-weight: 200;
   font-size: 18px;
@@ -160,13 +160,13 @@ img {
   letter-spacing: .10em;
 }
 
-// .login-and-signup-buttons {
-//   display: flex;
-//
-//   justify-content: space-around;
-// }
+.nav-login-and-signup-buttons {
+  display: flex;
 
-.login-button, .signup-button {
+  justify-content: space-around;
+}
+
+.nav-login-button, .nav-signup-button {
   text-decoration: none;
   font-weight: 400;
 }
@@ -178,7 +178,7 @@ img {
 //   text-decoration: none;
 // }
 
-.login-button, .signup-button, .logout-button {
+.nav-login-button, .nav-signup-button, .nav-logout-button {
   display: flex;
   flex: 1;
   font-weight: 400;
@@ -210,7 +210,7 @@ img {
 //   font-weight: 800;
 // }
 
-.splash-spacer .login-button:hover, .splash-spacer .signup-button:hover, .splash-spacer .logout-button:hover {
+.splash-spacer .nav-login-button:hover, .splash-spacer .nav-signup-button:hover, .splash-spacer .nav-logout-button:hover {
   // color: black;
   box-shadow: 2px 2px 4px darken(rgba(252, 205, 205, 0.5), 10%);
 
