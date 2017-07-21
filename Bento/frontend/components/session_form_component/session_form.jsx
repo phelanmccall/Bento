@@ -75,7 +75,6 @@ class SessionForm extends React.Component {
 
             <div className="login-form">
                 <br />
-                HELLOWEOAWEJASJHDF
                 <label>Username:
                   <input
                     type="text"

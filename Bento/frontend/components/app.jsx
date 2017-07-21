@@ -19,18 +19,17 @@ const App = () => (
 
       <div className="header-container">
         <header>
-            <Link to="/"><h1 className="fix-me">Bento</h1></Link>
+            <Link to="/"><h1 className="Bento">Bento</h1></Link>
         </header>
       </div>
 
       <div className="spacer"></div>
 
       <div className="splash-container">
-        <div className="spacer"></div>
           <div className="splash-spacer">
             <SplashContainer />
           </div>
-        <div className="spacer"></div>
+          <div className="spacer"></div>
       </div>
     </div>
     <div className="session-form-containers">

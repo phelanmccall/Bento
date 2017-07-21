@@ -1,32 +1,36 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 const sessionLinks = () => (
 
     <nav className="login-signup-flex-container">
-      <Link
+      <div className="spacer"></div>
+      <NavLink
+        activeClassName="reactive"
         className="login-button"
         to="/login">
         log in
-      </Link>
-      <div className="spacer"></div>
-      <Link
+      </NavLink>
+      <div className="spacer special-space"></div>
+      <NavLink
+        activeClassName="reactive"
         className="signup-button"
         to="/signup">
         sign up
-      </Link>
+      </NavLink>
       <div className="spacer"></div>
+
     </nav>
 
 );
 
 const greet = (currentUser, logout) => (
-	<hgroup className="header-container">
-    <h2 className="header-name">Hi, {currentUser.username}!</h2>
+	<hgroup className="header-logout-container">
+
     <button
       className="logout-button"
       onClick={ logout }>
-      Log Out
+      log out, {currentUser.username}
     </button>
 	</hgroup>
 );
