@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 //Components
 import Root from './components/root';
 import configureStore from './store/store';
+import { clearErrors } from './actions/session_actions';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
+  window.clearErrors = clearErrors;
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store} />, root);
 });

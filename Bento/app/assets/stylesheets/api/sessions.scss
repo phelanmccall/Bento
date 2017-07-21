@@ -210,7 +210,7 @@ img {
 //   font-weight: 800;
 // }
 
-.login-button:hover, .signup-button:hover, .logout-button:hover {
+.splash-spacer .login-button:hover, .splash-spacer .signup-button:hover, .splash-spacer .logout-button:hover {
   // color: black;
   box-shadow: 2px 2px 4px darken(rgba(252, 205, 205, 0.5), 10%);
 
@@ -263,14 +263,34 @@ border: 1px solid #000000;
 }
 
 .reactive {
-  color: yellow;
+  font-weight: bold;
+  // border-bottom: solid 2px black;
+// box-shadow: inset 2px 0px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+.nest {
+  display: none;
+  padding-bottom: 8px;
+  border-bottom: solid 1px black;
+  position: absolute;
+
+  min-width: 65px;
+  transition: all 0.75s ease;
+}
+
+.login-signup-flex-container .reactive .nest, .login-signup-flex-container .login-button:hover > .nest, .login-signup-flex-container .signup-button:hover > .nest {
+  transition: all 0.75s ease;
+  display: block;
 }
 
 .special-space {
   min-width: 20px;
 }
 
+.login-signup-flex-container .login-button, .login-signup-flex-container .signup-button {
 
+}
 
 @keyframes fadein {
   from { opacity: 0; }

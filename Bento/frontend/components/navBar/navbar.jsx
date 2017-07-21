@@ -1,20 +1,20 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 
-const sessionLinks = () => (
+const navSessionLinks = () => (
 
-    <nav className="login-signup-flex-container">
+    <nav className="nav-login-signup-flex-container">
       <div className="spacer"></div>
       <NavLink
         activeClassName="reactive"
-        className="login-button"
+        className="nav-login-button"
         to="/login">
         log in<div className="nest"> { "" }</div>
       </NavLink>
       <div className="spacer special-space"></div>
       <NavLink
         activeClassName="reactive"
-        className="signup-button"
+        className="nav-signup-button"
         to="/signup">
         sign up<div className="nest"> { "" }</div>
       </NavLink>
@@ -24,19 +24,19 @@ const sessionLinks = () => (
 
 );
 
-const greet = (currentUser, logout) => (
+const navGreet = (currentUser, logout) => (
 	<hgroup className="header-logout-container">
 
     <button
-      className="logout-button"
+      className="nav-logout-button"
       onClick={ logout }>
       log out, {currentUser.username}
     </button>
 	</hgroup>
 );
 
-const Splash = ({ currentUser, logout }) => (
-  currentUser ? greet(currentUser, logout) : sessionLinks()
+const Navbar = ({ currentUser, logout }) => (
+  currentUser ? navGreet(currentUser, logout) : navSessionLinks()
 );
 
-export default Splash;
+export default Navbar;

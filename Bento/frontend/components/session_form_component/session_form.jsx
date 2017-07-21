@@ -19,8 +19,10 @@ class SessionForm extends React.Component {
       this.props.history.push('/');
     }
   }
-  // if nexstprops.formtype !== this.props.formtype
-  // dispatch clearErrors
+
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
 
   update(field) {
     return e => this.setState({

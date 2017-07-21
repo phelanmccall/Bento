@@ -16,9 +16,9 @@ sufficient CSS styling:
 
 - [ ] Hosting on Heroku
 - [ ] New account creation, login, and guest/demo login
-- [ ] Teams
 - [ ] Projects
 - [ ] Tasks
+- [ ] Teams
 - [ ] User Profiles
 - [ ] Will have a production README
 
@@ -41,22 +41,26 @@ sufficient CSS styling:
 
 **Objective:** Functioning rails project with front-end Authentication
 
-### Phase 2: Teams Model, API, and components (2 days)
-
-**Objective:** Teams can be created, joined, and left through
-the API.
-
-### Phase 3: Projects (2 days)
+### Phase 2: Projects (2 days)
 
 **Objective:** Projects belong to Teams that can be created, viewed, edited and destroyed through the API.
 
-### Phase 4: Tasks (2 day)
+### Phase 3: Tasks (2 day)
 
 **Objective:** Notes can be tagged with multiple tags, and tags are searchable.
+
+### Phase 4: Teams Model, API, and components (2 days)
+
+**Objective:** Teams can be created, joined, and left through
+the API.
 
 ### Phase 5: User Profiles (2 days)
 
 **Objective:** User Profiles exist for each user, they can be viewed and edited.
 
 ### Bonus Features (TBD)
-- [ ] Not quite certain yet
+- [ ] Night Skin
+- [ ] Mouseover preview description
+- [ ] Drag and drop?!?!
+- [ ] Calendar
+- [ ] Comments on tasks
