@@ -1,6 +1,8 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 
+import CreateProjectContainer from '../projects/create_project_container'
+
 const sessionLinks = () => (
 
     <nav className="login-signup-flex-container">
@@ -19,7 +21,6 @@ const sessionLinks = () => (
         sign up<div className="nest"> { "" }</div>
       </NavLink>
       <div className="spacer"></div>
-
     </nav>
 
 );
@@ -32,6 +33,8 @@ const greet = (currentUser, logout) => (
       onClick={ logout }>
       log out, {currentUser.username}
     </button>
+
+    <CreateProjectContainer />
 	</hgroup>
 );
 

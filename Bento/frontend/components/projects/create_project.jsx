@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import merge from 'lodash-merge';
+import merge from 'lodash/merge';
 
 class CreateProject extends React.Component {
   constructor(props) {
@@ -8,7 +8,7 @@ class CreateProject extends React.Component {
 
     this.state = {
       title: "",
-      manager_id: current_user.id
+      manager_id: "You"
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -26,7 +26,7 @@ class CreateProject extends React.Component {
     this.props.createProject(newProject).then(
       () => this.setState({
         title: "",
-        manager_id: current_user.id
+        manager_id: "You"
       })
     ).then((project) =>
       this.props.history.push('/api/projects')

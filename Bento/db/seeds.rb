@@ -8,3 +8,5 @@
 
 User.create(username: "guest", password: "password")
 User.create(username: "Waldo", password: "password")
+
+Project.create(title: "Title", manager_id: User.first)

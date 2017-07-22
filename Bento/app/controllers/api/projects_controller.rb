@@ -9,7 +9,7 @@ class Api::ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-    @project.manager_id = current_user.id
+    @project.manager_id = session.currentUser.id
     if @project.save
       render 'api/projects/show'
     else

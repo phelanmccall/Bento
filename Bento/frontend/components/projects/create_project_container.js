@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { createProject } from '../actions/project_actions';
+import { createProject } from '../../actions/project_actions';
 import CreateProject from './create_project';
 
 const mapStateToProps = (state) => ({
