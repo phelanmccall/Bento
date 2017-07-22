@@ -12,8 +12,9 @@
  *
  *= require_self
  */
-@import "bourbon";
 
-@import "./base/css_reset";
+ @import "bourbon";
 
-@import "./components/*";
+ @import "./base/css_reset";
+
+ @import "./components/*";
