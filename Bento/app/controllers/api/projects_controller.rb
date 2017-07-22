@@ -1,4 +1,5 @@
 class Api::ProjectsController < ApplicationController
+  before_filter: require_logged_in
 
   def index
   end
@@ -8,7 +9,7 @@ class Api::ProjectsController < ApplicationController
   end
 
   def create
-
+    @project = Project.new(project_params)
   end
 
   def update
@@ -21,4 +22,9 @@ class Api::ProjectsController < ApplicationController
 
   end
 
+  private
+
+  def project_params
+    params.require(:project).permit(:title, :manager)
+  end
 end
