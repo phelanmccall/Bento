@@ -12,7 +12,9 @@ const App = () => (
   <div className="app">
     <Head />
     <div className="session-form-containers">
-      <CreateProjectContainer />
+      <h1>
+        
+      </h1>
       <switch>
         <AuthRoute
           path="/login"
