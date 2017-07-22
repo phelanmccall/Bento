@@ -1,0 +1,73 @@
+html {
+
+background: linear-gradient(90deg, rgba(253, 212, 182, 0.5) 24.57%, rgba(252, 205, 205, 0.5) 24.57%, rgba(253, 212, 182, 0.5) 34.26%, rgba(255, 226, 137, 0.5) 60.41%, rgba(239, 255, 174, 0.5) 99.99%);
+
+min-width: 750px;
+
+font-family: 'Dosis', sans-serif;
+font-weight: 200;
+font-size: 12px;
+// line-height: 1em;
+text-transform: lowercase;
+text-align: center;
+letter-spacing: .10em;
+
+color: #000000;
+}
+
+body {
+  margin: 0px;
+  width: 100%;
+}
+
+a {
+  color: black;
+  cursor: auto;
+  text-decoration: none;
+}
+
+h1 {
+  font-family: 'Dosis', sans-serif;
+  font-weight: 800;
+  font-size: 26px;
+  line-height: 1em;
+  text-align: center;
+  letter-spacing: .10em;
+  animation: fadein 2s;
+  transition: all 0.55s ease;
+  font-style: normal;
+  text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .login-button {
+//   animation: fadein 3s;
+//   animation-delay: 0.2s;
+// }
+//
+// .signup-button {
+//   animation: fadein 3s;
+//   animation-delay: 0.4s;
+// }
+
+// .active {
+//   font-weight: 800;
+// }
+
+// .login-button, .signup-button{
+//   -webkit-transition: shake 0.2s ease-in-out 0.3s  alternate 2;
+// }
