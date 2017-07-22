@@ -1,8 +1,7 @@
 class Api::ProjectsController < ApplicationController
   before_filter: require_logged_in
 
-  def index
-  end
+  def index ; end
 
   def show
     @project = Project.find(params[:id])
