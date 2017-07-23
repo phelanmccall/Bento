@@ -7,19 +7,23 @@ const sessionLinks = () => (
 
     <nav className="login-signup-flex-container">
       <div className="spacer"></div>
+
       <NavLink
         activeClassName="reactive"
         className="login-button"
         to="/login">
         log in<div className="nest"> { "" }</div>
       </NavLink>
+
       <div className="spacer special-space"></div>
+
       <NavLink
         activeClassName="reactive"
         className="signup-button"
         to="/signup">
         sign up<div className="nest"> { "" }</div>
       </NavLink>
+
       <div className="spacer"></div>
     </nav>
 
@@ -34,7 +38,10 @@ const greet = (currentUser, logout) => (
       log out, {currentUser.username}
     </button>
 
-    <CreateProjectContainer />
+    <div className="create-project-container">
+      <CreateProjectContainer />
+    </div>
+    
 	</hgroup>
 );
 

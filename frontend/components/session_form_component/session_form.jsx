@@ -64,16 +64,16 @@ class SessionForm extends React.Component {
   render () {
     return (
       <div className="container-container">
-<SplashContainer />
+
+        <SplashContainer />
+
         <div className="login-form-container">
           <form
             onSubmit={ this.handleSubmit }
             className="login-form-box"
           >
 
-
-
-          { this.renderErrors() }
+            { this.renderErrors() }
 
             <div className="login-form">
                 <br />
@@ -98,16 +98,21 @@ class SessionForm extends React.Component {
                 </label>
 
                 <br />
-
-                <input className="submit-button" type="submit" value="Submit" />
-
-                  <button
-                    className="guest-button"
-                    onClick={ this.handleGuestLogin }>
-                    Guest Login
-                  </button>
-
             </div>
+
+            <div className="sub-guest-buttons">
+              <input
+                className="submit-button"
+                type="submit"
+                value="Submit"
+                />
+              <button
+                className="guest-button"
+                onClick={ this.handleGuestLogin }>
+                Guest Login
+              </button>
+            </div>
+            
           </form>
         </div>
 

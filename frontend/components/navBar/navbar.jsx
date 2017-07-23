@@ -5,24 +5,28 @@ const navSessionLinks = () => (
 
     <nav className="nav-login-signup-flex-container">
       <div className="spacer"></div>
+
       <Link
         className="nav-login-button"
         to="/login">
-        log in<div className="nest"> { "" }</div>
-    </Link>
-      <div className="spacer special-space"></div>
+        log in
+      </Link>
+
+      <div className="spacer"></div>
+
       <Link
         className="nav-signup-button"
         to="/signup">
-        sign up<div className="nest"> { "" }</div>
-    </Link>
+        sign up
+      </Link>
+
       <div className="spacer"></div>
   </nav>
 
 );
 
 const navGreet = (currentUser, logout) => (
-	<hgroup className="header-logout-container">
+	<hgroup className="nav-header-logout-container">
 
     <button
       className="nav-logout-button"

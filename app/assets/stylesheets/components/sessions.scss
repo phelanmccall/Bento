@@ -19,10 +19,7 @@ border: 15px solid rgba(255, 255, 255, 0.5);
 }
 
 .submit-button, .guest-button {
-background: linear-gradient(90deg, rgba(253, 212, 182, 0.5) 24.57%, rgba(252, 205, 205, 0.5) 24.57%, rgba(253, 212, 182, 0.5) 34.26%, rgba(255, 226, 137, 0.5) 60.41%, rgba(239, 255, 174, 0.5) 99.99%);
 
-border: 1px solid #000000;
-// box-sizing: border-box;
 }
 
 .login-form .login-password-input, .login-form .login-user-input, .guest-button, .submit-button {
@@ -30,6 +27,16 @@ border: 1px solid #000000;
 
   border: 1px solid rgba(255, 255, 255, 0.0);
   box-sizing: border-box;
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+  align-content: space-around;
+}
+
+.login-form {
+  display: flex;
+  justify-content: space-around;
+  align-content: space-around;
 }
 
 .login-errors {

@@ -1,6 +1,6 @@
 html {
 
-background: linear-gradient(90deg, rgba(253, 212, 182, 0.5) 24.57%, rgba(252, 205, 205, 0.5) 24.57%, rgba(253, 212, 182, 0.5) 34.26%, rgba(255, 226, 137, 0.5) 60.41%, rgba(239, 255, 174, 0.5) 99.99%);
+background: linear-gradient(90deg, rgba(253, 212, 182, 0.5) 24.57%, rgba(253, 212, 182, 0.5) 34.26%, rgba(255, 226, 137, 0.5) 60.41%, rgba(239, 255, 174, 0.5) 99.99%);
 
 min-width: 750px;
 
@@ -39,35 +39,16 @@ h1 {
   text-decoration: none;
 }
 
+.header-container {
+  header {
+  display: flex;
+  align-items: center;
+  }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// .login-button {
-//   animation: fadein 3s;
-//   animation-delay: 0.2s;
-// }
-//
-// .signup-button {
-//   animation: fadein 3s;
-//   animation-delay: 0.4s;
-// }
-
-// .active {
-//   font-weight: 800;
-// }
-
-// .login-button, .signup-button{
-//   -webkit-transition: shake 0.2s ease-in-out 0.3s  alternate 2;
-// }
+.Bento {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
