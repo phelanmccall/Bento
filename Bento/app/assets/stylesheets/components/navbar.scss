@@ -134,13 +134,6 @@ img {
   font-weight: 400;
 }
 
-// .login-and-signup {
-//   display: flex;
-//   justify-content: space-around;
-//
-//   text-decoration: none;
-// }
-
 .nav-login-button, .nav-signup-button, .nav-logout-button {
   display: flex;
   flex: 1;
@@ -158,9 +151,10 @@ img {
   transition: all 0.25s ease;
 }
 
-.splash-spacer .nav-login-button:hover, .splash-spacer .nav-signup-button:hover, .splash-spacer .nav-logout-button:hover {
-  // color: black;
+.splash-spacer {
+  .nav-login-button:hover, .nav-signup-button:hover, .nav-logout-button:hover {
   box-shadow: 2px 2px 4px darken(rgba(252, 205, 205, 0.5), 10%);
 
   -webkit-animation: wiggle 0.1s ease-in-out 0.1s alternate 6;
+  }
 }

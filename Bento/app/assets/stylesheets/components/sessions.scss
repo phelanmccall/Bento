@@ -38,9 +38,6 @@ border: 1px solid #000000;
 
 .reactive {
   font-weight: bold;
-  // border-bottom: solid 2px black;
-// box-shadow: inset 2px 0px 4px rgba(0, 0, 0, 0.25);
-
 }
 
 .nest {
@@ -53,17 +50,15 @@ border: 1px solid #000000;
   transition: all 0.75s ease;
 }
 
-.login-signup-flex-container .reactive .nest, .login-signup-flex-container .login-button:hover > .nest, .login-signup-flex-container .signup-button:hover > .nest {
+.login-signup-flex-container {
+  .reactive .nest, .login-button:hover > .nest, .signup-button:hover > .nest {
   transition: all 0.75s ease;
   display: block;
+  }
 }
 
 .special-space {
   min-width: 20px;
-}
-
-.login-signup-flex-container .login-button, .login-signup-flex-container .signup-button {
-
 }
 
 @keyframes fadein {
@@ -82,62 +77,3 @@ border: 1px solid #000000;
     -webkit-transform: rotate(-2deg);
   }
 }
-
-// @-webkit-keyframes shake {
-//   from {
-//      -webkit-transform: translate(-1px, 0px);
-//   }
-//   to {
-//     -webkit-transform-origin:center center;
-//     -webkit-transform: translate(0px, 1px);
-//   }
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// display: flex;
-// justify-content: center;
-//
-// max-width:110%;
-// margin-left:0;
-// padding: 0;
-// width: 100%;
-// height: 110 px;
-
-
-// .signup-button {
-//   text-decoration: none;
-//   align-items: center;
-//
-//   padding: 5px;
-//   background: #FCCDCD;
-//   border: 0px solid rgba(255, 255, 255, 0.5);
-// }
-
-// .top-box {
-//   padding: 0 15px;
-//   max-width: 1230px;
-//   margin: 0 auto;
-//   width: 100%;
-//   background-color: black;
-// }
