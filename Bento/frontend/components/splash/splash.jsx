@@ -38,8 +38,14 @@ const greet = (currentUser, logout) => (
 	</hgroup>
 );
 
-const Splash = ({ currentUser, logout }) => (
-  currentUser ? greet(currentUser, logout) : sessionLinks()
-);
+const Splash = ({ currentUser, logout }) => {
+  // currentUser ? greet(currentUser, logout) : sessionLinks()
+
+  if (currentUser) {
+    return greet(currentUser, logout)
+  } else {
+    return sessionLinks
+  }
+};
 
 export default Splash;

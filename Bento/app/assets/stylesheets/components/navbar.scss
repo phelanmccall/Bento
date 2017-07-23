@@ -22,6 +22,11 @@
   text-decoration: none;
 }
 
+.nav-login-signup-flex-container {
+  display: flex;
+  align-items: center;
+}
+
 
 .splash-container {
   display: flex;
@@ -63,24 +68,30 @@ img {
   letter-spacing: .10em;
 }
 
-.nav-login-signup-flex-container .spacer {
+.nav-login-signup-flex-container {
+  .spacer {
   display: flex;
   flex: 1;
   justify-content: space-around;
+  }
 }
 
-.splash-container .splash-spacer {
-  display: flex;
-  flex: 5;
-  min-width: 20px;
-  justify-content: center;
+.splash-container {
+    .splash-spacer {
+    display: flex;
+    flex: 5;
+    min-width: 20px;
+    justify-content: center;
+  }
 }
 
-.nav-login-signup-flex-container .login-button, .nav-login-signup-flex-container .signup-button {
+.nav-login-signup-flex-container {
+  .login-button, .signup-button {
   display: flex;
   flex: 1;
   min-width: 65px;
   justify-content: center;
+  }
 }
 
 .header-logout-container {
@@ -115,7 +126,6 @@ img {
 
 .nav-login-and-signup-buttons {
   display: flex;
-
   justify-content: space-around;
 }
 

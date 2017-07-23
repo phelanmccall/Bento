@@ -39,8 +39,19 @@ h1 {
   text-decoration: none;
 }
 
+.header-container {
+  header {
+  display: flex;
+  align-items: center;
+  }
+}
 
-
+.Bento {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
 
 
 
