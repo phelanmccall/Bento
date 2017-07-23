@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 
 const navSessionLinks = () => (
 
@@ -19,7 +19,7 @@ const navSessionLinks = () => (
         to="/signup">
         sign up<div className="nest"> { "" }</div>
       </Link>
-      
+
       <div className="spacer"></div>
   </nav>
 

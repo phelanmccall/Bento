@@ -13,7 +13,7 @@ const App = () => (
     <Head />
     <div className="session-form-containers">
       <h1>
-        
+
       </h1>
       <switch>
         <AuthRoute

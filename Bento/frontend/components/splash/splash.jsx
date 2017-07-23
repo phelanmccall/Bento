@@ -7,19 +7,23 @@ const sessionLinks = () => (
 
     <nav className="login-signup-flex-container">
       <div className="spacer"></div>
+
       <NavLink
         activeClassName="reactive"
         className="login-button"
         to="/login">
         log in<div className="nest"> { "" }</div>
       </NavLink>
+
       <div className="spacer special-space"></div>
+
       <NavLink
         activeClassName="reactive"
         className="signup-button"
         to="/signup">
         sign up<div className="nest"> { "" }</div>
       </NavLink>
+
       <div className="spacer"></div>
     </nav>
 
@@ -39,13 +43,9 @@ const greet = (currentUser, logout) => (
 );
 
 const Splash = ({ currentUser, logout }) => {
-  // currentUser ? greet(currentUser, logout) : sessionLinks()
+  currentUser ? greet(currentUser, logout) : sessionLinks()
 
-  if (currentUser) {
-    return greet(currentUser, logout)
-  } else {
-    return sessionLinks
-  }
+
 };
 
 export default Splash;

@@ -30,7 +30,9 @@ const Head = () => (
 
     <div className="splash-container">
         <div className="splash-spacer">
+
           <NavContainer />
+          
         </div>
         <div className="spacer"></div>
     </div>
