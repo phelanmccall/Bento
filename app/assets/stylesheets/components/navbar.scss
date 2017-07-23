@@ -1,0 +1,156 @@
+.header-flex-container {
+  display: flex;
+  justify-content: space-around;
+  background-color: white;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  font-style: normal;
+  text-decoration: none;
+}
+
+.spacer {
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+}
+
+.header-container {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  font-style: normal;
+  text-decoration: none;
+}
+
+
+.splash-container {
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+}
+
+.splash-spacer {
+  display: flex;
+  flex: 5;
+  justify-content: space-around;
+}
+
+.logo-spacer {
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+  align-items: center;
+}
+
+img {
+  display: flex;
+  flex: 1;
+  max-width: 50px;
+}
+
+.nav-login-signup-flex-container {
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+  align-items: center;
+
+  font-family: 'Dosis', sans-serif;
+  font-weight: 200;
+  font-size: 18px;
+  font-style: normal;
+  line-height: 1em;
+  text-align: center;
+  letter-spacing: .10em;
+}
+
+.nav-login-signup-flex-container .spacer {
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+}
+
+.splash-container .splash-spacer {
+  display: flex;
+  flex: 5;
+  min-width: 20px;
+  justify-content: center;
+}
+
+.nav-login-signup-flex-container .login-button, .nav-login-signup-flex-container .signup-button {
+  display: flex;
+  flex: 1;
+  min-width: 65px;
+  justify-content: center;
+}
+
+.header-logout-container {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  font-style: normal;
+  text-decoration: none;
+}
+
+.nav-logout-container {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  font-style: normal;
+  text-decoration: none;
+}
+
+.nav-logout-button {
+  font-family: 'Dosis', sans-serif;
+  font-weight: 200;
+  font-size: 18px;
+  font-style: normal;
+  line-height: 1em;
+  text-align: center;
+  letter-spacing: .10em;
+}
+
+.nav-login-and-signup-buttons {
+  display: flex;
+
+  justify-content: space-around;
+}
+
+.nav-login-button, .nav-signup-button {
+  text-decoration: none;
+  font-weight: 400;
+}
+
+// .login-and-signup {
+//   display: flex;
+//   justify-content: space-around;
+//
+//   text-decoration: none;
+// }
+
+.nav-login-button, .nav-signup-button, .nav-logout-button {
+  display: flex;
+  flex: 1;
+  font-weight: 400;
+  text-decoration: none;
+  align-items: center;
+
+  color: black;
+
+  padding: 10px;
+  background: #FCCDCD;
+  border: 0px solid rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+
+  transition: all 0.25s ease;
+}
+
+.splash-spacer .nav-login-button:hover, .splash-spacer .nav-signup-button:hover, .splash-spacer .nav-logout-button:hover {
+  // color: black;
+  box-shadow: 2px 2px 4px darken(rgba(252, 205, 205, 0.5), 10%);
+
+  -webkit-animation: wiggle 0.1s ease-in-out 0.1s alternate 6;
+}
