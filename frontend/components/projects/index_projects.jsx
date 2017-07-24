@@ -19,8 +19,6 @@ class ProjectIndex extends React.Component {
           {projects.map(project =>
             <ProjectIndexItem key={ project.id }
               project={ project }
-
-
             />
           )}
         </ul>

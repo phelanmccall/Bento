@@ -21,8 +21,8 @@ border: 15px solid rgba(255, 255, 255, 0.5);
 
 }
 
-.login-password-input, .login-user-input, .guest-button, .submit-button {
-  background: linear-gradient(90deg, rgba(253, 253, 253, 0.5) 24.57%, rgba(252, 253, 253, 0.5) 24.57%, rgba(253, 253, 253, 0.5) 34.26%, rgba(255, 253, 253, 0.5) 60.41%, rgba(253, 253, 253, 0.5) 99.99%);
+.login-user-input, .login-password-input, .guest-button, .submit-button {
+  background: rgba(253, 253, 253, 0.5);
 
   border: 1px solid rgba(255, 255, 255, 0.0);
   box-sizing: border-box;
@@ -31,6 +31,19 @@ border: 15px solid rgba(255, 255, 255, 0.5);
   justify-content: space-around;
   align-content: space-around;
 }
+
+.login-user-input:hover, .login-user-input:active, .login-user-input::selection, .login-user-input:focus, .login-password-input:hover, .login-password-input:active, .login-password-input::selection, .login-password-input:focus {
+  box-shadow: 2px 2px 4px darken(rgba(252, 205, 205, 0.5), 10%);
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+
 
 .login-form-container {
   display: flex;
@@ -41,15 +54,28 @@ border: 15px solid rgba(255, 255, 255, 0.5);
   display: flex;
   flex: 7;
 }
+.login-form-box {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
 
 .login-form {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
-  align-content: space-around;
+  align-content: center;
+  text-align: left;
+  padding: 5px;
 }
 
 .login-errors {
   list-style: none;
+}
+
+.sub-guest-buttons {
+  display: flex;
+  justify-content: space-around;
 }
 
 .nest {
@@ -62,10 +88,17 @@ border: 15px solid rgba(255, 255, 255, 0.5);
   transition: all 0.75s ease;
 }
 
-.login-signup-flex-container .reactive .nest, .login-signup-flex-container .login-button:hover > .nest, .login-signup-flex-container .signup-button:hover > .nest {
+.login-signup-flex-container .reactive .nest {
   transition: all 0.75s ease;
   display: block;
 }
+
+.login-signup-flex-container .login-button:hover > .nest, .login-signup-flex-container .signup-button:hover > .nest {
+  transition: all 0.75s ease;
+  display: block;
+  padding-bottom: 8px;
+  border-style: dashed;
+}log
 
 .special-space {
   min-width: 20px;
@@ -74,14 +107,17 @@ border: 15px solid rgba(255, 255, 255, 0.5);
 .login-signup-flex-container {
   display: flex;
   justify-content: space-around;
-  .spacer, .special-space {
+  .spacer {
     display: flex;
     flex: 6;
   }
   .login-button, .signup-button {
+    min-width: 65px;
+    font-size: 16px;
+  }
+  .special-space {
     display: flex;
     flex: 1;
-    min-width: 65px;
   }
 }
 
