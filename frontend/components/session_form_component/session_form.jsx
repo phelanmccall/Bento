@@ -68,54 +68,63 @@ class SessionForm extends React.Component {
         <SplashContainer />
 
         <div className="non-splash-container">
-          <div className="login-form-container">
-            <form
-              onSubmit={ this.handleSubmit }
-              className="login-form-box"
-            >
-
-              { this.renderErrors() }
-
-              <div className="login-form">
-                  <br />
-                  <label>Username:
-                    <input
-                      type="text"
-                      value={ this.state.username }
-                      onChange={ this.update('username') }
-                      className="login-user-input"
-                    />
-                  </label>
-
-                  <br />
-
-                  <label>Password:
-                    <input
-                      type="password"
-                      value={ this.state.password }
-                      onChange={ this.update('password') }
-                      className="login-password-input"
-                    />
-                  </label>
-
-                  <br />
-              </div>
-
-              <div className="sub-guest-buttons">
-                <input
-                  className="submit-button"
-                  type="submit"
-                  value={ this.props.formType === 'login' ? 'log in' : 'create account' }
-                  />
-                <button
-                  className="guest-button"
-                  onClick={ this.handleGuestLogin }>
-                  Guest Login
-                </button>
-              </div>
-
-            </form>
+          <div className="error-box">
+            { this.renderErrors() }
           </div>
+
+          <div className="login-form">
+              <br />
+              <div className="label-input-username">
+                <label>Username:
+                  <input
+                    type="text"
+                    value={ this.state.username }
+                    onChange={ this.update('username') }
+                    className="login-user-input"
+                  />
+                </label>
+              </div>
+
+              <br />
+
+              <div className="label-input-password">
+                <label>Password:
+                  <input
+                    type="password"
+                    value={ this.state.password }
+                    onChange={ this.update('password') }
+                    className="login-password-input"
+                  />
+                </label>
+              </div>
+
+              <br />
+          </div>
+
+        </div>
+        <div className="login-form-container">
+          <form
+            onSubmit={ this.handleSubmit }
+            className="login-form-box"
+          >
+
+
+
+
+            <div className="sub-guest-buttons">
+              <input
+                className="submit-button"
+                type="submit"
+                value={ this.props.formType === 'login' ? 'log in' : 'create account' }
+                />
+              <button
+                className="guest-button"
+                onClick={ this.handleGuestLogin }>
+                Guest Login
+              </button>
+            </div>
+
+          </form>
         </div>
       </div>
     );

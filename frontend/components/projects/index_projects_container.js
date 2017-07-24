@@ -4,16 +4,19 @@ import { getAllProjects, deleteProject } from '../../actions/project_actions';
 import ProjectIndex from './index_projects'
 
 
-const mapStateToProps = (state, { match }) => ({
-  projects: getallProjects()
+const mapStateToProps = ({ projects }, { match }) => ({
+  projects: projects
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getAllProjects: () => dispatch(getAllProjects()),
-  destroyProject: id => dispatch(deleteProject(id))
+  getAllProjects: () => dispatch(getAllProjects())
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(ProjectIndex);
+
+
+// ,
+// destroyProject: id => dispatch(deleteProject(id))

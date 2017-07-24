@@ -7,7 +7,10 @@ import teamsReducer from './session_reducer';
 const RootReducer = combineReducers({
   session: SessionReducer,
   projects: projectsReducer,
-  teams: teamsReducer
+
 });
 
 export default RootReducer;
+
+
+// teams: teamsReducer

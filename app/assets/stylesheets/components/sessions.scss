@@ -53,19 +53,22 @@ button:focus {
 .login-form-container {
   display: flex;
   justify-content: center;
+  flex: 5;
 }
 
 .non-splash-container {
   display: flex;
-  flex: 7;
+  flex: 3;
   flex-direction: column;
-  justify-content: flex-start;
-  padding-top: 10px;
+  justify-content: space-around;
+  padding-top: 2px;
+  align-items: center;
 }
 .login-form-box {
   display: flex;
   flex: 1;
   flex-direction: column;
+  align-items: center;
 }
 
 .login-form {
@@ -75,6 +78,10 @@ button:focus {
   align-content: center;
   text-align: left;
   padding: 5px;
+}
+
+.error-box {
+  height: 35px;
 }
 
 .login-errors {
