@@ -7,9 +7,11 @@ import CreateProjectContainer from './create_project_container';
 class ProjectShow extends React.Component {
   componentDidMount() {
     this.props.getSingleProject(this.props.match.params.id);
+    console.log('mounting', this.props.match)
   }
 
   componentWillReceiveProps(newProps) {
+    console.log('willreceive', this.props.match.params)
     if (this.props.match.params.id !== newProps.match.params.id) {
       this.props.getSingleProject(newProps.match.params.id);
     }

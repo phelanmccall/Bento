@@ -26,9 +26,8 @@ class CreateProject extends React.Component {
 
     let emptyState = {};
     const newProject = merge(emptyState, this.state);
-    this.props.createProject(newProject).then((project) =>
-      this.props.history.push(`/projects/${project.id}`)
-    );
+    this.props.createProject(newProject);
+    this.props.history.push(`/api/projects`);
 
   }
 
