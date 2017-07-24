@@ -9,13 +9,13 @@ import {
 const startState = Object.freeze({
 });
 
-const PostReducer = (state = startState, action) => {
+const ProjectReducer = (state = startState, action) => {
   Object.freeze(state);
 
   switch (action.type) {
     case RECEIVE_PROJECT:
-      let newPost = {[action.project.id]: action.project};
-      return merge({}, state, newPost);
+      let newProject = {[action.project.id]: action.project};
+      return merge({}, state, newProject);
     case RECEIVE_ALL_PROJECTS:
       return merge({}, action.projects);
     case REMOVE_PROJECT:
@@ -27,4 +27,4 @@ const PostReducer = (state = startState, action) => {
   }
 };
 
-export default PostReducer;
+export default ProjectReducer;

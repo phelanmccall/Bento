@@ -3,7 +3,8 @@ import { getSingleProject } from '../../actions/project_actions';
 import ProjectShow from './show_project';
 
 const mapStateToProps = (state, { match }) => ({
-  project: getSingleProject(state, match.params.id)
+  project: getSingleProject(state, match.params.id),
+  creator_id: state.session.currentUser.id
 });
 
 const mapDispatchToProps = dispatch => ({
