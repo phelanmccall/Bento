@@ -32,8 +32,13 @@ border: 15px solid rgba(255, 255, 255, 0.5);
   align-content: space-around;
 }
 
-.login-user-input:hover, .login-user-input:active, .login-user-input::selection, .login-user-input:focus, .login-password-input:hover, .login-password-input:active, .login-password-input::selection, .login-password-input:focus {
+.login-user-input:hover, .login-user-input:active, .login-user-input:focus, .login-password-input:hover, .login-password-input:active, .login-password-input:focus {
   box-shadow: 2px 2px 4px darken(rgba(252, 205, 205, 0.5), 10%);
+}
+
+.login-user-input::selection, .login-password-input::selection {
+
+  background-color: #fce295;
 }
 
 input:focus,
@@ -53,6 +58,9 @@ button:focus {
 .non-splash-container {
   display: flex;
   flex: 7;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 10px;
 }
 .login-form-box {
   display: flex;
