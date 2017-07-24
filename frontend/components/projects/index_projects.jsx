@@ -7,11 +7,11 @@ import ProjectIndexItem from './index_projects_items';
 class ProjectIndex extends React.Component {
 
   componentDidMount() {
-    this.props.getAllProjects();
+    this.props.receiveAllProjects();
   }
 
   render () {
-    const { projects, destroyProject, updateProject } = this.props;
+    const { projects } = this.props;
     return (
       <section className="indices">
         <ul className="projectindex">
@@ -19,8 +19,8 @@ class ProjectIndex extends React.Component {
           {projects.map(project =>
             <ProjectIndexItem key={ project.id }
               project={ project }
-              destroyProject={ destroyProject }
-              updateProject={ updateProject }
+
+
             />
           )}
         </ul>

@@ -5,7 +5,7 @@ import NavContainer from './navbar/navbar_container';
 import SplashContainer from './splash/splash_container';
 import CreateProjectContainer from './projects/create_project_container';
 import SessionFormContainer from './session_form_component/session_form_container';
-import ShowProjectContainer from './projects/show_project_container';
+import IndexProjectContainer from './projects/index_projects_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
@@ -47,7 +47,7 @@ const App = () => (
           path="/signup"
           component={ SessionFormContainer }
         />
-      <ProtectedRoute path="/" exact component={ ShowProjectContainer } />
+      <ProtectedRoute path="/" exact component={ IndexProjectContainer } />
     </switch>
     </div>
   </div>
