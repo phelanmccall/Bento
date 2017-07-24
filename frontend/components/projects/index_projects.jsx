@@ -18,11 +18,12 @@ class ProjectIndex extends React.Component {
       <section className="indices">
         <ul className="projectindex">
           <h1>These are all of the projects</h1>
-          { projects.map(project =>
-            <ProjectIndexItem key={ project.id }
-              project={ project }
-            />
-          )}
+            { projects &&  projects.map(project =>
+              <ProjectIndexItem key={ project.id }
+                project={ project }
+              />
+            )
+          }
         </ul>
       </section>
     )
