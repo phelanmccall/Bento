@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
-import { getSingleProject } from '../actions/project_actions';
+import { getSingleProject } from '../../actions/project_actions';
 import ProjectShow from './show_project';
-import { SelectorSingleProject } from '../reducers/selectors';
 
 const mapStateToProps = (state, { match }) => ({
   project: getSingleProject(state, match.params.id)

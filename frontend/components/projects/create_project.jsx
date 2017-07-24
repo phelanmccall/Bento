@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Route, withRouter, history, Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import merge from 'lodash/merge';
 
 class CreateProject extends React.Component {
@@ -25,13 +26,8 @@ class CreateProject extends React.Component {
 
     let emptyState = {};
     const newProject = merge(emptyState, this.state);
-    this.props.createProject(newProject).then(
-      () => this.setState({
-        title: "",
-        creator_id: this.props.currentUser.id
-      })
-    ).then((project) =>
-      this.props.history.push('/api/projects')
+    this.props.createProject(newProject).then((project) =>
+      this.props.history.push(`/projects/${project.id}`)
     );
 
   }
@@ -60,4 +56,4 @@ class CreateProject extends React.Component {
 }
 
 
-export default CreateProject;
+export default withRouter(CreateProject);

@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, withRouter, history, Link } from 'react-router-dom';
 import merge from 'lodash/merge';
-
-import React from 'react';
+import CreateProjectContainer from './create_project_container';
 
 class ProjectShow extends React.Component {
   componentDidMount() {
@@ -22,6 +21,8 @@ class ProjectShow extends React.Component {
       <section className="show-container">
         <section className="project-show">
           <h1>{ project.title }</h1>
+          <h1> hi </h1>
+          <CreateProjectContainer />
         </section>
       </section>
     );

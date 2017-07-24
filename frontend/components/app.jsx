@@ -1,10 +1,11 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route, Link, HashRouter, history } from 'react-router-dom';
 
 import NavContainer from './navbar/navbar_container';
 import SplashContainer from './splash/splash_container';
 import CreateProjectContainer from './projects/create_project_container';
 import SessionFormContainer from './session_form_component/session_form_container';
+import ShowProjectContainer from './projects/show_project_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
@@ -28,8 +29,8 @@ const App = () => (
 
       <div className="spacer"></div>
 
-      <div className="splash-container">
-          <div className="splash-spacer">
+      <div className="nav-splash-container">
+          <div className="nav-splash-spacer">
             <NavContainer />
           </div>
           <div className="spacer"></div>
@@ -46,7 +47,7 @@ const App = () => (
           path="/signup"
           component={ SessionFormContainer }
         />
-        <ProtectedRoute path="/" exact component={ SessionFormContainer } />
+      <ProtectedRoute path="/" exact component={ ShowProjectContainer } />
     </switch>
     </div>
   </div>

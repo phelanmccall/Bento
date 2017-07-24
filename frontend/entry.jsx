@@ -19,4 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.clearErrors = clearErrors;
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store} />, root);
+  window.store = store;
+  window.getState = store.getState;
 });

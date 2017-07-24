@@ -7,8 +7,6 @@ import {
 } from '../actions/project_actions';
 
 const startState = Object.freeze({
-  title: "",
-  creator_id: ""
 });
 
 const PostReducer = (state = startState, action) => {

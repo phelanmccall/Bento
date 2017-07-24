@@ -1,18 +1,17 @@
 .session-form-containers {
   display: flex;
   justify-content: center;
-  -webkit-animation: fadein 2s;
+  -webkit-animation: fadein 1s;
 }
 
-.login-form-container {
+.container-container {
   /* Pink Base Box */
-margin-top: 100px;
+margin-top: 50px;
 display: flex;
+flex-direction: column;
 justify-content: center;
 min-width: 700px;
 height: 490px;
-// left: 120px;
-// top: 125px;
 
 background: #FCCDCD;
 border: 15px solid rgba(255, 255, 255, 0.5);
@@ -22,7 +21,7 @@ border: 15px solid rgba(255, 255, 255, 0.5);
 
 }
 
-.login-form .login-password-input, .login-form .login-user-input, .guest-button, .submit-button {
+.login-password-input, .login-user-input, .guest-button, .submit-button {
   background: linear-gradient(90deg, rgba(253, 253, 253, 0.5) 24.57%, rgba(252, 253, 253, 0.5) 24.57%, rgba(253, 253, 253, 0.5) 34.26%, rgba(255, 253, 253, 0.5) 60.41%, rgba(253, 253, 253, 0.5) 99.99%);
 
   border: 1px solid rgba(255, 255, 255, 0.0);
@@ -33,6 +32,16 @@ border: 15px solid rgba(255, 255, 255, 0.5);
   align-content: space-around;
 }
 
+.login-form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.non-splash-container {
+  display: flex;
+  flex: 7;
+}
+
 .login-form {
   display: flex;
   justify-content: space-around;
@@ -41,13 +50,6 @@ border: 15px solid rgba(255, 255, 255, 0.5);
 
 .login-errors {
   list-style: none;
-}
-
-.reactive {
-  font-weight: bold;
-  // border-bottom: solid 2px black;
-// box-shadow: inset 2px 0px 4px rgba(0, 0, 0, 0.25);
-
 }
 
 .nest {
@@ -69,8 +71,25 @@ border: 15px solid rgba(255, 255, 255, 0.5);
   min-width: 20px;
 }
 
-.login-signup-flex-container .login-button, .login-signup-flex-container .signup-button {
+.login-signup-flex-container {
+  display: flex;
+  justify-content: space-around;
+  .spacer, .special-space {
+    display: flex;
+    flex: 6;
+  }
+  .login-button, .signup-button {
+    display: flex;
+    flex: 1;
+    min-width: 65px;
+  }
+}
 
+.login-signup-flex-container {
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+  align-items: center;
 }
 
 @keyframes fadein {
@@ -89,62 +108,3 @@ border: 15px solid rgba(255, 255, 255, 0.5);
     -webkit-transform: rotate(-2deg);
   }
 }
-
-// @-webkit-keyframes shake {
-//   from {
-//      -webkit-transform: translate(-1px, 0px);
-//   }
-//   to {
-//     -webkit-transform-origin:center center;
-//     -webkit-transform: translate(0px, 1px);
-//   }
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// display: flex;
-// justify-content: center;
-//
-// max-width:110%;
-// margin-left:0;
-// padding: 0;
-// width: 100%;
-// height: 110 px;
-
-
-// .signup-button {
-//   text-decoration: none;
-//   align-items: center;
-//
-//   padding: 5px;
-//   background: #FCCDCD;
-//   border: 0px solid rgba(255, 255, 255, 0.5);
-// }
-
-// .top-box {
-//   padding: 0 15px;
-//   max-width: 1230px;
-//   margin: 0 auto;
-//   width: 100%;
-//   background-color: black;
-// }

@@ -28,7 +28,7 @@ export const getSingleProject = (id) => dispatch => {
 }
 
 export const createProject = newProject => dispatch => {
-  return APIUtil.createProject(newProject).then(project => dispatch(receiveProject));
+  return APIUtil.createProject(newProject).then(project => dispatch(receiveProject(project)));
 };
 
 export const updateProject = id => dispatch => {

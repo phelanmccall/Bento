@@ -33,6 +33,7 @@ const navGreet = (currentUser, logout) => (
       onClick={ logout }>
       log out, {currentUser.username}
     </button>
+    
 	</hgroup>
 );
 

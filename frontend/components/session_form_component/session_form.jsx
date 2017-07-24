@@ -67,55 +67,56 @@ class SessionForm extends React.Component {
 
         <SplashContainer />
 
-        <div className="login-form-container">
-          <form
-            onSubmit={ this.handleSubmit }
-            className="login-form-box"
-          >
+        <div className="non-splash-container">
+          <div className="login-form-container">
+            <form
+              onSubmit={ this.handleSubmit }
+              className="login-form-box"
+            >
 
-            { this.renderErrors() }
+              { this.renderErrors() }
 
-            <div className="login-form">
-                <br />
-                <label>Username:
-                  <input
-                    type="text"
-                    value={ this.state.username }
-                    onChange={ this.update('username') }
-                    className="login-user-input"
+              <div className="login-form">
+                  <br />
+                  <label>Username:
+                    <input
+                      type="text"
+                      value={ this.state.username }
+                      onChange={ this.update('username') }
+                      className="login-user-input"
+                    />
+                  </label>
+
+                  <br />
+
+                  <label>Password:
+                    <input
+                      type="password"
+                      value={ this.state.password }
+                      onChange={ this.update('password') }
+                      className="login-password-input"
+                    />
+                  </label>
+
+                  <br />
+              </div>
+
+              <div className="sub-guest-buttons">
+                <input
+                  className="submit-button"
+                  type="submit"
+                  value="Submit"
                   />
-                </label>
+                <button
+                  className="guest-button"
+                  onClick={ this.handleGuestLogin }>
+                  Guest Login
+                </button>
+              </div>
 
-                <br />
-
-                <label>Password:
-                  <input
-                    type="password"
-                    value={ this.state.password }
-                    onChange={ this.update('password') }
-                    className="login-password-input"
-                  />
-                </label>
-
-                <br />
-            </div>
-
-            <div className="sub-guest-buttons">
-              <input
-                className="submit-button"
-                type="submit"
-                value="Submit"
-                />
-              <button
-                className="guest-button"
-                onClick={ this.handleGuestLogin }>
-                Guest Login
-              </button>
-            </div>
-            
-          </form>
+            </form>
+          </div>
         </div>
-
       </div>
     );
   }

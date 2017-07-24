@@ -41,7 +41,7 @@ const greet = (currentUser, logout) => (
     <div className="create-project-container">
       <CreateProjectContainer />
     </div>
-    
+
 	</hgroup>
 );
 
