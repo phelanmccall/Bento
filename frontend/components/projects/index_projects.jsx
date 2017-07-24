@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom';
 import CreateProject from './create_project';
 import ProjectIndexItem from './index_projects_items';
 import getAllProjects from '../../actions/project_actions';
+import CreateProjectContainer from '../projects/create_project_container'
 
 class ProjectIndex extends React.Component {
 
@@ -16,10 +17,12 @@ class ProjectIndex extends React.Component {
     console.log(this.props);
     return (
       <section className="indices">
+        <div className="create-project-container">
+          <CreateProjectContainer />
+        </div>
         <ul className="projectindex">
-          <h1>These are all of the projects</h1>
             { projects &&  projects.map(project =>
-              <ProjectIndexItem key={ project.id }
+              <ProjectIndexItem className="project-index-item" key={ project.id }
                 project={ project }
               />
             )

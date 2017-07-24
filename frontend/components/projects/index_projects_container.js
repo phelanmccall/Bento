@@ -2,11 +2,11 @@ import { connect } from 'react-redux';
 
 import { getAllProjects, deleteProject } from '../../actions/project_actions';
 import ProjectIndex from './index_projects'
-import SelectorAllProjects from '../../reducers/selectors'
+import { SelectorAllProjects } from '../../reducers/selectors'
 
 
 const mapStateToProps = ({ projects }, { match }) => ({
-  projects: SelectorAllProjects
+  projects: SelectorAllProjects(projects)
 });
 
 const mapDispatchToProps = (dispatch) => ({

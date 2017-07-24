@@ -1,5 +1,5 @@
 import { values } from 'lodash';
 
-export const SelectorAllProjects = state => {
-  return values(state.projects);
+export const SelectorAllProjects = projects => {
+  return values(projects);
 };

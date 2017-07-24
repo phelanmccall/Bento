@@ -1,4 +1,5 @@
 .header-flex-container {
+  position: fixed;
   display: flex;
   justify-content: space-around;
   background-color: white;
@@ -7,6 +8,7 @@
   font-style: normal;
   text-decoration: none;
   height: 70px;
+  width: 100%;
 }
 
 .spacer {
@@ -111,6 +113,7 @@ img {
   justify-content: center;
   align-items: center;
   align-content: center;
+  max-width: 113px;
   font-style: normal;
   text-decoration: none;
 }
@@ -123,6 +126,7 @@ img {
   line-height: 1em;
   text-align: center;
   letter-spacing: .10em;
+  max-width: 113px;
 }
 
 .nav-login-and-signup-buttons {

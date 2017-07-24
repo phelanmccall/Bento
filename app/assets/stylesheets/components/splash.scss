@@ -105,25 +105,30 @@
 //   text-decoration: none;
 // }
 //
-// .logout-container {
-//   display: flex;
-//   flex: 1;
-//   justify-content: center;
-//   align-items: center;
-//   align-content: center;
-//   font-style: normal;
-//   text-decoration: none;
-// }
+.logout-container {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  font-style: normal;
+  text-decoration: none;
+}
 //
-// .logout-button {
-//   font-family: 'Dosis', sans-serif;
-//   font-weight: 200;
-//   font-size: 18px;
-//   font-style: normal;
-//   line-height: 1em;
-//   text-align: center;
-//   letter-spacing: .10em;
-// }
+.nav-logout-button {
+  font-family: 'Dosis', sans-serif;
+  font-weight: 200;
+  font-size: 18px;
+  font-style: normal;
+  line-height: 1em;
+  text-align: center;
+  letter-spacing: .10em;
+  display: flex;
+  flex: 1;
+  font-weight: 400;
+  text-decoration: none;
+  align-items: center;
+}
 //
 // .login-and-signup-buttons {
 //   display: flex;

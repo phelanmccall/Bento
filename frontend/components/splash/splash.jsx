@@ -35,7 +35,7 @@ const greet = (currentUser, logout) => (
     <button
       className="logout-button"
       onClick={ logout }>
-      log out, {currentUser.username}
+      log out
     </button>
 
     <div className="create-project-container">

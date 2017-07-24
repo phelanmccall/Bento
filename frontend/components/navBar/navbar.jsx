@@ -31,9 +31,9 @@ const navGreet = (currentUser, logout) => (
     <button
       className="nav-logout-button"
       onClick={ logout }>
-      log out, {currentUser.username}
+      log out
     </button>
-    
+
 	</hgroup>
 );
 
