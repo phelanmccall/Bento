@@ -20,7 +20,7 @@ class ProjectIndex extends React.Component {
 
         <section className="indices-section">
           <ul className="project-index">
-            { projects &&  projects.map(project =>
+            { projects && projects.map(project =>
               <ProjectIndexItem className="project-index-item" key={ project.id }
                 project={ project }
               />

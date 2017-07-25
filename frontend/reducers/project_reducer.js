@@ -3,8 +3,10 @@ import merge from 'lodash/merge';
 import {
   RECEIVE_PROJECT,
   RECEIVE_ALL_PROJECTS,
-  REMOVE_PROJECT
+  REMOVE_PROJECT,
 } from '../actions/project_actions';
+
+import { CLEAR_STORE } from '../actions/session_actions';
 
 const startState = Object.freeze({
 });
@@ -22,6 +24,8 @@ const ProjectReducer = (state = startState, action) => {
       let nextState = merge({}, state);
       delete nextState[action.project.id];
       return nextState;
+    case CLEAR_STORE:
+      return startState;
     default:
       return state;
   }

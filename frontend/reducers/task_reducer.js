@@ -3,7 +3,8 @@ import merge from 'lodash/merge';
 import {
   RECEIVE_TASK,
   RECEIVE_ALL_TASKS,
-  REMOVE_TASK
+  REMOVE_TASK,
+  CLEAR_STORE
 } from '../actions/task_actions';
 
 const startState = Object.freeze({
@@ -22,6 +23,8 @@ const TaskReducer = (state = startState, action) => {
       let nextState = merge({}, state);
       delete nextState[action.task.id];
       return nextState;
+    case CLEAR_STORE:
+      return startState;
     default:
       return state;
   }
