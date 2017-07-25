@@ -1,0 +1,161 @@
+.session-form-containers {
+  display: flex;
+  justify-content: center;
+  -webkit-animation: fadein 1s;
+}
+
+.container-container {
+  /* Pink Base Box */
+margin-top: 120px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+min-width: 700px;
+height: 490px;
+
+background: #FCCDCD;
+border: 15px solid rgba(255, 255, 255, 0.5);
+}
+
+.submit-button, .guest-button {
+
+}
+
+.login-user-input, .login-password-input, .guest-button, .submit-button {
+  background: rgba(253, 253, 253, 0.5);
+
+  border: 1px solid rgba(255, 255, 255, 0.0);
+  box-sizing: border-box;
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+  align-content: space-around;
+}
+
+.login-user-input:hover, .login-user-input:active, .login-user-input:focus, .login-password-input:hover, .login-password-input:active, .login-password-input:focus {
+  box-shadow: 2px 2px 4px darken(rgba(252, 205, 205, 0.5), 10%);
+}
+
+.login-user-input::selection, .login-password-input::selection {
+
+  background-color: #fce295;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+
+
+.login-form-container {
+  display: flex;
+  justify-content: center;
+  flex: 5;
+}
+
+.non-splash-container {
+  display: flex;
+  flex: 3;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-top: 2px;
+  align-items: center;
+}
+.login-form-box {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: center;
+  text-align: left;
+  padding: 5px;
+}
+
+.error-box {
+  height: 35px;
+}
+
+.login-errors {
+  list-style: none;
+}
+
+.sub-guest-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.nest {
+  display: none;
+  padding-bottom: 8px;
+  border-bottom: solid 1px black;
+  position: absolute;
+
+  min-width: 65px;
+  transition: all 0.75s ease;
+}
+
+.login-signup-flex-container .reactive .nest {
+  transition: all 0.75s ease;
+  display: block;
+}
+
+.login-signup-flex-container .login-button:hover > .nest, .login-signup-flex-container .signup-button:hover > .nest {
+  transition: all 0.75s ease;
+  display: block;
+  padding-bottom: 8px;
+  border-style: dashed;
+}log
+
+.special-space {
+  min-width: 20px;
+}
+
+.login-signup-flex-container {
+  display: flex;
+  justify-content: space-around;
+  .spacer {
+    display: flex;
+    flex: 6;
+  }
+  .login-button, .signup-button {
+    min-width: 65px;
+    font-size: 16px;
+  }
+  .special-space {
+    display: flex;
+    flex: 1;
+  }
+}
+
+.login-signup-flex-container {
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+  }
+
+@-webkit-keyframes wiggle {
+  from {
+    // -webkit-transform: translate(-1px, 0px);
+     -webkit-transform: rotate(2deg);
+  }
+  to {
+    -webkit-transform-origin:center center;
+    // -webkit-transform: translate(0px, 1px);
+    -webkit-transform: rotate(-2deg);
+  }
+}
