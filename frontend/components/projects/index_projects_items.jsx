@@ -1,6 +1,8 @@
 import React from 'react';
 import { Route, NavLink, Link } from 'react-router-dom';
 import ProjectShowContainer from './show_project_container';
+import CreateTaskContainer from '../tasks/create_task_container';
+import TaskIndex from '../tasks/index_tasks';
 
 class ProjectIndexItem extends React.Component {
   constructor(props) {
@@ -21,7 +23,7 @@ class ProjectIndexItem extends React.Component {
         <NavLink to={`/api/projects/${project.id}`} className="project-title">
           {project.title}
         </NavLink>
-
+        <TaskIndex />
       </li>
     );
   }
