@@ -37,8 +37,8 @@ const navGreet = (currentUser, logout) => (
 	</hgroup>
 );
 
-const Navbar = ({ currentUser, logout }) => (
+const navigationBar = ({ currentUser, logout }) => (
   currentUser ? navGreet(currentUser, logout) : navSessionLinks()
 );
 
-export default Navbar;
+export default navigationBar;
