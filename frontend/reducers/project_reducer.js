@@ -8,6 +8,8 @@ import {
 
 import { CLEAR_STORE } from '../actions/session_actions';
 
+import { RECEIVE_TASK } from '../actions/task_actions';
+
 const startState = Object.freeze({
 });
 
@@ -26,6 +28,8 @@ const ProjectReducer = (state = startState, action) => {
       return nextState;
     case CLEAR_STORE:
       return startState;
+    case RECEIVE_TASK:
+      console.log(action.task);
     default:
       return state;
   }

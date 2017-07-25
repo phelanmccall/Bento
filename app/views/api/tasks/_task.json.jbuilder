@@ -1,1 +1,1 @@
-json.extract! task, :id, :title, :details, :project_id, :project
+json.extract! task, :id, :title, :details, :project_id

@@ -8,13 +8,20 @@ import CreateProjectContainer from '../projects/create_project_container'
 
 class ProjectIndex extends React.Component {
 
+  constructor(props) {
+    super(props);
+
+  }
+
   componentDidMount() {
     this.props.getAllProjects();
   }
 
+
+
   render () {
     const { projects } = this.props;
-    console.log(this.props);
+    console.log("index projects this.props", this.props);
     return (
       <div className="project-index-wrapper">
 

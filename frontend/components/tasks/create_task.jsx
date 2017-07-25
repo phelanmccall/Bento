@@ -8,10 +8,10 @@ class CreateTask extends React.Component {
   constructor(props) {
     super(props);
 
-
     this.state = {
       title: "",
-      creator_id: this.props.currentUser.id
+      details: "",
+      project_id: this.props.projectId
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,15 +25,17 @@ class CreateTask extends React.Component {
     e.preventDefault();
 
     let emptyState = {};
-    const newTask = merge(emptyState, this.state);
+    const newTask = this.state;
     this.props.createTask(newTask).then(() => {
-      this.setState({title: ""})
+      this.setState({ title: "", details: "" })
     });
     this.props.history.push(`/api/tasks`);
 
   }
 
   render () {
+    // console.log("create task props.project id", this.props.project_id);
+    console.error(this.props);
     return (
       <section className="create-container">
         <form
@@ -46,6 +48,12 @@ class CreateTask extends React.Component {
             value={ this.state.title }
             onChange={ this.update('title') }
           />
+        Details: <input
+            type="text"
+            value={ this.state.details }
+            onChange={ this.update('details') }
+          />
+
           <button>
             Bento
           </button>

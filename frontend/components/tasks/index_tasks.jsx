@@ -8,17 +8,27 @@ import CreateTaskContainer from '../tasks/create_task_container'
 
 class TaskIndex extends React.Component {
 
+  constructor(props) {
+    super(props);
+
+  }
+
   render () {
     const { tasks } = this.props;
     console.log("tasks index:");
     console.log(this.props);
+    console.log(tasks);
+
     return (
       <div className="task-index-wrapper">
 
         <section className="indices-section">
           <ul className="task-index">
-            { tasks && Object.keys(tasks).map(task =>
-              <TaskIndexItem className="task-index-item" key={ task.id }
+            { tasks && Object.values(tasks).map(task =>
+              <TaskIndexItem
+                className="task-index-item"
+                key={ task.id }
+                projectId={task.projectId}
                 task={ task }
               />
 
@@ -26,7 +36,7 @@ class TaskIndex extends React.Component {
 
             <div
               className="create-task-wrapper">
-              <CreateTaskContainer />
+              <CreateTaskContainer projectId={this.props.projectId}/>
             </div>
           </ul>
         </section>

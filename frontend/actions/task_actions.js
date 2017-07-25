@@ -40,8 +40,8 @@ export const getSingleTasks = (id) => dispatch => {
   return APIUtil.getSingleTasks(id).then(task => dispatch(receiveTasks(task)));
 }
 
-export const createTasks = newTasks => dispatch => {
-  return APIUtil.createTasks(newTasks).then(task => dispatch(receiveTasks(task)));
+export const createTask = newTask => dispatch => {
+  return APIUtil.createTask(newTask).then(task => dispatch(receiveTasks(task)));
 };
 
 export const updateTasks = id => dispatch => {

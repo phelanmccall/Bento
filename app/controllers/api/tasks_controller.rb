@@ -2,7 +2,7 @@ class Api::TasksController < ApplicationController
   before_action :require_logged_in
 
   def index
-    @tasks = Task.all.where(@task.project_id: project.id)
+    @tasks = Task.all
   end
 
   def show
@@ -11,7 +11,7 @@ class Api::TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-    @task.project_id = current_project.id
+
     if @task.save
       render 'api/tasks/show'
     else
