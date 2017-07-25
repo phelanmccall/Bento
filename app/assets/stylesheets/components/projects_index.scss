@@ -35,13 +35,18 @@
 .project-list-item {
   width: 270px;
   margin: 0 5px;
-  height: 100%;
+
   box-sizing: border-box;
   display: inline-block;
   vertical-align: top;
-  white-space: nowrap;
+  // white-space: nowrap;
   text-align: center;
   font-size: 16px;
+
+  .a {
+    max-width: 270;
+    width: 270;
+  }
 
   :hover {
     border-bottom: solid 1px black;

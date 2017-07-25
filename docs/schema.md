@@ -56,7 +56,7 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 title       | string    | not null
-body        | text      | not null
+details     | text      | not null
 project_id  | integer   | not null, foreign key (references notebooks), indexed
 
 belongs_to project

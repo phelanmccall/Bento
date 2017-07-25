@@ -99,8 +99,8 @@ img {
 
 .nav-header-logout-container {
   display: flex;
-  flex: 1;
-  justify-content: center;
+  flex: 0.7;
+  justify-content: flex-end;
   align-items: center;
   align-content: center;
   font-style: normal;
@@ -137,11 +137,12 @@ img {
 .nav-login-button, .nav-signup-button {
   text-decoration: none;
   font-weight: 400;
+
 }
 
 .nav-login-button, .nav-signup-button, .nav-logout-button {
   display: flex;
-  flex: 1;
+
   font-weight: 400;
   text-decoration: none;
   align-items: center;
