@@ -24,6 +24,7 @@ class ProjectIndex extends React.Component {
               <ProjectIndexItem className="project-index-item" key={ project.id }
                 project={ project }
               />
+
             )}
 
             <div

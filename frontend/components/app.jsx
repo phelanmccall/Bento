@@ -39,6 +39,9 @@ const App = () => (
     <div className="routes-container">
 
       <switch>
+
+
+
       <div className="session-form-containers">
         <AuthRoute
           path="/login"
@@ -50,9 +53,9 @@ const App = () => (
           component={ SessionFormContainer }
         />
       </div>
-        <div className="protection">
-        <ProtectedRoute path="/" exact component={ IndexProjectContainer } />
-        </div>
+      <div className="protection">
+      <ProtectedRoute path="/" exact component={ IndexProjectContainer } />
+      </div>
       </switch>
     </div>
   </div>
