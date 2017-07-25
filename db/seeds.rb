@@ -10,3 +10,6 @@ User.create(username: "guest", password: "password")
 User.create(username: "Waldo", password: "password")
 
 Project.create(title: "Title", creator_id: User.first.id)
+Project.create(title: "UserLastTitle2", creator_id: User.last.id)
+
+Task.create(title: "TaskTitle1P1", details: "Task is detailed" project_id: Project.first.id)
