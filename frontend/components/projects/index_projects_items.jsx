@@ -17,15 +17,24 @@ class ProjectIndexItem extends React.Component {
   render () {
     const { project } = this.props;
     return (
-      <li className="project-list">
+      <li className="project-list-item">
         <NavLink to={`/api/projects/${project.id}`} className="project-title">
           {project.title}
         </NavLink>
-        <Link to={`/api/projects/${project.id}/edit`} className="edit-link">Edit</Link>
-        <button id={project.id} onClick={ this.handleDelete } className="delete">Delete</button>
+
       </li>
     );
   }
 }
 
 export default ProjectIndexItem;
+
+// { tasks &&  tasks.map(task =>
+//   <TaskIndexItem className="task-index-item" key={ task.id }
+//     task={ task }
+//   />
+// )}
+
+
+// <Link to={`/api/projects/${project.id}/edit`} className="edit-link">Edit</Link>
+// <button id={project.id} onClick={ this.handleDelete } className="delete">Delete</button>

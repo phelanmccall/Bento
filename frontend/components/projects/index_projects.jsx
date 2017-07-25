@@ -16,19 +16,23 @@ class ProjectIndex extends React.Component {
     const { projects } = this.props;
     console.log(this.props);
     return (
-      <section className="indices">
-        <div className="create-project-container">
-          <CreateProjectContainer />
-        </div>
-        <ul className="projectindex">
+      <div className="project-index-wrapper">
+
+        <section className="indices-section">
+          <ul className="project-index">
             { projects &&  projects.map(project =>
               <ProjectIndexItem className="project-index-item" key={ project.id }
                 project={ project }
               />
-            )
-          }
-        </ul>
-      </section>
+            )}
+
+            <div
+              className="create-project-wrapper">
+              <CreateProjectContainer />
+            </div>
+          </ul>
+        </section>
+      </div>
     )
   }
 }

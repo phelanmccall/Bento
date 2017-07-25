@@ -36,19 +36,24 @@ const App = () => (
           <div className="spacer"></div>
       </div>
     </div>
-    <div className="session-form-containers">
+    <div className="routes-container">
 
       <switch>
+      <div className="session-form-containers">
         <AuthRoute
           path="/login"
           component={ SessionFormContainer }
         />
+
         <AuthRoute
           path="/signup"
           component={ SessionFormContainer }
         />
-      <ProtectedRoute path="/" exact component={ IndexProjectContainer } />
-    </switch>
+      </div>
+        <div className="protection">
+        <ProtectedRoute path="/" exact component={ IndexProjectContainer } />
+        </div>
+      </switch>
     </div>
   </div>
 );

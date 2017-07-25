@@ -2,7 +2,7 @@ class Api::ProjectsController < ApplicationController
   before_action :require_logged_in
 
   def index
-    @projects = Project.all
+    @projects = Project.all.where(creator_id: current_user.id)
   end
 
   def show
