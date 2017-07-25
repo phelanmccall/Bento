@@ -4,8 +4,9 @@ import {
   RECEIVE_TASK,
   RECEIVE_ALL_TASKS,
   REMOVE_TASK,
-  CLEAR_STORE
 } from '../actions/task_actions';
+
+import { CLEAR_STORE } from '../actions/session_actions';
 
 const startState = Object.freeze({
 });

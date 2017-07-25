@@ -18,12 +18,13 @@ class ProjectIndexItem extends React.Component {
 
   render () {
     const { project } = this.props;
+    console.log("project title", project);
     return (
       <li className="project-list-item">
         <NavLink to={`/api/projects/${project.id}`} className="project-title">
           {project.title}
         </NavLink>
-        <TaskIndex />
+        <TaskIndex tasks={project.tasks} />
       </li>
     );
   }

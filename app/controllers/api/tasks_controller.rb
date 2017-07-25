@@ -2,7 +2,7 @@ class Api::TasksController < ApplicationController
   before_action :require_logged_in
 
   def index
-    @tasks = Task.all.where(project_id: current_project.id)
+    @tasks = Task.all.where(@task.project_id: project.id)
   end
 
   def show
