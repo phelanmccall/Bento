@@ -7,11 +7,10 @@ import CreateTaskContainer from './create_task_container';
 class TaskShow extends React.Component {
   componentDidMount() {
     this.props.getSingleTask(this.props.match.params.id);
-    console.log('mounting', this.props.match)
   }
 
   componentWillReceiveProps(newProps) {
-    console.log('willreceive', this.props.match.params)
+ this.props.match.params
     if (this.props.match.params.id !== newProps.match.params.id) {
       this.props.getSingleTask(newProps.match.params.id);
     }

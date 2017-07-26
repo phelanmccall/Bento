@@ -21,7 +21,7 @@ class ProjectIndex extends React.Component {
 
   render () {
     const { projects } = this.props;
-    console.log("index projects this.props", this.props);
+
     return (
       <div className="project-index-wrapper">
 

@@ -29,7 +29,7 @@ class CreateProject extends React.Component {
     this.props.createProject(newProject).then(() => {
       this.setState({title: ""})
     });
-    this.props.history.push(`/api/projects`);
+    // this.props.history.push(`/api/projects`);
 
   }
 

@@ -18,7 +18,9 @@ const ProjectReducer = (state = startState, action) => {
 
   switch (action.type) {
     case RECEIVE_PROJECT:
+      action.project.tasks = {};
       let newProject = {[action.project.id]: action.project};
+
       return merge({}, state, newProject);
     case RECEIVE_ALL_PROJECTS:
       return action.projects;
@@ -30,9 +32,9 @@ const ProjectReducer = (state = startState, action) => {
       return startState;
     case RECEIVE_TASK:
       let taskProject = state[action.task.project_id];
-      console.log(taskProject);
+
       taskProject.tasks[action.task.id] = action.task;
-      // let emptyProject = {title: "", details: "", tasks: {}}
+
       return merge({}, state, {[action.task.project_id]: taskProject})
     default:
       return state;

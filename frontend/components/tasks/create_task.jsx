@@ -34,8 +34,8 @@ class CreateTask extends React.Component {
   }
 
   render () {
-    // console.log("create task props.project id", this.props.project_id);
-    console.error(this.props);
+
+
     return (
       <section className="create-container">
         <form

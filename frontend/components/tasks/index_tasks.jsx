@@ -15,9 +15,6 @@ class TaskIndex extends React.Component {
 
   render () {
     const { tasks } = this.props;
-    console.log("tasks index:");
-    console.log(this.props);
-    console.log(tasks);
 
     return (
       <div className="task-index-wrapper">

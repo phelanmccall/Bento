@@ -16,7 +16,7 @@ class TaskIndexItem extends React.Component {
 
   render () {
     const { task, project_id } = this.props;
-    // console.log(task.id, "the task id is here!!!!!!!!zzzzzz!!!");
+
     return (
       <li className="task-list-item">
         <NavLink to={`/api/tasks/${project_id}`} className="task-title">
