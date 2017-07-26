@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 
 import CreateProject from './create_project';
 import ProjectIndexItem from './index_projects_items';
-import getAllProjects from '../../actions/project_actions';
+import { getAllProjects, updateProject } from '../../actions/project_actions';
 import CreateProjectContainer from '../projects/create_project_container'
 
 class ProjectIndex extends React.Component {
@@ -28,7 +28,7 @@ class ProjectIndex extends React.Component {
         <section className="indices-section">
           <ul className="project-index">
             { projects && projects.map(project =>
-              <ProjectIndexItem className="project-index-item" key={ project.id }
+              <ProjectIndexItem updateProject={this.props.updateProject} className="project-index-item" key={ project.id }
                 project={ project }
               />
 

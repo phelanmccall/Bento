@@ -8,6 +8,8 @@
           json.id task.id
           json.title task.title
           json.details task.details
+          json.project_id task.project_id
+          json.checked task.checked
         end
       end
     end

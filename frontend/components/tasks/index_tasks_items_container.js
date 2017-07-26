@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 
-import { getAllTasks, deleteTask } from '../../actions/task_actions';
-import TaskIndex from './index_tasks'
-import { SelectorAllTasks } from '../../reducers/selectors'
+import { RECEIVE_TASK, getAllTasks, deleteTask, updateTask } from '../../actions/task_actions';
+import TaskIndexItems from './index_tasks_items'
+
 
 
 const mapStateToProps = ({ tasks }, { match }) => ({
-  
+
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -17,8 +17,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(TaskIndex);
-
-
-// ,
-// destroyTask: id => dispatch(deleteTask(id))
+)(TaskIndexItems);

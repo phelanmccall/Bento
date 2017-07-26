@@ -44,8 +44,8 @@ export const createTask = newTask => dispatch => {
   return APIUtil.createTask(newTask).then(task => dispatch(receiveTasks(task)));
 };
 
-export const updateTasks = id => dispatch => {
-  return APIUtil.updateTasks(id).then(updateThis => dispatch(receiveTasks(updateThis)));
+export const updateTask = task => dispatch => {
+  return APIUtil.updateTask(task).then(updateThis => dispatch(receiveTasks(updateThis)));
 };
 
 export const deleteTasks = id => dispatch => {

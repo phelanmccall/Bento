@@ -3,17 +3,59 @@ import { Route, NavLink, Link } from 'react-router-dom';
 import ProjectShowContainer from './show_project_container';
 import CreateTaskContainer from '../tasks/create_task_container';
 import TaskIndex from '../tasks/index_tasks';
+import updateProject from '../../actions/project_actions'
 
 class ProjectIndexItem extends React.Component {
   constructor(props) {
     super(props);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleInput = this.handleInput.bind(this);
+    this.handleUpdateProject = this.handleUpdateProject.bind(this);
+    this.handleEnter = this.handleEnter.bind(this);
+
+    this.state = {
+      title: this.props.project.title,
+      creator_id: this.props.project.creator_id,
+      manager: this.props.project.manager,
+      tasks: this.props.project.tasks,
+      id: this.props.project.id,
+    }
+
   }
 
   handleDelete(e) {
     e.preventDefault();
     let id = e.currentTarget.id;
     this.props.destroyProject(id);
+  }
+
+  handleInput(e) {
+    e.preventDefault();
+    const title = e.target.value ? e.target.value : ""
+    // let id = e.currentTarget.id;
+    this.setState({title})
+  }
+
+  handleUpdateProject (e) {
+    const obj = {
+      title: this.state.title,
+      creator_id: this.state.creator_id,
+      id: this.state.id,
+    };
+
+    this.props.updateProject(obj);
+  }
+
+  handleEnter (e) {
+    if (e.key == 'Enter') {
+      const obj = {
+        title: this.state.title,
+        creator_id: this.state.creator_id,
+        id: this.state.id,
+      };
+
+      this.props.updateProject(obj);
+    }
   }
 
 
@@ -23,10 +65,19 @@ class ProjectIndexItem extends React.Component {
 
     return (
       <li className="project-list-item">
-        <NavLink to={`/api/projects/${project.id}`} className="project-title">
-          {project.title}
-        </NavLink>
+
+        <input
+          className="project-title-live-input"
+          type="text"
+          value={this.state.title}
+          onChange={this.handleInput}
+          onBlur={this.handleInput}
+          onKeyPress={this.handleEnter}
+        />
+
         <TaskIndex
+          className="pli-task-index-wrapper"
+          updateTask={this.props.updateTask}
           tasks={project.tasks}
           projectId={project.id}
           />
@@ -46,3 +97,7 @@ export default ProjectIndexItem;
 
 // <Link to={`/api/projects/${project.id}/edit`} className="edit-link">Edit</Link>
 // <button id={project.id} onClick={ this.handleDelete } className="delete">Delete</button>
+
+// <NavLink to={`/api/projects/${project.id}`} className="project-title">
+//   {project.title}
+// </NavLink>

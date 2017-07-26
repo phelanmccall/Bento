@@ -8,7 +8,7 @@ import {
 
 import { CLEAR_STORE } from '../actions/session_actions';
 
-import { RECEIVE_TASK } from '../actions/task_actions';
+import { RECEIVE_TASK, updateTask } from '../actions/task_actions';
 
 const startState = Object.freeze({
 });
@@ -34,7 +34,6 @@ const ProjectReducer = (state = startState, action) => {
       let taskProject = state[action.task.project_id];
 
       taskProject.tasks[action.task.id] = action.task;
-
       return merge({}, state, {[action.task.project_id]: taskProject})
     default:
       return state;
