@@ -43,16 +43,23 @@ class CreateTask extends React.Component {
           onSubmit={ this.handleSubmit }
         >
           <h3>Create Task</h3>
-          Title: <input
-            type="text"
-            value={ this.state.title }
-            onChange={ this.update('title') }
+          <div
+          className="create-task-title-input-wrapper">
+            Title: <input
+              type="text"
+              value={ this.state.title }
+              onChange={ this.update('title') }
+            />
+        </div>
+        <br />
+          <div
+          className="create-task-details-input-wrapper">
+            Details: <input
+              type="text"
+              value={ this.state.details }
+              onChange={ this.update('details') }
           />
-        Details: <input
-            type="text"
-            value={ this.state.details }
-            onChange={ this.update('details') }
-          />
+        </div>
 
           <button>
             Bento

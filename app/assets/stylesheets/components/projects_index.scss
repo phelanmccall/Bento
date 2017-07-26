@@ -48,7 +48,18 @@
     width: 270;
   }
 
-  :hover {
+  a.project-title {
+    background-color: rgba(255, 255, 255, 0.35);
+    padding: 10px;
+
+  }
+
+  a.project-title:hover {
+    border-bottom: solid 1px black;
+    padding-bottom: 5px;
+  }
+
+  a.task-title:hover {
     border-bottom: solid 1px black;
     padding-bottom: 5px;
   }
@@ -70,3 +81,31 @@
   text-align: center;
   font-size: 16px;
 }
+
+.create-task-wrapper {
+  .create-container {
+    .new-form, input {
+      margin-top: 20px;
+      padding: 5px;
+      background-color: rgba(255, 255, 255, 0.20);
+    }
+
+    h3 {
+      font-size: 16px;
+    }
+
+    input {
+      // display: flex;
+    }
+
+    input:hover, input:active, input:focus {
+      box-sizing: border-box;
+      background-color: rgba(255, 255, 255, 0.60);
+      // border: solid 2px white;
+    }
+  }
+}
+//
+// .new-form {
+//   input {padding: 10px;}
+// }
