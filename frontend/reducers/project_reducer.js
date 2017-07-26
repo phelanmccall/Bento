@@ -29,7 +29,11 @@ const ProjectReducer = (state = startState, action) => {
     case CLEAR_STORE:
       return startState;
     case RECEIVE_TASK:
-      console.log(action.task);
+      let taskProject = state[action.task.project_id];
+      console.log(taskProject);
+      taskProject.tasks[action.task.id] = action.task;
+      // let emptyProject = {title: "", details: "", tasks: {}}
+      return merge({}, state, {[action.task.project_id]: taskProject})
     default:
       return state;
   }
