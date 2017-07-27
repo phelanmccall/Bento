@@ -72,6 +72,7 @@ class ProjectIndexItem extends React.Component {
           value={this.state.title}
           onChange={this.handleInput}
           onBlur={this.handleInput}
+          onFocus={this.handleInput}
           onKeyPress={this.handleEnter}
         />
 

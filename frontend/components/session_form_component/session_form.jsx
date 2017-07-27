@@ -42,6 +42,15 @@ class SessionForm extends React.Component {
     this.props.guestLogin({user});
   }
 
+  handleEnter (e) {
+    e.preventDefault();
+    if (e.key == 'Enter') {
+    const user = this.state;
+      };
+
+      this.props.processForm({user});
+  }
+
   navLink() {
     if (this.props.formType === 'login') {
       return <Link to="/signup">sign up instead</Link>;
@@ -105,6 +114,7 @@ class SessionForm extends React.Component {
         <div className="login-form-container">
           <form
             onSubmit={ this.handleSubmit }
+            onKeyPress={this.handleEnter}
             className="login-form-box"
           >
 

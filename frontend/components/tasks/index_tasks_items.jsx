@@ -49,17 +49,17 @@ class TaskIndexItem extends React.Component {
     console.log("task", task);
     return (
       <li
-        className="task-list-item"
+        className={`${this.state.checked ? "task-item-true" : "task-item-false"}`}
         >
-        <NavLink to={`/api/tasks/${project_id}`} className="task-title">
-          {task.title}
-        </NavLink>
-        <input
-          className="check-box"
-          type="checkbox"
-          checked={this.state.checked}
-          onClick={this.handleCheck}
-        />
+        <div className="check-box-wrapper">
+          <input
+            className="check-box"
+            type="checkbox"
+            checked={this.state.checked}
+            onClick={this.handleCheck}
+            />
+        </div>
+        <div className="task-title">{task.title}</div>
       </li>
     );
   }

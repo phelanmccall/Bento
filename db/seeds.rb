@@ -9,11 +9,13 @@
 User.create(username: "guest", password: "password")
 User.create(username: "Waldo", password: "password")
 
-Project.create(title: "Primary Project", creator_id: User.first.id)
-Project.create(title: "Secondary Project", creator_id: User.first.id)
-Project.create(title: "Tertiary Project", creator_id: User.first.id)
-Project.create(title: "Quartiary Project", creator_id: User.first.id)
-Project.create(title: "Pentiary Project", creator_id: User.first.id)
+Team.create(team_name: "Primary Team", owner_id: User.first.id)
+
+Project.create(title: "Primary Project", creator_id: User.first.id, team_id: Team.first.id)
+Project.create(title: "Secondary Project", creator_id: User.first.id, team_id: Team.first.id)
+Project.create(title: "Tertiary Project", creator_id: User.first.id, team_id: Team.first.id)
+Project.create(title: "Quartiary Project", creator_id: User.first.id, team_id: Team.first.id)
+Project.create(title: "Pentiary Project", creator_id: User.first.id, team_id: Team.first.id)
 
 Task.create(title: "TaskTitle1P1", details: "Task is detailed", project_id: Project.first.id)
 Task.create(title: "Another task 2", details: "Task is", project_id: Project.first.id)

@@ -5,7 +5,7 @@ class Project < ApplicationRecord
   foreign_key: :creator_id,
   class_name: :User
 
-  belongs_to :team
+  belongs_to :team,
   foreign_key: :team_id,
   class_name: :Team
 
