@@ -26,7 +26,7 @@ class TaskIndexItem extends React.Component {
 
   handleCheck(e) {
     e.preventDefault();
-    console.log(e.target.value);
+    // // console.log(e.target.value);
     setTimeout(() => this.setState({ checked: !this.state.checked }), 0);
 
     let obj = {
@@ -37,16 +37,16 @@ class TaskIndexItem extends React.Component {
       id: this.state.id
     };
 
-    console.log(this.props);
+    // console.log(this.props);
 
     this.props.updateTask(obj);
   }
 
   render () {
-    console.log("arrr i be the props in the render function", this.props);
+    // // console.log("arrr i be the props in the render function", this.props);
     const { task, project_id } = this.props;
-    console.log("project id", project_id);
-    console.log("task", task);
+    // // console.log("project id", project_id);
+    // // console.log("task", task);
     return (
       <li
         className={`${this.state.checked ? "task-item-true" : "task-item-false"}`}

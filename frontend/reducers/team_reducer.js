@@ -22,6 +22,8 @@ const teamsReducer = (state = initialState, action) => {
         }
       });
 
+      newState.currentTeam = action.teams[0].id;
+
       return newState;
     case RECEIVE_TEAM:
       newState = merge({}, state);

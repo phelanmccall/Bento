@@ -14,7 +14,7 @@ class TaskIndex extends React.Component {
 
   render () {
     const { tasks } = this.props;
-    console.error(this.props);
+    // console.error(this.props);
     return (
       <div className="task-index-wrapper">
 
@@ -24,7 +24,7 @@ class TaskIndex extends React.Component {
                 return <TaskIndexItemsContainer
                 className="task-index-item"
                 key={ task.id }
-                
+
                 task={ task }
               />
               }

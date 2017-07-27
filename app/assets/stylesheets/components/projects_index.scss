@@ -224,16 +224,18 @@ input[type=checkbox] {
 // 	position: relative;
 }
 //
-// .check-box-wrapper:hover {
+.check-box-wrapper:hover {
+  display: none;
 //   visibility: hidden;
 // 	background: #EEE;
-// }
+}
 //
-// .check-box:hover {
+.check-box:hover {
+  display: none;
 //   cursor: pointer;
 //   border: solid 6px rgba(252, 205, 205, 0.5)
 //
-// }
+}
 
 
 

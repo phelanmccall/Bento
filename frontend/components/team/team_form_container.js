@@ -7,7 +7,7 @@ import TeamForm from './team_form';
 const mapStateToProps = (state) => {
   return {
     teams: state.teams,
-    session: state.session
+    currentUser: state.session.currentUser,
   }
 }
 

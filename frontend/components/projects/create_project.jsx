@@ -8,14 +8,18 @@ class CreateProject extends React.Component {
   constructor(props) {
     super(props);
 
-
+    console.log(this.props);
     this.state = {
       title: "",
       creator_id: this.props.currentUser.id,
-      team_id: this.props.currentUser.id,
+      team_id: null,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentWillReceiveProps () {
+    this.setState({team_id: this.props.currentTeam})
   }
 
   update(property) {
@@ -27,6 +31,7 @@ class CreateProject extends React.Component {
 
     let emptyState = {};
     const newProject = merge(emptyState, this.state);
+    console.log(this.state);
     this.props.createProject(newProject).then(() => {
       this.setState({title: ""})
     });

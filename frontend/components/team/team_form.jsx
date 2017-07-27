@@ -1,12 +1,14 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 
+import TeamIndexContainer from './index_teams_container';
+
 class TeamForm extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      owner_id: this.props.session.currentUser.id,
+      owner_id: this.props.currentUser.id,
       team_name: "",
     }
 
@@ -31,7 +33,7 @@ class TeamForm extends React.Component {
   }
 
   render() {
-    console.error(this.props);
+    // console.error(this.props);
     return (
       <div className="create-team-wrapper">
         <div className="team-form-wrapper">
@@ -51,6 +53,7 @@ class TeamForm extends React.Component {
 
           </form>
         </div>
+        <TeamIndexContainer />
       </div>
     )
   }

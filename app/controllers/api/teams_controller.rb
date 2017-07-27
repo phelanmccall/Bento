@@ -1,6 +1,6 @@
 class Api::TeamsController < ApplicationController
   def index
-    @memberships = Membership.where(user_id: team_params[:user_id])
+    @memberships = Membership.where(user_id: current_user.id)
 
     @teams = []
     @memberships.each do |membership|

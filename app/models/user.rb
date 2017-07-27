@@ -16,12 +16,12 @@ class User < ActiveRecord::Base
 	foreign_key: :owner_id,
 	class_name: :Team
 
-	has_many :team_memberships,
+	has_many :memberships,
 	foreign_key: :user_id,
 	class_name: :Membership
 
 	has_many :teams,
-	through: :team_memberships,
+	through: :memberships,
 	source: :team
 
 	def password= password

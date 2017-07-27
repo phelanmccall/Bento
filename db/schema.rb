@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 20170727000428) do
   enable_extension "plpgsql"
 
   create_table "memberships", force: :cascade do |t|
-    t.string   "team_id"
-    t.string   "user_id"
+    t.integer  "team_id"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20170727000428) do
 
   create_table "teams", force: :cascade do |t|
     t.string   "team_name"
-    t.string   "owner_id"
+    t.integer  "owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

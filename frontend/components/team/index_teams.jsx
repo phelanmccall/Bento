@@ -1,40 +1,44 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 
-class TeamForm extends React.Component {
+class TeamIndex extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      teams: this.props.teams,
-      owner_id: this.props.session.currentUser.id,
-      team_name: "",
-    }
   }
 
-  displayTeamProjects(team) {
-	return e => {
-		e.preventDefault();
-		this.props.receiveTeam(team);
-	}
+componentDidMount () {
+  this.props.fetchAllTeams();
 }
 
-  displayProjects() {
-    return (
-    	<ul>
-    		this.props.teams.map((team, idx) => {
-    			<li>{team.projects.map(project</li>
-    }
-    </ul>
-    );
-  }
+//   displayTeams() {
+//   	return e => {
+//   		e.preventDefault();
+//   		this.props.receiveTeam(team);
+// 	}
+// }
+
+  // displayProjects(team) {
+  //   return (
+  //   	<ul>
+  //   		this.props.teams.map((team, idx) => {
+  //   			<li>{team.projects.map(project</li>
+  //   }
+  //   </ul>
+  //   );
+  // }
 
 
   render () {
     const { teams } = this.props;
+    console.error(teams);
     return (
-
-
+      <ul>
+      {teams && Object.values(teams).map(team => (
+        <li>{team.team_name}</li>
+        )
+      )}
+      </ul>
     )
   }
 

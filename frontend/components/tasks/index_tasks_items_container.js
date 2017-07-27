@@ -6,8 +6,8 @@ import TaskIndexItems from './index_tasks_items'
 
 
 const mapStateToProps = (state , props) => {
-  console.log("this is the state", state);
-  console.log("these are the props", props);
+  // console.log("this is the state", state);
+  // console.log("these are the props", props);
   return {
   state: state,
   project_id: props.task.project_id,

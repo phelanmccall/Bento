@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import { createProject } from '../../actions/project_actions';
 import CreateProject from './create_project';
 
-const mapStateToProps = ({ session, projects }) => ({
+const mapStateToProps = ({ session, projects, teams }) => ({
   currentUser: session.currentUser,
-  projects
+  currentTeam: teams.currentTeam,
+  projects,
 });
 
 const mapDispatchToProps = (dispatch) => ({

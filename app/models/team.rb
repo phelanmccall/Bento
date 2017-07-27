@@ -9,12 +9,12 @@ class Team < ApplicationRecord
   foreign_key: :team_id,
   class_name: :Project
 
-  has_many :team_memberships,
+  has_many :memberships,
 	foreign_key: :team_id,
 	class_name: :Membership
 
 	has_many :users,
-	through: :team_memberships,
+	through: :memberships,
 	source: :user
 
 end
