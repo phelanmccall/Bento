@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, NavLink, Link } from 'react-router-dom';
 import ProjectShowContainer from './show_project_container';
 import CreateTaskContainer from '../tasks/create_task_container';
-import TaskIndex from '../tasks/index_tasks';
+import TaskIndexContainer from '../tasks/index_tasks_container';
 import updateProject from '../../actions/project_actions'
 
 class ProjectIndexItem extends React.Component {
@@ -75,9 +75,8 @@ class ProjectIndexItem extends React.Component {
           onKeyPress={this.handleEnter}
         />
 
-        <TaskIndex
+      <TaskIndexContainer
           className="pli-task-index-wrapper"
-          updateTask={this.props.updateTask}
           tasks={project.tasks}
           projectId={project.id}
           />

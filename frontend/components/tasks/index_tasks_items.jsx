@@ -43,8 +43,10 @@ class TaskIndexItem extends React.Component {
   }
 
   render () {
+    console.log("arrr i be the props in the render function", this.props);
     const { task, project_id } = this.props;
-    // console.log("arrr i be the state in the render function", this.state);
+    console.log("project id", project_id);
+    console.log("task", task);
     return (
       <li
         className="task-list-item"

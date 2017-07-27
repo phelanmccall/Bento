@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
 	has_many :projects,
 	foreign_key: :creator_id
 
+	has_many :team_memberships
+
 	def password= password
 		self.password_digest = BCrypt::Password.create(password)
 		@password = password

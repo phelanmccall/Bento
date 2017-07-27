@@ -5,9 +5,14 @@ import TaskIndexItems from './index_tasks_items'
 
 
 
-const mapStateToProps = ({ tasks }, { match }) => ({
-
-});
+const mapStateToProps = (state , props) => {
+  console.log("this is the state", state);
+  console.log("these are the props", props);
+  return {
+  state: state,
+  project_id: props.task.project_id,
+  }
+};
 
 const mapDispatchToProps = (dispatch) => ({
   getAllTasks: () => dispatch(getAllTasks()),
