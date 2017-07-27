@@ -50,6 +50,7 @@ class TaskIndexItem extends React.Component {
     return (
       <li
         className={`${this.state.checked ? "task-item-true" : "task-item-false"}`}
+        onClick={this.handleCheck}
         >
         <div className="check-box-wrapper">
           <input

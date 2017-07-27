@@ -1,8 +1,15 @@
 class Api::TeamsController < ApplicationController
   def index
-    @teams = Team.all
+    @memberships = Membership.where(user_id: team_params[:user_id])
 
-    render 'api/teams/index'
+    @teams = []
+    @memberships.each do |membership|
+      @teams.push(Team.find(membership.team_id))
+    end
+
+    @projects = @teams.first.projects
+
+    render 'api/teams/projects'
   end
 
   def show
@@ -38,6 +45,6 @@ class Api::TeamsController < ApplicationController
   private
 
   def team_params
-    params.require(:team).permit(:team_name, :owner_id)
+    params.require(:team).permit(:team_name, :owner_id, :user_id)
   end
 end

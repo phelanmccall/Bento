@@ -1,7 +1,13 @@
-export const fetchAllTeams = () => {
+export const fetchAllTeams = (user_id) => {
   return $.ajax({
     method: 'GET',
-    url: '/api/teams'
+    url: '/api/teams',
+    dataType: 'JSON',
+    data: {
+      team: {
+        user_id: user_id
+      }
+    }
   })
 }
 

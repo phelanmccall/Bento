@@ -1,16 +1,17 @@
-import { connect } from 'react-router';
+import { connect } from 'react-redux';
 import {
   createTeam
-} from '../../team_actions';
+} from '../../actions/team_actions';
 import TeamForm from './team_form';
 
-mapStateToProps = (state) => {
+const mapStateToProps = (state) => {
   return {
-    teams: state.teams
+    teams: state.teams,
+    session: state.session
   }
 }
 
-mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     createTeam: (team) => dispatch(createTeam(team))
   }

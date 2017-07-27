@@ -12,7 +12,17 @@ class User < ActiveRecord::Base
 	has_many :projects,
 	foreign_key: :creator_id
 
-	has_many :team_memberships
+	has_many :owned_teams,
+	foreign_key: :owner_id,
+	class_name: :Team
+
+	has_many :team_memberships,
+	foreign_key: :user_id,
+	class_name: :Membership
+
+	has_many :teams,
+	through: :team_memberships,
+	source: :team
 
 	def password= password
 		self.password_digest = BCrypt::Password.create(password)

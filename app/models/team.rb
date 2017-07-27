@@ -5,6 +5,16 @@ class Team < ApplicationRecord
   foreign_key: :owner_id,
   class_name: :User
 
-  has_many :memberships
+  has_many :projects,
+  foreign_key: :team_id,
+  class_name: :Project
+
+  has_many :team_memberships,
+	foreign_key: :team_id,
+	class_name: :Membership
+
+	has_many :users,
+	through: :team_memberships,
+	source: :user
 
 end

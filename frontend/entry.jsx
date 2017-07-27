@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
 import { clearErrors } from './actions/session_actions';
+import { fetchAllTeams } from './util/team_api_util';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -17,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
   window.clearErrors = clearErrors;
+  window.fetchAllTeams = fetchAllTeams;
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store} />, root);
   window.store = store;

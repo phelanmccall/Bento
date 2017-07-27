@@ -12,7 +12,7 @@ class CreateProject extends React.Component {
     this.state = {
       title: "",
       creator_id: this.props.currentUser.id,
-      team_id: 1,
+      team_id: this.props.currentUser.id,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);

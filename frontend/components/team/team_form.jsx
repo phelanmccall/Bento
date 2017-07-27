@@ -1,11 +1,12 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 
 class TeamForm extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      owner_id: this.props.owner_id,
+      owner_id: this.props.session.currentUser.id,
       team_name: "",
     }
 
@@ -20,6 +21,7 @@ class TeamForm extends React.Component {
   }
 
   handleSubmit (e) {
+
     e.preventDefault();
 
     let emptyState = {};
@@ -29,12 +31,12 @@ class TeamForm extends React.Component {
   }
 
   render() {
-
+    console.error(this.props);
     return (
       <div className="create-team-wrapper">
         <div className="team-form-wrapper">
-          <form className="team-form">
-            onSubmit={ handleSubmit }
+          <form className="team-form"
+            onSubmit={ this.handleSubmit }>
 
               Team name:<input
                 className="team-name-input"
@@ -47,18 +49,13 @@ class TeamForm extends React.Component {
               Submit
             </button>
 
-
-
           </form>
         </div>
       </div>
     )
-
-
-
   }
 }
 
 
 
-export default TeamForm;
+export default withRouter(TeamForm);
