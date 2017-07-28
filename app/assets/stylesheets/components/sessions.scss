@@ -23,6 +23,37 @@ border: 15px solid rgba(255, 255, 255, 0.5);
 
 .submit-button, .guest-button {
   padding: 10px;
+  display: flex;
+
+  font-weight: 400;
+  text-decoration: none;
+  align-items: center;
+
+  color: black;
+  margin: 0px 10px;
+
+  padding: 10px;
+  background: #FCCDCD;
+  border: 0px solid rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+
+  transition: all 0.25s ease;
+  min-width: 85px;
+  max-height: 60px;
+  font-size: 14px;
+}
+
+.session-password-field, .session-username-field {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.submit-button:hover, .guest-button:hover {
+  box-shadow: 2px 2px 4px darken(rgba(252, 205, 205, 0.2), 10%);
+
+  -webkit-animation: wiggle 0.1s ease-in-out 0.1s alternate 1;
 }
 
 .login-user-input, .login-password-input, .guest-button, .submit-button {
@@ -112,12 +143,20 @@ button:focus {
   display: block;
 }
 
+.login-button, .signup-button {
+  .reactive {
+    font-weight: 400;
+  }
+}
+
+
 .login-signup-flex-container .login-button:hover > .nest, .login-signup-flex-container .signup-button:hover > .nest {
   transition: all 0.75s ease;
   display: block;
   padding-bottom: 8px;
   border-style: dashed;
-}log
+  font-weight: 400;
+}
 
 .special-space {
   min-width: 20px;
@@ -126,14 +165,21 @@ button:focus {
 .login-signup-flex-container {
   display: flex;
   justify-content: space-around;
+
   .spacer {
     display: flex;
     flex: 6;
   }
+
   .login-button, .signup-button {
     min-width: 65px;
     font-size: 16px;
+
+    .reactive {
+      font-weight: 400;
+    }
   }
+
   .special-space {
     display: flex;
     flex: 1;
@@ -145,6 +191,14 @@ button:focus {
   flex: 1;
   justify-content: space-around;
   align-items: center;
+}
+
+.login-user-input, .login-password-input {
+  font-size: 16px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
 
 @keyframes fadein {

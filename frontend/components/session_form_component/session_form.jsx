@@ -82,10 +82,16 @@ class SessionForm extends React.Component {
           </div>
 
           <div className="login-form">
+            <form
+              onSubmit={ this.handleSubmit }
+              className="login-form-box"
+            >
               <br />
               <div className="label-input-username">
-                <label>Username:
+                <label>
                   <input
+                    className="session-password-field"
+                    placeholder="enter username"
                     type="text"
                     value={ this.state.username }
                     onChange={ this.update('username') }
@@ -97,8 +103,10 @@ class SessionForm extends React.Component {
               <br />
 
               <div className="label-input-password">
-                <label>Password:
+                <label>
                   <input
+                    className="session-password-field"
+                    placeholder="enter password"
                     type="password"
                     value={ this.state.password }
                     onChange={ this.update('password') }
@@ -106,36 +114,28 @@ class SessionForm extends React.Component {
                   />
                 </label>
               </div>
+              <div className="login-form-container">
+                <div className="sub-guest-buttons">
+                  <input
+                    className="submit-button"
+                    type="submit"
+                    value={ this.props.formType === 'login' ? 'log in' : 'create account' }
+                    />
+                  <button
+                    className="guest-button"
+                    onClick={ this.handleGuestLogin }>
+                    guest login
+                  </button>
+                </div>
+              </div>
 
               <br />
+              </form>
           </div>
 
+
         </div>
-        <div className="login-form-container">
-          <form
-            onSubmit={ this.handleSubmit }
-            onKeyPress={this.handleEnter}
-            className="login-form-box"
-          >
 
-
-
-
-            <div className="sub-guest-buttons">
-              <input
-                className="submit-button"
-                type="submit"
-                value={ this.props.formType === 'login' ? 'log in' : 'create account' }
-                />
-              <button
-                className="guest-button"
-                onClick={ this.handleGuestLogin }>
-                Guest Login
-              </button>
-            </div>
-
-          </form>
-        </div>
       </div>
     );
   }
