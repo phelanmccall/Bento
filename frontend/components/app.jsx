@@ -9,14 +9,28 @@ import IndexProjectContainer from './projects/index_projects_container';
 import IndexTeamContainer from './team/index_teams_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
-const App = () => (
+class App extends React.Component {
+
+  componentDidMount () {
+    $(this.draglogo).draggable({
+      snap: '.Bento',
+      snapMode: "inner"
+    });
+  }
+
+  render () {
+
+    return (
   <div className="app">
     <div className="header-flex-container">
       <div className="logo-spacer">
 
         <div className="logo-container">
 
-          <Link to="/login"><img src="http://res.cloudinary.com/atomc/image/upload/v1500531260/Bento-Logo_fjv1os.png"></img></Link>
+          <Link to="/login"><img
+            ref={(el) => {
+              this.draglogo = el;
+            }} src="http://res.cloudinary.com/atomc/image/upload/v1500531260/Bento-Logo_fjv1os.png"></img></Link>
         </div>
       </div>
 
@@ -61,9 +75,14 @@ const App = () => (
       </switch>
     </div>
   </div>
-);
+)}
+};
 
 export default App;
 
 
 // <ProtectedRoute path="/api/teams/:teamId" component={IndexTeamContainer } />
+
+
+//
+//
