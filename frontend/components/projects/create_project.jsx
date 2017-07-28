@@ -49,14 +49,15 @@ class CreateProject extends React.Component {
           className="new-form"
           onSubmit={ this.handleSubmit }
         >
-          <h3>Create Project</h3>
-          Title: <input
+          <input
+            className="create-project-input"
+            placeholder="new project title"
             type="text"
             value={ this.state.title }
             onChange={ this.setTitle }
           />
-          <button>
-            Bento
+        <button className="create-project-button">
+            create project
           </button>
         </form>
       </section>

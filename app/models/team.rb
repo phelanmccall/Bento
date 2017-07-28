@@ -7,7 +7,8 @@ class Team < ApplicationRecord
 
   has_many :projects,
   foreign_key: :team_id,
-  class_name: :Project
+  class_name: :Project,
+  dependent: :destroy
 
   has_many :memberships,
 	foreign_key: :team_id,
