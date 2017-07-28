@@ -19,8 +19,11 @@ export const removeProject = project => ({
   project
 });
 
-export const getAllProjects = () => dispatch => {
-  return APIUtil.getAllProjects().then(projects => dispatch(receiveAllProjects(projects)));
+export const getAllProjects = (teamId) => dispatch => {
+  return APIUtil.getAllProjects(teamId).then(projects => {
+    console.log(projects);
+    dispatch(receiveAllProjects(projects));
+  })
 }
 
 export const getSingleProject = (id) => dispatch => {

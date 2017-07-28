@@ -27,11 +27,14 @@ class CreateTask extends React.Component {
 
     let emptyState = {};
     const newTask = this.state;
-    this.props.createTask(newTask).then(() => {
-      this.setState({ title: "", details: "" })
-    });
-    this.props.history.push(`/api/tasks`);
+    this.props.createTask(newTask);
 
+    this.setState({
+      title: "",
+      details: ""
+    });
+
+    // this.props.history.push(`/api/tasks`);
   }
 
   render () {

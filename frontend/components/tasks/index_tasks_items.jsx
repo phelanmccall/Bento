@@ -52,14 +52,7 @@ class TaskIndexItem extends React.Component {
         className={`${this.state.checked ? "task-item-true" : "task-item-false"}`}
         onClick={this.handleCheck}
         >
-        <div className="check-box-wrapper">
-          <input
-            className="check-box"
-            type="checkbox"
-            checked={this.state.checked}
-            onClick={this.handleCheck}
-            />
-        </div>
+
         <div className="task-title">{task.title}</div>
       </li>
     );
@@ -77,3 +70,12 @@ export default TaskIndexItem;
 
 // <Link to={`/api/tasks/${task.id}/edit`} className="edit-link">Edit</Link>
 // <button id={task.id} onClick={ this.handleDelete } className="delete">Delete</button>
+
+// <div className="check-box-wrapper">
+//   <input
+//     className="check-box"
+//     type="checkbox"
+//     checked={this.state.checked}
+//     onClick={this.handleCheck}
+//     />
+// </div>

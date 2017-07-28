@@ -1,14 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Route, Link } from 'react-router-dom';
-import { withRouter } from 'react-router';
+import { Route, Link, withRouter } from 'react-router-dom';
 import merge from 'lodash/merge';
 
 class CreateProject extends React.Component {
   constructor(props) {
     super(props);
 
-    console.log(this.props);
     this.state = {
       title: "",
       creator_id: this.props.currentUser.id,
@@ -16,26 +14,31 @@ class CreateProject extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.setTitle = this.setTitle.bind(this);
   }
 
-  componentWillReceiveProps () {
-    this.setState({team_id: this.props.currentTeam})
+  setTitle(e) {
+    e.preventDefault();
+    const title = e.target.value ? e.target.value : "";
+    this.setState({ title });
   }
 
-  update(property) {
-    return e => this.setState({[property] : e.target.value})
-  }
 
   handleSubmit(e) {
     e.preventDefault();
+    console.log("Team id: " + parseInt(this.props.match.params.teamId));
 
-    let emptyState = {};
-    const newProject = merge(emptyState, this.state);
-    console.log(this.state);
-    this.props.createProject(newProject).then(() => {
-      this.setState({title: ""})
-    });
-    // this.props.history.push(`/api/projects`);
+    console.log("Creator id: " + this.props.currentUser.id);
+
+    console.log("Title: " + this.state.title);
+
+    const newProject = {
+      team_id: parseInt(this.props.match.params.teamId),
+      creator_id: this.props.currentUser.id,
+      title: this.state.title
+    };
+
+    this.props.createProject(newProject);
 
   }
 
@@ -50,7 +53,7 @@ class CreateProject extends React.Component {
           Title: <input
             type="text"
             value={ this.state.title }
-            onChange={ this.update('title') }
+            onChange={ this.setTitle }
           />
           <button>
             Bento
@@ -61,6 +64,5 @@ class CreateProject extends React.Component {
   }
 
 }
-
 
 export default withRouter(CreateProject);

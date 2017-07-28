@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
-
-import { fetchAllTeams, deleteTeam, updateTeam } from '../../actions/team_actions';
+import { fetchAllTeams, deleteTeam, updateTeamj, clearTeams } from '../../actions/team_actions';
 import TeamIndex from './index_teams'
 
 const mapStateToProps = (state) => ({
@@ -10,8 +9,9 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchAllTeams: () => dispatch(fetchAllTeams()),
-  updateTeam: (team) => dispatch(updateTeam(team))
+  fetchAllTeams: (user_id) => dispatch(fetchAllTeams(user_id)),
+  updateTeam: (team) => dispatch(updateTeam(team)),
+  clearTeams: () => dispatch(clearTeams())
 });
 
 export default connect(

@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 
 import { createProject } from '../../actions/project_actions';
 import CreateProject from './create_project';
+import IndexProjectContainer from '../projects/index_projects_container';
 
 const mapStateToProps = ({ session, projects, teams }) => ({
   currentUser: session.currentUser,

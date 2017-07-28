@@ -6,6 +6,7 @@ import SplashContainer from './splash/splash_container';
 import CreateProjectContainer from './projects/create_project_container';
 import SessionFormContainer from './session_form_component/session_form_container';
 import IndexProjectContainer from './projects/index_projects_container';
+import IndexTeamContainer from './team/index_teams_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
@@ -54,7 +55,8 @@ const App = () => (
         />
       </div>
       <div className="protection">
-      <ProtectedRoute path="/" exact component={ IndexProjectContainer } />
+      <ProtectedRoute path="/" component={IndexTeamContainer } />
+      <ProtectedRoute exact path="/api/teams/:teamId" component={IndexProjectContainer} />
       </div>
       </switch>
     </div>
@@ -62,3 +64,6 @@ const App = () => (
 );
 
 export default App;
+
+
+// <ProtectedRoute path="/api/teams/:teamId" component={IndexTeamContainer } />

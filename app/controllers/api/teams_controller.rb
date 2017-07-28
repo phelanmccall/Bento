@@ -1,13 +1,25 @@
 class Api::TeamsController < ApplicationController
   def index
-    @memberships = Membership.where(user_id: current_user.id)
+    p "team controller user id " + team_params[:user_id]
+
+    @memberships = Membership.where(user_id: team_params[:user_id])
+
+    p "memberships of user + #{@memberships}"
 
     @teams = []
     @memberships.each do |membership|
       @teams.push(Team.find(membership.team_id))
     end
 
-    @projects = @teams.first.projects
+    p "teams of user + #{@teams}"
+
+    if !@teams.empty?
+      @projects = @teams.first.projects
+    else
+      @projects = []
+    end
+
+    p "projects of user + #{@projects}"
 
     render 'api/teams/projects'
   end

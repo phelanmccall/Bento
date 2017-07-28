@@ -5,6 +5,8 @@ export const RECEIVE_TEAM =
 'RECEIVE_TEAM';
 export const DELETE_TEAM =
 'DELETE_TEAM';
+export const CLEAR_TEAMS =
+'CLEAR_TEAMS';
 
 export const receiveTeams = (teams) => {
   return {
@@ -27,8 +29,14 @@ export const deleteTeam = (id) => {
   }
 }
 
-export const fetchAllTeams = () => (dispatch) => {
-  return APIUtil.fetchAllTeams().then(
+export const clearTeams = () => {
+  return {
+    type: CLEAR_TEAMS
+  }
+}
+
+export const fetchAllTeams = (user_id) => (dispatch) => {
+  return APIUtil.fetchAllTeams(user_id).then(
     resp => dispatch(receiveTeams(resp))
   )
 }

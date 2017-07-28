@@ -1,7 +1,14 @@
-export const getAllProjects = () => {
+export const getAllProjects = (teamId) => {
+  console.log("API Util team id: " + teamId);
   return $.ajax({
     method: 'GET',
-    url: '/api/projects'
+    url: '/api/projects',
+    dataType: 'JSON',
+    data: {
+      project: {
+        team_id: teamId
+      }
+    }
   });
 };
 

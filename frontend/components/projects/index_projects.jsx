@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 import CreateProject from './create_project';
 import ProjectIndexItem from './index_projects_items';
 import { getAllProjects, updateProject } from '../../actions/project_actions';
-import CreateProjectContainer from '../projects/create_project_container'
+import CreateProjectContainer from './create_project_container'
 import TeamFormContainer from '../team/team_form_container';
 
 class ProjectIndex extends React.Component {
@@ -15,10 +15,17 @@ class ProjectIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getAllProjects();
+    this.props.getAllProjects(parseInt(this.props.match.params.teamId));
   }
 
+  componentWillReceiveProps(nextProps) {
+    console.log("Next props: " + parseInt(nextProps.match.params.teamId));
+    console.log("This props: " + parseInt(this.props.match.params.teamId));
 
+    if (parseInt(nextProps.match.params.teamId) !== parseInt(this.props.match.params.teamId)) {
+      this.props.getAllProjects(parseInt(nextProps.match.params.teamId));
+    }
+  }
 
   render () {
     const { projects } = this.props;
@@ -29,7 +36,7 @@ class ProjectIndex extends React.Component {
         <section className="indices-section">
           <ul className="project-index">
             <div className="create-team-form-wrapper">
-              <TeamFormContainer />
+
             </div>
 
             { projects && projects.map(project =>
@@ -53,3 +60,6 @@ class ProjectIndex extends React.Component {
 }
 
 export default ProjectIndex;
+
+
+// <TeamFormContainer />

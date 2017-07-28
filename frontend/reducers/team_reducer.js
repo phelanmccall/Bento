@@ -1,5 +1,5 @@
 import merge from 'lodash/merge';
-import { RECEIVE_TEAMS, RECEIVE_TEAM, DELETE_TEAM } from '../actions/team_actions';
+import { RECEIVE_TEAMS, RECEIVE_TEAM, DELETE_TEAM, CLEAR_TEAMS } from '../actions/team_actions';
 
 const initialState = {
   entities: {},
@@ -12,17 +12,27 @@ const teamsReducer = (state = initialState, action) => {
 
   switch(action.type) {
     case RECEIVE_TEAMS:
-      newState = merge({}, state);
+      newState = {
+        entities: {},
+        currentTeam: undefined
+      };
 
-      action.teams.forEach((team) => {
-        newState.entities[team.id] = {
-          id: team.id,
-          owner_id: team.owner_id,
-          team_name: team.team_name
-        }
-      });
+      if (action.teams.length !== 0) {
+        action.teams.forEach((team) => {
+          newState.entities[team.id] = {
+            id: team.id,
+            owner_id: team.owner_id,
+            team_name: team.team_name
+          }
+        });
 
-      newState.currentTeam = action.teams[0].id;
+        newState.currentTeam = action.teams[0].id;
+        return newState;
+      }
+      else {
+        return newState;
+      }
+
 
       return newState;
     case RECEIVE_TEAM:
@@ -43,6 +53,8 @@ const teamsReducer = (state = initialState, action) => {
       delete newState.entities[action.id];
 
       return newState;
+    case CLEAR_TEAMS:
+      return {};
     default:
       return state;
   }

@@ -26,10 +26,20 @@ class TeamForm extends React.Component {
 
     e.preventDefault();
 
-    let emptyState = {};
     const newTeam = this.state;
 
-    this.props.createTeam(newTeam);
+    this.props.createTeam(newTeam).then(
+      () => {
+        this.props.createMembership({
+          team_id: this.props.currentTeam,
+          user_id: this.props.currentUser.id
+        });
+      }
+    );
+
+    this.setState({
+      team_name: ""
+    });
   }
 
   render() {
@@ -53,7 +63,6 @@ class TeamForm extends React.Component {
 
           </form>
         </div>
-        <TeamIndexContainer />
       </div>
     )
   }
