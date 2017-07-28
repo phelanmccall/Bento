@@ -72,70 +72,72 @@ class SessionForm extends React.Component {
   }
   render () {
     return (
-      <div className="container-container">
+      <div className="container-wrapper">
+        <div className="container-container">
 
-        <SplashContainer />
+          <SplashContainer />
 
-        <div className="non-splash-container">
-          <div className="error-box">
-            { this.renderErrors() }
-          </div>
+          <div className="non-splash-container">
+            <div className="error-box">
+              { this.renderErrors() }
+            </div>
 
-          <div className="login-form">
-            <form
-              onSubmit={ this.handleSubmit }
-              className="login-form-box"
-            >
-              <br />
-              <div className="label-input-username">
-                <label>
-                  <input
-                    className="session-password-field"
-                    placeholder="username"
-                    type="text"
-                    value={ this.state.username }
-                    onChange={ this.update('username') }
-                    className="login-user-input"
-                  />
-                </label>
-              </div>
-
-              <br />
-
-              <div className="label-input-password">
-                <label>
-                  <input
-                    className="session-password-field"
-                    placeholder="password"
-                    type="password"
-                    value={ this.state.password }
-                    onChange={ this.update('password') }
-                    className="login-password-input"
-                  />
-                </label>
-              </div>
-              <div className="login-form-container">
-                <div className="sub-guest-buttons">
-                  <input
-                    className="submit-button"
-                    type="submit"
-                    value={ this.props.formType === 'login' ? 'log in' : 'create account' }
+            <div className="login-form">
+              <form
+                onSubmit={ this.handleSubmit }
+                className="login-form-box"
+              >
+                <br />
+                <div className="label-input-username">
+                  <label>
+                    <input
+                      className="session-password-field"
+                      placeholder="username"
+                      type="text"
+                      value={ this.state.username }
+                      onChange={ this.update('username') }
+                      className="login-user-input"
                     />
-                  <button
-                    className="guest-button"
-                    onClick={ this.handleGuestLogin }>
-                      explore
-                  </button>
+                  </label>
                 </div>
-              </div>
 
-              <br />
-              </form>
+                <br />
+
+                <div className="label-input-password">
+                  <label>
+                    <input
+                      className="session-password-field"
+                      placeholder="password"
+                      type="password"
+                      value={ this.state.password }
+                      onChange={ this.update('password') }
+                      className="login-password-input"
+                    />
+                  </label>
+                </div>
+                <div className="login-form-container">
+                  <div className="sub-guest-buttons">
+                    <input
+                      className="submit-button"
+                      type="submit"
+                      value={ this.props.formType === 'login' ? 'log in' : 'create account' }
+                      />
+                    <button
+                      className="guest-button"
+                      onClick={ this.handleGuestLogin }>
+                        explore
+                    </button>
+                  </div>
+                </div>
+
+                <br />
+                </form>
+            </div>
+
+
           </div>
-
 
         </div>
-
       </div>
     );
   }

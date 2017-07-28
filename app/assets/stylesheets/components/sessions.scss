@@ -1,11 +1,26 @@
-.project-index-wrapper {
-
-}
+// .session-form-containers-wrapper {
+//   display: grid;
+//   grid-template-columns: repeat(101, 1fr);
+//   grid-gap: 10px;
+//   grid-auto-rows: minmax(100px, auto);
+//
+// }
+//
+// .session-form-containers {
+//     grid-column: 51;
+// }
 
 .session-form-containers {
   display: flex;
   justify-content: center;
   -webkit-animation: fadein 1s;
+}
+
+.container-wrapper {
+  display: grid;
+  grid-template-columns: repeat(101, 1fr);
+  grid-gap: 0px;
+  grid-template-rows: repeat(11, 1fr);
 }
 
 .container-container {
@@ -19,6 +34,8 @@ height: 490px;
 
 background: #FCCDCD;
 border: 15px solid rgba(255, 255, 255, 0.5);
+grid-column: 51;
+
 }
 
 .submit-button, .guest-button {
@@ -27,7 +44,6 @@ border: 15px solid rgba(255, 255, 255, 0.5);
 
   font-weight: 400;
   text-decoration: none;
-  align-items: center;
 
   color: black;
   margin: 0px 10px;
@@ -39,6 +55,10 @@ border: 15px solid rgba(255, 255, 255, 0.5);
 
   transition: all 0.25s ease;
   min-width: 90px;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
   width: 90px;
   max-width: 90px;
   max-height: 40px;
