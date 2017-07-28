@@ -46,27 +46,21 @@ class CreateTask extends React.Component {
           className="new-form"
           onSubmit={ this.handleSubmit }
         >
-          <h3>Create Task</h3>
           <div
           className="create-task-title-input-wrapper">
-            Title: <input
+            <input
+              className="create-task-input"
               type="text"
+              placeholder="+ create new task"
               value={ this.state.title }
               onChange={ this.update('title') }
             />
         </div>
         <br />
-          <div
-          className="create-task-details-input-wrapper">
-            Details: <input
-              type="text"
-              value={ this.state.details }
-              onChange={ this.update('details') }
-          />
-        </div>
 
-          <button>
-            Bento
+
+          <button className="create-task-button">
+            create task
           </button>
         </form>
       </section>
@@ -77,3 +71,12 @@ class CreateTask extends React.Component {
 
 
 export default withRouter(CreateTask);
+
+// <div
+  // className="create-task-details-input-wrapper">
+  //   Details: <input
+  //     type="text"
+  //     value={ this.state.details }
+  //     onChange={ this.update('details') }
+  // />
+// </div>

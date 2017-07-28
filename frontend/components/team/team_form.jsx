@@ -50,15 +50,16 @@ class TeamForm extends React.Component {
           <form className="team-form"
             onSubmit={ this.handleSubmit }>
 
-              Team name:<input
+              <input
                 className="team-name-input"
                 type="text"
+                placeholder="new team name"
                 value={ this.state.team_name }
                 onChange={this.setTeamName}
               />
             <br />
             <button>
-              Submit
+              create team
             </button>
 
           </form>

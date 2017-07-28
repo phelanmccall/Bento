@@ -33,7 +33,7 @@ componentWillReceiveProps(nextProps) {
 
         <ul>
         {teams && Object.values(teams).map((team, idx) => (
-          <li key={`team-${idx}`}>
+          <li className="team-index-li" key={`team-${idx}`}>
             <Link to={`/api/teams/${team.id}`}>{team.team_name}</Link>
           </li>
           )

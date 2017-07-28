@@ -90,13 +90,9 @@
 .create-task-wrapper {
   .create-container {
     .new-form, input {
-      margin-top: 20px;
+      margin-top: 10px;
       padding: 5px;
       background-color: rgba(255, 255, 255, 0.20);
-    }
-
-    h3 {
-      font-size: 16px;
     }
 
     input {
@@ -109,6 +105,31 @@
       // border: solid 2px white;
     }
   }
+}
+
+.create-task-input{
+  text-align: center;
+
+}
+
+.create-task-button {
+  display: none;
+  align-self: center;
+  margin-top: px;
+  padding: 7px;
+  font-weight: 400;
+  text-decoration: none;
+  align-items: center;
+  color: black;
+  background: rgba(255, 255, 255, 0.75 );
+  border-radius: 5px;
+  transition: all 0.25s ease;
+}
+
+.create-task-button:hover {
+  display: none;
+  box-shadow: 2px 1px 3px rgba(249, 157, 157, 0.2);
+  -webkit-animation: wiggle 0.1s ease-in-out 0.1s alternate 3;
 }
 
 .project-title-live-input {
@@ -127,6 +148,7 @@
 }
 
 .project-title-live-input:hover {
+  text-decoration: underline;
   background-color: rgba(255, 255, 255, 1.0);
   word-wrap: break-word;
   overflow-x: scroll;
@@ -155,6 +177,7 @@ input[type=checkbox] {
   display: none;
   visibility: hidden;
   margin: auto;
+  z-index: -9001;
 }
 
 .task-title {
@@ -212,6 +235,8 @@ input[type=checkbox] {
 
 .check-box-wrapper {
   display: none;
+  visibility: hidden;
+  z-index: -9001;
 //   visibility: hidden;
 //   flex-direction: row;
 //   display: flex;
@@ -227,12 +252,16 @@ input[type=checkbox] {
 //
 .check-box-wrapper:hover {
   display: none;
+  visibility: hidden;
+  z-index: -9001;
 //   visibility: hidden;
 // 	background: #EEE;
 }
 //
 .check-box:hover {
   display: none;
+  visibility: hidden;
+  z-index: -9001;
 //   cursor: pointer;
 //   border: solid 6px rgba(252, 205, 205, 0.5)
 //

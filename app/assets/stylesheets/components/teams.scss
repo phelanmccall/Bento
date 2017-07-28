@@ -1,6 +1,5 @@
 .team-index-initial-wrapper {
   background-color: #fee9da;
-  display: none;
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -9,7 +8,8 @@
   justify-content: flex-start;
   align-content: flex-start;
   box-shadow: 0 0 55px 20px #fee9da;
-  padding: 0px 20px;
+  padding: 0px 40px;
+  max-width: 240px;
 }
 
 .in-team-team-form-wrapper {
@@ -74,17 +74,39 @@
 }
 
 .team-index-initial-wrapper li {
+  font-size: 14px;
   padding: 5px 0;
-  margin: 5px 0;
+  margin: 16px 0;
   word-wrap: break-word;
   overflow-x: scroll;
 }
 
 .team-index-initial-wrapper li:hover {
-  letter-spacing: .175em;
-  transition: all 0.27s ease;
+  margin-bottom: -1px;
+  font-size: 15px;
+  letter-spacing: .115em;
+  // transition: all 0.27s ease;
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.35);
   word-wrap: break-word;
   overflow-x: scroll;
+}
+
+.team-index-li Link {
+  word-wrap: break-word;
+  overflow-x: scroll;
+}
+
+.team-name-input {
+  text-align: center;
+  text-decoration: underline;
+  // color: rgba(279, 217, 217, 0.9);
+  background-color: rgba(253, 253, 253, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0);
+  box-sizing: border-box;
+
+}
+
+.team-name-input:hover, .team-name-input:focus, .team-name-input:active {
+  box-shadow: 2px 1px 3px rgba(279, 217, 217, 0.7);
 }
