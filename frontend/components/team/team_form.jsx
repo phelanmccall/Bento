@@ -43,7 +43,6 @@ class TeamForm extends React.Component {
   }
 
   render() {
-    // console.error(this.props);
     return (
       <div className="create-team-wrapper">
         <div className="team-form-wrapper">

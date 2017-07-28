@@ -1,5 +1,4 @@
 export const fetchAllUsers = (user_id) => {
-  console.log("User api util user id: " + user_id);
   return $.ajax({
     method: 'GET',
     url: '/api/users',
@@ -7,8 +6,7 @@ export const fetchAllUsers = (user_id) => {
   })
 }
 
-export const fetchUser = (id) =>
-{
+export const fetchUser = (id) => {
   return $.ajax({
     method: 'GET',
     url: `/api/users/${id}`
@@ -23,8 +21,7 @@ export const createUser = (user) => {
   })
 }
 
-export const updateUser = (user) =>
-{
+export const updateUser = (user) => {
   return $.ajax({
     method: 'PATCH',
     url: `/api/users/${user.id}`,

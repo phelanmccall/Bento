@@ -1,66 +1,97 @@
 # Bento
 
-[Heroku link][heroku]
+  [Bento][live-link] is an organization and task management tool designed for creatives and small-to-medium structured companies, inspired by [Asana][Asana] & [Trello][Trello]. Bento uses React/Redux, a PostGreSQL database, and Ruby on Rails, living as a full-stack, single-page web application.
 
-[Trello link][trello]
+## Features
 
-[heroku]: http://bento-.herokuapp.com
-[trello]: https://trello.com/b/UGFK5ng3/bento-board
+  * User accounts with secure authentication through both the RoR backend and the R/R frontend
+  * Users can belong to organizational structures called teams which have their own separate dashboards
+  * Each team has a selection of project panels that can be used in a variety of different ways to organize tasks and management of team accountability
+  * Team members can obfuscate completed tasks while keeping them easily accessible in their project panels
+  * As tasks and projects are completed, new teams can be formed to create new sets of projects
 
-## Minimum Viable Product
+### Rendering
 
-Bento is a web application inspired by Asana built using Ruby on Rails
-and React/Redux.  By the end of Week 9, this app will, at a minimum, satisfy the
-following criteria with smooth, bug-free navigation, adequate seed data and
-sufficient CSS styling:
+  Teams, Projects, and Tasks are organized into separate React components. Each individual list component can be separately arranged within the base skeleton with a great deal of emphasis on future-proofing through a modular DRY layout.
 
-- [ ] Hosting on Heroku
-- [ ] New account creation, login, and guest/demo login
-- [ ] Projects
-- [ ] Tasks
-- [ ] Teams
-- [ ] User Profiles
-- [ ] Will have a production README
+  ![Image](docs/images/Bento-Main-Project-Task-View)
 
-## Design Docs
-* [View Wireframes][wireframes]
-* [React Components][components]
-* [API endpoints][api-endpoints]
-* [DB schema][schema]
-* [Sample State][sample-state]
+### Input
 
-[wireframes]: docs/wireframes
-[components]: docs/component-hierarchy.md
-[sample-state]: docs/sample-state.md
-[api-endpoints]: docs/api-endpoints.md
-[schema]: docs/schema.md
+  Bento has consistent user input fields throughout the entirety of its dashboard view. Project titles are live input fields that can be changed on the fly, and directly match the input fields for Creating new Projects and Teams. Task creation is slotted at the bottom of Project panels where it is unobtrusive and within easy reach.
 
-## Implementation Timeline
+  ![Image](docs/images/bento_project_title_inputs)
 
-### Phase 1: Backend setup and Front End User Authentication (2 days)
+### Redux Reducer, Api Request, Thunk Action Creators
 
-**Objective:** Functioning rails project with front-end Authentication
+  The below code shows a snapshot of the `Switch` used in the Bento's `ProjectReducer` for obtaining data objects from the Rails backend. Bento makes Api Requests utilizing Thunk Action Creators to fire off AJAX calls for payloads. Promises are returned back up the chain, passing a response to an Action Creator, which is then passed as a payload to be destructured by the reducer and create a new State based on a particular `Case`.
 
-### Phase 2: Projects (2 days)
 
-**Objective:** Projects belong to Teams that can be created, viewed, edited and destroyed through the API.
+```js
+const ProjectReducer = (state = startState, action) => {
+  Object.freeze(state);
 
-### Phase 3: Tasks (2 day)
+  switch (action.type) {
+    case RECEIVE_PROJECT:
+      action.project.tasks = {};
+      let newProject = {[action.project.id]: action.project};
+      return merge({}, state, newProject);
+    case RECEIVE_ALL_PROJECTS:
+      return action.projects;
+    case CLEAR_STORE:
+      return startState;
+    case RECEIVE_TASK:
+      let taskProject = state[action.task.project_id];
 
-**Objective:** Notes can be tagged with multiple tags, and tags are searchable.
+      taskProject.tasks[action.task.id] = action.task;
+      return merge({}, state, {[action.task.project_id]: taskProject})
+    default:
+      return state;
+  }
+};
+```
 
-### Phase 4: Teams Model, API, and components (2 days)
+### Filtering projects by teams
 
-**Objective:** Teams can be created, joined, and left through
-the API.
+  Bento's schema is structured with a join table for `Memberships` through ActiveRecord models.
 
-### Phase 5: User Profiles (2 days)
+  * a user `has_many :teams`
+  * a team `has_many :users`
+  * by association `through: :memberships`
 
-**Objective:** User Profiles exist for each user, they can be viewed and edited.
+  This allows for easy access in the Dashboard view.
 
-### Bonus Features (TBD)
-- [ ] Night Skin
-- [ ] Mouseover preview description
-- [ ] Drag and drop?!?!
-- [ ] Calendar
-- [ ] Comments on tasks
+```ruby
+class Api::MembershipsController < ApplicationController
+  def create
+    @membership = Membership.new(user_id: current_user.id, team_id: params[:membership][:team_id])
+
+    ...
+```
+
+  The frontend Dashboard page rendered simply as `/` root contains the entire view broken down into modular components. Teams render based on Memberships. Only the current user's teams will render, and only those teams' projects will be fetched.
+
+  Multiple Users can be Members of the same team, allowing different offices or team members to share the same organizational boards remotely.
+
+### Delivery
+
+  Bento was conceptualized and implemented as a Minimum Viable Product over a two-week period. The [Project Proposal][dev-readme] outlines the particular MVP features aimed for, the timeline for completing each portion of the overall application, and some additional documents and early design wireframes.
+
+### Future Roadmap
+
+  Bento has several additional planned features with productivity and thorough UI/UX mechanisms in mind that will be developed over time as a passion project outside this initial exercise. The design is for a minimalist, pleasant organizational experience that takes as little time as possible to interact with, with maximum effect of data absorption.
+
+#### Particular planned features
+
+  * wrapping with [Electron][Electron] to make a simple cross-platform desktop application from the skeleton of the web application
+  * a night skin, partly implemented but not yet launched, allowing a quick native dark profile to load for low-light working conditions
+  * native drag and drop for more dynamic ordering of Teams, Projects, and Tasks
+  * Mouseover details view for Tasks
+  * email invite share to allow users to control their own team memberships
+  * Search feature based on portions of words for lightning-fast parsing of large team projects
+
+[Project Proposal]: docs/README.md
+[live-link]: www.bento-.herokuapp.com
+[Asana] : www.asana.com
+[Trello] : www.trello.com
+[Electron] : electron.atom.io

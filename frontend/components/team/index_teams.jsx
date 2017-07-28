@@ -12,7 +12,6 @@ class TeamIndex extends React.Component {
 
 componentDidMount () {
   this.props.fetchAllTeams(this.props.currentUser.id);
-  // console.log("Comp did mount user id: " + this.props.currentUser.id);
 }
 
 componentWillReceiveProps(nextProps) {
@@ -23,7 +22,7 @@ componentWillReceiveProps(nextProps) {
 
   render () {
     const { teams } = this.props;
-    // console.error(teams);
+
     return (
       <div className="team-index-initial-wrapper">
 

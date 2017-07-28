@@ -19,8 +19,6 @@ class ProjectIndex extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log("Next props: " + parseInt(nextProps.match.params.teamId));
-    console.log("This props: " + parseInt(this.props.match.params.teamId));
 
     if (parseInt(nextProps.match.params.teamId) !== parseInt(this.props.match.params.teamId)) {
       this.props.getAllProjects(parseInt(nextProps.match.params.teamId));
@@ -60,6 +58,3 @@ class ProjectIndex extends React.Component {
 }
 
 export default ProjectIndex;
-
-
-// <TeamFormContainer />

@@ -6,7 +6,7 @@ import { SelectorAllTasks } from '../../reducers/selectors'
 
 
 const mapStateToProps = ({ tasks }, { match }) => ({
-  
+
 });
 
 const mapDispatchToProps = (dispatch) => ({

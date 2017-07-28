@@ -20,7 +20,6 @@ const ProjectReducer = (state = startState, action) => {
     case RECEIVE_PROJECT:
       action.project.tasks = {};
       let newProject = {[action.project.id]: action.project};
-
       return merge({}, state, newProject);
     case RECEIVE_ALL_PROJECTS:
       return action.projects;

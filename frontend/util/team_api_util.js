@@ -1,5 +1,4 @@
 export const fetchAllTeams = (user_id) => {
-  console.log("Team api util user id: " + user_id);
   return $.ajax({
     method: 'GET',
     url: '/api/teams',

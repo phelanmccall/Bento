@@ -20,22 +20,58 @@
   display: grid;
   grid-template-columns: repeat(101, 1fr);
   grid-gap: 0px;
-  grid-template-rows: repeat(11, 1fr);
+  grid-template-rows: repeat(25, 1fr);
 }
 
 .container-container {
-  /* Pink Base Box */
-margin-top: 120px;
-display: flex;
-flex-direction: column;
-justify-content: center;
-min-width: 700px;
-height: 490px;
+    /* Pink Base Box */
+  // margin-top: 120px;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+  // min-width: 700px;
+  // height: 490px;
+  min-width: 840px;
+  height: 588px;
 
-background: #FCCDCD;
-border: 15px solid rgba(255, 255, 255, 0.5);
-grid-column: 51;
+  background: #FCCDCD;
+  box-sizing: border-box;
+  border: 15px solid rgba(255, 255, 255, 0.5);
+  grid-column: 1 / 101;
+  grid-row: 6 / 25;
+  z-index: 1;
+}
 
+  .white-box {
+  /* White Box */
+  // width: 450px;
+  // height: 340.15px;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 15px solid rgba(255, 255, 255, 0.5);
+  grid-column: 43 / 101;
+  grid-row: 6 / 14 ;
+  z-index: 40;
+}
+
+.green-box {
+  /* Green Box */
+  box-sizing: border-box;
+  background: #EFFFAE;
+  border: 15px solid rgba(255, 255, 255, 0.5);
+  grid-column: 65 / 101;
+  grid-row: 14 / 25;
+  z-index: 40;
+}
+
+.yellow-box {
+  /* Yellow Box */
+  background: #FFE289;
+  box-sizing: border-box;
+  border: 15px solid rgba(255, 255, 255, 0.5);
+  grid-column: 32 / 65;
+  grid-row: 14 / 25;
+  z-index: 40;
 }
 
 .submit-button, .guest-button {
@@ -223,6 +259,19 @@ button:focus {
   justify-content: center;
   align-items: center;
   align-content: center;
+}
+
+.login-signup-flex-container, .non-splash-container, .container-container {
+  z-index: 9050;
+  background: transparentize(#FCCDCD, 0.01);
+}
+
+.container-container {
+  padding-top: 120px;
+}
+
+.login-signup-flex-container {
+  padding-bottom: 20px;
 }
 
 @keyframes fadein {

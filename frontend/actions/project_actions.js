@@ -21,7 +21,6 @@ export const removeProject = project => ({
 
 export const getAllProjects = (teamId) => dispatch => {
   return APIUtil.getAllProjects(teamId).then(projects => {
-    console.log(projects);
     dispatch(receiveAllProjects(projects));
   })
 }

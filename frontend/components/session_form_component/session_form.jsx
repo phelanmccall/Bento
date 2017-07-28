@@ -73,8 +73,11 @@ class SessionForm extends React.Component {
   render () {
     return (
       <div className="container-wrapper">
-        <div className="container-container">
 
+        <div className="white-box"></div>
+        <div className="green-box">.</div>
+        <div className="yellow-box">.</div>
+        <div className="container-container">
           <SplashContainer />
 
           <div className="non-splash-container">
@@ -125,7 +128,7 @@ class SessionForm extends React.Component {
                     <button
                       className="guest-button"
                       onClick={ this.handleGuestLogin }>
-                        explore
+                        guest
                     </button>
                   </div>
                 </div>

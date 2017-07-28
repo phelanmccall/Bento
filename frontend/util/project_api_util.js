@@ -1,5 +1,4 @@
 export const getAllProjects = (teamId) => {
-  console.log("API Util team id: " + teamId);
   return $.ajax({
     method: 'GET',
     url: '/api/projects',
@@ -28,7 +27,6 @@ export const createProject = (project) => {
 };
 
 export const updateProject = (project) => {
-  // console.log("Hi, i'm the project in the api util", project);
   return $.ajax({
     method: 'PATCH',
     url: `/api/projects/${project.id}`,
