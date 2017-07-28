@@ -1,6 +1,6 @@
 .project-index-wrapper {
   // box-flex: 1;
-  display: -webkit-flex;
+  display: flex;
   flex: 1;
   // outline: 0;
 
@@ -25,7 +25,7 @@
 }
 
 .project-index {
-  margin-left: 250px;
+  margin-left: 260px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -53,21 +53,35 @@
     width: 270;
   }
 
-  a.project-title {
-    background-color: rgba(255, 255, 255, 0.35);
-    padding: 10px;
-
-  }
-
-  a.project-title:hover {
-    border-bottom: solid 1px black;
-    padding-bottom: 5px;
-  }
-
   a.task-title:hover {
     border-bottom: solid 1px black;
-    padding-bottom: 5px;
   }
+}
+
+.project-title-live-input {
+  // display: flex;
+  // flex: 1;
+  font-weight: 400;
+  // font-family: 'arial';
+  font-size: 20px;
+  background-color: rgba(255, 255, 255, 0.80);
+  margin-bottom: 07px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+  // border: solid 6px rgba(255, 255, 255, 0.40);
+  text-align: center;
+
+}
+
+.project-title-live-input:hover {
+  // text-decoration: underline;
+  background-color: rgba(255, 255, 255, 1.0);
+  // word-wrap: break-word;
+  // overflow-x: scroll;
+  border: dashed 1px black;
+
+  margin-bottom: 5px;
 }
 
 .routes-container {
@@ -132,27 +146,7 @@
   -webkit-animation: wiggle 0.1s ease-in-out 0.1s alternate 3;
 }
 
-.project-title-live-input {
-  // display: flex;
-  // flex: 1;
-  font-weight: 400;
-  font-size: 20px;
-  background-color: rgba(255, 255, 255, 0.80);
-  margin-bottom: 7px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  width: 100%;
-  border: solid 6px rgba(255, 255, 255, 0.40);
-  text-align: center;
 
-}
-
-.project-title-live-input:hover {
-  text-decoration: underline;
-  background-color: rgba(255, 255, 255, 1.0);
-  word-wrap: break-word;
-  overflow-x: scroll;
-}
 
 .task-list-item {
   display: flex;
@@ -277,17 +271,32 @@ input[type=checkbox] {
 
 
 .new-form {
-  margin: 20px 0px;
+  margin: 0px 0px;
 
 }
 
 .create-project-input {
   text-align: center;
-  margin: 10px 0px;
+  margin: 0px 0px;
+}
+
+.create-project-input {
+  font-weight: 200;
+  font-size: 18px;
+  background-color: rgba(255, 255, 255, 0.50);
+  margin-bottom: 8px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+  text-align: center;
+
 }
 
 .create-project-input:hover, .create-project-input:focus, .create-project-input:active {
   box-shadow: 2px 1px 3px rgba(279, 217, 217, 0.7);
+  background-color: rgba(255, 255, 255, 1.0);
+  border: dashed 1px black;
+  margin-bottom: 5px;
 }
 
 .create-project-button {

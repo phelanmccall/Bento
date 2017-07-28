@@ -91,7 +91,7 @@ class SessionForm extends React.Component {
                 <label>
                   <input
                     className="session-password-field"
-                    placeholder="enter username"
+                    placeholder="username"
                     type="text"
                     value={ this.state.username }
                     onChange={ this.update('username') }
@@ -106,7 +106,7 @@ class SessionForm extends React.Component {
                 <label>
                   <input
                     className="session-password-field"
-                    placeholder="enter password"
+                    placeholder="password"
                     type="password"
                     value={ this.state.password }
                     onChange={ this.update('password') }
@@ -124,7 +124,7 @@ class SessionForm extends React.Component {
                   <button
                     className="guest-button"
                     onClick={ this.handleGuestLogin }>
-                    guest login
+                      explore
                   </button>
                 </div>
               </div>
