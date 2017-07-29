@@ -1,6 +1,6 @@
 # Bento
 
-  [Bento][live-link] is an organization and task management tool designed for creatives and small-to-medium structured companies, inspired by [Asana][Asana] & [Trello][Trello]. Bento uses React/Redux, a PostGreSQL database, and Ruby on Rails, living as a full-stack, single-page web application.
+  [Bento][live-link] is an organization and task management tool designed for creatives and small-to-medium structured companies, inspired by [Asana][asana] & [Trello][trello]. Bento uses React/Redux, a PostGreSQL database, and Ruby on Rails, living as a full-stack, single-page web application.
 
 ## Features
 
@@ -14,13 +14,13 @@
 
   Teams, Projects, and Tasks are organized into separate React components. Each individual list component can be separately arranged within the base skeleton with a great deal of emphasis on future-proofing through a modular DRY layout.
 
-  ![Image](docs/images/Bento-Main-Project-Task-View)
+  ![Image](./docs/Bento-Main-Project-Task-View.png)
 
 ### Input
 
   Bento has consistent user input fields throughout the entirety of its dashboard view. Project titles are live input fields that can be changed on the fly, and directly match the input fields for Creating new Projects and Teams. Task creation is slotted at the bottom of Project panels where it is unobtrusive and within easy reach.
 
-  ![Image](docs/images/bento_project_title_inputs)
+  ![Image](./docs/bento_project_title_inputs.png)
 
 ### Redux Reducer, Api Request, Thunk Action Creators
 
@@ -83,15 +83,15 @@ class Api::MembershipsController < ApplicationController
 
 #### Particular planned features
 
-  * wrapping with [Electron][Electron] to make a simple cross-platform desktop application from the skeleton of the web application
+  * wrapping with [Electron][electron] to make a simple cross-platform desktop application from the skeleton of the web application
   * a night skin, partly implemented but not yet launched, allowing a quick native dark profile to load for low-light working conditions
   * native drag and drop for more dynamic ordering of Teams, Projects, and Tasks
   * Mouseover details view for Tasks
   * email invite share to allow users to control their own team memberships
   * Search feature based on portions of words for lightning-fast parsing of large team projects
 
-[Project Proposal]: docs/README.md
-[live-link]: www.bento-.herokuapp.com
-[Asana] : www.asana.com
-[Trello] : www.trello.com
-[Electron] : electron.atom.io
+[Project Proposal]: (docs/README.md)
+[live-link]: (http://bento-.herokuapp.com)
+[asana]: (http://www.asana.com)
+[trello]: http://www.trello.com
+[electron]: htpp://electron.atom.io
