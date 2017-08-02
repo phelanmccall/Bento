@@ -14,7 +14,7 @@ class App extends React.Component {
   componentDidMount () {
     $(this.draglogo).draggable({
       snap: '.Bento',
-      snapMode: "inner"
+      snapMode: "outer"
     });
   }
 
