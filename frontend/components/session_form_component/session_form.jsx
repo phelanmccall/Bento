@@ -75,8 +75,9 @@ class SessionForm extends React.Component {
       <div className="container-wrapper">
 
         <div className="white-box"></div>
-        <div className="green-box">.</div>
-        <div className="yellow-box">.</div>
+        <div className="green-box"></div>
+        <div className="yellow-box"></div>
+        <div className="pink-box"></div>
         <div className="container-container">
           <SplashContainer />
 
