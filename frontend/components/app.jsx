@@ -70,9 +70,9 @@ class App extends React.Component {
           </div>
         </div>
 
-        <div className="protection">
-          <ProtectedRoute path="/" component={IndexTeamContainer } />
-          <ProtectedRoute exact path="/api/teams/:teamId" component={IndexProjectContainer} />
+        <div className="protected-routes-container">
+          <ProtectedRoute path="/" component={ IndexTeamContainer } />
+          <ProtectedRoute exact path="/api/teams/:teamId" component={ IndexProjectContainer } />
         </div>
       </switch>
     </div>

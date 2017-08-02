@@ -83,3 +83,7 @@ h1 {
     background-color: $selector;
   }
 }
+
+input:focus::-webkit-input-placeholder {
+   color:transparent;
+ }

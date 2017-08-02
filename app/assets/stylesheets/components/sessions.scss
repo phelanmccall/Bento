@@ -47,8 +47,8 @@
   // width: 450px;
   // height: 340.15px;
   box-sizing: border-box;
-  background-color: rgba(255, 255, 255, 0.5);
-  border: 15px solid rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 1.0);
+  border: 15px solid rgba(235, 235, 235, 0.2);
   grid-column: 43 / 101;
   grid-row: 6 / 14 ;
   z-index: 40;
@@ -110,7 +110,7 @@
 
 .submit-button:hover, .guest-button:hover {
   box-shadow: 2px 2px 4px darken(rgba(252, 205, 205, 0.2), 10%);
-
+  cursor: pointer;
   -webkit-animation: wiggle 0.1s ease-in-out 0.1s alternate 1;
 }
 
@@ -125,8 +125,11 @@
   align-content: space-around;
 }
 
-.login-user-input:hover, .login-user-input:active, .login-user-input:focus, .login-password-input:hover, .login-password-input:active, .login-password-input:focus {
+.login-user-input:hover, .login-user-input:active,
+.login-user-input:focus, .login-password-input:hover,
+.login-password-input:active, .login-password-input:focus {
   box-shadow: 2px 2px 4px darken(rgba(252, 205, 205, 0.5), 10%);
+  cursor: pointer;
 }
 
 .login-user-input::selection, .login-password-input::selection {
@@ -216,6 +219,7 @@ button:focus {
   padding-bottom: 8px;
   border-style: dashed;
   font-weight: 400;
+  cursor: point;
 }
 
 .special-space {
@@ -263,7 +267,7 @@ button:focus {
 
 .login-signup-flex-container, .non-splash-container, .container-container {
   z-index: 9050;
-  background: transparentize(#FCCDCD, 0.01);
+  background: transparentize(#FCCDCD, 1);
 }
 
 .container-container {
