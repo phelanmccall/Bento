@@ -90,7 +90,7 @@ class Api::MembershipsController < ApplicationController
   * email invite share to allow users to control their own team memberships
   * Search feature based on portions of words for lightning-fast parsing of large team projects
 
-[Project Proposal]: docs/README.md
+[dev-readme]: ./docs/README.md
 [live-link]: http://bento-.herokuapp.com
 [asana]: http://www.asana.com
 [trello]: http://www.trello.com
