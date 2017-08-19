@@ -20,29 +20,50 @@ componentWillReceiveProps(nextProps) {
   }
 }
 
+
+
   render () {
     const { teams } = this.props;
 
+
+    function buttonHideTeam(obj) {
+      console.error(obj);
+      console.log(document);
+      var hideTeam = document.getElementById('root');
+      console.log(hideTeam);
+      if (hideTeam.style.display === 'none') {
+        hideTeam.style.display = 'flex';
+      } else {
+        hideTeam.style.display = 'none';
+      }
+    }
+
+    console.log(document.getElementById('workz'))
+
     return (
-      <div className="team-index-initial-wrapper">
+      <div className="HideWrapper">
+        <button
+          className="side-bar-button" onClick={buttonHideTeam(this)}>Buttonnnnnn</button>
+        <div id="workz" className="team-index-initial-wrapper">
 
-        <button className="side-bar-button">{`🍱`}</button>
+          // <button className="side-barr-button">{`🍱`}</button>
 
-        <div className="in-team-team-form-wrapper">
-          <TeamFormContainer />
+          <div className="in-team-team-form-wrapper">
+            <TeamFormContainer />
+          </div>
+
+          <ul>
+          {teams && Object.values(teams).map((team, idx) => (
+            <li className="team-index" key={`team-${idx}`}>
+              <NavLink
+                className="team-index"
+                activeClassName="reactive" to={`/api/teams/${team.id}`}>{team.team_name}</NavLink>
+            </li>
+            )
+          )}
+          </ul>
+
         </div>
-
-        <ul>
-        {teams && Object.values(teams).map((team, idx) => (
-          <li className="team-index" key={`team-${idx}`}>
-            <NavLink
-              className="team-index"
-              activeClassName="reactive" to={`/api/teams/${team.id}`}>{team.team_name}</NavLink>
-          </li>
-          )
-        )}
-        </ul>
-
       </div>
     )
   }

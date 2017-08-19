@@ -101,6 +101,7 @@ class SessionForm extends React.Component {
                       value={ this.state.username }
                       onChange={ this.update('username') }
                       className="login-user-input"
+                      autoFocus
                     />
                   </label>
                 </div>
