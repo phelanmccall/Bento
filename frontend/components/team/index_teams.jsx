@@ -26,17 +26,17 @@ componentWillReceiveProps(nextProps) {
     const { teams } = this.props;
 
 
-    // function buttonHideTeam(obj) {
-    //   console.error(obj);
-    //   console.log(document);
-    //   var hideTeam = document.getElementById('root');
-    //   console.log(hideTeam);
-    //   if (hideTeam.style.display === 'none') {
-    //     hideTeam.style.display = 'flex';
-    //   } else {
-    //     hideTeam.style.display = 'none';
-    //   }
-    // }
+    function buttonHideTeam(obj) {
+      console.error(obj);
+      console.log(document);
+      var hideTeam = document.getElementById('root');
+      console.log(hideTeam);
+      if (hideTeam.style.display === 'none') {
+        hideTeam.style.display = 'flex';
+      } else {
+        hideTeam.style.display = 'none';
+      }
+    }
 
     console.log(document.getElementById('workz'))
 
@@ -50,11 +50,11 @@ componentWillReceiveProps(nextProps) {
             <TeamFormContainer />
           </div>
 
-          <ul>
+          <ul className="team-index-ul">
           {teams && Object.values(teams).map((team, idx) => (
-            <li className="team-index" key={`team-${idx}`}>
+            <li className="team-index-list-item" key={`team-${idx}`} to={`/api/teams/${team.id}`}>
               <NavLink
-                className="team-index"
+                className="team-index-link"
                 activeClassName="reactive" to={`/api/teams/${team.id}`}>{team.team_name}</NavLink>
             </li>
             )
