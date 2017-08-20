@@ -26,27 +26,25 @@ componentWillReceiveProps(nextProps) {
     const { teams } = this.props;
 
 
-    function buttonHideTeam(obj) {
-      console.error(obj);
-      console.log(document);
-      var hideTeam = document.getElementById('root');
-      console.log(hideTeam);
-      if (hideTeam.style.display === 'none') {
-        hideTeam.style.display = 'flex';
-      } else {
-        hideTeam.style.display = 'none';
-      }
-    }
+    // function buttonHideTeam(obj) {
+    //   console.error(obj);
+    //   console.log(document);
+    //   var hideTeam = document.getElementById('root');
+    //   console.log(hideTeam);
+    //   if (hideTeam.style.display === 'none') {
+    //     hideTeam.style.display = 'flex';
+    //   } else {
+    //     hideTeam.style.display = 'none';
+    //   }
+    // }
 
     console.log(document.getElementById('workz'))
 
     return (
       <div className="HideWrapper">
-        <button
-          className="side-bar-button" onClick={buttonHideTeam(this)}>Buttonnnnnn</button>
         <div id="workz" className="team-index-initial-wrapper">
 
-          // <button className="side-barr-button">{`🍱`}</button>
+
 
           <div className="in-team-team-form-wrapper">
             <TeamFormContainer />
@@ -77,7 +75,11 @@ export default withRouter(TeamIndex);
 
 
 
+// <button
 
+//   className="side-bar-button" onClick={buttonHideTeam(this)}>Buttonnnnnn</button>
+
+// <button className="side-barr-button">{`🍱`}</button>
 
 
 //   displayTeams() {

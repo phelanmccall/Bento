@@ -25,12 +25,12 @@ document.addEventListener('DOMContentLoaded', () => {
   window.store = store;
   window.getState = store.getState;
 
-  function buttonHideTeam() {
-    const hideTeam = document.getElementByClass('team-index-initial-wrapper');
-    if (hideTeam.style.display === 'none') {
-      hideTeam.style.display = 'flex';
-    } else {
-      hideTeam.style.display = 'none';
-    }
-  }
+  // function buttonHideTeam() {
+  //   const hideTeam = document.getElementByClass('team-index-initial-wrapper');
+  //   if (hideTeam.style.display === 'none') {
+  //     hideTeam.style.display = 'flex';
+  //   } else {
+  //     hideTeam.style.display = 'none';
+  //   }
+  // }
 });
