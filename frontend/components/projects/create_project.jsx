@@ -46,7 +46,7 @@ class CreateProject extends React.Component {
         >
           <input
             className="create-project-input"
-            placeholder="new project title"
+            placeholder="+ create new project"
             type="text"
             value={ this.state.title }
             onChange={ this.setTitle }

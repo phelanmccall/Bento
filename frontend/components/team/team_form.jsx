@@ -52,7 +52,7 @@ class TeamForm extends React.Component {
               <input
                 className="team-name-input"
                 type="text"
-                placeholder="new team name"
+                placeholder="+ create new team"
                 value={ this.state.team_name }
                 onChange={this.setTeamName}
               />

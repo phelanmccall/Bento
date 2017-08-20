@@ -86,6 +86,26 @@
   grid-column: 32 / 66;
   grid-row: 14 / 25;
   z-index: 40;
+  display: flex;
+  justify-content: center;
+}
+
+.yellow-box-text-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 18pt;
+
+}
+
+.green-box-text-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 18pt;
+
 }
 
 .submit-button, .guest-button {
@@ -113,7 +133,8 @@
   max-width: 90px;
   // max-height: 40px;
   font-size: 14px;
-  background: #fff7dc;
+  // background: #fff7dc;
+  background: #fff1c4;
 }
 
 .session-password-field, .session-username-field {
@@ -124,7 +145,8 @@
 }
 
 .submit-button:hover, .guest-button:hover {
-  box-shadow: 2px 2px 4px darken(rgba(252, 205, 205, 0.2), 10%);
+  // box-shadow: 2px 2px 4px darken(rgba(252, 205, 205, 0.2), 10%);
+  box-shadow: 3px 3px 4px rgba(255, 241, 196, 0.69);
   cursor: pointer;
   -webkit-animation: wiggle 0.1s ease-in-out 0.1s alternate 3;
 }
@@ -144,7 +166,7 @@
 .login-user-input:focus, .login-password-input:hover,
 .login-password-input:active, .login-password-input:focus {
   // box-shadow: 2px 2px 4px darken(rgba(252, 205, 205, 0.5), 10%);
-  box-shadow: 2px 2px 4px rgb(235, 250, 175);
+  box-shadow: 2px 2px 4px #efffae;
   // background: rgba(245, 255, 203, 0.25)
   // cursor: pointer;
 }
@@ -189,7 +211,8 @@ button:focus {
   justify-content: space-around;
   padding-top: 2px;
   align-items: center;
-  padding-right: 50px;
+  // padding-right: 50px;
+  margin-right: 60px;
   // border: aqua dotted 2px;
 }
 .login-form-box {
@@ -198,7 +221,8 @@ button:focus {
   flex-direction: column;
   align-items: center;
   // background-color: rgba(255, 255, 255, 0.5);
-  margin-right: 25px;
+  // margin-right: 25px;
+  min-width: 270px;
 }
 
 .login-form {
@@ -208,15 +232,21 @@ button:focus {
   justify-content: space-around;
   align-content: center;
   text-align: left;
-  padding: 5px;
+  padding: 0 5px;
 }
 
 .error-box {
   height: 35px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .login-errors {
   list-style: none;
+  display: flex;
+  flex-direction: column;
 }
 
 .sub-guest-buttons {
@@ -226,7 +256,7 @@ button:focus {
 
 .nest {
   display: none;
-  padding-bottom: 8px;
+  padding-bottom: 12px;
   border-bottom: solid 1px black;
   position: absolute;
 
@@ -249,7 +279,7 @@ button:focus {
 .login-signup-flex-container .login-button:hover > .nest, .login-signup-flex-container .signup-button:hover > .nest {
   transition: all 0.75s ease;
   display: block;
-  padding-bottom: 8px;
+  padding-bottom: 12px;
   border-style: dashed;
   font-weight: 400;
   cursor: point;
@@ -331,11 +361,19 @@ button:focus {
   padding: 50px 15px;
 }
 
+.login-button.reactive, .signup-button.reactive {
+  background: #f7ffd7;
+}
+
 .guest-button, .submit-button {
   justify-content: center;
   align-items: center;
   align-content: center;
 }
+
+// .login-button:hover {
+//   border: dashed 1px black;
+// }
 
 @keyframes fadein {
   from { opacity: 0; }
