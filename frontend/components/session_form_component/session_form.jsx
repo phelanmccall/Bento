@@ -74,9 +74,18 @@ class SessionForm extends React.Component {
     return (
       <div className="container-wrapper">
 
-        <div className="white-box"></div>
-        <div className="green-box"></div>
-          
+        <div className="white-box">
+          BUT HI
+        </div>
+        <div className="green-box">
+          <div className="green-box-text-wrapper">
+            share tasks with <br />
+            your team,  <br />
+            significant other,  <br />
+            or collaborators
+          </div>
+        </div>
+
         <div className="yellow-box">
           <div className="yellow-box-text-wrapper">
             compartmentalizing <br />
@@ -84,7 +93,11 @@ class SessionForm extends React.Component {
             just got easier
           </div>
         </div>
-        <div className="pink-box"></div>
+        <div className="pink-box">
+          <div className="pink-box-text-wrapper">
+            hi, there!
+          </div>
+        </div>
         <div className="container-container">
           <SplashContainer />
 
@@ -156,3 +169,8 @@ class SessionForm extends React.Component {
 }
 
 export default withRouter(SessionForm);
+
+
+// share tasks with <br />
+// your team,  <br />
+// significant other, <br />

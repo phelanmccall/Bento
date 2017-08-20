@@ -22,6 +22,7 @@
   grid-gap: 0px;
   grid-template-rows: repeat(25, 1fr);
   width: 840px;
+  min-width: 800px;
 
 }
 
@@ -62,10 +63,14 @@
   /* Pink Box */
   box-sizing: border-box;
   background-color: #FCCDCD;
-  border: 15px solid rgba(235, 235, 235, 0.2);
+  // border: 15px solid rgba(235, 235, 235, 0.2);
+  border: 15px solid rgb(255, 217, 217);
   grid-column: 1 / 102;
   grid-row: 6 / 25 ;
   z-index: 39;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .green-box {
@@ -78,6 +83,7 @@
   z-index: 40;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .yellow-box {
@@ -90,15 +96,18 @@
   z-index: 40;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
-.yellow-box-text-wrapper {
+.pink-box-text-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-size: 18pt;
-
+  font-size: 15pt;
+  border: 15px solid rgba(255, 255, 255, 0.43);
+  background: rgba(254, 233, 233, 0.69);
+  padding: 10px;
 }
 
 .green-box-text-wrapper {
@@ -106,8 +115,21 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-size: 18pt;
+  font-size: 15pt;
+  border: 15px solid rgba(255, 255, 255, 0.72);
+  background: #f7ffd7;
+  padding: 10px;
+}
 
+.yellow-box-text-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 15pt;
+  border: 15px solid rgba(255, 255, 255, 0.44);
+  background: #fff1c4;
+  padding: 10px;
 }
 
 .submit-button, .guest-button {
@@ -258,7 +280,7 @@ button:focus {
 
 .nest {
   display: none;
-  padding-bottom: 12px;
+  padding-bottom: 14px;
   border-bottom: solid 1px black;
   position: absolute;
 
@@ -281,7 +303,7 @@ button:focus {
 .login-signup-flex-container .login-button:hover > .nest, .login-signup-flex-container .signup-button:hover > .nest {
   transition: all 0.75s ease;
   display: block;
-  padding-bottom: 12px;
+  padding-bottom: 14px;
   border-style: dashed;
   font-weight: 400;
   cursor: point;
@@ -365,6 +387,7 @@ button:focus {
 
 .login-button.reactive, .signup-button.reactive {
   background: #f7ffd7;
+  border-radius: 15% 15% 0 0;
 }
 
 .guest-button, .submit-button {
