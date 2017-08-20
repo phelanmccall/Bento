@@ -75,7 +75,6 @@ class SessionForm extends React.Component {
       <div className="container-wrapper">
 
         <div className="white-box">
-          BUT HI
         </div>
         <div className="green-box">
           <div className="green-box-text-wrapper">
@@ -88,14 +87,17 @@ class SessionForm extends React.Component {
 
         <div className="yellow-box">
           <div className="yellow-box-text-wrapper">
-            compartmentalizing <br />
-            your daily tasks <br />
-            just got easier
+            share tasks with <br />
+            your team,  <br />
+            significant other,  <br />
+            or collaborators
           </div>
         </div>
         <div className="pink-box">
           <div className="pink-box-text-wrapper">
-            hi, there!
+            compartmentalizing <br />
+            your daily tasks <br />
+            just got easier
           </div>
         </div>
         <div className="container-container">

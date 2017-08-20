@@ -95,6 +95,7 @@
     li {
       word-wrap: break-word;
       overflow-x: scroll;
+      border: solid 2px rgba(255, 255, 255, 0.0);
     }
   }
 }
@@ -105,21 +106,30 @@
   margin: 16px 0;
   word-wrap: break-word;
   overflow-x: scroll;
+  border: solid 2px rgba(255, 255, 255, 0.0);
 }
 
 .team-index-initial-wrapper li:hover{
-  margin-bottom: -1px;
-  font-size: 15px;
-  letter-spacing: .115em;
+
+  // padding: 5px 0;
+  // font-size: 15px;
+  // letter-spacing: .115em;
   // transition: all 0.27s ease;
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.35);
   word-wrap: break-word;
   overflow-x: scroll;
+  border: solid 2px rgba(255, 255, 255, 0.0);
+  cursor: pointer;
+  // border: solid 0px rgba(255, 255, 255, 0);
+  // background-clip: content-box;
 }
 
-.team-index- .reactive:hover {
+.team-index .reactive:hover {
   background-color: rgba(255, 255, 255, 1);
+  // border: solid 0px rgba(255, 255, 255, 0);
+
+  // padding: 5px 0;
 }
 
 .team-index .reactive {
@@ -127,7 +137,7 @@
   justify-content: center;
   display: flex;
   font-size: 14px;
-  padding: 6px 0;
+  padding: 7px 0; 
 
   word-wrap: break-word;
   overflow-x: scroll;
@@ -138,13 +148,16 @@
 
   word-wrap: break-word;
   overflow-x: scroll;
-  // background-color: white;
+  background-color: white;
   font-family: 'arial';
   font-weight: 400;
 }
 .team-index-li Link {
   word-wrap: break-word;
   overflow-x: scroll;
+  border: solid 2px rgba(255, 255, 255, 0);
+
+  padding: 5px 0;
 
 }
 
