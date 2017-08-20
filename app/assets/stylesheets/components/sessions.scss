@@ -189,6 +189,7 @@ button:focus {
   justify-content: space-around;
   padding-top: 2px;
   align-items: center;
+  padding-right: 50px;
   // border: aqua dotted 2px;
 }
 .login-form-box {
@@ -212,7 +213,6 @@ button:focus {
 
 .error-box {
   height: 35px;
-  padding-right: 20px;
 }
 
 .login-errors {
@@ -262,6 +262,7 @@ button:focus {
 .login-signup-flex-container {
   display: flex;
   justify-content: space-around;
+  margin-right: 20px;
 
   .spacer {
     display: flex;
