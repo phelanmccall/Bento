@@ -76,6 +76,8 @@
   grid-column: 66 / 102;
   grid-row: 14 / 25;
   z-index: 40;
+  display: flex;
+  justify-content: center;
 }
 
 .yellow-box {

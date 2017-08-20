@@ -76,11 +76,7 @@ class SessionForm extends React.Component {
 
         <div className="white-box"></div>
         <div className="green-box"></div>
-          <div className="green-box-text-wrapper">
-            compartmentalizing <br />
-            your daily tasks <br />
-            just got easier
-          </div>
+          
         <div className="yellow-box">
           <div className="yellow-box-text-wrapper">
             compartmentalizing <br />
