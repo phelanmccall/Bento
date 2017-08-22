@@ -2,7 +2,9 @@ $selector : #fce295;
 
 html {
 
-background: linear-gradient(90deg, rgba(253, 212, 182, 0.5) 24.57%, rgba(253, 212, 182, 0.5) 34.26%, rgba(255, 226, 137, 0.5) 60.41%, rgba(239, 255, 174, 0.5) 99.99%);
+// background-image: url("./product.png");
+// background-size: cover;
+// background-size: 1400px;
 
 // min-width: 750px;
 
@@ -19,6 +21,13 @@ color: #000000;
 ::selection {
   background-color: $selector;
 }
+
+body {
+  // background: linear-gradient(90deg, rgba(253, 212, 182, 0.5) 24.57%, rgba(253, 212, 182, 0.5) 34.26%, rgba(255, 226, 137, 0.5) 60.41%, rgba(239, 255, 174, 0.5) 99.99%);
+  // background: linear-gradient(90deg, rgba(253, 212, 182, 0.18) 24.57%, rgba(253, 212, 182, 0.18) 34.26%, rgba(255, 226, 137, 0.18) 60.41%, rgba(239, 255, 174, 0.18) 99.99%);
+}
+
+
 }
 
 body {
