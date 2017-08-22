@@ -56,11 +56,12 @@
   // width: 450px;
   // height: 340.15px;
   box-sizing: border-box;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.0);
   // border: 15px solid rgba(235, 235, 235, 0.2);
   grid-column: 42 / 102;
   grid-row: 6 / 14 ;
   z-index: 40;
+  border-left: black solid 9px;
 }
 
 .pink-box {
@@ -78,6 +79,7 @@
   align-items: flex-start;
   background-image: url("./product.png");
   background-size: cover;
+  border: black solid 9px;
 }
 
 .green-box {
@@ -92,6 +94,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+      border: black solid 9px;
 }
 
 .yellow-box {
@@ -106,6 +109,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border: black solid 9px;
+  border-right: none;
 }
 
 .pink-box-text-wrapper {
@@ -120,6 +125,7 @@
   margin-top: 40px;
   margin-left: 50px;
   // color: rgba(0, 0, 0, 0.6);
+  background: rgba(255, 255, 255, 1);
 }
 
 .green-box-text-wrapper {
@@ -132,6 +138,7 @@
   background: rgba(247, 255, 215, .7);
   padding: 10px;
   // color: rgba(0, 0, 0, 0.6);
+  background: rgba(255, 255, 255, 1);
 }
 
 .yellow-box-text-wrapper {
@@ -393,6 +400,7 @@ button:focus {
   padding-bottom: 340px;
   padding-left: 10px;
   /* border: aquamarine solid 2px; */
+  box-shadow: rgba(0,0,0,0.3) 7px 9px 12px;
 }
 
 .login-signup-flex-container {
