@@ -161,7 +161,7 @@ img {
 
 .nav-splash-spacer {
   .nav-login-button:hover, .nav-signup-button:hover, .nav-logout-button:hover {
-  box-shadow: 2px 2px 4px darken(rgba(252, 205, 205, 0.5), 10%);
+  box-shadow: 4px 4px 8px rgba(249, 157, 157, 0.8);
 
   -webkit-animation: wiggle 0.1s ease-in-out 0.1s alternate 1;
   }

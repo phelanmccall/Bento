@@ -20,6 +20,8 @@ const navSessionLinks = () => (
         sign up
       </Link>
 
+      
+
       <div className="spacer"></div>
   </nav>
 

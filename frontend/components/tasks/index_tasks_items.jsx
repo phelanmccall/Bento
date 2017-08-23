@@ -45,6 +45,15 @@ class TaskIndexItem extends React.Component {
   render () {
 
     const { task, project_id } = this.props;
+    const background = {
+          	backgroundColor: `#${'0123456789abcdef'.split('').map(function(v,i,a){
+  return i>5 ? null : a[Math.floor(Math.random()*16)] }).join('')}`,
+            width: `3px`,
+            height: `35px !important`,
+            marginLeft: `-2px`,
+            marginRight: `20px`,
+          };
+
 
     return (
       <li
@@ -52,6 +61,7 @@ class TaskIndexItem extends React.Component {
         onClick={this.handleCheck}
         >
 
+        <div className="little-check-box" style={background}></div>
         <div className="task-title">{task.title}</div>
       </li>
     );
