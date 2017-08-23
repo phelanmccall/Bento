@@ -11,6 +11,10 @@ class TaskIndexItem extends React.Component {
     // this.handleDelete = this.handleDelete.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
 
+    this.handleInput = this.handleInput.bind(this);
+    this.handleUpdateProject = this.handleUpdateProject.bind(this);
+    this.handleEnter = this.handleEnter.bind(this);
+
     this.state = {
       checked: this.props.task.checked,
       details: this.props.task.details,
@@ -44,26 +48,72 @@ class TaskIndexItem extends React.Component {
     this.props.updateTask(obj);
   }
 
+  handleInput(e) {
+    e.preventDefault();
+    const title = e.target.value ? e.target.value : ""
+    // let id = e.currentTarget.id;
+    this.setState({title})
+  }
+
+  handleUpdateProject (e) {
+    const obj = {
+      title: this.state.title,
+      project_id: this.state.project_id,
+      checked: this.state.checked,
+      details: this.state.details,
+      id: this.state.id
+    };
+
+    this.props.updateTask(obj);
+  }
+
+  handleEnter (e) {
+    if (e.key == 'Enter') {
+      const obj = {
+        title: this.state.title,
+        project_id: this.state.project_id,
+        checked: this.state.checked,
+        details: this.state.details,
+        id: this.state.id
+      };
+
+      this.props.updateTask(obj);
+    }
+  }
+
   render () {
 
     const { task, project_id } = this.props;
     const background = {
           	backgroundColor: `#${'0123456789abcdef'.split('').map(function(v,i,a) { return i > 5 ? null : a[Math.floor(Math.random() * 16)] }).join('')}`,
             width: `3px`,
+            minWidth: `3px`,
             height: `35px !important`,
-            marginLeft: `-2px`,
+            marginLeft: `-3px`,
             marginRight: `20px`,
           };
 
 
     return (
       <li
-        className={`${this.state.checked ? "task-item-true" : "task-item-false"}`}
-        onClick={this.handleCheck}
+        className="task-item-false"
         >
 
-        <div className="little-check-box" style={background}></div>
-        <div className="task-title">{task.title}</div>
+        <div className="little-check-box"
+          style={background}
+          className={`${this.state.checked ? "task-item-true" : "task-item-false"}`}
+          onClick={this.handleCheck}
+        ></div>
+
+        <input
+          className="task-title"
+          type="text"
+          value={this.state.title}
+          onChange={this.handleInput}
+          onBlur={this.handleInput}
+          onFocus={this.handleInput}
+          onKeyPress={this.handleEnter}
+        />
       </li>
     );
   }
@@ -89,3 +139,5 @@ export default TaskIndexItem;
 //     onClick={this.handleCheck}
 //     />
 // </div>
+
+// <div className="task-title">{task.title}</div>
