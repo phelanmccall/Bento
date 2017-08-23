@@ -10,6 +10,17 @@ class SessionForm extends React.Component {
       username: '',
       password: ''
     };
+
+    const renderGuest = () => {
+      return (
+        <button
+          className="guest-button-solo"
+          onClick={ this.handleGuestLogin }>
+            guest
+        </button>
+      )
+    }
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleGuestLogin = this.handleGuestLogin.bind(this);
   }
@@ -70,6 +81,7 @@ class SessionForm extends React.Component {
       </ul>
     );
   }
+
   render () {
     return (
       <div className="container-wrapper">
@@ -87,10 +99,6 @@ class SessionForm extends React.Component {
 
         <div className="yellow-box">
           <div className="yellow-box-text-wrapper">
-            share tasks with <br />
-            your team,  <br />
-            significant other,  <br />
-            or collaborators
           </div>
         </div>
         <div className="pink-box">
@@ -115,7 +123,7 @@ class SessionForm extends React.Component {
               >
                 <br />
                 <div className="label-input-username">
-                  <label>
+                  <label> Username
                     <input
                       className="session-password-field"
                       placeholder="username"
@@ -131,7 +139,7 @@ class SessionForm extends React.Component {
                 <br />
 
                 <div className="label-input-password">
-                  <label>
+                  <label> Password
                     <input
                       className="session-password-field"
                       placeholder="password"
@@ -171,8 +179,3 @@ class SessionForm extends React.Component {
 }
 
 export default withRouter(SessionForm);
-
-
-// share tasks with <br />
-// your team,  <br />
-// significant other, <br />

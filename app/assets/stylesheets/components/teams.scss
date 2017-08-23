@@ -108,7 +108,7 @@
 
 .team-index-list-item {
   transition: all 0.27s ease;
-  padding: 15px 5px;
+  // padding: 15px 5px;
   margin: 6px 0;
   text-align: left;
 }
@@ -120,8 +120,17 @@
   // margin: 16px 0;
   word-wrap: break-word;
   text-align: left;
+  padding: 10px 10px;
   // overflow-x: visible;
   // border: solid 2px rgba(255, 255, 255, 0.0);
+  margin: 6px 0;
+  border-radius: 5px;
+}
+
+.team-index-link:hover, .team-index-link.reactive:hover {
+  background-color: rgba(255, 255, 255, 0.35);
+  padding: 10px 10px;
+  border-radius: 5px;
 }
 
 .team-index-list-item:hover{
@@ -131,7 +140,7 @@
   // letter-spacing: .115em;
   transition: all 0.27s ease;
   // border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.35);
+  // background-color: rgba(255, 255, 255, 0.35);
   // padding: 10px;
   // word-wrap: break-word;
   // overflow-x: visible;
@@ -146,9 +155,9 @@
 // }
 
 .team-index-link.reactive {
-  padding: 15px 5px;
+  // padding: 15px 5px;
   // margin-bottom: -1px;
-  justify-content:flex-start;
+  justify-content: flex-start;
   display: flex;
   font-size: 14px;
   word-wrap: break-word;

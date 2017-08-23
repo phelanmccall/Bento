@@ -2,6 +2,8 @@ import React from 'react';
 import { Route, NavLink, Link } from 'react-router-dom';
 import TaskShowContainer from './show_task_container';
 import { RECEIVE_TASK } from '../../actions/task_actions';
+import HTML5Backend from 'react-dnd-html5-backend';
+import { DragDropContext } from 'react-dnd';
 
 class TaskIndexItem extends React.Component {
   constructor(props) {
@@ -46,8 +48,7 @@ class TaskIndexItem extends React.Component {
 
     const { task, project_id } = this.props;
     const background = {
-          	backgroundColor: `#${'0123456789abcdef'.split('').map(function(v,i,a){
-  return i>5 ? null : a[Math.floor(Math.random()*16)] }).join('')}`,
+          	backgroundColor: `#${'0123456789abcdef'.split('').map(function(v,i,a) { return i > 5 ? null : a[Math.floor(Math.random() * 16)] }).join('')}`,
             width: `3px`,
             height: `35px !important`,
             marginLeft: `-2px`,

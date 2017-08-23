@@ -296,7 +296,7 @@ button:focus {
   // padding-right: 50px;
   margin-right: 60px;
   // border: aqua dotted 2px;
-  -webkit-animation: fadein 1s;
+  // -webkit-animation: fadein 1s;
   // animation-delay: 1s;
 }
 .login-form-box {
@@ -307,8 +307,8 @@ button:focus {
   // background-color: rgba(255, 255, 255, 0.5);
   // margin-right: 25px;
   min-width: 270px;
-  margin-right: 150px;
-  margin-top: 160px;
+  // margin-right: 150px;
+  // margin-top: 160px;
 }
 
 .login-form {
@@ -419,6 +419,8 @@ button:focus {
   z-index: 9050;
   // background: transparentize(#FCCDCD, 1);
   // border-color: transparentize(#FCCDCD, 1);
+  margin-right: 80px;
+  margin-top: 50px;
 }
 
 .container-container {
