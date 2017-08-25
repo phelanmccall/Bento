@@ -3,7 +3,8 @@ import { Route, NavLink, Link } from 'react-router-dom';
 import TaskShowContainer from './show_task_container';
 import { RECEIVE_TASK } from '../../actions/task_actions';
 import HTML5Backend from 'react-dnd-html5-backend';
-import { DragDropContext } from 'react-dnd';
+import { DragDropContext, DragSource, DropTarget } from 'react-dnd';
+import { ItemTypes } from "../../util/dnd_constants.js"
 
 class TaskIndexItem extends React.Component {
   constructor(props) {
@@ -23,6 +24,7 @@ class TaskIndexItem extends React.Component {
       id: this.props.task.id,
     }
   }
+
 
   // handleDelete(e) {
   //   e.preventDefault();
@@ -104,16 +106,11 @@ class TaskIndexItem extends React.Component {
           className={`${this.state.checked ? "task-item-true" : "task-item-false"}`}
           onClick={this.handleCheck}
         ></div>
+      <div className="task-title"
 
-        <input
-          className="task-title"
-          type="text"
-          value={this.state.title}
-          onChange={this.handleInput}
-          onBlur={this.handleInput}
-          onFocus={this.handleInput}
-          onKeyPress={this.handleEnter}
-        />
+        >{task.title}</div>
+
+
       </li>
     );
   }
@@ -141,3 +138,30 @@ export default TaskIndexItem;
 // </div>
 
 // <div className="task-title">{task.title}</div>
+
+
+// $(document)
+//   .one('focus.autoExpand', 'textarea.autoExpand', function(){
+//       var savedValue = this.value;
+//       this.value = '';
+//       this.baseScrollHeight = this.scrollHeight;
+//       this.value = savedValue;
+//   })
+//   .on('input.autoExpand', 'textarea.autoExpand', function(){
+//       var minRows = this.getAttribute('data-min-rows')|0, rows;
+//       this.rows = minRows;
+//       rows = Math.ceil((this.scrollHeight - this.baseScrollHeight) / 17);
+//       this.rows = minRows + rows;
+//   });
+
+
+// <textarea
+//     rows='3' data-min-rows='3'
+//     className="autoExpand"
+//     type="text"
+//     value={this.state.title}
+//     onChange={this.handleInput}
+//     onBlur={this.handleInput}
+//     onFocus={this.handleInput}
+//     onKeyPress={this.handleEnter}
+//   />
