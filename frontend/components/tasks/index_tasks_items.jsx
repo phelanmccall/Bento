@@ -4,19 +4,7 @@ import TaskShowContainer from './show_task_container';
 import { RECEIVE_TASK } from '../../actions/task_actions';
 import HTML5Backend from 'react-dnd-html5-backend';
 import { DragDropContext, DragSource, DropTarget, DragLayer } from 'react-dnd';
-import { ItemTypes } from "../../util/dnd_constants.js"
-
-const taskSource = {
-  beginDrag(props) {
-    return {
-      id: this.props.task.id,
-      project_id: this.props.task.project_id,
-    };
-  },
-  isDragging(props, monitor) {
-    return props.task.id === monitor.getItem().id;
-  }
-};
+import { ItemTypes } from "../../util/dnd_constants.js";
 
 class TaskIndexItem extends React.Component {
   constructor(props) {
@@ -35,8 +23,33 @@ class TaskIndexItem extends React.Component {
       project_id: this.props.task.project_id,
       id: this.props.task.id,
     }
+
   }
 
+  const taskSource = {
+    beginDrag(props) {
+      return {
+        id: this.props.task.id,
+        project_id: this.props.task.project_id,
+      };
+    },
+    isDragging(props, monitor) {
+      return props.task.id === monitor.getItem().id;
+    }
+  };
+
+  collectSource(connect, monitor) {
+    return {
+      connectDragSource: connect.dragSource(),
+      isDragging: monitor.isDragging(),
+    };
+  };
+
+  collectTarget(connect, monitor) {
+    return {
+      connectDropTarget: connect.DropTarget(),
+    };
+  };
 
   // handleDelete(e) {
   //   e.preventDefault();
