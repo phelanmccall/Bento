@@ -8,6 +8,8 @@ import SessionFormContainer from './session_form_component/session_form_containe
 import IndexProjectContainer from './projects/index_projects_container';
 import IndexTeamContainer from './team/index_teams_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 
 class App extends React.Component {
 
@@ -80,7 +82,7 @@ class App extends React.Component {
 )}
 };
 
-export default App;
+export default (DragDropContext(HTML5Backend)(App));
 
 
 // <ProtectedRoute path="/api/teams/:teamId" component={IndexTeamContainer } />

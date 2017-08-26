@@ -6,6 +6,45 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import { DragDropContext, DragSource, DropTarget, DragLayer } from 'react-dnd';
 import { ItemTypes } from "../../util/dnd_constants.js";
 
+const taskSource = {
+  beginDrag(props) {
+    return {
+      id: this.props.task.id,
+      project_id: this.props.task.project_id,
+    };
+  },
+  isDragging(props, monitor) {
+    return this.props.task.id === monitor.getItem().id;
+  }
+};
+
+const taskTarget = {
+  hover(props, monitor, component) {
+    const dragTask = monitor.getItem();
+    const hoverTask = this.props.task;
+
+    if (dragTask.project_id === hoverTask.project_id) {
+      const task = Object.assign({}, monitor.getItem())
+      this.props.updateTask(task);
+
+      monitor.getItem().id = hoverTask.id;
+    }
+  }
+};
+
+function collectSource(connect, monitor) {
+  return {
+    connectDragSource: connect.dragSource(),
+    isDragging: monitor.isDragging(),
+  };
+};
+
+function collectTarget(connect, monitor) {
+  return {
+    connectDropTarget: connect.DropTarget(),
+  };
+};
+
 class TaskIndexItem extends React.Component {
   constructor(props) {
     super(props);
@@ -24,32 +63,14 @@ class TaskIndexItem extends React.Component {
       id: this.props.task.id,
     }
 
+    const { task, connectDragSource, connectDropTarget, isDragging, readOnly } = props;
+
   }
 
-  const taskSource = {
-    beginDrag(props) {
-      return {
-        id: this.props.task.id,
-        project_id: this.props.task.project_id,
-      };
-    },
-    isDragging(props, monitor) {
-      return props.task.id === monitor.getItem().id;
-    }
-  };
 
-  collectSource(connect, monitor) {
-    return {
-      connectDragSource: connect.dragSource(),
-      isDragging: monitor.isDragging(),
-    };
-  };
 
-  collectTarget(connect, monitor) {
-    return {
-      connectDropTarget: connect.DropTarget(),
-    };
-  };
+
+
 
   // handleDelete(e) {
   //   e.preventDefault();
@@ -69,8 +90,6 @@ class TaskIndexItem extends React.Component {
       details: this.state.details,
       id: this.state.id
     };
-
-
 
     this.props.updateTask(obj);
   }
@@ -109,6 +128,7 @@ class TaskIndexItem extends React.Component {
   }
 
   render () {
+
 
     const { task, project_id } = this.props;
     const background = {
