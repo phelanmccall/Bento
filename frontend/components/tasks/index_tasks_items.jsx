@@ -120,11 +120,11 @@ export default DropTarget(
   ItemTypes.TASK,
   taskTarget,
   collectTarget
-)DragSource(
+)(DragSource(
   ItemTypes.TASK,
   taskSource,
   collectSource
-)(TaskIndexItem);
+)(TaskIndexItem));
 
 // { tasks &&  tasks.map(task =>
 //   <TaskIndexItem className="task-index-item" key={ task.id }
