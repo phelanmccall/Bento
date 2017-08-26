@@ -3,7 +3,7 @@ import { Route, NavLink, Link } from 'react-router-dom';
 import TaskShowContainer from './show_task_container';
 import { RECEIVE_TASK } from '../../actions/task_actions';
 import HTML5Backend from 'react-dnd-html5-backend';
-import { DragDropContext, DragSource, DropTarget } from 'react-dnd';
+import { DragDropContext, DragSource, DropTarget, DragLayer } from 'react-dnd';
 import { ItemTypes } from "../../util/dnd_constants.js"
 
 class TaskIndexItem extends React.Component {
@@ -116,7 +116,15 @@ class TaskIndexItem extends React.Component {
   }
 }
 
-export default TaskIndexItem;
+export default DropTarget(
+  ItemTypes.TASK,
+  taskTarget,
+  collectTarget
+)DragSource(
+  ItemTypes.TASK,
+  taskSource,
+  collectSource
+)(TaskIndexItem);
 
 // { tasks &&  tasks.map(task =>
 //   <TaskIndexItem className="task-index-item" key={ task.id }
