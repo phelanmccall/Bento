@@ -6,6 +6,18 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import { DragDropContext, DragSource, DropTarget, DragLayer } from 'react-dnd';
 import { ItemTypes } from "../../util/dnd_constants.js"
 
+const taskSource = {
+  beginDrag(props) {
+    return {
+      id: this.props.task.id,
+      project_id: this.props.task.project_id,
+    };
+  },
+  isDragging(props, monitor) {
+    return props.task.id === monitor.getItem().id;
+  }
+};
+
 class TaskIndexItem extends React.Component {
   constructor(props) {
     super(props);
