@@ -41,7 +41,7 @@ function collectSource(connect, monitor) {
 
 function collectTarget(connect, monitor) {
   return {
-    connectDropTarget: connect.DropTarget(),
+    connectDropTarget: connect.dropTarget(),
   };
 };
 
@@ -62,8 +62,6 @@ class TaskIndexItem extends React.Component {
       project_id: this.props.task.project_id,
       id: this.props.task.id,
     }
-
-    const { task, connectDragSource, connectDropTarget, isDragging, readOnly } = props;
 
   }
 
@@ -129,8 +127,9 @@ class TaskIndexItem extends React.Component {
 
   render () {
 
+    const { task, project_id, connectDragSource, connectDropTarget, isDragging, readOnly } = this.props;
 
-    const { task, project_id } = this.props;
+    // const { task, project_id } = this.props;
     const background = {
           	backgroundColor: `#${'0123456789abcdef'.split('').map(function(v,i,a) { return i > 5 ? null : a[Math.floor(Math.random() * 16)] }).join('')}`,
             width: `3px`,
