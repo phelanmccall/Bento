@@ -9,23 +9,23 @@ import { ItemTypes } from "../../util/dnd_constants.js";
 const taskSource = {
   beginDrag(props) {
     return {
-      id: this.props.task.id,
-      project_id: this.props.task.project_id,
+      id: props.task.id,
+      project_id: props.task.project_id,
     };
   },
   isDragging(props, monitor) {
-    return this.props.task.id === monitor.getItem().id;
+    return props.task.id === monitor.getItem().id;
   }
 };
 
 const taskTarget = {
   hover(props, monitor, component) {
     const dragTask = monitor.getItem();
-    const hoverTask = this.props.task;
+    const hoverTask = props.task;
 
     if (dragTask.project_id === hoverTask.project_id) {
       const task = Object.assign({}, monitor.getItem())
-      this.props.updateTask(task);
+      props.updateTask(task);
 
       monitor.getItem().id = hoverTask.id;
     }
@@ -127,7 +127,7 @@ class TaskIndexItem extends React.Component {
 
   render () {
 
-    const { task, project_id, connectDragSource, connectDropTarget, isDragging, readOnly } = this.props;
+    const { task, project_id, connectDragSource, connectDropTarget, isDragging } = this.props;
 
     // const { task, project_id } = this.props;
     const background = {
@@ -140,7 +140,7 @@ class TaskIndexItem extends React.Component {
           };
 
 
-    return (
+    return connectDropTarget(connectDragSource(
       <li
         className="task-item-false"
         >
@@ -156,7 +156,7 @@ class TaskIndexItem extends React.Component {
 
 
       </li>
-    );
+    ));
   }
 }
 
