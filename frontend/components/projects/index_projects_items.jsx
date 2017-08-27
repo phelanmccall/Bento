@@ -3,7 +3,9 @@ import { Route, NavLink, Link } from 'react-router-dom';
 import ProjectShowContainer from './show_project_container';
 import CreateTaskContainer from '../tasks/create_task_container';
 import TaskIndexContainer from '../tasks/index_tasks_container';
-import updateProject from '../../actions/project_actions'
+import updateProject from '../../actions/project_actions';
+import { DragDropContext, DragSource, DropTarget, DragLayer } from 'react-dnd';
+import { ItemTypes } from "../../util/dnd_constants.js";
 
 class ProjectIndexItem extends React.Component {
   constructor(props) {

@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: projects
+#
+#  id         :integer          not null, primary key
+#  creator_id :integer
+#  title      :string
+#  team_id    :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Project < ApplicationRecord
   validates :title, :creator_id, :team_id, presence: true
 
