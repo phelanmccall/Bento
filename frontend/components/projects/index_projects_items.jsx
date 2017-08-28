@@ -7,6 +7,24 @@ import updateProject from '../../actions/project_actions';
 import { DragDropContext, DragSource, DropTarget, DragLayer } from 'react-dnd';
 import { ItemTypes } from "../../util/dnd_constants.js";
 
+const projectSource = {
+  beginDrag(props) {
+    return {
+      id: props.project.id,
+    };
+  },
+  isDragging(props, monitor) {
+    return props.project.id === monitor.getItem().id;
+  }
+}
+
+function collect(connect, monitor) {
+  return {
+    connectDragSource: connect.dragSource(),
+    isDragging: monitor.isDragging(),
+  };
+};
+
 class ProjectIndexItem extends React.Component {
   constructor(props) {
     super(props);
@@ -63,9 +81,9 @@ class ProjectIndexItem extends React.Component {
 
 
   render () {
-    const { project } = this.props;
+    const { project, connectDragSource } = this.props;
 
-    return (
+    return (connectDragSource(
       <li className="project-list-item">
 
         <input
@@ -84,11 +102,15 @@ class ProjectIndexItem extends React.Component {
           projectId={project.id}
           />
       </li>
-    );
+    ));
   }
 }
 
-export default ProjectIndexItem;
+export default (DragSource(
+  ItemTypes.PROJECT,
+  projectSource,
+  collect
+)(ProjectIndexItem));
 
 // { tasks &&  tasks.map(task =>
 //   <TaskIndexItem className="task-index-item" key={ task.id }

@@ -52,7 +52,7 @@ class TaskIndexItem extends React.Component {
     this.handleCheck = this.handleCheck.bind(this);
 
     this.handleInput = this.handleInput.bind(this);
-    this.handleUpdateProject = this.handleUpdateProject.bind(this);
+    this.handleUpdateTask = this.handleUpdateTask.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
 
     this.state = {
@@ -99,7 +99,7 @@ class TaskIndexItem extends React.Component {
     this.setState({title})
   }
 
-  handleUpdateProject (e) {
+  handleUpdateTask (e) {
     const obj = {
       title: this.state.title,
       project_id: this.state.project_id,
