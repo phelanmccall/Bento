@@ -19,7 +19,7 @@ const taskTarget = {
   },
 };
 
-function collectSource(connect, monitor) {
+function collectTarget(connect, monitor) {
   return {
     connectDropTarget: connect.dropTarget()
   };
@@ -36,16 +36,17 @@ class TaskIndex extends React.Component {
 
   render () {
     const { tasks, projectId, updateTask, connectDropTarget } = this.props;
+    console.error(this.props);
     return connectDropTarget(
       <div className="task-index-wrapper">
 
         <section className="indices-section">
           <ul className="task-index">
-            { tasks && Object.values(tasks).map(task => {
+            { tasks && Object.values(tasks).map((task, indexOfTask) => {
                 return <TaskIndexItemsContainer
                 className="task-index-item"
                 key={ task.id }
-
+                order={ indexOfTask }
                 task={ task }
               />
               }
@@ -65,5 +66,5 @@ class TaskIndex extends React.Component {
 export default  DropTarget(
   ItemTypes.TASK,
   taskTarget,
-  collectSource
+  collectTarget
 )(TaskIndex);

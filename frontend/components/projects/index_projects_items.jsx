@@ -18,12 +18,25 @@ const projectSource = {
   }
 }
 
-function collect(connect, monitor) {
+function collectSource(connect, monitor) {
   return {
     connectDragSource: connect.dragSource(),
     isDragging: monitor.isDragging(),
   };
 };
+
+const projectTarget = {
+  hover(props, monitor, component) {
+    const dragProject = monitor.getItem();
+
+  }
+}
+
+function collectTarget(connect, monitor) {
+  return {
+    connectDropTarget: connect.dropTarget()
+  };
+}
 
 class ProjectIndexItem extends React.Component {
   constructor(props) {
@@ -81,7 +94,7 @@ class ProjectIndexItem extends React.Component {
 
 
   render () {
-    const { project, connectDragSource } = this.props;
+    const { project, connectDragSource, connectDropTarget, isDragging } = this.props;
 
     return (connectDragSource(
       <li className="project-list-item">
@@ -109,7 +122,7 @@ class ProjectIndexItem extends React.Component {
 export default (DragSource(
   ItemTypes.PROJECT,
   projectSource,
-  collect
+  collectSource
 )(ProjectIndexItem));
 
 // { tasks &&  tasks.map(task =>

@@ -6,6 +6,21 @@ import ProjectIndexItem from './index_projects_items';
 import { getAllProjects, updateProject } from '../../actions/project_actions';
 import CreateProjectContainer from './create_project_container'
 import TeamFormContainer from '../team/team_form_container';
+import { DropTarget } from 'react-dnd';
+import { ItemTypes } from "../../util/dnd_constants.js";
+
+const projectTarget = {
+  hover(props, monitor, component) {
+    const dragProject = monitor.getItem();
+
+  }
+}
+
+function collectTarget(connect, monitor) {
+  return {
+    connectDropTarget: connect.dropTarget()
+  };
+}
 
 class ProjectIndex extends React.Component {
 
@@ -26,9 +41,9 @@ class ProjectIndex extends React.Component {
   }
 
   render () {
-    const { projects } = this.props;
+    const { projects, connectDropTarget } = this.props;
 
-    return (
+    return connectDropTarget(
       <div className="project-index-wrapper">
 
         <section className="indices-section">
@@ -57,4 +72,8 @@ class ProjectIndex extends React.Component {
   }
 }
 
-export default ProjectIndex;
+export default DropTarget(
+  ItemTypes.PROJECT,
+  projectTarget,
+  collectTarget
+)(ProjectIndex);
