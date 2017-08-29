@@ -15,7 +15,8 @@ const taskSource = {
   },
   isDragging(props, monitor) {
     return props.task.id === monitor.getItem().id;
-  }
+  },
+
 };
 
 const taskTarget = {
@@ -55,20 +56,18 @@ class TaskIndexItem extends React.Component {
     this.handleUpdateTask = this.handleUpdateTask.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
 
+    console.log(this.props);
+
     this.state = {
       checked: this.props.task.checked,
       details: this.props.task.details,
       title: this.props.task.title,
       project_id: this.props.task.project_id,
       id: this.props.task.id,
+      index : this.props.index,
     }
 
   }
-
-
-
-
-
 
   // handleDelete(e) {
   //   e.preventDefault();
@@ -86,7 +85,8 @@ class TaskIndexItem extends React.Component {
       project_id: this.state.project_id,
       checked: !this.state.checked,
       details: this.state.details,
-      id: this.state.id
+      id: this.state.id,
+      index : this.state.index,
     };
 
     this.props.updateTask(obj);
@@ -105,7 +105,8 @@ class TaskIndexItem extends React.Component {
       project_id: this.state.project_id,
       checked: this.state.checked,
       details: this.state.details,
-      id: this.state.id
+      id: this.state.id,
+      index : this.state.index,
     };
 
     this.props.updateTask(obj);
@@ -118,7 +119,8 @@ class TaskIndexItem extends React.Component {
         project_id: this.state.project_id,
         checked: this.state.checked,
         details: this.state.details,
-        id: this.state.id
+        id: this.state.id,
+        index : this.state.index,
       };
 
       this.props.updateTask(obj);
@@ -130,8 +132,8 @@ class TaskIndexItem extends React.Component {
     const { task, project_id, connectDragSource, connectDropTarget, isDragging } = this.props;
 
     // const { task, project_id } = this.props;
-    const background = {
-          	backgroundColor: `#${'0123456789abcdef'.split('').map(function(v,i,a) { return i > 5 ? null : a[Math.floor(Math.random() * 16)] }).join('')}`,
+    let background = {
+          	backgroundColor: `black`,
             width: `3px`,
             minWidth: `3px`,
             height: `35px !important`,
@@ -140,13 +142,15 @@ class TaskIndexItem extends React.Component {
           };
 
 
+
+
     return connectDropTarget(connectDragSource(
       <li
         className="task-item-false"
         >
 
         <div className="little-check-box"
-          style={background}
+          style={isDragging ? { backgroundColor: `black` } : background}
           className={`${this.state.checked ? "task-item-true" : "task-item-false"}`}
           onClick={this.handleCheck}
         ></div>
@@ -217,3 +221,5 @@ export default DropTarget(
 //     onFocus={this.handleInput}
 //     onKeyPress={this.handleEnter}
 //   />
+
+// #${'0123456789abcdef'.split('').map(function(v,i,a) { return i > 5 ? null : a[Math.floor(Math.random() * 16)] }).join('')}

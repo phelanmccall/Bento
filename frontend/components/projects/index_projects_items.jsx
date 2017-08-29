@@ -7,7 +7,7 @@ import updateProject from '../../actions/project_actions';
 import { DragDropContext, DragSource, DropTarget, DragLayer } from 'react-dnd';
 import { ItemTypes } from "../../util/dnd_constants.js";
 
-const projectSource = {
+const specSource = {
   beginDrag(props) {
     return {
       id: props.project.id,
@@ -25,7 +25,7 @@ function collectSource(connect, monitor) {
   };
 };
 
-const projectTarget = {
+const specTarget = {
   hover(props, monitor, component) {
     const dragProject = monitor.getItem();
 
@@ -80,7 +80,7 @@ class ProjectIndexItem extends React.Component {
   }
 
   handleEnter (e) {
-    if (e.key == 'Enter') {
+    if (e.key === 'Enter') {
       const obj = {
         title: this.state.title,
         creator_id: this.state.creator_id,
@@ -96,7 +96,7 @@ class ProjectIndexItem extends React.Component {
   render () {
     const { project, connectDragSource, connectDropTarget, isDragging } = this.props;
 
-    return (connectDragSource(
+    return connectDropTarget(connectDragSource(
       <li className="project-list-item">
 
         <input
@@ -119,9 +119,13 @@ class ProjectIndexItem extends React.Component {
   }
 }
 
-export default (DragSource(
+export default DropTarget(
   ItemTypes.PROJECT,
-  projectSource,
+  specTarget,
+  collectTarget
+)(DragSource(
+  ItemTypes.PROJECT,
+  specSource,
   collectSource
 )(ProjectIndexItem));
 

@@ -36,7 +36,7 @@ class TaskIndex extends React.Component {
 
   render () {
     const { tasks, projectId, updateTask, connectDropTarget } = this.props;
-    console.error(this.props);
+    // console.error(this.props);
     return connectDropTarget(
       <div className="task-index-wrapper">
 
@@ -46,8 +46,8 @@ class TaskIndex extends React.Component {
                 return <TaskIndexItemsContainer
                 className="task-index-item"
                 key={ task.id }
-                order={ indexOfTask }
                 task={ task }
+                index={ indexOfTask }
               />
               }
             )}

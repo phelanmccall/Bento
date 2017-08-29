@@ -10,6 +10,7 @@
           json.details task.details
           json.project_id task.project_id
           json.checked task.checked
+          json.index task.index
         end
       end
     end

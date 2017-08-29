@@ -9,6 +9,7 @@ const mapStateToProps = (state , props) => {
   return {
   state: state,
   project_id: props.task.project_id,
+  details: props.task.details,
   }
 };
 
