@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 
 import { RECEIVE_TASK, getAllTasks, deleteTask, updateTask } from '../../actions/task_actions';
+import { updateProject} from '../../actions/project_actions';
 import TaskIndexItems from './index_tasks_items'
 
 
@@ -15,7 +16,8 @@ const mapStateToProps = (state , props) => {
 
 const mapDispatchToProps = (dispatch) => ({
   getAllTasks: () => dispatch(getAllTasks()),
-  updateTask: (task) => dispatch(updateTask(task))
+  updateTask: (task) => dispatch(updateTask(task)),
+  updateProject: (project) => dispatch(updateProject(project)),
 });
 
 export default connect(

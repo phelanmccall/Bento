@@ -8,6 +8,7 @@ import { ItemTypes } from "../../util/dnd_constants.js";
 
 const taskSource = {
   beginDrag(props) {
+    // props.task.style.opacity = 0;
     return {
       id: props.task.id,
       project_id: props.task.project_id,
@@ -16,21 +17,16 @@ const taskSource = {
   isDragging(props, monitor) {
     return props.task.id === monitor.getItem().id;
   },
+  endDrag(props, monitor) {
+    const { id: droppedId } = monitor.getItem();
+    const didDrop = monitor.didDrop();
+    const task = Object.assign({project_id: props.task.project_id}, monitor.getItem());
 
-};
-
-const taskTarget = {
-  hover(props, monitor, component) {
-    const dragTask = monitor.getItem();
-    const hoverTask = props.task;
-
-    if (dragTask.project_id === hoverTask.project_id) {
-      const task = Object.assign({}, monitor.getItem())
+    if (didDrop) {
       props.updateTask(task);
-
-      monitor.getItem().id = hoverTask.id;
     }
-  }
+  },
+
 };
 
 function collectSource(connect, monitor) {
@@ -38,6 +34,22 @@ function collectSource(connect, monitor) {
     connectDragSource: connect.dragSource(),
     isDragging: monitor.isDragging(),
   };
+};
+
+const taskTarget = {
+  hover(props, monitor, component) {
+    const dragTask = monitor.getItem();
+    const hoverTask = props.task;
+
+    if (dragTask.project_id !== hoverTask.project_id) {
+      const task = Object.assign({}, hoverTask)
+      // const project = Object.assign({}, monitor.getItem())
+      props.updateTask(task);
+      // props.updateProject(project);
+
+      monitor.getItem().id = hoverTask.id;
+    }
+  }
 };
 
 function collectTarget(connect, monitor) {
@@ -143,10 +155,12 @@ class TaskIndexItem extends React.Component {
 
 
 
+    const opacity = isDragging ? 0 : 1;
 
     return connectDropTarget(connectDragSource(
       <li
         className="task-item-false"
+        style={{opacity}}
         >
 
         <div className="little-check-box"
