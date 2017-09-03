@@ -21,10 +21,10 @@ const taskSource = {
     const didDrop = monitor.didDrop();
     const task = Object.assign({project_id: props.task.project_id}, monitor.getItem());
 
-    if (didDrop) {
-      props.updateTask(task);
+    // if (didDrop) {
+    //   props.updateTask(task);
       // props.updateProject(task.project_id);
-    }
+    // }
   },
 
 };
@@ -41,7 +41,7 @@ const taskTarget = {
     const dragTask = monitor.getItem();
     const hoverTask = props.task;
     const overTask = monitor.isOver();
-    
+    // component.forceUpdate();
     // if (dragTask.project_id !== hoverTask.project_id) {
       // const task = Object.assign({}, hoverTask)
       // const project = Object.assign({}, monitor.getItem())
@@ -56,7 +56,12 @@ const taskTarget = {
     //   const taskd = hoverTask;
     //   props.updateTask(taskd);
     // }
-  }
+  },
+  // drop(props, monitor, component) {
+      // component.setState({ project_id: props.projectId });
+      // component.forceUpdate();
+      // return props;
+  // },
 };
 
 function collectTarget(connect, monitor) {
@@ -160,24 +165,22 @@ class TaskIndexItem extends React.Component {
             marginRight: `20px`,
           };
 
-
-
-    const opacity = isDragging ? 0.5 : 1;
+    const opacity = isDragging ? 0.3 : 1;
 
     return connectDropTarget(connectDragSource(
       <li
         className="task-item-false"
-        style={{opacity}}
+        style={{ opacity }}
         >
 
         <div className="little-check-box"
-          style={isDragging ? { backgroundColor: `black` } : background}
-          className={`${this.state.checked ? "task-item-true" : "task-item-false"}`}
-          onClick={this.handleCheck}
+          style={ isDragging ? { backgroundColor: `black` } : background }
+          className={ `${this.state.checked ? "task-item-true" : "task-item-false"}` }
+          onClick={ this.handleCheck }
         ></div>
       <div className="task-title"
 
-        >{task.title}</div>
+        >{ task.title }</div>
 
 
       </li>

@@ -12,7 +12,8 @@ import { ItemTypes } from "../../util/dnd_constants.js";
 const projectTarget = {
   hover(props, monitor, component) {
     const dragProject = monitor.getItem();
-
+    const project = Object.assign({}, monitor.getItem(), { project_id: props.projectId });
+    // component.forceUpdate();
   }
 }
 
@@ -31,7 +32,10 @@ class ProjectIndex extends React.Component {
 
   componentDidMount() {
     this.props.getAllProjects(parseInt(this.props.match.params.teamId));
+
   }
+
+
 
   componentWillReceiveProps(nextProps) {
 

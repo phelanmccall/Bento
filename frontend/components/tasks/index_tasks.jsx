@@ -15,7 +15,20 @@ const taskTarget = {
 
       monitor.getItem().project_id = props.projectId;
       props.updateTask(task);
+
+      component.setState({ project_id: props.projectId });
+      return;
     }
+
+
+    // else if (dragTask.project_id === props.projectId) {
+    //   console.log("HELLO PLEASE LOOK AT ME HELOOOOOOOO", monitor.getItem());
+    //   console.log("HELLO PLEASE LOOK AT ME HELOOOOOOOO", props.tasks.first);
+    //   const task = Object.assign({}, monitor.getItem(), {id: props.tasks.id});
+    //
+    //   monitor.getItem().id = props.tasks.id;
+    //   props.updateTask(task);
+    // }
 
     // const hoverTask = props.task;
     // if (dragTask.id !== hoverTask.id) {
@@ -24,6 +37,11 @@ const taskTarget = {
     //   // props.updateTask(task);
     // }
   },
+  // drop(props, monitor, component) {
+  //     component.setState({ project_id: props.projectId });
+  //     component.forceUpdate();
+  //     return props;
+  // },
 };
 
 function collectTarget(connect, monitor) {
@@ -33,14 +51,9 @@ function collectTarget(connect, monitor) {
 }
 
 class TaskIndex extends React.Component {
-
   constructor(props) {
     super(props);
-
   }
-
-
-
 
   render () {
     const { tasks, projectId, updateTask, connectDropTarget } = this.props;
@@ -71,7 +84,7 @@ class TaskIndex extends React.Component {
   }
 }
 
-export default  DropTarget(
+export default DropTarget(
   ItemTypes.TASK,
   taskTarget,
   collectTarget
