@@ -27,10 +27,10 @@ componentWillReceiveProps(nextProps) {
 
 
     function buttonHideTeam(obj) {
-      console.error(obj);
-      console.log(document);
+      // console.error(obj);
+      // console.log(document);
       var hideTeam = document.getElementById('root');
-      console.log(hideTeam);
+      // console.log(hideTeam);
       if (hideTeam.style.display === 'none') {
         hideTeam.style.display = 'flex';
       } else {
@@ -38,7 +38,7 @@ componentWillReceiveProps(nextProps) {
       }
     }
 
-    console.log(document.getElementById('workz'))
+    // console.log(document.getElementById('workz'))
 
     return (
       <div className="HideWrapper">

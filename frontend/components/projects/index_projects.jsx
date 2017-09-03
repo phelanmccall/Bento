@@ -16,7 +16,7 @@ const projectTarget = {
   }
 }
 
-function collectTarget(connect, monitor) {
+function collectTarget (connect, monitor) {
   return {
     connectDropTarget: connect.dropTarget()
   };

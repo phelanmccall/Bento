@@ -8,7 +8,6 @@ import { ItemTypes } from "../../util/dnd_constants.js";
 
 const taskSource = {
   beginDrag(props) {
-    // props.task.style.opacity = 0;
     return {
       id: props.task.id,
       project_id: props.task.project_id,
@@ -24,6 +23,7 @@ const taskSource = {
 
     if (didDrop) {
       props.updateTask(task);
+      // props.updateProject(task.project_id);
     }
   },
 
@@ -40,15 +40,22 @@ const taskTarget = {
   hover(props, monitor, component) {
     const dragTask = monitor.getItem();
     const hoverTask = props.task;
-
-    if (dragTask.project_id !== hoverTask.project_id) {
-      const task = Object.assign({}, hoverTask)
+    const overTask = monitor.isOver();
+    
+    // if (dragTask.project_id !== hoverTask.project_id) {
+      // const task = Object.assign({}, hoverTask)
       // const project = Object.assign({}, monitor.getItem())
-      props.updateTask(task);
+      // props.updateTask(task);
       // props.updateProject(project);
 
-      monitor.getItem().id = hoverTask.id;
-    }
+      // monitor.getItem().id = hoverTask.id;
+    // }
+    // || dragTask.id !== hoverTask.id
+    // if (dragTask.id !== hoverTask.id) {
+    //   console.log(hoverTask);
+    //   const taskd = hoverTask;
+    //   props.updateTask(taskd);
+    // }
   }
 };
 
@@ -68,7 +75,7 @@ class TaskIndexItem extends React.Component {
     this.handleUpdateTask = this.handleUpdateTask.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
 
-    console.log(this.props);
+    // console.log(this.props);
 
     this.state = {
       checked: this.props.task.checked,
@@ -155,7 +162,7 @@ class TaskIndexItem extends React.Component {
 
 
 
-    const opacity = isDragging ? 0 : 1;
+    const opacity = isDragging ? 0.5 : 1;
 
     return connectDropTarget(connectDragSource(
       <li

@@ -12,10 +12,17 @@ const taskTarget = {
 
     if (dragTask.project_id !== props.projectId) {
       const task = Object.assign({}, monitor.getItem(), { project_id: props.projectId });
-      props.updateTask(task);
 
       monitor.getItem().project_id = props.projectId;
+      props.updateTask(task);
     }
+
+    // const hoverTask = props.task;
+    // if (dragTask.id !== hoverTask.id) {
+    //   console.log(hoverTask);
+    //   const task = Object.assign({}, hoverTask)
+    //   // props.updateTask(task);
+    // }
   },
 };
 
@@ -31,6 +38,7 @@ class TaskIndex extends React.Component {
     super(props);
 
   }
+
 
 
 

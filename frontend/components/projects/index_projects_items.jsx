@@ -80,7 +80,7 @@ class ProjectIndexItem extends React.Component {
   }
 
   handleEnter (e) {
-    if (e.key === 'Enter') {
+    if (e.key == 'Enter') {
       const obj = {
         title: this.state.title,
         creator_id: this.state.creator_id,
