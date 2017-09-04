@@ -27,8 +27,18 @@ function collectSource(connect, monitor) {
 
 const specTarget = {
   hover(props, monitor, component) {
-    const dragProject = monitor.getItem();
+    const dragIdx = monitor.getItem().index;
+    const hoverIdx = props.index;
 
+    if (dragIdx === hoverIdx) {
+      return;
+    }
+
+    const proj = Object.assign({}, monitor.getItem(), { index: props.index });
+    props.updateProject(proj);
+
+    monitor.getItem().index = hoverIdx;
+    // props.index = dragIdx;
   }
 }
 
@@ -52,6 +62,7 @@ class ProjectIndexItem extends React.Component {
       manager: this.props.project.manager,
       tasks: this.props.project.tasks,
       id: this.props.project.id,
+      index: this.props.index,
     }
 
   }
@@ -80,7 +91,7 @@ class ProjectIndexItem extends React.Component {
   }
 
   handleEnter (e) {
-    if (e.key == 'Enter') {
+    if (e.key === 'Enter') {
       const obj = {
         title: this.state.title,
         creator_id: this.state.creator_id,
@@ -94,7 +105,7 @@ class ProjectIndexItem extends React.Component {
 
 
   render () {
-    const { project, connectDragSource, connectDropTarget, isDragging } = this.props;
+    const { project, connectDragSource, connectDropTarget, isDragging, index } = this.props;
 
     return connectDropTarget(connectDragSource(
       <li className="project-list-item">

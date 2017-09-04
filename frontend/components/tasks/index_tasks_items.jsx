@@ -7,10 +7,12 @@ import { DragDropContext, DragSource, DropTarget, DragLayer } from 'react-dnd';
 import { ItemTypes } from "../../util/dnd_constants.js";
 
 const taskSource = {
-  beginDrag(props) {
+  beginDrag(props, monitor, component) {
+    component.forceUpdate();
     return {
       id: props.task.id,
       project_id: props.task.project_id,
+      index: props.task.index,
     };
   },
   isDragging(props, monitor) {
@@ -51,11 +53,11 @@ const taskTarget = {
       // monitor.getItem().id = hoverTask.id;
     // }
     // || dragTask.id !== hoverTask.id
-    // if (dragTask.id !== hoverTask.id) {
-    //   console.log(hoverTask);
-    //   const taskd = hoverTask;
-    //   props.updateTask(taskd);
-    // }
+    if (dragTask.index !== hoverTask.index) {
+      const taskd = hoverTask;
+      props.updateTask(taskd);
+    }
+    // monitor.getItem().index = props.index;
   },
   // drop(props, monitor, component) {
       // component.setState({ project_id: props.projectId });

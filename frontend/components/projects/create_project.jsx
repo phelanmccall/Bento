@@ -11,6 +11,7 @@ class CreateProject extends React.Component {
       title: "",
       creator_id: this.props.currentUser.id,
       team_id: null,
+      index: this.props.index,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -30,7 +31,8 @@ class CreateProject extends React.Component {
     const newProject = {
       team_id: parseInt(this.props.match.params.teamId),
       creator_id: this.props.currentUser.id,
-      title: this.state.title
+      title: this.state.title,
+      index: this.state.index,
     };
 
     this.props.createProject(newProject);

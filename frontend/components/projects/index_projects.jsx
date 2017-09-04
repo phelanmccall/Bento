@@ -3,25 +3,24 @@ import { Route } from 'react-router-dom';
 
 import CreateProject from './create_project';
 import ProjectIndexItem from './index_projects_items';
-import { getAllProjects, updateProject } from '../../actions/project_actions';
+import { getAllProjects, updateProject, destroyProject } from '../../actions/project_actions';
 import CreateProjectContainer from './create_project_container'
 import TeamFormContainer from '../team/team_form_container';
 import { DropTarget } from 'react-dnd';
 import { ItemTypes } from "../../util/dnd_constants.js";
 
-const projectTarget = {
-  hover(props, monitor, component) {
-    const dragProject = monitor.getItem();
-    const project = Object.assign({}, monitor.getItem(), { project_id: props.projectId });
-    // component.forceUpdate();
-  }
-}
-
-function collectTarget (connect, monitor) {
-  return {
-    connectDropTarget: connect.dropTarget()
-  };
-}
+// const projectTarget = {
+//   hover(props, monitor, component) {
+//     const dragProject = monitor.getItem();
+//     const project = Object.assign({}, monitor.getItem(), { index: props.index });
+//   }
+// }
+//
+// function collectTarget (connect, monitor) {
+//   return {
+//     connectDropTarget: connect.dropTarget()
+//   };
+// }
 
 class ProjectIndex extends React.Component {
 
@@ -32,7 +31,6 @@ class ProjectIndex extends React.Component {
 
   componentDidMount() {
     this.props.getAllProjects(parseInt(this.props.match.params.teamId));
-
   }
 
 
@@ -45,9 +43,10 @@ class ProjectIndex extends React.Component {
   }
 
   render () {
-    const { projects, connectDropTarget } = this.props;
-
-    return connectDropTarget(
+    // connectDropTarget,
+    const { projects, updateProject, destroyProject } = this.props;
+// connectDropTarget
+    return (
       <div className="project-index-wrapper">
 
         <section className="indices-section">
@@ -56,14 +55,24 @@ class ProjectIndex extends React.Component {
 
             </div>
 
-            { projects && projects.map(project =>
+            { projects && projects.sort(function(x, y){
+              var index = "index"
+              if (x[index] < y[index]) {
+                  return -1;
+              }
+              if (x[index] > y[index]) {
+                  return 1;
+              }
+              return 0;
+            }).map((project, idx) =>
               <ProjectIndexItem
                 className="project-index-item" key={ project.id }
                 project={ project }
                 updateProject={ this.props.updateProject }
+                index={ idx }
               />
 
-            )}
+          )}
 
             <div
               className="create-project-wrapper">
@@ -75,9 +84,9 @@ class ProjectIndex extends React.Component {
     )
   }
 }
-
-export default DropTarget(
-  ItemTypes.PROJECT,
-  projectTarget,
-  collectTarget
-)(ProjectIndex);
+// DropTarget(
+//   ItemTypes.PROJECT,
+//   projectTarget,
+//   collectTarget
+// )
+export default (ProjectIndex);

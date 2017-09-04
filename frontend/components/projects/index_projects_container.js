@@ -12,14 +12,11 @@ const mapStateToProps = ({ projects }, { match }) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   getAllProjects: (teamId) => dispatch(getAllProjects(teamId)),
-  updateProject: (proj) => dispatch(updateProject(proj))
+  updateProject: (proj) => dispatch(updateProject(proj)),
+  destroyProject: (id) => dispatch(deleteProject(id)),
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(ProjectIndex);
-
-
-// ,
-// destroyProject: id => dispatch(deleteProject(id))
