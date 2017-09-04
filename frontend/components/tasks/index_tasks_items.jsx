@@ -1,13 +1,14 @@
 import React from 'react';
 import { Route, NavLink, Link } from 'react-router-dom';
 import TaskShowContainer from './show_task_container';
-import { RECEIVE_TASK } from '../../actions/task_actions';
+import { RECEIVE_TASK, updateTask } from '../../actions/task_actions';
 import HTML5Backend from 'react-dnd-html5-backend';
 import { DragDropContext, DragSource, DropTarget, DragLayer } from 'react-dnd';
 import { ItemTypes } from "../../util/dnd_constants.js";
 
 const taskSource = {
   beginDrag(props, monitor, component) {
+    console.log("The Task that is being DRAGGED", props.task.index);
     component.forceUpdate();
     return {
       id: props.task.id,
@@ -19,9 +20,9 @@ const taskSource = {
     return props.task.id === monitor.getItem().id;
   },
   endDrag(props, monitor) {
-    const { id: droppedId } = monitor.getItem();
-    const didDrop = monitor.didDrop();
-    const task = Object.assign({project_id: props.task.project_id}, monitor.getItem());
+    // const { id: droppedId } = monitor.getItem();
+    // const didDrop = monitor.didDrop();
+    // const task = Object.assign({project_id: props.task.project_id}, monitor.getItem());
 
     // if (didDrop) {
     //   props.updateTask(task);
@@ -40,22 +41,20 @@ function collectSource(connect, monitor) {
 
 const taskTarget = {
   hover(props, monitor, component) {
-    const dragTask = monitor.getItem();
-    const hoverTask = props.task;
-    const overTask = monitor.isOver();
-    // component.forceUpdate();
-    // if (dragTask.project_id !== hoverTask.project_id) {
-      // const task = Object.assign({}, hoverTask)
-      // const project = Object.assign({}, monitor.getItem())
-      // props.updateTask(task);
-      // props.updateProject(project);
+    const dragIdx = monitor.getItem().index;
+    const hoverIdx = props.task.index;
 
-      // monitor.getItem().id = hoverTask.id;
-    // }
-    // || dragTask.id !== hoverTask.id
-    if (dragTask.index !== hoverTask.index) {
-      const taskd = hoverTask;
-      props.updateTask(taskd);
+    if (dragIdx === hoverIdx) {
+      return;
+    } else {
+      console.log("THE TASK THAT'S HOVERING", props.task.index);
+      const tasky = Object.assign({}, monitor.getItem(), { index: props.task.index });
+      props.updateTask(tasky);
+      console.log("TASKY TASKY", tasky);
+
+      monitor.getItem().index = props.task.index;
+      // props.index = dragIdx;
+      component.forceUpdate();
     }
     // monitor.getItem().index = props.index;
   },
@@ -249,3 +248,15 @@ export default DropTarget(
 //   />
 
 // #${'0123456789abcdef'.split('').map(function(v,i,a) { return i > 5 ? null : a[Math.floor(Math.random() * 16)] }).join('')}
+
+
+// component.forceUpdate();
+// if (dragTask.project_id !== hoverTask.project_id) {
+  // const task = Object.assign({}, hoverTask)
+  // const project = Object.assign({}, monitor.getItem())
+  // props.updateTask(task);
+  // props.updateProject(project);
+
+  // monitor.getItem().id = hoverTask.id;
+// }
+// || dragTask.id !== hoverTask.id

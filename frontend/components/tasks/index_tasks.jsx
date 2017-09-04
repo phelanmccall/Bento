@@ -63,12 +63,12 @@ class TaskIndex extends React.Component {
 
         <section className="indices-section">
           <ul className="task-index">
-            { tasks && Object.values(tasks).map((task, indexOfTask) => {
+            { tasks && Object.values(tasks).sort((a,b) => a.index - b.index).map((task, indexOfTask) => {
                 return <TaskIndexItemsContainer
                 className="task-index-item"
                 key={ task.id }
                 task={ task }
-                index={ indexOfTask }
+                index={ task.indexOfTask }
               />
               }
             )}

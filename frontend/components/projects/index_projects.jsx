@@ -55,16 +55,7 @@ class ProjectIndex extends React.Component {
 
             </div>
 
-            { projects && projects.sort(function(x, y){
-              var index = "index"
-              if (x[index] < y[index]) {
-                  return -1;
-              }
-              if (x[index] > y[index]) {
-                  return 1;
-              }
-              return 0;
-            }).map((project, idx) =>
+            { projects && projects.sort((a,b) => a.index - b.index).map((project, idx) =>
               <ProjectIndexItem
                 className="project-index-item" key={ project.id }
                 project={ project }
@@ -90,3 +81,15 @@ class ProjectIndex extends React.Component {
 //   collectTarget
 // )
 export default (ProjectIndex);
+
+
+// .sort(function(x, y){
+//   var index = "index"
+//   if (x[index] < y[index]) {
+//       return -1;
+//   }
+//   if (x[index] > y[index]) {
+//       return 1;
+//   }
+//   return 0;
+// })

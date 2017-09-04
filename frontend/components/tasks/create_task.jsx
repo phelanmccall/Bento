@@ -13,7 +13,7 @@ class CreateTask extends React.Component {
       details: "",
       project_id: this.props.projectId,
       checked: false,
-      index: 0,
+      index: this.props.index,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);

@@ -3,7 +3,7 @@ import { Route, NavLink, Link } from 'react-router-dom';
 import ProjectShowContainer from './show_project_container';
 import CreateTaskContainer from '../tasks/create_task_container';
 import TaskIndexContainer from '../tasks/index_tasks_container';
-import updateProject from '../../actions/project_actions';
+import { updateProject } from '../../actions/project_actions';
 import { DragDropContext, DragSource, DropTarget, DragLayer } from 'react-dnd';
 import { ItemTypes } from "../../util/dnd_constants.js";
 
@@ -12,7 +12,7 @@ const specSource = {
     // console.log("BEGIN", props.index);
     return {
       id: props.project.id,
-      index : props.project.index,
+      index : props.index,
     };
   },
   isDragging(props, monitor) {
@@ -42,7 +42,6 @@ const specTarget = {
     if (dragIdx === hoverIdx) {
       return;
     } else {
-
     const proj = Object.assign({}, monitor.getItem(), { index: props.index });
     props.updateProject(proj);
 
