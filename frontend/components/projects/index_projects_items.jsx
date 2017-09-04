@@ -9,12 +9,21 @@ import { ItemTypes } from "../../util/dnd_constants.js";
 
 const specSource = {
   beginDrag(props) {
+    // console.log("BEGIN", props.index);
     return {
       id: props.project.id,
+      index : props.project.index,
     };
   },
   isDragging(props, monitor) {
     return props.project.id === monitor.getItem().id;
+  },
+  endDrag(props, monitor, component) {
+    // console.log("MONITOR END", monitor.getItem().index);
+    // console.log("END", props.index);
+    // const proj = Object.assign({}, monitor.getItem(), { index: monitor.getItem().index });
+    // props.updateProject(proj);
+    // component.forceUpdate();
   }
 }
 
@@ -32,13 +41,15 @@ const specTarget = {
 
     if (dragIdx === hoverIdx) {
       return;
-    }
+    } else {
 
     const proj = Object.assign({}, monitor.getItem(), { index: props.index });
     props.updateProject(proj);
 
-    monitor.getItem().index = hoverIdx;
+    monitor.getItem().index = props.index;
     // props.index = dragIdx;
+    component.forceUpdate();
+    }
   }
 }
 
@@ -107,8 +118,10 @@ class ProjectIndexItem extends React.Component {
   render () {
     const { project, connectDragSource, connectDropTarget, isDragging, index } = this.props;
 
+    const opacity = isDragging ? 0.3 : 1;
+
     return connectDropTarget(connectDragSource(
-      <li className="project-list-item">
+      <li style={{ opacity }} className="project-list-item">
 
         <input
           className="project-title-live-input"
