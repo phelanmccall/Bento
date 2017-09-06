@@ -14,9 +14,9 @@
 class Project < ApplicationRecord
   validates :title, :creator_id, :team_id, presence: true
 
-  before_validation :ensure_index!
-  before_create :enforce_next_index!
-  before_update :update_indices!
+  before_validation :set_index
+  before_create :set_next_index
+  before_update :update_indices
 
   belongs_to :manager,
   foreign_key: :creator_id,
@@ -31,18 +31,16 @@ class Project < ApplicationRecord
 
   private
 
-  def ensure_index!
-    next_index = Project.where(team_id: team_id).count
-    if index.nil? || index < 0 || index > next_index
-      self.index = next_index
-    end
+  def set_index
+    next_index = Project.where(team_id: team_id).length
+    self.index = next_index if index.nil? || index < 0 || index > next_index
   end
 
-  def enforce_next_index!
-    self.index = Project.where(team_id: team_id).count
+  def set_next_index
+    self.index = Project.where(team_id: team_id).length
   end
 
-  def update_indices!
+  def update_indices
     old_index = Project.find(id).index
 
     return nil if index == old_index

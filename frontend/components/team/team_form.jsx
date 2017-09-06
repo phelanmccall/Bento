@@ -57,9 +57,7 @@ class TeamForm extends React.Component {
                 onChange={this.setTeamName}
               />
             <br />
-            <button>
-              create team
-            </button>
+
 
           </form>
         </div>
@@ -71,3 +69,7 @@ class TeamForm extends React.Component {
 
 
 export default withRouter(TeamForm);
+
+//   <button>
+    // create team
+  // </button>

@@ -40,6 +40,7 @@ class CreateProject extends React.Component {
   }
 
   render () {
+    
     return (
       <section className="create-container">
         <form
@@ -53,9 +54,7 @@ class CreateProject extends React.Component {
             value={ this.state.title }
             onChange={ this.setTitle }
           />
-        <button className="create-project-button">
-            create project
-          </button>
+
         </form>
       </section>
     );
@@ -64,3 +63,8 @@ class CreateProject extends React.Component {
 }
 
 export default withRouter(CreateProject);
+
+
+// <button className="create-project-button">
+//     create project
+// </button>

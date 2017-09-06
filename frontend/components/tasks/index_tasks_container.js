@@ -11,14 +11,11 @@ const mapStateToProps = ({ tasks }, { match }) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   getAllTasks: () => dispatch(getAllTasks()),
-  updateTask: (task) => dispatch(updateTask(task))
+  updateTask: (task) => dispatch(updateTask(task)),
+  destroyTask: id => dispatch(deleteTask(id)),
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(TaskIndex);
-
-
-// ,
-// destroyTask: id => dispatch(deleteTask(id))

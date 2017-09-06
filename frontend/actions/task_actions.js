@@ -48,6 +48,6 @@ export const updateTask = task => dispatch => {
   return APIUtil.updateTask(task).then(updateThis => dispatch(receiveTasks(updateThis)));
 };
 
-export const deleteTasks = id => dispatch => {
-  return APIUtil.deleteTasks(id).then(removeThis => dispatch(removeTasks(removeThis)));
+export const deleteTask = id => dispatch => {
+  return APIUtil.deleteTask(id).then(removeThis => dispatch(removeTasks(removeThis)));
 };

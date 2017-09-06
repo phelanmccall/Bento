@@ -8,7 +8,7 @@ import {
 
 import { CLEAR_STORE } from '../actions/session_actions';
 
-import { RECEIVE_TASK, updateTask } from '../actions/task_actions';
+import { RECEIVE_TASK, REMOVE_TASK, updateTask, deleteTask } from '../actions/task_actions';
 
 const startState = Object.freeze({
 });
@@ -31,9 +31,16 @@ const ProjectReducer = (state = startState, action) => {
       return startState;
     case RECEIVE_TASK:
       let taskProject = state[action.task.project_id];
-
       taskProject.tasks[action.task.id] = action.task;
+
       return merge({}, state, {[action.task.project_id]: taskProject})
+    case REMOVE_TASK:
+      let taskyProject = state[action.task.project_id];
+      taskyProject.tasks[action.task.id] = action.task;
+
+      let nextyState = merge({}, state);
+      delete nextyState[action.task.id];
+      return nextyState;
     default:
       return state;
   }

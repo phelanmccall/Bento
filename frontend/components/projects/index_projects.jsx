@@ -40,6 +40,12 @@ class ProjectIndex extends React.Component {
     if (parseInt(nextProps.match.params.teamId) !== parseInt(this.props.match.params.teamId)) {
       this.props.getAllProjects(parseInt(nextProps.match.params.teamId));
     }
+
+    this.render();
+  }
+
+  componentDidUpdate() {
+    this.render();
   }
 
   render () {

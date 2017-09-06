@@ -55,6 +55,14 @@ class TaskIndex extends React.Component {
     super(props);
   }
 
+  componentWillReceiveProps() {
+    this.render();
+  }
+
+  componentDidUpdate() {
+    this.render();
+  }
+
   render () {
     const { tasks, projectId, updateTask, connectDropTarget } = this.props;
     // console.error(this.props);

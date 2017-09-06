@@ -1,10 +1,30 @@
 import { connect } from 'react-redux';
 
-import { RECEIVE_TASK, getAllTasks, deleteTask, updateTask } from '../../actions/task_actions';
+import { RECEIVE_TASK, REMOVE_TASK, getAllTasks, deleteTask, updateTask } from '../../actions/task_actions';
 import { updateProject} from '../../actions/project_actions';
 import TaskIndexItems from './index_tasks_items'
 
-
+// moveCard(id, atIndex) {
+//     const { card, index } = this.findCard(id);
+//     this.setState(update(this.state, {
+//       cards: {
+//         $splice: [
+//           [index, 1],
+//           [atIndex, 0, card],
+//         ],
+//       },
+//     }));
+//   }
+//
+//   findCard(id) {
+//     const { cards } = this.state;
+//     const card = cards.filter(c => c.id === id)[0];
+//
+//     return {
+//       card,
+//       index: cards.indexOf(card),
+//     };
+//   }
 
 const mapStateToProps = (state , props) => {
   return {
@@ -17,6 +37,7 @@ const mapStateToProps = (state , props) => {
 const mapDispatchToProps = (dispatch) => ({
   getAllTasks: () => dispatch(getAllTasks()),
   updateTask: (task) => dispatch(updateTask(task)),
+  deleteTask: (task) => dispatch(deleteTask(task)),
   updateProject: (project) => dispatch(updateProject(project)),
 });
 

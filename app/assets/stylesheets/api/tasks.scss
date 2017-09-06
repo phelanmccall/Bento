@@ -1,3 +1,26 @@
 // Place all the styles related to the Api::Tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.task-delete {
+  color: rgba(0,0,0,0.4);
+  background-color: transparent;
+  padding: 10px;
+  padding-top: unset;
+  padding-bottom: unset;
+  font-size: 12px;
+  margin-left: 145px;
+  margin-top: -10px;
+  width: 10px;
+  height: 20px;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+}
+
+.task-delete:hover {
+  background-color: pink;
+  color: black;
+  border-radius: 5px;
+  cursor: pointer;
+}

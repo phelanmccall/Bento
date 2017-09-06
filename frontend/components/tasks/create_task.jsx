@@ -32,7 +32,8 @@ class CreateTask extends React.Component {
 
     this.setState({
       title: "",
-      details: ""
+      details: "",
+      index: this.props.index
     });
 
     // this.props.history.push(`/api/tasks`);
@@ -59,10 +60,6 @@ class CreateTask extends React.Component {
         </div>
         <br />
 
-
-          <button className="create-task-button">
-            create task
-          </button>
         </form>
       </section>
     );
@@ -81,3 +78,7 @@ export default withRouter(CreateTask);
   //     onChange={ this.update('details') }
   // />
 // </div>
+
+// <button className="create-task-button">
+//   create task
+// </button>

@@ -1,10 +1,11 @@
 import React from 'react';
 import { Route, NavLink, Link } from 'react-router-dom';
 import TaskShowContainer from './show_task_container';
-import { RECEIVE_TASK, updateTask } from '../../actions/task_actions';
+import { RECEIVE_TASK, REMOVE_TASK, updateTask, deleteTask } from '../../actions/task_actions';
 import HTML5Backend from 'react-dnd-html5-backend';
 import { DragDropContext, DragSource, DropTarget, DragLayer } from 'react-dnd';
 import { ItemTypes } from "../../util/dnd_constants.js";
+import update from 'react/lib/update';
 
 const taskSource = {
   beginDrag(props, monitor, component) {
@@ -16,10 +17,19 @@ const taskSource = {
       index: props.task.index,
     };
   },
+
   isDragging(props, monitor) {
     return props.task.id === monitor.getItem().id;
   },
+
   endDrag(props, monitor) {
+    if (!monitor.didDrop()) {
+      return;
+    } else {
+      const item = monitor.getItem();
+      const dropResult = monitor.getDropResult();
+      // TaskActions.moveTaskToProject(item.id, dropResult.listId);
+    }
     // const { id: droppedId } = monitor.getItem();
     // const didDrop = monitor.didDrop();
     // const task = Object.assign({project_id: props.task.project_id}, monitor.getItem());
@@ -68,13 +78,15 @@ const taskTarget = {
 function collectTarget(connect, monitor) {
   return {
     connectDropTarget: connect.dropTarget(),
+    highlighted: monitor.canDrop(),
+    hovered: monitor.isOver(),
   };
 };
 
 class TaskIndexItem extends React.Component {
   constructor(props) {
     super(props);
-    // this.handleDelete = this.handleDelete.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
 
     this.handleInput = this.handleInput.bind(this);
@@ -84,21 +96,30 @@ class TaskIndexItem extends React.Component {
     // console.log(this.props);
 
     this.state = {
-      checked: this.props.task.checked,
-      details: this.props.task.details,
+      id: this.props.task.id,
       title: this.props.task.title,
       project_id: this.props.task.project_id,
-      id: this.props.task.id,
+      checked: this.props.task.checked,
       index : this.props.index,
+      details: this.props.task.details,
     }
 
   }
 
-  // handleDelete(e) {
-  //   e.preventDefault();
-  //   let id = e.currentTarget.id;
-  //   this.props.destroyTask(id);
-  // }
+  componentWillReceiveProps() {
+    this.render();
+  }
+
+  componentDidUpdate() {
+    this.render();
+  }
+
+  handleDelete(e) {
+    e.preventDefault();
+    let id = e.currentTarget.id;
+    this.setState({id: this.props.task.id});
+    this.props.deleteTask(this.props.task.id);
+  }
 
   handleCheck(e) {
     e.preventDefault();
@@ -152,14 +173,35 @@ class TaskIndexItem extends React.Component {
     }
   }
 
+  moveTask(id, atIndex) {
+    const { task, index } = this.findTask(id);
+    this.setState(update(this.state, {
+      tasks: {
+        $splice: [
+          [index, 1],
+          [atIndex, 0, task],
+        ],
+      },
+    }));
+  }
+
+  findTask(id) {
+    const { tasks } = this.state;
+    const task = tasks.filter(c => c.id === id)[0];
+
+    return {
+      task,
+      index: tasks.indexOf(task),
+    };
+  }
+
   render () {
 
-    const { task, project_id, connectDragSource, connectDropTarget, isDragging } = this.props;
+    const { task, project_id, highlighted, hovered, connectDragSource, connectDropTarget, isDragging, deleteTask } = this.props;
 
-    // const { task, project_id } = this.props;
     let background = {
-          	backgroundColor: `black`,
-            width: `3px`,
+          	backgroundColor: `#f3feb7`,
+            width: `30px`,
             minWidth: `3px`,
             height: `35px !important`,
             marginLeft: `-3px`,
@@ -167,7 +209,7 @@ class TaskIndexItem extends React.Component {
           };
 
     const opacity = isDragging ? 0.3 : 1;
-
+    // console.log(task, "TASK FROM TASK RENDER");
     return connectDropTarget(connectDragSource(
       <li
         className="task-item-false"
@@ -182,7 +224,7 @@ class TaskIndexItem extends React.Component {
       <div className="task-title"
 
         >{ task.title }</div>
-
+      <button id={task.id} onClick={ this.handleDelete } className="task-delete">x</button>
 
       </li>
     ));
@@ -207,7 +249,7 @@ export default DropTarget(
 
 
 // <Link to={`/api/tasks/${task.id}/edit`} className="edit-link">Edit</Link>
-// <button id={task.id} onClick={ this.handleDelete } className="delete">Delete</button>
+//
 
 // <div className="check-box-wrapper">
 //   <input

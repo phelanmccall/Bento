@@ -77,6 +77,14 @@ class ProjectIndexItem extends React.Component {
 
   }
 
+  componentWillReceiveProps() {
+    this.render();
+  }
+
+  componentDidUpdate() {
+    this.render();
+  }
+
   handleDelete(e) {
     e.preventDefault();
     let id = e.currentTarget.id;
