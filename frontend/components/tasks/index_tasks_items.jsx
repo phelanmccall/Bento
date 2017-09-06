@@ -199,25 +199,25 @@ class TaskIndexItem extends React.Component {
 
     const { task, project_id, highlighted, hovered, connectDragSource, connectDropTarget, isDragging, deleteTask } = this.props;
 
-    let background = {
-          	backgroundColor: `#f3feb7`,
-            width: `30px`,
-            minWidth: `30px`,
-            height: `30px`,
-            marginLeft: `-3px`,
-          };
+    // let background = {
+    //       	backgroundColor: `rgb(243, 254, 183)`,
+    //         width: `30px`,
+    //         minWidth: `30px`,
+    //         height: `30px`,
+    //         marginLeft: `-3px`,
+    //       };
 
     const opacity = isDragging ? 0 : 1;
     // console.log(task, "TASK FROM TASK RENDER");
     return connectDropTarget(connectDragSource(
       <li
-        className="task-item-false"
+        className={ `${this.state.checked ? "task-item-true" : "task-item-false"}`}
         style={{ opacity }}
         >
 
         <div className="little-check-box"
-          style={ isDragging ? { backgroundColor: `black` } : background }
-          className={ `${this.state.checked ? "task-item-true" : "task-item-false"}` }
+
+          className={ `${this.state.checked ? "check-true" : "check-false"}` }
           onClick={ this.handleCheck }
         ></div>
       <div className="task-title"
@@ -301,3 +301,5 @@ export default DropTarget(
   // monitor.getItem().id = hoverTask.id;
 // }
 // || dragTask.id !== hoverTask.id
+
+// style={ isDragging ? { backgroundColor: `black` } : background }

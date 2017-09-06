@@ -196,6 +196,26 @@
 
 }
 
+.check-true {
+  background-color: rgb(243, 254, 183);
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  // margin-left: -3px;
+}
+
+.check-false {
+  background-color: rgb(245, 207, 206);
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  // margin-left: -3px;
+}
+
+.check-true:hover, .check-false:hover {
+  
+}
+
 .task-item-true {
   font-weight: 200;
   font-size: 14px;
