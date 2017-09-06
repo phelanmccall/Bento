@@ -42,12 +42,12 @@ const specTarget = {
     if (dragIdx === hoverIdx) {
       return;
     } else {
-    const proj = Object.assign({}, monitor.getItem(), { index: props.index });
-    props.updateProject(proj);
+      const proj = Object.assign({}, monitor.getItem(), { index: props.index });
+      props.updateProject(proj);
 
-    monitor.getItem().index = props.index;
-    // props.index = dragIdx;
-    component.forceUpdate();
+      monitor.getItem().index = props.index;
+      // props.index = dragIdx;
+      component.forceUpdate();
     }
   }
 }
@@ -125,7 +125,7 @@ class ProjectIndexItem extends React.Component {
   render () {
     const { project, connectDragSource, connectDropTarget, isDragging, index } = this.props;
 
-    const opacity = isDragging ? 0.3 : 1;
+    const opacity = isDragging ? 0 : 1;
 
     return connectDropTarget(connectDragSource(
       <li style={{ opacity }} className="project-list-item">

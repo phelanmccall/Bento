@@ -57,10 +57,10 @@ const taskTarget = {
     if (dragIdx === hoverIdx) {
       return;
     } else {
-      console.log("THE TASK THAT'S HOVERING", props.task.index);
+      // console.log("THE TASK THAT'S HOVERING", props.task.index);
       const tasky = Object.assign({}, monitor.getItem(), { index: props.task.index });
       props.updateTask(tasky);
-      console.log("TASKY TASKY", tasky);
+      // console.log("TASKY TASKY", tasky);
 
       monitor.getItem().index = props.task.index;
       // props.index = dragIdx;
@@ -208,7 +208,7 @@ class TaskIndexItem extends React.Component {
             marginRight: `20px`,
           };
 
-    const opacity = isDragging ? 0.3 : 1;
+    const opacity = isDragging ? 0 : 1;
     // console.log(task, "TASK FROM TASK RENDER");
     return connectDropTarget(connectDragSource(
       <li
