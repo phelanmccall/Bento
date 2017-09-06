@@ -36,6 +36,8 @@
 
 .project-list-item {
   width: 300px;
+  min-width: 300px;
+  max-width: 300px;
   margin: 0 10px;
 
   background-color: rgba(255, 255, 255, 0.20);
@@ -147,7 +149,18 @@
   -webkit-animation: wiggle 0.1s ease-in-out 0.1s alternate 3;
 }
 
+.task-item-true:hover .hover-check, .task-item-false:hover .hover-check {
+  opacity: 0.3;
+}
 
+.task-item-false:hover .check-false, .task-item-true:hover .check-true {
+  // -webkit-animation: wiggle 0.5s ease-in-out 0.1s alternate 5;
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  margin-right: 0;
+}
 
 .task-list-item {
   list-style: none;
@@ -196,24 +209,42 @@
 
 }
 
-.check-true {
-  background-color: rgb(243, 254, 183);
-  width: 20px;
-  min-width: 20px;
+.check-true, .check-false {
+  width: 5px;
+  min-width: 5px;
   height: 20px;
   // margin-left: -3px;
+  margin-right: 15px;
+}
+
+.check-true {
+  background-color: rgb(243, 254, 183);
+
 }
 
 .check-false {
   background-color: rgb(245, 207, 206);
-  width: 20px;
-  min-width: 20px;
-  height: 20px;
-  // margin-left: -3px;
 }
 
 .check-true:hover, .check-false:hover {
-  
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  margin-right: 0;
+}
+
+.hover-check {
+  text-decoration: none;
+  opacity: 0.1;
+}
+
+.check-false .hover-check {
+  opacity: 0;
+}
+
+.check-true:hover .hover-check, .check-false:hover .hover-check,  {
+  opacity: 1;
 }
 
 .task-item-true {
@@ -253,7 +284,21 @@
 .task-item-false:hover, .task-item-true:hover {
   list-style: none;
   cursor: pointer;
+  border-radius: 15px;
 }
+
+.hover-check {
+  text-decoration: none;
+
+  opacity: 0.1;
+}
+
+.hover-check:hover {
+  text-decoration: none;
+  opacity: 1;
+}
+
+
 
 
 
@@ -314,9 +359,10 @@
   font-size: 20px;
   background-color: rgba(255, 255, 255, 0.50);
   margin-bottom: 8px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  width: 100%;
+  margin-right: 30px;
+  padding: 10px 0px;
+  /* width: 100%; */
+  min-width: 300px;
   text-align: center;
   border: solid 1px rgba(0,0,0,0);
 

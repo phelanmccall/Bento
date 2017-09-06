@@ -7,7 +7,6 @@ import configureStore from './store/store';
 import { clearErrors } from './actions/session_actions';
 import { fetchAllTeams } from './actions/team_actions';
 
-
 document.addEventListener('DOMContentLoaded', () => {
   let store;
   if (window.currentUser) {

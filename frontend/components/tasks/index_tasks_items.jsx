@@ -9,7 +9,7 @@ import update from 'react/lib/update';
 
 const taskSource = {
   beginDrag(props, monitor, component) {
-    console.log("The Task that is being DRAGGED", props.task.index);
+    // console.log("The Task that is being DRAGGED", props.task.index);
     component.forceUpdate();
     return {
       id: props.task.id,
@@ -114,6 +114,12 @@ class TaskIndexItem extends React.Component {
     this.render();
   }
 
+  componentDidMount() {
+    this.elRef.addEventListener('mouseup', () => {
+      this.forceUpdate();
+    });
+  }
+
   handleDelete(e) {
     e.preventDefault();
     let id = e.currentTarget.id;
@@ -211,6 +217,7 @@ class TaskIndexItem extends React.Component {
     // console.log(task, "TASK FROM TASK RENDER");
     return connectDropTarget(connectDragSource(
       <li
+        ref={element => this.elRef = element}
         className={ `${this.state.checked ? "task-item-true" : "task-item-false"}`}
         style={{ opacity }}
         >
@@ -219,8 +226,8 @@ class TaskIndexItem extends React.Component {
 
           className={ `${this.state.checked ? "check-true" : "check-false"}` }
           onClick={ this.handleCheck }
-        ></div>
-      <div className="task-title"
+        ><div className="hover-check">✔️</div></div>
+      <div className="task-title" ref={element => this.elRef = element}
 
         >{ task.title }</div>
       <button id={task.id} onClick={ this.handleDelete } className="task-delete">x</button>

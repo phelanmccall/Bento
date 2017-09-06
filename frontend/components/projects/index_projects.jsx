@@ -29,8 +29,15 @@ class ProjectIndex extends React.Component {
 
   }
 
+  // window.addEventListener('mouseup', () => {
+  //   this.forceUpdate
+  // });
+
   componentDidMount() {
     this.props.getAllProjects(parseInt(this.props.match.params.teamId));
+    this.elRef.addEventListener('mouseup', () => {
+      this.forceUpdate();
+    });
   }
 
 
@@ -53,7 +60,7 @@ class ProjectIndex extends React.Component {
     const { projects, updateProject, destroyProject } = this.props;
 // connectDropTarget
     return (
-      <div className="project-index-wrapper">
+      <div ref={element => this.elRef = element} className="project-index-wrapper">
 
         <section className="indices-section">
           <ul className="project-index">
@@ -63,6 +70,7 @@ class ProjectIndex extends React.Component {
 
             { projects && projects.sort((a,b) => a.index - b.index).map((project, idx) =>
               <ProjectIndexItem
+                ref={element => this.elRef = element}
                 className="project-index-item" key={ project.id }
                 project={ project }
                 updateProject={ this.props.updateProject }
