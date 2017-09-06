@@ -40,7 +40,7 @@ class CreateProject extends React.Component {
   }
 
   render () {
-    
+
     return (
       <section className="create-container">
         <form

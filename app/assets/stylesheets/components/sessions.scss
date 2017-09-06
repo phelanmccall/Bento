@@ -19,15 +19,33 @@
 //   background-size: cover;
 // }
 
+.session-form-containers-wrapper {
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  min-width: 800px;
+  background-image: url(./product5.png);
+  background-size: 1800px;
+  background-repeat: no-repeat;
+  background-origin: center;
+  background-position: top;
+}
+
+.session-form-containers-wrapper:not(*) {
+  opacity: 0.5;
+}
+
 .session-form-containers {
-    display: flex;
-    justify-content: center;
-    min-width: 800px;
-    background-image: url(./product5.png);
-    background-size: 2000px;
-    background-repeat: no-repeat;
-    background-origin: center;
-    background-position: top;
+  // display: flex;
+  // justify-content: center;
+  // min-width: 800px;
+  // background-image: url(./product5.png);
+  // background-size: 2000px;
+  // background-repeat: no-repeat;
+  // background-origin: center;
+  // background-position: top;
+  // opacity: 0.5;
+  opacity: 1;
 }
 
 .container-wrapper {
@@ -37,7 +55,7 @@
   grid-template-rows: repeat(25, 1fr);
   width: 840px;
   min-width: 800px;
-
+  opacity: 1;
 }
 
 .container-container {
@@ -226,7 +244,7 @@
   // box-shadow: 3px 3px 4px rgba(255, 241, 196, 0.69);
   cursor: pointer;
   -webkit-animation: wiggle 0.1s ease-in-out 0.1s alternate 3;
-  box-shadow: 4px 4px 12px rgba(215, 161, 116, 1.00);
+  box-shadow: 4px 4px 12px #f3feb7;
 }
 
 .login-user-input, .login-password-input, .guest-button, .submit-button {

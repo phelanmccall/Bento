@@ -109,7 +109,7 @@
     .new-form, input {
       margin-top: 10px;
       padding: 5px;
-      background-color: rgba(255, 255, 255, 0.20);
+      // background-color: rgba(255, 255, 255, 0.20);
     }
 
     input {
@@ -118,7 +118,7 @@
 
     input:hover, input:active, input:focus {
       box-sizing: border-box;
-      background-color: rgba(255, 255, 255, 0.60);
+      // background-color: rgba(255, 255, 255, 0.60);
       // border: solid 2px white;
     }
   }
@@ -126,7 +126,7 @@
 
 .create-task-input{
   text-align: center;
-
+  background: rgba(255,255,255,0.45);
 }
 
 .create-task-button {
