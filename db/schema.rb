@@ -36,9 +36,9 @@ ActiveRecord::Schema.define(version: 20170903222331) do
     t.string   "details"
     t.boolean  "checked",    default: false
     t.integer  "project_id"
+    t.integer  "index",      default: 0
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
-    t.integer  "index"
     t.index ["project_id"], name: "index_tasks_on_project_id", using: :btree
   end
 

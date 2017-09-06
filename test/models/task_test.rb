@@ -7,9 +7,9 @@
 #  details    :string
 #  checked    :boolean          default(FALSE)
 #  project_id :integer
+#  index      :integer          default(0)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  index      :integer
 #
 
 require 'test_helper'
