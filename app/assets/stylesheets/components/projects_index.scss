@@ -35,6 +35,8 @@
 }
 
 .project-list-item {
+  cursor: -webkit-grab;
+  cursor: grab;
   width: 300px;
   min-width: 300px;
   max-width: 300px;
@@ -55,9 +57,24 @@
     width: 270;
   }
 
+  .task-title {
+    cursor: -webkit-grab;
+    cursor: grab;
+  }
+
+  .task-item-false, .task-item-true {
+    cursor: -webkit-grab;
+    cursor: grab;
+  }
+
   a.task-title:hover {
     border-bottom: solid 1px black;
   }
+}
+
+.grabbing {
+  cursor: -webkit-grabbing !important;
+  cursor: grabbing !important;
 }
 
 .project-title-live-input {
@@ -193,6 +210,11 @@
 
 }
 
+.task-list-item:active, .task-list-item:focus {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
 // input[type=checkbox] {
 //   display: none;
 //   visibility: hidden;
@@ -293,7 +315,6 @@
 
 .task-item-false:hover, .task-item-true:hover {
   list-style: none;
-  cursor: pointer;
   border-radius: 15px;
 }
 

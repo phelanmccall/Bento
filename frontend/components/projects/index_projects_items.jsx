@@ -132,9 +132,11 @@ class ProjectIndexItem extends React.Component {
     const { project, connectDragSource, connectDropTarget, isDragging, index } = this.props;
 
     const opacity = isDragging ? 0 : 1;
+    const cursor = isDragging ? "-webkit-grabbing" : "-webkit-grab";
+
 
     return connectDropTarget(connectDragSource(
-      <li ref={element => this.elRef = element} style={{ opacity }} className="project-list-item">
+      <li ref={element => this.elRef = element} style={{ opacity }} className={`project-list-item ${isDragging ? "grabbing" : "not-grabbing"}`}>
 
         <input
           className="project-title-live-input"
