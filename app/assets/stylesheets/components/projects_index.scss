@@ -191,6 +191,9 @@
   text-align: left;
   word-wrap: break-word;
   overflow: auto;
+  display: flex;
+  flex: 12;
+
 }
 
 .task-item-true {
@@ -219,6 +222,7 @@
   padding-top: 10px;
   padding-bottom: 10px;
   border: solid 4px rgba(255, 255, 255, 0.80);
+  display: flex;
 }
 
 .task-item-true:hover {

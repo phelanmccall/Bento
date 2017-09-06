@@ -173,27 +173,27 @@ class TaskIndexItem extends React.Component {
     }
   }
 
-  moveTask(id, atIndex) {
-    const { task, index } = this.findTask(id);
-    this.setState(update(this.state, {
-      tasks: {
-        $splice: [
-          [index, 1],
-          [atIndex, 0, task],
-        ],
-      },
-    }));
-  }
-
-  findTask(id) {
-    const { tasks } = this.state;
-    const task = tasks.filter(c => c.id === id)[0];
-
-    return {
-      task,
-      index: tasks.indexOf(task),
-    };
-  }
+  // moveTask(id, atIndex) {
+  //   const { task, index } = this.findTask(id);
+  //   this.setState(update(this.state, {
+  //     tasks: {
+  //       $splice: [
+  //         [index, 1],
+  //         [atIndex, 0, task],
+  //       ],
+  //     },
+  //   }));
+  // }
+  //
+  // findTask(id) {
+  //   const { tasks } = this.state;
+  //   const task = tasks.filter(c => c.id === id)[0];
+  //
+  //   return {
+  //     task,
+  //     index: tasks.indexOf(task),
+  //   };
+  // }
 
   render () {
 
@@ -202,10 +202,9 @@ class TaskIndexItem extends React.Component {
     let background = {
           	backgroundColor: `#f3feb7`,
             width: `30px`,
-            minWidth: `3px`,
-            height: `35px !important`,
+            minWidth: `30px`,
+            height: `30px`,
             marginLeft: `-3px`,
-            marginRight: `20px`,
           };
 
     const opacity = isDragging ? 0 : 1;
