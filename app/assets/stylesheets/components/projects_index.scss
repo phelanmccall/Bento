@@ -127,6 +127,16 @@
 .create-task-input{
   text-align: center;
   background: rgba(255,255,255,0.45);
+  border: solid 1px transparent;
+  width: 280px;
+  min-width: 280px;
+  max-width: 280px;
+  resize: none;
+}
+
+.create-task-input:hover, .create-task-input:active, .create-task-input:focus{
+  background: white;
+  border: dashed 1px black;
 }
 
 .create-task-button {

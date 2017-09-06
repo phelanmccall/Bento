@@ -11,20 +11,33 @@ user02 = User.create!(username: "Waldo", password: "password")
 user03 = User.create!(username: "Atom", password: "password")
 user04 = User.create!(username: "atom", password: "password")
 
-team01 = Team.create!(team_name: "Primary Team", owner_id: user01.id)
-team02 = Team.create!(team_name: "Secondary Team", owner_id: user01.id)
-team03 = Team.create!(team_name: "Tertiary Team", owner_id: user01.id)
-team04 = Team.create!(team_name: "Quaternary Team", owner_id: user01.id)
-team05 = Team.create!(team_name: "WELCOME TO BENTO!", owner_id: user01.id)
+team01 = Team.create!(team_name: "Welcom to Bento!", owner_id: user01.id)
+team02 = Team.create!(team_name: "Primary Team", owner_id: user01.id)
+team03 = Team.create!(team_name: "Secondary Team", owner_id: user01.id)
+team04 = Team.create!(team_name: "Tertiary Team", owner_id: user01.id)
+team05 = Team.create!(team_name: "Quaternary Team", owner_id: user01.id)
 
 
-proj01 = Project.create!(title: "Primary Project", creator_id: user01.id, team_id: team01.id, index: 0)
-proj02 = Project.create!(title: "Secondary Project", creator_id: user01.id, team_id: team01.id, index: 1)
-proj03 = Project.create!(title: "Tertiary Project", creator_id: user01.id, team_id: team01.id, index: 2)
-proj04 = Project.create!(title: "Quaternary Project", creator_id: user01.id, team_id: team01.id, index: 3)
-proj05 = Project.create!(title: "Quinary Project", creator_id: user01.id, team_id: team02.id, index: 4)
-proj06 = Project.create!(title: "Senary Project", creator_id: user01.id, team_id: team02.id, index: 5)
-proj07 = Project.create!(title: "Septenary Project", creator_id: user01.id, team_id: team02.id, index: 6)
+wtbproj01 = Project.create!(title: "How to use:", creator_id: user01.id, team_id: team01.id, index: 0)
+wtbproj02 = Project.create!(title: "More uses:", creator_id: user01.id, team_id: team01.id, index: 1)
+
+wtbtask01 = Task.create!(title: "Click into the + create input fields to write Team and Project names, as well as Task descriptions.", details: "details", project_id: wtbproj01.id, index: 0)
+wtbtask02 = Task.create!(title: "Mark Tasks completed by clicking the check box to the left end of the Task box.", details: "details", project_id: wtbproj01.id, index: 1)
+wtbtask03 = Task.create!(title: "Tasks can be deleted with the x button on the right end of the Task box.", details: "details", project_id: wtbproj01.id, index: 2)
+
+wtbtask04 = Task.create!(title: "Projects can be dragged and dropped into a new order.", details: "details", project_id: wtbproj02.id, index: 0)
+wtbtask05 = Task.create!(title: "You can also try to drag and drop Tasks both to reorder them and move them to a different Project!.", details: "details", project_id: wtbproj02.id, index: 1)
+wtbtask05 = Task.create!(title: "Looks like this Task is already completed!", details: "details", project_id: wtbproj02.id, index: 2, checked: true)
+
+proj01 = Project.create!(title: "Primary Project", creator_id: user01.id, team_id: team02.id, index: 0)
+proj02 = Project.create!(title: "Secondary Project", creator_id: user01.id, team_id: team02.id, index: 1)
+proj03 = Project.create!(title: "Tertiary Project", creator_id: user01.id, team_id: team02.id, index: 2)
+proj04 = Project.create!(title: "Quaternary Project", creator_id: user01.id, team_id: team02.id, index: 3)
+
+proj05 = Project.create!(title: "Quinary Project", creator_id: user01.id, team_id: team03.id, index: 0)
+proj06 = Project.create!(title: "Senary Project", creator_id: user02.id, team_id: team03.id, index: 1)
+
+proj07 = Project.create!(title: "Septenary Project", creator_id: user02.id, team_id: team04.id, index: 0)
 
 task01 = Task.create!(title: "Primary Task", details: "details", project_id: proj01.id, index: 0)
 task02 = Task.create!(title: "Secondary Task", details: "details", project_id: proj01.id, index: 1)

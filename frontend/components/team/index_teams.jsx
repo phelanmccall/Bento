@@ -29,13 +29,13 @@ componentWillReceiveProps(nextProps) {
     function buttonHideTeam(obj) {
       // console.error(obj);
       // console.log(document);
-      var hideTeam = document.getElementById('root');
+      // var hideTeam = document.getElementById('root');
       // console.log(hideTeam);
-      if (hideTeam.style.display === 'none') {
-        hideTeam.style.display = 'flex';
-      } else {
-        hideTeam.style.display = 'none';
-      }
+      // if (hideTeam.style.display === 'none') {
+      //   hideTeam.style.display = 'flex';
+      // } else {
+      //   hideTeam.style.display = 'none';
+      // }
     }
 
     // console.log(document.getElementById('workz'))

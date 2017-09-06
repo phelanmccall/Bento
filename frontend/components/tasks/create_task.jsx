@@ -56,6 +56,8 @@ class CreateTask extends React.Component {
               placeholder="+ create new task"
               value={ this.state.title }
               onChange={ this.update('title') }
+              rows='3' data-min-rows='3'
+              type="text"
             />
         </div>
         <br />

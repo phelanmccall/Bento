@@ -29,15 +29,17 @@ import TaskIndexItems from './index_tasks_items'
 const mapStateToProps = (state , props) => {
   return {
   state: state,
+  id: props.task.id,
   project_id: props.task.project_id,
   details: props.task.details,
+  index: props.task.index,
   }
 };
 
 const mapDispatchToProps = (dispatch) => ({
   getAllTasks: () => dispatch(getAllTasks()),
   updateTask: (task) => dispatch(updateTask(task)),
-  deleteTask: (task) => dispatch(deleteTask(task)),
+  deleteTask: (id) => dispatch(deleteTask(id)),
   updateProject: (project) => dispatch(updateProject(project)),
 });
 

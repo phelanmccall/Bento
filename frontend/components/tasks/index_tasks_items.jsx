@@ -6,6 +6,7 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import { DragDropContext, DragSource, DropTarget, DragLayer } from 'react-dnd';
 import { ItemTypes } from "../../util/dnd_constants.js";
 import update from 'react/lib/update';
+import { connect } from 'react-redux';
 
 const taskSource = {
   beginDrag(props, monitor, component) {
@@ -122,9 +123,20 @@ class TaskIndexItem extends React.Component {
 
   handleDelete(e) {
     e.preventDefault();
+
     let id = e.currentTarget.id;
-    this.setState({id: this.props.task.id});
-    this.props.deleteTask(this.props.task.id);
+    let projId = this.state.project_id;
+    console.log(projId);
+    // this.props.dispatch(deleteTask(this.state.id));
+    // console.log(this.state.id, "FUCK YEAH");
+    // console.log(this, "THIS THID STHIS THIS");
+    let theTasks = this.props.state.projects[projId].tasks;
+    // console.log(theTasks, "1123o1249iu18u4534ut98423htuqf");
+    // console.log(theTasks[this.state.id].id, "idididididididididi_____");
+    this.props.dispatch(deleteTask(theTasks[this.state.id].id))
+    this.forceUpdate();
+    //
+    // this.setState({tasks})
   }
 
   handleCheck(e) {
@@ -245,7 +257,7 @@ export default DropTarget(
   ItemTypes.TASK,
   taskSource,
   collectSource
-)(TaskIndexItem));
+)(connect()(TaskIndexItem)));
 
 // { tasks &&  tasks.map(task =>
 //   <TaskIndexItem className="task-index-item" key={ task.id }
