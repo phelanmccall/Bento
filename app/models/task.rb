@@ -21,7 +21,7 @@ class Task < ApplicationRecord
   before_update :update_indices
 
   belongs_to :project,
-  foreign_key: :project_id,
+  foreign_key: :project_id
 
   private
 
