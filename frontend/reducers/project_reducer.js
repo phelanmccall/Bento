@@ -43,7 +43,9 @@ const ProjectReducer = (state = {}, action) => {
 
 export default ProjectReducer;
 
-//WORKING SHIT:
+//  Make change to receive task here.
+
+//WORKING STUFF:
 
 // import merge from 'lodash/merge';
 //
