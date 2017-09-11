@@ -11,7 +11,13 @@ const taskTarget = {
     const dragTask = monitor.getItem();
     console.log(monitor.getItem(), "The monitor's item");
     // console.log(props.state, "I am state");
-    console.log(props, "These be props");
+    console.log(props, "PROPS props PROPS props!!!");
+    let id = monitor.getItem().id;
+    // let projId = props.tasks[id].project_id;
+    // let theTasks = props.tasks;
+    let taskSave = props.tasks[id];
+    console.log(taskSave, "task save");
+    // props.deleteTask(id);
     if (dragTask.project_id !== props.projectId) {
       const task = Object.assign({}, monitor.getItem(), { project_id: props.projectId });
 

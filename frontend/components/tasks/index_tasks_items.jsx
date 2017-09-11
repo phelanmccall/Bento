@@ -19,12 +19,14 @@ const taskSource = {
     let projId = props.project_id;
     let theTasks = props.state.projects[projId].tasks;
     console.log(taskSave, "task save");
-    props.deleteTask(id);
+    // props.deleteTask(id);
     return {
-      // id: props.task.id,
-      // project_id: props.task.project_id,
-      // index: props.task.index,
-      taskSave
+      id: props.task.id,
+      project_id: props.task.project_id,
+      index: props.task.index,
+      // id: taskSave.id,
+      // project_id: taskSave.project_id,
+      // index: taskSave.index,
     };
   },
 
