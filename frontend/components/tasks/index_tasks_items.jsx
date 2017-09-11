@@ -11,11 +11,20 @@ import { connect } from 'react-redux';
 const taskSource = {
   beginDrag(props, monitor, component) {
     // console.log("The Task that is being DRAGGED", props.task.index);
-    component.forceUpdate();
+    // component.forceUpdate();
+    // console.log(monitor.getItem(), "ITEM HERE ITEM HERE");
+    console.log(props, "PROPS props PROPS props!!!");
+    let taskSave = props.task
+    let id = props.id;
+    let projId = props.project_id;
+    let theTasks = props.state.projects[projId].tasks;
+    console.log(taskSave, "task save");
+    props.deleteTask(id);
     return {
-      id: props.task.id,
-      project_id: props.task.project_id,
-      index: props.task.index,
+      // id: props.task.id,
+      // project_id: props.task.project_id,
+      // index: props.task.index,
+      taskSave
     };
   },
 
@@ -128,8 +137,8 @@ class TaskIndexItem extends React.Component {
     let projId = this.state.project_id;
     console.log(projId);
     // this.props.dispatch(deleteTask(this.state.id));
-    // console.log(this.state.id, "FUCK YEAH");
-    // console.log(this, "THIS THID STHIS THIS");
+    // console.log(this.state.id, "hmmmmmmm");
+    // console.log(this, "THIS THIS THIS THIS");
     let theTasks = this.props.state.projects[projId].tasks;
     // console.log(theTasks, "1123o1249iu18u4534ut98423htuqf");
     // console.log(theTasks[this.state.id].id, "idididididididididi_____");

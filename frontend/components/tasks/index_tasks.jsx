@@ -9,7 +9,9 @@ import { ItemTypes } from "../../util/dnd_constants.js";
 const taskTarget = {
   hover(props, monitor, component) {
     const dragTask = monitor.getItem();
-
+    console.log(monitor.getItem(), "The monitor's item");
+    // console.log(props.state, "I am state");
+    console.log(props, "These be props");
     if (dragTask.project_id !== props.projectId) {
       const task = Object.assign({}, monitor.getItem(), { project_id: props.projectId });
 
