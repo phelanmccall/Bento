@@ -5,24 +5,24 @@ import TaskIndexItemsContainer from './index_tasks_items_container';
 import CreateTaskContainer from '../tasks/create_task_container';
 import { DragSource, DropTarget } from 'react-dnd';
 import { ItemTypes } from "../../util/dnd_constants.js";
-import { deleteTask } from '../../actions/task_actions';
+import { deleteTask, updateTask } from '../../actions/task_actions';
 
 const taskTarget = {
   hover(props, monitor, component) {
     const dragTask = monitor.getItem();
 
-    // console.log(monitor.getItem(), "Mon.itor.");
-    // console.log(props, "PROPS props PROPS props!!!");
+    console.log(monitor.getItem(), "Mon.itor.");
+    console.log(props, "PROPS props PROPS props!!!");
 
     if (dragTask.project_id !== props.projectId) {
-      // const task = Object.assign({}, dragTask, { project_id: props.projectId });
+      const task = Object.assign({}, dragTask, { project_id: props.projectId });
 
       // monitor.getItem().project_id = props.projectId;
-      // props.updateTask(task);
+      props.updateTask(task);
 
-      // component.setState({ project_id: props.projectId });
+      component.setState({ project_id: props.projectId });
 
-      // props.destroyTask(dragTask.id);
+      props.destroyTask(dragTask.id);
       // monitor.getItem().setState({ project_id: monitor.getItem().projectId });
       // monitor.getItem().state.projects[projId].tasks[id].setState({});
       return;
@@ -63,7 +63,21 @@ class TaskIndex extends React.Component {
     super(props);
   }
 
-  componentWillReceiveProps() {
+  componentDidMount () {
+    console.log(this.props.projectId, "this dot props bb");
+    this.props.getAllTasksFromProjects(1);
+  }
+
+  componentWillMount() {
+    console.log(this.props.projectId, "props will mounts");
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps.projectId, "next props id");
+    if (nextProps.projectId !== this.props.projectId) {
+      this.props.getAllTasksFromProjects(1);
+    }
+
     this.render();
   }
 
@@ -79,7 +93,7 @@ class TaskIndex extends React.Component {
 
         <section className="indices-section">
           <ul className="task-index">
-            { tasks && Object.values(tasks).sort((a,b) => a.index - b.index).map((task, indexOfTask) => {
+            { tasks && tasks.sort((a,b) => a.index - b.index).map((task, indexOfTask) => {
                 return <TaskIndexItemsContainer
                 className="task-index-item"
                 key={ task.id }

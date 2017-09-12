@@ -34,7 +34,10 @@ class ProjectIndex extends React.Component {
   // });
 
   componentDidMount() {
+    console.log(this.props, "Props from index projects");
+    console.log(this.props.match.params.teamId, "the match");
     this.props.getAllProjects(parseInt(this.props.match.params.teamId));
+    
     this.elRef.addEventListener('mouseup', () => {
       this.forceUpdate();
     });

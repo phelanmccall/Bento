@@ -5,6 +5,19 @@ export const projection = () => {
   });
 };
 
+export const getAllTasksFromProjects = (projectId) => {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/tasks',
+    dataType: 'JSON',
+    data: {
+      task: {
+        project_id: projectId
+      }
+    }
+  });
+};
+
 export const getAllTasks = () => {
   return $.ajax({
     method: 'GET',

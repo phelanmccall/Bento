@@ -40,7 +40,7 @@ componentWillReceiveProps(nextProps) {
 
     // console.log(document.getElementById('workz'))
 
-    const display = "none";
+    const display = "flex";
 
     return (
       <div className="HideWrapper">

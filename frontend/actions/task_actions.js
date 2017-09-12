@@ -32,8 +32,15 @@ export const removeTasks = task => ({
 //   )dispatch(receiveErrors(err.responseJSON))
 // );
 
-export const getAllTasks = () => dispatch => {
-  return APIUtil.getAllTasks().then(tasks => dispatch(receiveAllTasks(tasks)));
+// export const getAllTasks = () => dispatch => {
+//   return APIUtil.getAllTasks().then(tasks => dispatch(receiveAllTasks(tasks)));
+// }
+
+
+export const getAllTasksFromProjects = (projectId) => dispatch => {
+  return APIUtil.getAllTasksFromProjects(projectId).then(tasks => {
+    dispatch(receiveAllTasks(tasks));
+  })
 }
 
 export const getSingleTasks = (id) => dispatch => {

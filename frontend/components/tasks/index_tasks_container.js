@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { getAllTasks, deleteTask, updateTask } from '../../actions/task_actions';
+import { getAllTasksFromProjects, getAllTasks, deleteTask, updateTask } from '../../actions/task_actions';
 import TaskIndex from './index_tasks'
 import { SelectorAllTasks } from '../../reducers/selectors'
 
@@ -8,11 +8,12 @@ import { SelectorAllTasks } from '../../reducers/selectors'
 const mapStateToProps = ({ tasks }, { match }, state, props) => ({
 
     state: state,
+    tasks: SelectorAllTasks(tasks),
 
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getAllTasks: () => dispatch(getAllTasks()),
+  getAllTasksFromProjects: (projectId) => dispatch(getAllTasksFromProjects(projectId)),
   updateTask: (task) => dispatch(updateTask(task)),
   destroyTask: id => dispatch(deleteTask(id)),
 });
