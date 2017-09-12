@@ -5,7 +5,9 @@ import TaskIndex from './index_tasks'
 import { SelectorAllTasks } from '../../reducers/selectors'
 
 
-const mapStateToProps = ({ tasks }, { match }) => ({
+const mapStateToProps = ({ tasks }, { match }, state, props) => ({
+
+    state: state,
 
 });
 

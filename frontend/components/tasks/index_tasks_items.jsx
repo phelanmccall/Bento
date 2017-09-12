@@ -18,9 +18,11 @@ const taskSource = {
     let id = props.id;
     let projId = props.project_id;
     let theTasks = props.state.projects[projId].tasks;
+    console.log(props.state, "begin drag props state");
     console.log(taskSave, "task save");
     // props.deleteTask(id);
     return {
+      state: props.state,
       id: props.task.id,
       project_id: props.task.project_id,
       index: props.task.index,
@@ -35,11 +37,21 @@ const taskSource = {
   },
 
   endDrag(props, monitor) {
+    if (monitor.didDrop()) {
+      console.log("DROPPED");
+    }
     if (!monitor.didDrop()) {
       return;
     } else {
-      const item = monitor.getItem();
+      console.log(props, "props");
+      console.log(monitor.getItem(), "monitor.getitem");
+      const dragTask = monitor.getItem();
+      // const item = monitor.getItem();
       const dropResult = monitor.getDropResult();
+      const task = Object.assign({}, dragTask, { project_id: props.projectId });
+      props.updateTask(task);
+
+
       // TaskActions.moveTaskToProject(item.id, dropResult.listId);
     }
     // const { id: droppedId } = monitor.getItem();
@@ -137,7 +149,7 @@ class TaskIndexItem extends React.Component {
 
     let id = e.currentTarget.id;
     let projId = this.state.project_id;
-    console.log(projId);
+    // console.log(projId);
     // this.props.dispatch(deleteTask(this.state.id));
     // console.log(this.state.id, "hmmmmmmm");
     // console.log(this, "THIS THIS THIS THIS");
@@ -153,6 +165,8 @@ class TaskIndexItem extends React.Component {
   handleCheck(e) {
     e.preventDefault();
 
+    console.log(this, "this");
+    console.log(this.setState(), "stateset");
     setTimeout(() => this.setState({ checked: !this.state.checked }), 0);
 
     let obj = {

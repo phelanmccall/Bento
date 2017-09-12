@@ -40,9 +40,11 @@ componentWillReceiveProps(nextProps) {
 
     // console.log(document.getElementById('workz'))
 
+    const display = "none";
+
     return (
       <div className="HideWrapper">
-        <div id="workz" className="team-index-initial-wrapper">
+        <div id="workz" style={ { display } }className="team-index-initial-wrapper">
 
 
 
