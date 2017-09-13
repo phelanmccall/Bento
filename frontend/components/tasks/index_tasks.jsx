@@ -5,7 +5,7 @@ import TaskIndexItemsContainer from './index_tasks_items_container';
 import CreateTaskContainer from '../tasks/create_task_container';
 import { DragSource, DropTarget } from 'react-dnd';
 import { ItemTypes } from "../../util/dnd_constants.js";
-import { deleteTask, updateTask } from '../../actions/task_actions';
+import { getSingleTasks, getAllTasksFromProjects, deleteTask, updateTask } from '../../actions/task_actions';
 
 const taskTarget = {
   hover(props, monitor, component) {
@@ -65,18 +65,35 @@ class TaskIndex extends React.Component {
 
   componentDidMount () {
     console.log(this.props.projectId, "this dot props bb");
-    this.props.getAllTasksFromProjects(1);
+    // return this.props.getAllTasksFromProjects(5);
+    // Object.keys(this.props.getAllTasksFromProjects(1)).map(function (key) { return this.props.getAllTasksFromProjects(1)[key]; });
+    // let obj = this.props.getAllTasksFromProjects(1);
+    // console.log(this.props, "this. props");
+    // let arr = Object.keys(obj).map(function (key) { return obj[key]; });
+    // console.log(obj, "sfjadgjdgajgdf obj obj obj");
+    // console.log(arr, "arrayyy_@#(#(_#@%#$J#$_G_KGEF_GSKFDGyooooooo");
+    // let new_arr = [];
+    // console.log(arr, "the array________");
+    // arr.filter(task => {
+    //   if (task.project_id === 1) {
+    //     console.log(task, "TASK");
+    //     new_arr.push(task)
+    //   }
+    // });
+    // console.log(new_arr, "RETURN NEW ARR");
+    // return new_arr;
+
   }
 
   componentWillMount() {
-    console.log(this.props.projectId, "props will mounts");
+    // console.log(this.props.projectId, "props will mounts");
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps.projectId, "next props id");
-    if (nextProps.projectId !== this.props.projectId) {
-      this.props.getAllTasksFromProjects(1);
-    }
+    // console.log(nextProps.projectId, "next props id");
+    // if (nextProps.projectId !== this.props.projectId) {
+    //   this.props.getSingleTasks(5);
+    // }
 
     this.render();
   }

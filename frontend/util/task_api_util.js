@@ -25,7 +25,7 @@ export const getAllTasks = () => {
   });
 };
 
-export const getSingleTask = (id) => {
+export const getSingleTasks = (id) => {
   return $.ajax({
     method: 'GET',
     url: `/api/tasks/${id}`

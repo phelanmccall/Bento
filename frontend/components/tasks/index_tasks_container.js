@@ -6,9 +6,8 @@ import { SelectorAllTasks } from '../../reducers/selectors'
 
 
 const mapStateToProps = ({ tasks }, { match }, state, props) => ({
-
-    state: state,
-    tasks: SelectorAllTasks(tasks),
+  tasks: SelectorAllTasks(tasks),  
+  state: state,
 
 });
 

@@ -13,12 +13,24 @@ const startState = Object.freeze({
 
 const TaskReducer = (state = startState, action) => {
   Object.freeze(state);
-
+  console.log(action.type, "action.type log");
   switch (action.type) {
 
     case RECEIVE_ALL_TASKS:
-      return action.tasks;
-
+      let obj = action.tasks
+      let arr = Object.keys(obj).map(function (key) { return obj[key]; });
+      console.table(arr, "arrayyy_@#(#(_#@%#$J#$_G_KGEF_GSKFDGyooooooo");
+      let new_arr = [];
+      arr.filter(task => {
+        if (task.project_id === 1) {
+          console.log(task, "TASK");
+          new_arr.push(task)
+        }
+      });
+      console.log(new_arr, "RETURN NEW ARR");
+      return new_arr;
+    case RECEIVE_TASK:
+      return action.task;
     case CLEAR_STORE:
       return startState;
     default:
