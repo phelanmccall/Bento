@@ -26,20 +26,6 @@ const ProjectReducer = (state = {}, action) => {
       return nextState;
     case CLEAR_STORE:
       return {};
-    case RECEIVE_TASK:
-      let next = merge({}, state);
-      // let taskProject = state[action.task.project_id];
-      // taskProject.tasks[action.task.id] = action.task;
-      // console.log(action.task.project_id)
-      // console.log(next[action.task.project_id].tasks[action.task.id])
-      next[action.task.project_id].tasks[action.task.id] = action.task;
-      // return merge({}, state, {[action.task.project_id]: taskProject})
-      return next
-    case REMOVE_TASK:
-      let tasksProject = state[action.task.project_id];
-      let nextStates = merge({}, state);
-      delete nextStates[tasksProject.id].tasks[action.task.id];
-      return nextStates;
     default:
       return state;
   }
@@ -168,3 +154,22 @@ export default ProjectReducer;
 
 // delete state[action.task.id];
 // return merge({}, state);
+
+
+
+// WORKING CODE FOR NESTED state
+
+// case RECEIVE_TASK:
+//   let next = merge({}, state);
+//   // let taskProject = state[action.task.project_id];
+//   // taskProject.tasks[action.task.id] = action.task;
+//   // console.log(action.task.project_id)
+//   // console.log(next[action.task.project_id].tasks[action.task.id])
+//   next[action.task.project_id].tasks[action.task.id] = action.task;
+//   // return merge({}, state, {[action.task.project_id]: taskProject})
+//   return next
+// case REMOVE_TASK:
+//   let tasksProject = state[action.task.project_id];
+//   let nextStates = merge({}, state);
+//   delete nextStates[tasksProject.id].tasks[action.task.id];
+//   return nextStates;

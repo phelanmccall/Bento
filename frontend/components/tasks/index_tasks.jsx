@@ -5,14 +5,14 @@ import TaskIndexItemsContainer from './index_tasks_items_container';
 import CreateTaskContainer from '../tasks/create_task_container';
 import { DragSource, DropTarget } from 'react-dnd';
 import { ItemTypes } from "../../util/dnd_constants.js";
-import { getSingleTasks, getAllTasksFromProjects, deleteTask, updateTask } from '../../actions/task_actions';
+import { deleteTask, updateTask } from '../../actions/task_actions';
 
 const taskTarget = {
   hover(props, monitor, component) {
     const dragTask = monitor.getItem();
 
-    console.log(monitor.getItem(), "Mon.itor.");
-    console.log(props, "PROPS props PROPS props!!!");
+    // console.log(monitor.getItem(), "Mon.itor.");
+    // console.log(props, "PROPS props PROPS props!!!");
 
     if (dragTask.project_id !== props.projectId) {
       const task = Object.assign({}, dragTask, { project_id: props.projectId });
@@ -61,49 +61,64 @@ function collectTarget(connect, monitor) {
 class TaskIndex extends React.Component {
   constructor(props) {
     super(props);
+    state : {
+      tasks: "null"
+    }
   }
 
   componentDidMount () {
-    console.log(this.props.projectId, "this dot props bb");
-    // return this.props.getAllTasksFromProjects(5);
-    // Object.keys(this.props.getAllTasksFromProjects(1)).map(function (key) { return this.props.getAllTasksFromProjects(1)[key]; });
-    // let obj = this.props.getAllTasksFromProjects(1);
-    // console.log(this.props, "this. props");
-    // let arr = Object.keys(obj).map(function (key) { return obj[key]; });
-    // console.log(obj, "sfjadgjdgajgdf obj obj obj");
-    // console.log(arr, "arrayyy_@#(#(_#@%#$J#$_G_KGEF_GSKFDGyooooooo");
-    // let new_arr = [];
-    // console.log(arr, "the array________");
-    // arr.filter(task => {
-    //   if (task.project_id === 1) {
-    //     console.log(task, "TASK");
-    //     new_arr.push(task)
-    //   }
-    // });
-    // console.log(new_arr, "RETURN NEW ARR");
-    // return new_arr;
+    // this.props.getAllTasksFromProjects()
+    // .then(
+    //   () => this.setState(
+    //     {tasks: this.filterTasksByProject(this.props.tasks, this.props.projectId)}
+    //   )
+    // );
+    this.forceUpdate();
+  }
+
+  makeTaskArray(tasks) {
+    return Object.keys(tasks).map(function (key) { return tasks[key]; });
+  }
+
+  filterTasksByProject(tasks, projectId) {
+    let arr = this.makeTaskArray(tasks)
+    let new_arr = []
+    arr.filter(task => {
+      if (task.project_id === projectId) {
+        new_arr.push(task)
+      }
+    });
+    console.log(new_arr, "FILTERED $$CASH$$MONEY$");
+    return new_arr
 
   }
 
   componentWillMount() {
-    // console.log(this.props.projectId, "props will mounts");
+    this.props.getAllTasksFromProjects()
+    .then(
+      () => this.setState(
+        {tasks: this.filterTasksByProject(this.props.tasks, this.props.projectId)}
+      )
+    );
   }
 
-  componentWillReceiveProps(nextProps) {
-    // console.log(nextProps.projectId, "next props id");
-    // if (nextProps.projectId !== this.props.projectId) {
-    //   this.props.getSingleTasks(5);
-    // }
-
-    this.render();
+  componentWillReceiveProps() {
+    this.forceUpdate();
   }
+
 
   componentDidUpdate() {
-    this.render();
+
+  }
+
+  componentWillUpdate() {
+
   }
 
   render () {
-    const { tasks, projectId, updateTask, connectDropTarget } = this.props;
+    const { projectId, updateTask, connectDropTarget } = this.props;
+    const tasks = this.state ? this.state.tasks : []
+
     // console.error(this.props);
     return connectDropTarget(
       <div className="task-index-wrapper">

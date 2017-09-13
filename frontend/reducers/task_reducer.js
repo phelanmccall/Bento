@@ -8,31 +8,20 @@ import {
 
 import { CLEAR_STORE } from '../actions/session_actions';
 
-const startState = Object.freeze({
-});
 
-const TaskReducer = (state = startState, action) => {
+const TaskReducer = (state = {}, action) => {
   Object.freeze(state);
   console.log(action.type, "action.type log");
   switch (action.type) {
-
     case RECEIVE_ALL_TASKS:
-      let obj = action.tasks
-      let arr = Object.keys(obj).map(function (key) { return obj[key]; });
-      console.table(arr, "arrayyy_@#(#(_#@%#$J#$_G_KGEF_GSKFDGyooooooo");
-      let new_arr = [];
-      arr.filter(task => {
-        if (task.project_id === 1) {
-          console.log(task, "TASK");
-          new_arr.push(task)
-        }
-      });
-      console.log(new_arr, "RETURN NEW ARR");
-      return new_arr;
+      return merge({}, state, action.tasks);
     case RECEIVE_TASK:
-      return action.task;
+      let nextS = merge({}, state);
+      nextS[action.task] = action.task
+      return nextS;
+      // return action.task
     case CLEAR_STORE:
-      return startState;
+      return {};
     default:
       return state;
   }
@@ -64,3 +53,17 @@ export default TaskReducer;
 // };
 //
 // export default TaskReducer;
+
+
+// let obj = action.tasks
+// let arr = Object.keys(obj).map(function (key) { return obj[key]; });
+// console.table(arr, "arrayyy_@#(#(_#@%#$J#$_G_KGEF_GSKFDGyooooooo");
+// let new_arr = [];
+// arr.filter(task => {
+//   if (task.project_id === 1) {
+//     console.log(task, "TASK");
+//     new_arr.push(task)
+//   }
+// });
+// console.log(new_arr, "RETURN NEW ARR");
+// return new_arr;

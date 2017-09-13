@@ -10,6 +10,8 @@ class Api::TasksController < ApplicationController
   end
 
   def create
+    p params
+    p task_params
     @task = Task.new(task_params)
 
     if @task.save
