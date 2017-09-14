@@ -9,9 +9,10 @@ export const SelectorAllProjects = projects => {
 
 
 export const SelectorAllTasks = tasks => {
-  let sortedTasks = values(tasks);
-
-  return sortedTasks.sort((a, b) => {a.index - b.index})
+  // let sortedTasks = values(tasks);
+  //
+  // return sortedTasks.sort((a, b) => {a.index - b.index})
+  return tasks;
 };
 
 

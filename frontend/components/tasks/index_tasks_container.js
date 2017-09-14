@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 import { getAllTasksFromProjects, getAllTasks, deleteTask, updateTask } from '../../actions/task_actions';
 import TaskIndex from './index_tasks'
 import { SelectorAllTasks } from '../../reducers/selectors'
+import update from 'react/lib/update';
 
 
 const mapStateToProps = ({ tasks }, { match }, state, props) => ({
-  tasks: SelectorAllTasks(tasks),  
+  tasks: SelectorAllTasks(tasks),
   state: state,
 
 });

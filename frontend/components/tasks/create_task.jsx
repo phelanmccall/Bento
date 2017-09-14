@@ -26,7 +26,8 @@ class CreateTask extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    let emptyState = {};
+    // let emptyState = {};
+    console.log(this.state, "GEE GEE this dot PROPS");
     const newTask = this.state;
     this.props.createTask(newTask);
 
@@ -36,7 +37,8 @@ class CreateTask extends React.Component {
       index: this.props.index
     });
 
-    // this.props.history.push(`/api/tasks`);
+
+    // this.props.history.push(`${this.props.location.pathname}`);
   }
 
   render () {

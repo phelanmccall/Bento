@@ -6,6 +6,7 @@ import CreateTaskContainer from '../tasks/create_task_container';
 import { DragSource, DropTarget } from 'react-dnd';
 import { ItemTypes } from "../../util/dnd_constants.js";
 import { deleteTask, updateTask } from '../../actions/task_actions';
+import update from 'react/lib/update';
 
 const taskTarget = {
   hover(props, monitor, component) {
@@ -18,11 +19,11 @@ const taskTarget = {
       const task = Object.assign({}, dragTask, { project_id: props.projectId });
 
       // monitor.getItem().project_id = props.projectId;
-      props.updateTask(task);
+      // props.updateTask(task);
 
       component.setState({ project_id: props.projectId });
 
-      props.destroyTask(dragTask.id);
+      // props.destroyTask(dragTask.id);
       // monitor.getItem().setState({ project_id: monitor.getItem().projectId });
       // monitor.getItem().state.projects[projId].tasks[id].setState({});
       return;
@@ -62,7 +63,13 @@ class TaskIndex extends React.Component {
   constructor(props) {
     super(props);
     state : {
-      tasks: "null"
+      tasks: [{
+        id: 1,
+      }, {
+        id: 2,
+      }, {
+        id: 3,
+      }]
     }
   }
 
@@ -73,7 +80,7 @@ class TaskIndex extends React.Component {
     //     {tasks: this.filterTasksByProject(this.props.tasks, this.props.projectId)}
     //   )
     // );
-    this.forceUpdate();
+    // this.forceUpdate();
   }
 
   makeTaskArray(tasks) {
@@ -103,7 +110,7 @@ class TaskIndex extends React.Component {
   }
 
   componentWillReceiveProps() {
-    this.forceUpdate();
+    // this.forceUpdate();
   }
 
 
@@ -115,34 +122,43 @@ class TaskIndex extends React.Component {
 
   }
 
+  //remove sort and then slice instead in model
+
   render () {
     const { projectId, updateTask, connectDropTarget } = this.props;
     const tasks = this.state ? this.state.tasks : []
 
-    // console.error(this.props);
+    console.error(tasks);
+    console.error(this.state ? this.state.tasks : [], "this.state.tasks");
+    if (this.state) {
     return connectDropTarget(
       <div className="task-index-wrapper">
 
         <section className="indices-section">
           <ul className="task-index">
-            { tasks && tasks.sort((a,b) => a.index - b.index).map((task, indexOfTask) => {
+            { tasks && tasks.map((task, indexOfTask) =>
+              {
                 return <TaskIndexItemsContainer
-                className="task-index-item"
-                key={ task.id }
-                task={ task }
-                index={ task.indexOfTask }
-              />
+                  className="task-index-item"
+                  key={ task.id }
+                  task={ task }
+                  index={ indexOfTask }
+                />
               }
             )}
 
             <div
               className="create-task-wrapper">
-              <CreateTaskContainer projectId={this.props.projectId}/>
+              <CreateTaskContainer
+                projectId={ this.props.projectId }
+              />
             </div>
           </ul>
         </section>
       </div>
-    )
+    )} else {
+      return null
+    }
   }
 }
 

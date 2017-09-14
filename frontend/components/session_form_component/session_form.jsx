@@ -51,6 +51,7 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = {username: "guest", password: "password"};
     this.props.guestLogin({user});
+    this.props.history.push(`/api/teams/1`)
   }
 
   handleEnter (e) {

@@ -36,6 +36,12 @@ class CreateProject extends React.Component {
     };
 
     this.props.createProject(newProject);
+    this.setState({
+      title: "",
+      creator_id: this.props.currentUser.id,
+      team_id: null,
+      index: this.props.index,
+    })
 
   }
 
