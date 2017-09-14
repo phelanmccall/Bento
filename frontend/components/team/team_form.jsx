@@ -69,7 +69,3 @@ class TeamForm extends React.Component {
 
 
 export default withRouter(TeamForm);
-
-//   <button>
-    // create team
-  // </button>

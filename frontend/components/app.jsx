@@ -83,10 +83,3 @@ class App extends React.Component {
 };
 
 export default (DragDropContext(HTML5Backend)(App));
-
-
-// <ProtectedRoute path="/api/teams/:teamId" component={IndexTeamContainer } />
-
-
-//
-//

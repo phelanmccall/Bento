@@ -9,19 +9,6 @@ import TeamFormContainer from '../team/team_form_container';
 import { DropTarget } from 'react-dnd';
 import { ItemTypes } from "../../util/dnd_constants.js";
 
-// const projectTarget = {
-//   hover(props, monitor, component) {
-//     const dragProject = monitor.getItem();
-//     const project = Object.assign({}, monitor.getItem(), { index: props.index });
-//   }
-// }
-//
-// function collectTarget (connect, monitor) {
-//   return {
-//     connectDropTarget: connect.dropTarget()
-//   };
-// }
-
 class ProjectIndex extends React.Component {
 
   constructor(props) {
@@ -29,13 +16,8 @@ class ProjectIndex extends React.Component {
 
   }
 
-  // window.addEventListener('mouseup', () => {
-  //   this.forceUpdate
-  // });
-
   componentDidMount() {
-    // console.log(this.props, "Props from index projects");
-    // console.log(this.props.match.params.teamId, "the match");
+
     this.props.getAllProjects(parseInt(this.props.match.params.teamId));
 
     this.elRef.addEventListener('mouseup', () => {
@@ -59,10 +41,8 @@ class ProjectIndex extends React.Component {
   }
 
   render () {
-    // connectDropTarget,
     const { projects, updateProject, destroyProject } = this.props;
-// connectDropTarget
-    // console.error(projects);
+
     return (
       <div ref={element => this.elRef = element} className="project-index-wrapper">
 
@@ -93,21 +73,5 @@ class ProjectIndex extends React.Component {
     )
   }
 }
-// DropTarget(
-//   ItemTypes.PROJECT,
-//   projectTarget,
-//   collectTarget
-// )
+
 export default (ProjectIndex);
-
-
-// .sort(function(x, y){
-//   var index = "index"
-//   if (x[index] < y[index]) {
-//       return -1;
-//   }
-//   if (x[index] > y[index]) {
-//       return 1;
-//   }
-//   return 0;
-// })

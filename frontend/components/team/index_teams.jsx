@@ -12,7 +12,6 @@ class TeamIndex extends React.Component {
 
 componentDidMount () {
   this.props.fetchAllTeams(this.props.currentUser.id);
-  // console.table(this.props.teams);
   this.props.history.push(`/api/teams/${1}`)
 }
 
@@ -29,18 +28,7 @@ componentWillReceiveProps(nextProps) {
 
 
     function buttonHideTeam(obj) {
-      // //console.error(obj);
-      // console.log(document);
-      // var hideTeam = document.getElementById('root');
-      // console.log(hideTeam);
-      // if (hideTeam.style.display === 'none') {
-      //   hideTeam.style.display = 'flex';
-      // } else {
-      //   hideTeam.style.display = 'none';
-      // }
     }
-
-    // console.log(document.getElementById('workz'))
 
     const display = "flex";
 
@@ -76,29 +64,3 @@ componentWillReceiveProps(nextProps) {
 
 
 export default withRouter(TeamIndex);
-
-
-
-// <button
-
-//   className="side-bar-button" onClick={buttonHideTeam(this)}>Buttonnnnnn</button>
-
-// <button className="side-barr-button">{`🍱`}</button>
-
-
-//   displayTeams() {
-//   	return e => {
-//   		e.preventDefault();
-//   		this.props.receiveTeam(team);
-// 	}
-// }
-
-// displayProjects(team) {
-//   return (
-//   	<ul>
-//   		this.props.teams.map((team, idx) => {
-//   			<li>{team.projects.map(project</li>
-//   }
-//   </ul>
-//   );
-// }

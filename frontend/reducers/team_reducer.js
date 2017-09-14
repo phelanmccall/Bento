@@ -25,8 +25,6 @@ const teamsReducer = (state = initialState, action) => {
             team_name: team.team_name
           }
         });
-
-        newState.currentTeam = action.teams[0].id;
         return newState;
       }
       else {

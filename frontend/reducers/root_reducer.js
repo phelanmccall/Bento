@@ -13,6 +13,3 @@ const RootReducer = combineReducers({
 });
 
 export default RootReducer;
-
-
-// teams: teamsReducer

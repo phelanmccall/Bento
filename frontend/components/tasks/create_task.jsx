@@ -25,9 +25,6 @@ class CreateTask extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-
-    // let emptyState = {};
-    // console.log(this.state, "GEE GEE this dot PROPS");
     const newTask = this.state;
     this.props.createTask(newTask);
 
@@ -36,9 +33,6 @@ class CreateTask extends React.Component {
       details: "",
       index: this.props.index
     });
-
-
-    // this.props.history.push(`${this.props.location.pathname}`);
   }
 
   render () {
@@ -61,8 +55,9 @@ class CreateTask extends React.Component {
               rows='3' data-min-rows='3'
               type="text"
             />
-        </div>
-        <br />
+          </div>
+
+          <br />
 
         </form>
       </section>
@@ -71,18 +66,4 @@ class CreateTask extends React.Component {
 
 }
 
-
 export default withRouter(CreateTask);
-
-// <div
-  // className="create-task-details-input-wrapper">
-  //   Details: <input
-  //     type="text"
-  //     value={ this.state.details }
-  //     onChange={ this.update('details') }
-  // />
-// </div>
-
-// <button className="create-task-button">
-//   create task
-// </button>

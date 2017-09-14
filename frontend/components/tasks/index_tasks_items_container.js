@@ -4,28 +4,6 @@ import { getSingleTasks, getAllTasksFromProjects, RECEIVE_TASK, REMOVE_TASK, get
 import { updateProject} from '../../actions/project_actions';
 import TaskIndexItems from './index_tasks_items'
 
-// moveCard(id, atIndex) {
-//     const { card, index } = this.findCard(id);
-//     this.setState(update(this.state, {
-//       cards: {
-//         $splice: [
-//           [index, 1],
-//           [atIndex, 0, card],
-//         ],
-//       },
-//     }));
-//   }
-//
-//   findCard(id) {
-//     const { cards } = this.state;
-//     const card = cards.filter(c => c.id === id)[0];
-//
-//     return {
-//       card,
-//       index: cards.indexOf(card),
-//     };
-//   }
-
 const mapStateToProps = (state , props) => {
   return {
   state: state,
@@ -33,13 +11,11 @@ const mapStateToProps = (state , props) => {
   project_id: props.task.project_id,
   details: props.task.details,
   index: props.task.index,
-  // tasks: props.tasks,
   }
 };
 
 const mapDispatchToProps = (dispatch) => ({
   getAllTasksFromProjects: (projectId) => dispatch(getAllTasksFromProjects(projectId)),
-  // getAllTasks: () => dispatch(getAllTasks()),
   updateTask: (task) => dispatch(updateTask(task)),
   deleteTask: (id) => dispatch(deleteTask(id)),
   updateProject: (project) => dispatch(updateProject(project)),

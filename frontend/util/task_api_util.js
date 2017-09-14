@@ -1,21 +1,7 @@
-export const projection = () => {
-  return $.ajax({
-    method: 'POST',
-    url: '/api/project'
-  });
-};
-
 export const getAllTasksFromProjects = (projectId) => {
   return $.ajax({
     method: 'GET',
     url: '/api/tasks',
-  });
-};
-
-export const getAllTasks = () => {
-  return $.ajax({
-    method: 'GET',
-    url: '/api/tasks'
   });
 };
 

@@ -69,8 +69,3 @@ class CreateProject extends React.Component {
 }
 
 export default withRouter(CreateProject);
-
-
-// <button className="create-project-button">
-//     create project
-// </button>

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, NavLink, Link } from 'react-router-dom';
-import ProjectShowContainer from './show_project_container';
 import CreateTaskContainer from '../tasks/create_task_container';
 import TaskIndexContainer from '../tasks/index_tasks_container';
 import { updateProject } from '../../actions/project_actions';
@@ -9,7 +8,6 @@ import { ItemTypes } from "../../util/dnd_constants.js";
 
 const specSource = {
   beginDrag(props) {
-    // console.log("BEGIN", props.index);
     return {
       id: props.project.id,
       index : props.index,
@@ -19,11 +17,6 @@ const specSource = {
     return props.project.id === monitor.getItem().id;
   },
   endDrag(props, monitor, component) {
-    // console.log("MONITOR END", monitor.getItem().index);
-    // console.log("END", props.index);
-    // const proj = Object.assign({}, monitor.getItem(), { index: monitor.getItem().index });
-    // props.updateProject(proj);
-    // component.forceUpdate();
   }
 }
 
@@ -46,7 +39,7 @@ const specTarget = {
       props.updateProject(proj);
 
       monitor.getItem().index = props.index;
-      // props.index = dragIdx;
+
       component.forceUpdate();
     }
   }
@@ -100,7 +93,6 @@ class ProjectIndexItem extends React.Component {
   handleInput(e) {
     e.preventDefault();
     const title = e.target.value ? e.target.value : ""
-    // let id = e.currentTarget.id;
     this.setState({title})
   }
 
@@ -126,11 +118,8 @@ class ProjectIndexItem extends React.Component {
     }
   }
 
-
-
   render () {
-    // console.error(this.state);
-    // console.log(this.props);
+
     const { state, project, connectDragSource, connectDropTarget, isDragging, index } = this.props;
 
     const opacity = isDragging ? 0 : 1;
@@ -172,17 +161,3 @@ export default DropTarget(
   specSource,
   collectSource
 )(ProjectIndexItem));
-
-// { tasks &&  tasks.map(task =>
-//   <TaskIndexItem className="task-index-item" key={ task.id }
-//     task={ task }
-//   />
-// )}
-
-
-// <Link to={`/api/projects/${project.id}/edit`} className="edit-link">Edit</Link>
-// <button id={project.id} onClick={ this.handleDelete } className="delete">Delete</button>
-
-// <NavLink to={`/api/projects/${project.id}`} className="project-title">
-//   {project.title}
-// </NavLink>
