@@ -126,6 +126,7 @@ class TaskIndexItem extends React.Component {
       checked: this.props.task.checked,
       index : this.props.index,
       details: this.props.task.details,
+      // tasks: this.props.tasks,
     }
 
   }
@@ -142,6 +143,11 @@ class TaskIndexItem extends React.Component {
     this.elRef.addEventListener('mouseup', () => {
       this.forceUpdate();
     });
+    // console.error(this.props.tasks);
+    // this.setState(
+    //   { tasks: this.props.tasks }
+    // )
+    // console.log(this.state);
   }
 
   handleDelete(e) {

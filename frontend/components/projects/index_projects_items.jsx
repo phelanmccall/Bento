@@ -156,7 +156,7 @@ class ProjectIndexItem extends React.Component {
           tasks={project.tasks}
           project={project}
           projectId={project.id}
-          state={ this.state }
+          tasksState={ this.state.tasks }
           />
       </li>
     ));

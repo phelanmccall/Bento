@@ -62,13 +62,14 @@ function collectTarget(connect, monitor) {
 class TaskIndex extends React.Component {
   constructor(props) {
     super(props);
-    state : {
-      tasks: this.props.state.tasks
+    const state = {
+      tasks: []
     }
   }
 
   componentDidMount () {
-    // this.props.getAllTasksFromProjects()
+    // console.log(this.state);
+    this.props.getAllTasksFromProjects(1)
     // .then(
     //   () => this.setState(
     //     {tasks: this.filterTasksByProject(this.props.tasks, this.props.projectId)}
@@ -77,8 +78,11 @@ class TaskIndex extends React.Component {
     // this.forceUpdate();
     // console.log(this.props);
     // console.log(this.props.state.tasks);
+
+
+    // console.error(this.props);
     this.setState(
-      { tasks: this.props.state.tasks }
+      { tasks: this.props.tasksState }
     )
   }
 
@@ -106,10 +110,24 @@ class TaskIndex extends React.Component {
     //     {tasks: this.props.tasks}
     //   )
     // );
+    // this.setState(
+    //   { tasks: this.props.state.tasks }
+    // )
   }
 
-  componentWillReceiveProps() {
+  componentWillReceiveProps(nextProps) {
     // this.forceUpdate();
+    console.error(this.state, "this.state.tasks");
+    console.error(nextProps, "nextProps.tasks");
+
+    if ( this.state.tasks.length !== nextProps.tasksState.length) {
+      // console.error(this.state.tasks, "Previous State");
+      // console.error(nextProps.tasks, "next props");
+      this.setState(
+        { tasks: nextProps.tasksState }
+      )
+      // console.log(this.state, "state after");
+    }
   }
 
 
@@ -125,10 +143,10 @@ class TaskIndex extends React.Component {
 
   render () {
     const { projectId, updateTask, connectDropTarget } = this.props;
-    const tasks = this.state ? this.props.state.tasks : []
+    const tasks = this.state ? this.props.tasksState : []
     let taskList = this.makeTaskArray(tasks)
 
-    console.error(taskList);
+    // console.error(taskList);
     //console.error(this.state ? this.state.tasks : [], "this.state.tasks");
     if (this.state) {
     return connectDropTarget(
@@ -143,6 +161,7 @@ class TaskIndex extends React.Component {
                   key={ task.id }
                   task={ task }
                   index={ indexOfTask }
+                  tasks={ taskList }
                 />
               }
             )}
