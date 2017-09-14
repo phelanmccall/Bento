@@ -63,7 +63,7 @@ class TaskIndex extends React.Component {
   constructor(props) {
     super(props);
     state : {
-      tasks: this.props.tasks
+      tasks: this.props.state.tasks
     }
   }
 
@@ -75,6 +75,11 @@ class TaskIndex extends React.Component {
     //   )
     // );
     // this.forceUpdate();
+    // console.log(this.props);
+    // console.log(this.props.state.tasks);
+    this.setState(
+      { tasks: this.props.state.tasks }
+    )
   }
 
   makeTaskArray(tasks) {
@@ -95,12 +100,12 @@ class TaskIndex extends React.Component {
   }
 
   componentWillMount() {
-    this.props.getAllTasksFromProjects()
-    .then(
-      () => this.setState(
-        {tasks: this.props.tasks}
-      )
-    );
+    // this.props.getAllTasksFromProjects()
+    // .then(
+    //   () => this.setState(
+    //     {tasks: this.props.tasks}
+    //   )
+    // );
   }
 
   componentWillReceiveProps() {
@@ -120,9 +125,10 @@ class TaskIndex extends React.Component {
 
   render () {
     const { projectId, updateTask, connectDropTarget } = this.props;
-    const tasks = this.state ? this.state.tasks : []
+    const tasks = this.state ? this.props.state.tasks : []
+    let taskList = this.makeTaskArray(tasks)
 
-    //console.error(tasks);
+    console.error(taskList);
     //console.error(this.state ? this.state.tasks : [], "this.state.tasks");
     if (this.state) {
     return connectDropTarget(
@@ -130,7 +136,7 @@ class TaskIndex extends React.Component {
 
         <section className="indices-section">
           <ul className="task-index">
-            { tasks && tasks.map((task, indexOfTask) =>
+            { taskList && taskList.map((task, indexOfTask) =>
               {
                 return <TaskIndexItemsContainer
                   className="task-index-item"

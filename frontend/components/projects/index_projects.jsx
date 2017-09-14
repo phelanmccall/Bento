@@ -62,6 +62,7 @@ class ProjectIndex extends React.Component {
     // connectDropTarget,
     const { projects, updateProject, destroyProject } = this.props;
 // connectDropTarget
+    // console.error(projects);
     return (
       <div ref={element => this.elRef = element} className="project-index-wrapper">
 
