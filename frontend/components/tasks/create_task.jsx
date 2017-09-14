@@ -27,7 +27,7 @@ class CreateTask extends React.Component {
     e.preventDefault();
 
     // let emptyState = {};
-    console.log(this.state, "GEE GEE this dot PROPS");
+    // console.log(this.state, "GEE GEE this dot PROPS");
     const newTask = this.state;
     this.props.createTask(newTask);
 

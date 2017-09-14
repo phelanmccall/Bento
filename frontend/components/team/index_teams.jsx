@@ -12,7 +12,7 @@ class TeamIndex extends React.Component {
 
 componentDidMount () {
   this.props.fetchAllTeams(this.props.currentUser.id);
-  console.table(this.props.teams);
+  // console.table(this.props.teams);
   this.props.history.push(`/api/teams/${1}`)
 }
 
@@ -29,7 +29,7 @@ componentWillReceiveProps(nextProps) {
 
 
     function buttonHideTeam(obj) {
-      // console.error(obj);
+      // //console.error(obj);
       // console.log(document);
       // var hideTeam = document.getElementById('root');
       // console.log(hideTeam);

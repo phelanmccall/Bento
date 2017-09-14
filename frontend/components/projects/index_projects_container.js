@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
 
 import { getAllProjects, deleteProject, updateProject } from '../../actions/project_actions';
-import ProjectIndex from './index_projects'
-import { SelectorAllProjects } from '../../reducers/selectors'
+import ProjectIndex from './index_projects';
+
+import { SelectorAllProjects } from '../../reducers/selectors';
 
 
 const mapStateToProps = ({ projects }, { match }) => ({

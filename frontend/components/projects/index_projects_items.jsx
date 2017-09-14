@@ -129,7 +129,9 @@ class ProjectIndexItem extends React.Component {
 
 
   render () {
-    const { project, connectDragSource, connectDropTarget, isDragging, index } = this.props;
+    // console.error(this.state);
+    // console.log(this.props);
+    const { state, project, connectDragSource, connectDropTarget, isDragging, index } = this.props;
 
     const opacity = isDragging ? 0 : 1;
     const cursor = isDragging ? "-webkit-grabbing" : "-webkit-grab";
@@ -152,7 +154,9 @@ class ProjectIndexItem extends React.Component {
           ref={element => this.elRef = element}
           className="pli-task-index-wrapper"
           tasks={project.tasks}
+          project={project}
           projectId={project.id}
+          state={ this.state }
           />
       </li>
     ));

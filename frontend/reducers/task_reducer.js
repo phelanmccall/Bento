@@ -14,7 +14,7 @@ const TaskReducer = (state = {}, action) => {
 
   const updatedState = merge({}, state);
 
-  console.log(action.type, "action.type log");
+  // console.log(action.type, "action.type log");
   switch (action.type) {
     case RECEIVE_ALL_TASKS:
       return merge(updatedState, action.tasks);
@@ -41,14 +41,14 @@ export default TaskReducer;
 //     let newTask = {[action.task.id]: action.task};
 //     return merge({}, state, newTask);
 //   // case REMOVE_TASK:
-//   //   console.log(state, "straight up state");
+//   //   // console.log(state, "straight up state");
 //   //   let nextState = merge({}, state);
-//   //   console.log(nextState, "nextstate heyyy");
-//   //   console.log(action.task, "action.task");
-//   //   console.log(action.task.id, "action.task.id");
-//   //   console.log(nextState[action.task.id], "THE ACTION.TASK.ID>>>>NS!");
+//   //   // console.log(nextState, "nextstate heyyy");
+//   //   // console.log(action.task, "action.task");
+//   //   // console.log(action.task.id, "action.task.id");
+//   //   // console.log(nextState[action.task.id], "THE ACTION.TASK.ID>>>>NS!");
 //   //   delete nextState[action.task.id];
-//   //   console.log(nextState, "NEXT STATE_____!");
+//   //   // console.log(nextState, "NEXT STATE_____!");
 //   //   return nextState;
 //   default:
 //     return state;
@@ -64,7 +64,7 @@ export default TaskReducer;
 // let new_arr = [];
 // arr.filter(task => {
 //   if (task.project_id === 1) {
-//     console.log(task, "TASK");
+//     // console.log(task, "TASK");
 //     new_arr.push(task)
 //   }
 // });

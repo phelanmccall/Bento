@@ -8,11 +8,23 @@ export const SelectorAllProjects = projects => {
 };
 
 
-export const SelectorAllTasks = tasks => {
+export const SelectorAllTasks = (tasks, projectId) => {
   // let sortedTasks = values(tasks);
   //
   // return sortedTasks.sort((a, b) => {a.index - b.index})
-  return tasks;
+  // console.log(state, "state");
+  // console.log(props, "props");
+  // console.log(values(tasks), "tasks");
+  // console.log(projectId, "projectId");
+  let arr = Object.keys(tasks).map(function (key) { return tasks[key]; });
+  let new_arr = [];
+  arr.filter(task => {
+    if (task.project_id === projectId) {
+      new_arr.push(task)
+    }
+  });
+  // console.log(new_arr);
+  return new_arr;
 };
 
 

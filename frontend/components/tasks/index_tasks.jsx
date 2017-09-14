@@ -31,8 +31,8 @@ const taskTarget = {
 
 
     // else if (dragTask.project_id === props.projectId) {
-    //   console.log("HELLO PLEASE LOOK AT ME HELOOOOOOOO", monitor.getItem());
-    //   console.log("HELLO PLEASE LOOK AT ME HELOOOOOOOO", props.tasks.first);
+    //   // console.log("HELLO PLEASE LOOK AT ME HELOOOOOOOO", monitor.getItem());
+    //   // console.log("HELLO PLEASE LOOK AT ME HELOOOOOOOO", props.tasks.first);
     //   const task = Object.assign({}, monitor.getItem(), {id: props.tasks.id});
     //
     //   monitor.getItem().id = props.tasks.id;
@@ -41,7 +41,7 @@ const taskTarget = {
 
     // const hoverTask = props.task;
     // if (dragTask.id !== hoverTask.id) {
-    //   console.log(hoverTask);
+    //   // console.log(hoverTask);
     //   const task = Object.assign({}, hoverTask)
     //   // props.updateTask(task);
     // }
@@ -63,13 +63,7 @@ class TaskIndex extends React.Component {
   constructor(props) {
     super(props);
     state : {
-      tasks: [{
-        id: 1,
-      }, {
-        id: 2,
-      }, {
-        id: 3,
-      }]
+      tasks: this.props.tasks
     }
   }
 
@@ -95,7 +89,7 @@ class TaskIndex extends React.Component {
         new_arr.push(task)
       }
     });
-    console.log(new_arr, "FILTERED $$CASH$$MONEY$");
+    // console.log(new_arr, "FILTERED $$CASH$$MONEY$");
     return new_arr
 
   }
@@ -104,7 +98,7 @@ class TaskIndex extends React.Component {
     this.props.getAllTasksFromProjects()
     .then(
       () => this.setState(
-        {tasks: this.filterTasksByProject(this.props.tasks, this.props.projectId)}
+        {tasks: this.props.tasks}
       )
     );
   }
@@ -128,8 +122,8 @@ class TaskIndex extends React.Component {
     const { projectId, updateTask, connectDropTarget } = this.props;
     const tasks = this.state ? this.state.tasks : []
 
-    console.error(tasks);
-    console.error(this.state ? this.state.tasks : [], "this.state.tasks");
+    //console.error(tasks);
+    //console.error(this.state ? this.state.tasks : [], "this.state.tasks");
     if (this.state) {
     return connectDropTarget(
       <div className="task-index-wrapper">
@@ -169,6 +163,9 @@ export default DropTarget(
 )(TaskIndex);
 
 
+// filterTasksByProject(this.props.tasks, this.props.projectId)
+
+
 
 
 
@@ -188,8 +185,8 @@ export default DropTarget(
 //   // const taskSave = props.tasks[id];
 //   // console.log(taskSave, "task save");
 //   // console.log(id);
-//   console.log(monitor.getItem(), "Mon.itor.");
-//   console.log(props, "PROPS props PROPS props!!!");
+//   // console.log(monitor.getItem(), "Mon.itor.");
+//   // console.log(props, "PROPS props PROPS props!!!");
 //   if (dragTask.project_id !== props.projectId) {
 //     const task = Object.assign({}, monitor.getItem(), { project_id: props.projectId });
 //
@@ -205,8 +202,8 @@ export default DropTarget(
 //
 //
 //   // else if (dragTask.project_id === props.projectId) {
-//   //   console.log("HELLO PLEASE LOOK AT ME HELOOOOOOOO", monitor.getItem());
-//   //   console.log("HELLO PLEASE LOOK AT ME HELOOOOOOOO", props.tasks.first);
+//   //   // console.log("HELLO PLEASE LOOK AT ME HELOOOOOOOO", monitor.getItem());
+//   //   // console.log("HELLO PLEASE LOOK AT ME HELOOOOOOOO", props.tasks.first);
 //   //   const task = Object.assign({}, monitor.getItem(), {id: props.tasks.id});
 //   //
 //   //   monitor.getItem().id = props.tasks.id;
@@ -215,7 +212,7 @@ export default DropTarget(
 //
 //   // const hoverTask = props.task;
 //   // if (dragTask.id !== hoverTask.id) {
-//   //   console.log(hoverTask);
+//   //   // console.log(hoverTask);
 //   //   const task = Object.assign({}, hoverTask)
 //   //   // props.updateTask(task);
 //   // }

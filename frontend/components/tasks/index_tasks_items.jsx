@@ -13,13 +13,13 @@ const taskSource = {
     // console.log("The Task that is being DRAGGED", props.task.index);
     // component.forceUpdate();
     // console.log(monitor.getItem(), "ITEM HERE ITEM HERE");
-    console.log(props, "PROPS props PROPS props!!!");
+    // console.log(props, "PROPS props PROPS props!!!");
     let taskSave = props.task
     let id = props.id;
     let projId = props.project_id;
     let theTasks = props.state.projects[projId].tasks;
-    console.log(props.state, "begin drag props state");
-    console.log(taskSave, "task save");
+    // console.log(props.state, "begin drag props state");
+    // console.log(taskSave, "task save");
     // props.deleteTask(id);
     return {
       state: props.state,
@@ -38,13 +38,13 @@ const taskSource = {
 
   endDrag(props, monitor) {
     if (monitor.didDrop()) {
-      console.log("DROPPED");
+      // console.log("DROPPED");
     }
     if (!monitor.didDrop()) {
       return;
     } else {
-      console.log(props, "props");
-      console.log(monitor.getItem(), "monitor.getitem");
+      // console.log(props, "props");
+      // console.log(monitor.getItem(), "monitor.getitem");
       const dragTask = monitor.getItem();
       // const item = monitor.getItem();
       const dropResult = monitor.getDropResult();
@@ -165,8 +165,8 @@ class TaskIndexItem extends React.Component {
   handleCheck(e) {
     e.preventDefault();
 
-    console.log(this, "this");
-    console.log(this.setState(), "stateset");
+    // console.log(this, "this");
+    // console.log(this.setState(), "stateset");
     setTimeout(() => this.setState({ checked: !this.state.checked }), 0);
 
     let obj = {
