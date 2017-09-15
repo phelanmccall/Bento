@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import { getAllProjects, deleteProject, updateProject } from '../../actions/project_actions';
 
-import ProjectIndex from '/Users/atom-c/Desktop/Working-Fullstack/Bento/frontend/components/projects/index_projects.jsx';
+import ProjectIndex from './index_projects';
 
 import { SelectorAllProjects } from '../../reducers/selectors';
 

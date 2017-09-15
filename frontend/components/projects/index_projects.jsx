@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 
 import CreateProject from './create_project';
 
-import ProjectIndexItemContainer from './index_projects_item_container';
+import ProjectIndexItemContainer from '../projects/index_projects_item_container';
 
 import { getAllProjects, updateProject, destroyProject } from '../../actions/project_actions';
 
