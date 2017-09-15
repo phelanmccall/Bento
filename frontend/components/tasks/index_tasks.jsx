@@ -12,7 +12,7 @@ class TaskIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tasks: []
+      tasks: props.tasks
     }
   }
 

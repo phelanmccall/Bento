@@ -44,11 +44,7 @@ class TaskIndexItem extends React.Component {
 
     let id = e.currentTarget.id;
 
-    console.log(this.state, "this.state");
-    console.log(this.props.tasks, "this.props.tasks");
-    console.log(id, "id");
-
-    this.props.dispatch(deleteTask(this.state.id))
+    this.props.deleteTask(id)
   }
 
   handleCheck(e) {

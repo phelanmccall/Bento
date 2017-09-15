@@ -51,6 +51,7 @@ class ProjectIndex extends React.Component {
                 className="project-index-item" key={ project.id }
                 project={ project }
                 updateProject={ this.props.updateProject }
+                destroyProject={ this.props.destroyProject }
                 index={ idx }
               />
 

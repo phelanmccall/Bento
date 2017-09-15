@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, NavLink, Link } from 'react-router-dom';
 import CreateTaskContainer from '../tasks/create_task_container';
 import TaskIndexContainer from '../tasks/index_tasks_container';
-import { updateProject } from '../../actions/project_actions';
+import { updateProject, destroyProject } from '../../actions/project_actions';
 import { DragDropContext, DragSource, DropTarget, DragLayer } from 'react-dnd';
 import { ItemTypes } from "../../util/dnd_constants.js";
 
@@ -73,6 +73,7 @@ class ProjectIndexItem extends React.Component {
   handleDelete(e) {
     e.preventDefault();
     let id = e.currentTarget.id;
+
     this.props.destroyProject(id);
   }
 
@@ -125,6 +126,8 @@ class ProjectIndexItem extends React.Component {
           onFocus={this.handleInput}
           onKeyPress={this.handleEnter}
         />
+      <button id={project.id} onClick={ this.handleDelete } className="task-delete">x</button>
+
 
       <TaskIndexContainer
 

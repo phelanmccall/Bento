@@ -3,7 +3,7 @@ import { fetchAllTeams, deleteTeam, updateTeamj, clearTeams } from '../../action
 import TeamIndex from './index_teams'
 
 const mapStateToProps = (state) => ({
-  teams: state.teams.entities,
+  teams: state.teams,
   currentTeam: state.teams.currentTeam,
   currentUser: state.session.currentUser,
 });
