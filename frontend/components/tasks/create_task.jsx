@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Route, Link } from 'react-router-dom';
-import { withRouter } from 'react-router';
+import { Route, Link, withRouter } from 'react-router-dom';
 import merge from 'lodash/merge';
 
 class CreateTask extends React.Component {
@@ -17,21 +16,34 @@ class CreateTask extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.setTitle = this.setTitle.bind(this);
   }
 
-  update(property) {
-    return e => this.setState({[property] : e.target.value})
+  setTitle(e) {
+    e.preventDefault();
+    const title = e.target.value ? e.target.value : "";
+    this.setState({ title });
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    const newTask = this.state;
-    this.props.createTask(newTask);
 
+    const newTask = {
+      title: this.state.title,
+      project_id: this.state.project_id,
+      checked: this.state.checked,
+      index : this.state.index,
+      details: this.state.details,
+      team_id: parseInt(this.props.match.params.teamId),
+    };
+
+    this.props.createTask(newTask);
     this.setState({
       title: "",
+      project_id: null,
+      checked: false,
+      index: this.props.index,
       details: "",
-      index: this.props.index
     });
   }
 
@@ -51,9 +63,7 @@ class CreateTask extends React.Component {
               type="text"
               placeholder="+ create new task"
               value={ this.state.title }
-              onChange={ this.update('title') }
-              rows='3' data-min-rows='3'
-              type="text"
+              onChange={ this.setTitle }
             />
           </div>
 

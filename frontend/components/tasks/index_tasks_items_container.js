@@ -11,6 +11,7 @@ const mapStateToProps = (state , props) => {
   project_id: props.task.project_id,
   details: props.task.details,
   index: props.task.index,
+  tasks: props.tasks,
   }
 };
 

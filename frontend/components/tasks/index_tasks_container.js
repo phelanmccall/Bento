@@ -1,16 +1,12 @@
 import { connect } from 'react-redux';
 
-import { getAllTasksFromProjects, getAllTasks, deleteTask, updateTask } from '../../actions/task_actions';
+import { getAllTasksFromProjects, deleteTask, updateTask } from '../../actions/task_actions';
 
 import TaskIndex from './index_tasks';
 
 import { SelectorAllTasks } from '../../reducers/selectors';
 
-import update from 'react/lib/update';
-
-
-
-const mapStateToProps = ({ tasks, projectId, tasksState} ) => {
+const mapStateToProps = (props, { help, tasks, projectId, } ) => {
   return {
     tasks: SelectorAllTasks(tasks, projectId),
   }

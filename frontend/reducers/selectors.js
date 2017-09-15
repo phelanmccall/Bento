@@ -1,6 +1,6 @@
 import { values } from 'lodash';
 
-export const SelectorAllProjects = projects => {
+export const SelectorAllProjects = (projects) => {
   let sorted = values(projects);
 
   return sorted.sort((a, b) => {a.index - b.index})
@@ -9,6 +9,7 @@ export const SelectorAllProjects = projects => {
 
 
 export const SelectorAllTasks = (tasks, projectId) => {
+  return values(tasks);
   let arr = Object.keys(tasks).map(function (key) { return tasks[key]; });
   let new_arr = [];
   arr.filter(task => {

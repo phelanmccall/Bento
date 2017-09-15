@@ -2,12 +2,12 @@ import { connect } from 'react-redux';
 
 import { createProject } from '../../actions/project_actions';
 import CreateProject from './create_project';
-import IndexProjectContainer from '../projects/index_projects_container';
 
-const mapStateToProps = ({ session, projects, teams }) => ({
+const mapStateToProps = ({ session, projects, teams, tasks }) => ({
   currentUser: session.currentUser,
   currentTeam: teams.currentTeam,
   projects,
+  tasks,
 });
 
 const mapDispatchToProps = (dispatch) => ({

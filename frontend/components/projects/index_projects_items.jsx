@@ -71,17 +71,17 @@ class ProjectIndexItem extends React.Component {
   }
 
   componentWillReceiveProps() {
-    this.render();
+    // this.render();
   }
 
   componentDidUpdate() {
-    this.render();
+    // this.render();
   }
 
   componentDidMount() {
-  this.elRef.addEventListener('mouseup', () => {
-      this.forceUpdate();
-    });
+  // this.elRef.addEventListener('mouseup', () => {
+      // this.forceUpdate();
+    // });
   }
 
   handleDelete(e) {
@@ -121,6 +121,7 @@ class ProjectIndexItem extends React.Component {
   render () {
 
     const { state, project, connectDragSource, connectDropTarget, isDragging, index } = this.props;
+    const idOfProject = project.id;
 
     const opacity = isDragging ? 0 : 1;
     const cursor = isDragging ? "-webkit-grabbing" : "-webkit-grab";
@@ -142,10 +143,9 @@ class ProjectIndexItem extends React.Component {
       <TaskIndexContainer
           ref={element => this.elRef = element}
           className="pli-task-index-wrapper"
-          tasks={project.tasks}
-          project={project}
-          projectId={project.id}
-          tasksState={ this.state.tasks }
+          tasks={ this.state.tasks }
+          projectId={ idOfProject }
+          help={"This is here!"}
           />
       </li>
     ));

@@ -33,7 +33,7 @@ function collectTarget(connect, monitor) {
 class TaskIndex extends React.Component {
   constructor(props) {
     super(props);
-    const state = {
+    this.state = {
       tasks: []
     }
   }
@@ -41,19 +41,26 @@ class TaskIndex extends React.Component {
   componentDidMount () {
     this.props.getAllTasksFromProjects(1)
     this.setState(
-      { tasks: this.props.tasksState }
+      { tasks: this.props.tasks }
     )
+    // console.table(this.props);
   }
 
   componentWillReceiveProps(nextProps) {
-    // console.error(this.state, "this.state.tasks");
-    // console.error(nextProps, "nextProps.tasks");
-    if (this.state.tasks.length !== nextProps.tasksState.length) {
-      this.setState(
-        { tasks: nextProps.tasksState }
-      )
-    }
+    // console.log("does it", this.props === nextProps, "it... _______ DOES / DOES NOT!>!>!?!");
+    // console.log(this.props, "this.props");
+    // console.log(nextProps, "nextProps");
+    // if (nextProps.tasks.length !== this.state.tasks.length) {
+    //   this.props.getAllTasksFromProjects(1)
+    // }
+    // console.log(this.state, "this.state from comp will recev");
+    // console.log(nextProps, "RECEIVED SOME PROPS");
   }
+
+  // componentDidUpdate(prevProps, prevState) {
+    // console.log(prevState, "prevState");
+    // console.log(this.state, "this.state");
+  // }
 
   makeTaskArray(tasks) {
     return Object.keys(tasks).map(function (key) { return tasks[key]; });
@@ -71,24 +78,23 @@ class TaskIndex extends React.Component {
   }
 
   render () {
-    const { projectId, updateTask, connectDropTarget } = this.props;
-    const tasks = this.state ? this.props.tasksState : []
-    let taskList = this.makeTaskArray(tasks)
-
-    if (this.state) {
+    const { tasks, projectId, updateTask, connectDropTarget } = this.props;
+    // const tasks = this.state ? this.props.tasks : []
+    // let taskList = this.makeTaskArray(tasks)
+    // if (this.state) {
     return connectDropTarget(
       <div className="task-index-wrapper">
 
         <section className="indices-section">
           <ul className="task-index">
-            { taskList && taskList.map((task, indexOfTask) =>
+            { tasks && tasks.map((task, indexOfTask) =>
               {
                 return <TaskIndexItemsContainer
                   className="task-index-item"
                   key={ task.id }
                   task={ task }
                   index={ indexOfTask }
-                  tasks={ taskList }
+                  tasks= { tasks }
                 />
               }
             )}
@@ -97,14 +103,16 @@ class TaskIndex extends React.Component {
               className="create-task-wrapper">
               <CreateTaskContainer
                 projectId={ this.props.projectId }
+                tasks ={ tasks }
               />
             </div>
           </ul>
         </section>
       </div>
-    )} else {
-      return null
-    }
+    )
+    // } else {
+    //   return null
+    // }
   }
 }
 

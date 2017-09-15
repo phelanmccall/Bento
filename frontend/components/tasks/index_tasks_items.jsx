@@ -113,7 +113,10 @@ class TaskIndexItem extends React.Component {
     let projId = this.state.project_id;
     let theTasks = this.props.state.projects[projId].tasks;
     this.props.dispatch(deleteTask(theTasks[this.state.id].id))
-    this.forceUpdate();
+    console.log(this.state, "this.state");
+    console.log(this.props.tasks, "this.props.tasks");
+    console.log(id, "id");
+    this.props.dispatch(deleteTask(this.state.id))
   }
 
   handleCheck(e) {
