@@ -7,71 +7,6 @@ import { ItemTypes } from "../../util/dnd_constants.js";
 import update from 'react/lib/update';
 import { connect } from 'react-redux';
 
-const taskSource = {
-  beginDrag(props, monitor, component) {
-    let taskSave = props.task
-    let id = props.id;
-    let projId = props.project_id;
-    let theTasks = props.state.projects[projId].tasks;
-    return {
-      state: props.state,
-      id: props.task.id,
-      project_id: props.task.project_id,
-      index: props.task.index,
-    };
-  },
-
-  isDragging(props, monitor) {
-    return props.task.id === monitor.getItem().id;
-  },
-
-  endDrag(props, monitor) {
-    if (monitor.didDrop()) {
-    }
-    if (!monitor.didDrop()) {
-      return;
-    } else {
-      const dragTask = monitor.getItem();
-      const dropResult = monitor.getDropResult();
-      const task = Object.assign({}, dragTask, { project_id: props.projectId });
-      props.updateTask(task);
-    }
-  },
-
-};
-
-function collectSource(connect, monitor) {
-  return {
-    connectDragSource: connect.dragSource(),
-    isDragging: monitor.isDragging(),
-  };
-};
-
-const taskTarget = {
-  hover(props, monitor, component) {
-    const dragIdx = monitor.getItem().index;
-    const hoverIdx = props.task.index;
-
-    if (dragIdx === hoverIdx) {
-      return;
-    } else {
-      const tasky = Object.assign({}, monitor.getItem(), { index: props.task.index });
-      props.updateTask(tasky);
-
-      monitor.getItem().index = props.task.index;
-      component.forceUpdate();
-    }
-  },
-};
-
-function collectTarget(connect, monitor) {
-  return {
-    connectDropTarget: connect.dropTarget(),
-    highlighted: monitor.canDrop(),
-    hovered: monitor.isOver(),
-  };
-};
-
 class TaskIndexItem extends React.Component {
   constructor(props) {
     super(props);
@@ -93,15 +28,15 @@ class TaskIndexItem extends React.Component {
   }
 
   componentWillUpdate () {
-    console.log("WILL UPDATE");
+    console.log("__titem, WILL UPDATE");
   }
 
   componentDidUpdate () {
-    console.log("DID UPDATE");
+    console.log("__titem, DID UPDATE");
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log("WILL RECEIVE PROPS");
+    console.log("__titem, WILL RECEIVE PROPS");
   }
 
   handleDelete(e) {
@@ -169,11 +104,11 @@ class TaskIndexItem extends React.Component {
 
   render () {
 
-    const { task, project_id, highlighted, hovered, connectDragSource, connectDropTarget, isDragging, deleteTask } = this.props;
+    const { task, project_id, deleteTask } = this.props;
 
 
-    const opacity = isDragging ? 0 : 1;
-    return connectDropTarget(connectDragSource(
+    const opacity = 1;
+    return (
       <li
         className={ `${this.state.checked ? "task-item-true" : "task-item-false"}`}
         style={{ opacity }}
@@ -188,16 +123,8 @@ class TaskIndexItem extends React.Component {
       <button id={task.id} onClick={ this.handleDelete } className="task-delete">x</button>
 
       </li>
-    ));
+    );
   }
 }
 
-export default DropTarget(
-  ItemTypes.TASK,
-  taskTarget,
-  collectTarget
-)(DragSource(
-  ItemTypes.TASK,
-  taskSource,
-  collectSource
-)(connect()(TaskIndexItem)));
+export default (TaskIndexItem);
