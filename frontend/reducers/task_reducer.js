@@ -6,20 +6,19 @@ import {
 } from '../actions/task_actions';
 import { CLEAR_STORE } from '../actions/session_actions';
 
-
 const TaskReducer = (state = {}, action) => {
   Object.freeze(state);
 
-  const updatedState = merge({}, state);
-
   switch (action.type) {
-    case RECEIVE_ALL_TASKS:
-      return merge(updatedState, action.tasks);
     case RECEIVE_TASK:
-      return merge(updatedState, { [action.task.id]: action.task })
+    let newTask = {[action.task.id]: action.task };
+    return merge({}, state, newTask);
+    case RECEIVE_ALL_TASKS:
+      return action.tasks
     case REMOVE_TASK:
-      delete updatedState[action.taskId];
-      return updatedState;
+      let nextState = merge({}, state);
+      delete nextState[action.task.id];
+      return nextState;
     case CLEAR_STORE:
       return {};
     default:

@@ -38,9 +38,9 @@ class CreateTask extends React.Component {
     };
 
     this.props.createTask(newTask);
+
     this.setState({
       title: "",
-      project_id: null,
       checked: false,
       index: this.props.index,
       details: "",

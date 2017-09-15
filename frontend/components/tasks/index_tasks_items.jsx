@@ -27,17 +27,17 @@ class TaskIndexItem extends React.Component {
     }
   }
 
-  componentWillUpdate () {
-    console.log("__titem, WILL UPDATE");
-  }
-
-  componentDidUpdate () {
-    console.log("__titem, DID UPDATE");
-  }
-
-  componentWillReceiveProps(nextProps) {
-    console.log("__titem, WILL RECEIVE PROPS");
-  }
+  // componentWillUpdate () {
+  //   console.log("__titem, WILL UPDATE");
+  // }
+  //
+  // componentDidUpdate () {
+  //   console.log("__titem, DID UPDATE");
+  // }
+  //
+  // componentWillReceiveProps(nextProps) {
+  //   console.log("__titem, WILL RECEIVE PROPS");
+  // }
 
   handleDelete(e) {
     e.preventDefault();

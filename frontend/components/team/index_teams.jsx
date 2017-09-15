@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink, Link, withRouter } from 'react-router-dom';
 import IndexProjectContainer from '../projects/index_projects_container';
-import { clearTeams } from '../../actions/team_actions'
+import { clearTeams, destroyTeam } from '../../actions/team_actions'
 import TeamFormContainer from '../team/team_form_container';
 
 class TeamIndex extends React.Component {
@@ -39,6 +39,7 @@ class TeamIndex extends React.Component {
 
           <ul className="team-index-ul">
             {teams && Object.values(teams).map((team, idx) => (
+              
               <li className="team-index-list-item" key={`team-${idx}`} >
                 <NavLink
                   className={team ? "team-index-link" : ""}

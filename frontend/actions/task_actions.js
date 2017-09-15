@@ -5,7 +5,7 @@ export const RECEIVE_ALL_TASKS = "RECEIVE_ALL_TASKS";
 export const REMOVE_TASK = "REMOVE_TASK";
 
 
-export const receiveTasks = task => ({
+export const receiveTask = task => ({
   type: RECEIVE_TASK,
   task
 });
@@ -15,7 +15,7 @@ export const receiveAllTasks = tasks => ({
   tasks
 });
 
-export const removeTasks = task => ({
+export const removeTask = task => ({
   type: REMOVE_TASK,
   task
 });
@@ -26,18 +26,18 @@ export const getAllTasksFromProjects = (projectId) => dispatch => {
   })
 }
 
-export const getSingleTasks = (id) => dispatch => {
-  return APIUtil.getSingleTasks(id).then(task => dispatch(receiveTasks(task)));
+export const getSingleTask = (id) => dispatch => {
+  return APIUtil.getSingleTask(id).then(task => dispatch(receiveTask(task)));
 }
 
-export const createTask = newTask => dispatch => {
-  return APIUtil.createTask(newTask).then(task => dispatch(receiveTasks(task)));
+export const createTask = (newTask) => dispatch => {
+  return APIUtil.createTask(newTask).then(task => dispatch(receiveTask(task)));
 };
 
-export const updateTask = task => dispatch => {
-  return APIUtil.updateTask(task).then(updateThis => dispatch(receiveTasks(updateThis)));
+export const updateTask = (task) => dispatch => {
+  return APIUtil.updateTask(task).then(updateThis => dispatch(receiveTask(updateThis)));
 };
 
-export const deleteTask = id => dispatch => {
-  return APIUtil.deleteTask(id).then(removeThis => dispatch(removeTasks(removeThis)));
+export const deleteTask = (id) => dispatch => {
+  return APIUtil.deleteTask(id).then(removeThis => dispatch(removeTask(removeThis)));
 };

@@ -29,7 +29,7 @@ export const getSingleProject = (id) => dispatch => {
   return APIUtil.getSingleProject(id).then(project => dispatch(receiveProject(project)));
 }
 
-export const createProject = newProject => dispatch => {
+export const createProject = (newProject) => dispatch => {
   return APIUtil.createProject(newProject).then(project => dispatch(receiveProject(project)));
 };
 
@@ -37,6 +37,6 @@ export const updateProject = (proj) => dispatch => {
   return APIUtil.updateProject(proj).then(updateThis => dispatch(receiveProject(updateThis)));
 };
 
-export const deleteProject = id => dispatch => {
+export const deleteProject = (id) => dispatch => {
   return APIUtil.deleteProject(id).then(removeThis => dispatch(removeProject(removeThis)));
 };

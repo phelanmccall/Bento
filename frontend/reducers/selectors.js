@@ -9,7 +9,6 @@ export const SelectorAllProjects = (projects) => {
 
 
 export const SelectorAllTasks = (tasks, projectId) => {
-  return values(tasks);
   let arr = Object.keys(tasks).map(function (key) { return tasks[key]; });
   let new_arr = [];
   arr.filter(task => {

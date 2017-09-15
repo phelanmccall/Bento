@@ -17,37 +17,32 @@ class TaskIndex extends React.Component {
   }
 
   componentDidMount () {
-    this.props.getAllTasksFromProjects(1)
-    this.setState(
-      { tasks: this.props.tasks }
-    )
+    // console.log("task index did MOUNT");
+      this.props.getAllTasksFromProjects(this.props.projectId);
+    // this.setState(
+    //   { tasks: this.props.tasks }
+    // )
   }
 
   componentWillUpdate () {
-    console.log("task index WILL UPDATE");
+    // console.log("task index WILL update");
   }
 
   componentDidUpdate () {
-    console.log("task index DID UPDATE");
+    // console.log("task index DID update");
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log("task index WILL RECEIVE PROPS");
-  }
+    // if (nextProps !== this.props) {
+    //   this.props.getAllTasksFromProjects(this.props.projectId);
+    // }
+    // console.log("task index WILL Receive props");
+    // this.setState(
+    //   { tasks: this.state }
+    // )
+    // this.render();
+    // console.log(this.state, "State after props");
 
-  makeTaskArray(tasks) {
-    return Object.keys(tasks).map(function (key) { return tasks[key]; });
-  }
-
-  filterTasksByProject(tasks, projectId) {
-    let arr = this.makeTaskArray(tasks)
-    let new_arr = []
-    arr.filter(task => {
-      if (task.project_id === projectId) {
-        new_arr.push(task)
-      }
-    });
-    return new_arr
   }
 
   render () {
@@ -66,6 +61,8 @@ class TaskIndex extends React.Component {
                   task={ task }
                   index={ indexOfTask }
                   tasks= { tasks }
+                  updateTask={ this.props.updateTask }
+                  destroyTask={ this.props.destroyTask }
                 />
               }
             )}

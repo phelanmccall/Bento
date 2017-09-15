@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { getSingleTasks, getAllTasksFromProjects, RECEIVE_TASK, REMOVE_TASK, getAllTasks, deleteTask, updateTask } from '../../actions/task_actions';
+import { getSingleTask, getAllTasksFromProjects, RECEIVE_TASK, REMOVE_TASK, getAllTasks, deleteTask, updateTask } from '../../actions/task_actions';
 import { updateProject} from '../../actions/project_actions';
 import TaskIndexItems from './index_tasks_items'
 

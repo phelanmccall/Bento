@@ -3,6 +3,8 @@ class Api::TasksController < ApplicationController
 
   def index
     @tasks = Task.all
+
+    render '/api/tasks/index'
   end
 
   def show
@@ -10,8 +12,6 @@ class Api::TasksController < ApplicationController
   end
 
   def create
-    p params
-    p task_params
     @task = Task.new(task_params)
 
     if @task.save

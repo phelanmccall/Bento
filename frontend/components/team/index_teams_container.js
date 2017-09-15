@@ -11,7 +11,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   fetchAllTeams: (user_id) => dispatch(fetchAllTeams(user_id)),
   updateTeam: (team) => dispatch(updateTeam(team)),
-  clearTeams: () => dispatch(clearTeams())
+  clearTeams: () => dispatch(clearTeams()),
+  destroyTeam: (id) => dispatch(deleteTeam(id)),
 });
 
 export default connect(

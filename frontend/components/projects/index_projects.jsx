@@ -2,12 +2,15 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 
 import CreateProject from './create_project';
-import ProjectIndexItem from './index_projects_items';
+
+import ProjectIndexItemContainer from './index_projects_item_container';
+
 import { getAllProjects, updateProject, destroyProject } from '../../actions/project_actions';
-import CreateProjectContainer from './create_project_container'
+
+import CreateProjectContainer from './create_project_container';
+
 import TeamFormContainer from '../team/team_form_container';
-import { DropTarget } from 'react-dnd';
-import { ItemTypes } from "../../util/dnd_constants.js";
+
 
 class ProjectIndex extends React.Component {
   constructor(props) {
@@ -19,19 +22,9 @@ class ProjectIndex extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log("index project WILL RECEIVE PROPS");
-
     if (parseInt(nextProps.match.params.teamId) !== parseInt(this.props.match.params.teamId)) {
       this.props.getAllProjects(parseInt(nextProps.match.params.teamId));
     }
-  }
-
-  componentWillUpdate () {
-    console.log("index project WILL UPDATE");
-  }
-
-  componentDidUpdate () {
-    console.log("index project DID UPDATE");
   }
 
   render () {
@@ -47,12 +40,13 @@ class ProjectIndex extends React.Component {
             </div>
 
             { projects && projects.sort((a,b) => a.index - b.index).map((project, idx) =>
-              <ProjectIndexItem
+              <ProjectIndexItemContainer
                 className="project-index-item" key={ project.id }
                 project={ project }
                 updateProject={ this.props.updateProject }
                 destroyProject={ this.props.destroyProject }
                 index={ idx }
+                projectId={ project.id }
               />
 
           )}
