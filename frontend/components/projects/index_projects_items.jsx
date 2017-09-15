@@ -70,20 +70,6 @@ class ProjectIndexItem extends React.Component {
 
   }
 
-  componentWillReceiveProps() {
-    // this.render();
-  }
-
-  componentDidUpdate() {
-    // this.render();
-  }
-
-  componentDidMount() {
-  // this.elRef.addEventListener('mouseup', () => {
-      // this.forceUpdate();
-    // });
-  }
-
   handleDelete(e) {
     e.preventDefault();
     let id = e.currentTarget.id;
@@ -128,7 +114,7 @@ class ProjectIndexItem extends React.Component {
 
 
     return connectDropTarget(connectDragSource(
-      <li ref={element => this.elRef = element} style={{ opacity }} className={`project-list-item ${isDragging ? "grabbing" : "not-grabbing"}`}>
+      <li  style={{ opacity }} className={`project-list-item ${isDragging ? "grabbing" : "not-grabbing"}`}>
 
         <input
           className="project-title-live-input"
@@ -141,7 +127,7 @@ class ProjectIndexItem extends React.Component {
         />
 
       <TaskIndexContainer
-          ref={element => this.elRef = element}
+
           className="pli-task-index-wrapper"
           tasks={ this.state.tasks }
           projectId={ idOfProject }

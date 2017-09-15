@@ -8,28 +8,6 @@ import { ItemTypes } from "../../util/dnd_constants.js";
 import { deleteTask, updateTask } from '../../actions/task_actions';
 import update from 'react/lib/update';
 
-const taskTarget = {
-  hover(props, monitor, component) {
-    const dragTask = monitor.getItem();
-
-    if (dragTask.project_id !== props.projectId) {
-      const task = Object.assign({}, dragTask, { project_id: props.projectId });
-
-      component.setState({ project_id: props.projectId });
-
-      return;
-    }
-  }
-};
-
-function collectTarget(connect, monitor) {
-  return {
-    connectDropTarget: connect.dropTarget()
-  };
-}
-
-
-
 class TaskIndex extends React.Component {
   constructor(props) {
     super(props);
@@ -43,24 +21,19 @@ class TaskIndex extends React.Component {
     this.setState(
       { tasks: this.props.tasks }
     )
-    // console.table(this.props);
+  }
+
+  componentWillUpdate () {
+    console.log("task index WILL UPDATE");
+  }
+
+  componentDidUpdate () {
+    console.log("task index DID UPDATE");
   }
 
   componentWillReceiveProps(nextProps) {
-    // console.log("does it", this.props === nextProps, "it... _______ DOES / DOES NOT!>!>!?!");
-    // console.log(this.props, "this.props");
-    // console.log(nextProps, "nextProps");
-    // if (nextProps.tasks.length !== this.state.tasks.length) {
-    //   this.props.getAllTasksFromProjects(1)
-    // }
-    // console.log(this.state, "this.state from comp will recev");
-    // console.log(nextProps, "RECEIVED SOME PROPS");
+    console.log("task index WILL RECEIVE PROPS");
   }
-
-  // componentDidUpdate(prevProps, prevState) {
-    // console.log(prevState, "prevState");
-    // console.log(this.state, "this.state");
-  // }
 
   makeTaskArray(tasks) {
     return Object.keys(tasks).map(function (key) { return tasks[key]; });
@@ -78,11 +51,9 @@ class TaskIndex extends React.Component {
   }
 
   render () {
-    const { tasks, projectId, updateTask, connectDropTarget } = this.props;
-    // const tasks = this.state ? this.props.tasks : []
-    // let taskList = this.makeTaskArray(tasks)
-    // if (this.state) {
-    return connectDropTarget(
+    const { tasks, projectId, updateTask, } = this.props;
+
+    return (
       <div className="task-index-wrapper">
 
         <section className="indices-section">
@@ -110,14 +81,8 @@ class TaskIndex extends React.Component {
         </section>
       </div>
     )
-    // } else {
-    //   return null
-    // }
+
   }
 }
 
-export default DropTarget(
-  ItemTypes.TASK,
-  taskTarget,
-  collectTarget
-)(TaskIndex);
+export default (TaskIndex);

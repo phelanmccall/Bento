@@ -92,30 +92,27 @@ class TaskIndexItem extends React.Component {
     }
   }
 
-  componentWillReceiveProps() {
-    this.render();
+  componentWillUpdate () {
+    console.log("WILL UPDATE");
   }
 
-  componentDidUpdate() {
-    this.render();
+  componentDidUpdate () {
+    console.log("DID UPDATE");
   }
 
-  componentDidMount() {
-    this.elRef.addEventListener('mouseup', () => {
-      this.forceUpdate();
-    });
+  componentWillReceiveProps(nextProps) {
+    console.log("WILL RECEIVE PROPS");
   }
 
   handleDelete(e) {
     e.preventDefault();
 
     let id = e.currentTarget.id;
-    let projId = this.state.project_id;
-    let theTasks = this.props.state.projects[projId].tasks;
-    this.props.dispatch(deleteTask(theTasks[this.state.id].id))
+
     console.log(this.state, "this.state");
     console.log(this.props.tasks, "this.props.tasks");
     console.log(id, "id");
+
     this.props.dispatch(deleteTask(this.state.id))
   }
 
@@ -178,7 +175,6 @@ class TaskIndexItem extends React.Component {
     const opacity = isDragging ? 0 : 1;
     return connectDropTarget(connectDragSource(
       <li
-        ref={element => this.elRef = element}
         className={ `${this.state.checked ? "task-item-true" : "task-item-false"}`}
         style={{ opacity }}
         >
@@ -188,9 +184,7 @@ class TaskIndexItem extends React.Component {
           className={ `${this.state.checked ? "check-true" : "check-false"}` }
           onClick={ this.handleCheck }
         ><div className="hover-check">✔️</div></div>
-      <div className="task-title" ref={element => this.elRef = element}
-
-        >{ task.title }</div>
+      <div className="task-title">{ task.title }</div>
       <button id={task.id} onClick={ this.handleDelete } className="task-delete">x</button>
 
       </li>

@@ -10,41 +10,35 @@ import { DropTarget } from 'react-dnd';
 import { ItemTypes } from "../../util/dnd_constants.js";
 
 class ProjectIndex extends React.Component {
-
   constructor(props) {
     super(props);
-
   }
 
   componentDidMount() {
-
     this.props.getAllProjects(parseInt(this.props.match.params.teamId));
-
-    this.elRef.addEventListener('mouseup', () => {
-      this.forceUpdate();
-    });
   }
 
-
-
   componentWillReceiveProps(nextProps) {
+    console.log("index project WILL RECEIVE PROPS");
 
     if (parseInt(nextProps.match.params.teamId) !== parseInt(this.props.match.params.teamId)) {
       this.props.getAllProjects(parseInt(nextProps.match.params.teamId));
     }
-
-    this.render();
   }
 
-  componentDidUpdate() {
-    this.render();
+  componentWillUpdate () {
+    console.log("index project WILL UPDATE");
+  }
+
+  componentDidUpdate () {
+    console.log("index project DID UPDATE");
   }
 
   render () {
-    const { projects, updateProject, destroyProject } = this.props;
+    const { projects, updateProject, destroyProject, } = this.props;
 
     return (
-      <div ref={element => this.elRef = element} className="project-index-wrapper">
+      <div className="project-index-wrapper">
 
         <section className="indices-section">
           <ul className="project-index">
@@ -54,7 +48,6 @@ class ProjectIndex extends React.Component {
 
             { projects && projects.sort((a,b) => a.index - b.index).map((project, idx) =>
               <ProjectIndexItem
-                ref={element => this.elRef = element}
                 className="project-index-item" key={ project.id }
                 project={ project }
                 updateProject={ this.props.updateProject }
