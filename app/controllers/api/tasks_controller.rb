@@ -2,7 +2,7 @@ class Api::TasksController < ApplicationController
   before_action :require_logged_in
 
   def index
-    @tasks = Task.all
+    @tasks = Task.all.where(team_id: project_params[:team_id])
 
     render '/api/tasks/index'
   end
@@ -43,6 +43,6 @@ class Api::TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:id, :title, :index, :project_id, :checked, :details)
+    params.require(:task).permit(:id, :title, :index, :project_id, :team_id, :checked, :details)
   end
 end
