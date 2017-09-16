@@ -24,6 +24,7 @@ class TaskIndexItem extends React.Component {
       checked: this.props.task.checked,
       index : this.props.index,
       details: this.props.task.details,
+      team_id: null,
     }
   }
 
@@ -59,6 +60,7 @@ class TaskIndexItem extends React.Component {
       details: this.state.details,
       id: this.state.id,
       index : this.state.index,
+      team_id: null,
     };
 
     this.props.updateTask(obj);
@@ -78,6 +80,7 @@ class TaskIndexItem extends React.Component {
       details: this.state.details,
       id: this.state.id,
       index : this.state.index,
+      team_id: null,
     };
 
     this.props.updateTask(obj);
@@ -92,6 +95,7 @@ class TaskIndexItem extends React.Component {
         details: this.state.details,
         id: this.state.id,
         index : this.state.index,
+        team_id: null,
       };
 
       this.props.updateTask(obj);

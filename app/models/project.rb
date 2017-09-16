@@ -6,9 +6,9 @@
 #  creator_id :integer
 #  title      :string
 #  team_id    :integer
+#  index      :integer          default(0)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  index      :integer
 #
 
 class Project < ApplicationRecord
