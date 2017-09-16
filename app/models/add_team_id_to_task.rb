@@ -1,0 +1,2 @@
+class AddTeamIdToTask < ApplicationRecord
+end

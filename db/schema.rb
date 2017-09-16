@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170903222331) do
+ActiveRecord::Schema.define(version: 20170916001447) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "add_team_id_to_tasks", force: :cascade do |t|
+    t.integer  "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "memberships", force: :cascade do |t|
     t.integer  "team_id"
@@ -26,17 +32,18 @@ ActiveRecord::Schema.define(version: 20170903222331) do
     t.integer  "creator_id"
     t.string   "title"
     t.integer  "team_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "index"
+    t.integer  "index",      default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "tasks", force: :cascade do |t|
     t.string   "title"
-    t.string   "details"
-    t.boolean  "checked",    default: false
     t.integer  "project_id"
+    t.boolean  "checked",    default: false
     t.integer  "index",      default: 0
+    t.string   "details"
+    t.integer  "team_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.index ["project_id"], name: "index_tasks_on_project_id", using: :btree
@@ -53,6 +60,7 @@ ActiveRecord::Schema.define(version: 20170903222331) do
     t.string   "username",        null: false
     t.string   "password_digest", null: false
     t.string   "session_token",   null: false
+    t.string   "email"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end

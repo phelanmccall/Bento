@@ -20,6 +20,6 @@ class Task < ApplicationRecord
   foreign_key: :project_id
 
   belongs_to :team,
-  foreign_key: :team_id,
+  foreign_key: :team_id
 
 end

@@ -2,7 +2,7 @@ class Api::TasksController < ApplicationController
   before_action :require_logged_in
 
   def index
-    @tasks = Task.all.where(team_id: project_params[:team_id])
+    @tasks = Task.all
 
     render '/api/tasks/index'
   end

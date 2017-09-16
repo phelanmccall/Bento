@@ -22,8 +22,8 @@ wtbproj01 = Project.create!(title: "How to use:", creator_id: user01.id, team_id
 wtbproj02 = Project.create!(title: "More uses:", creator_id: user01.id, team_id: team01.id, index: 1)
 
 wtbtask01 = Task.create!(title: "Click into the + create input fields to write Team and Project names, as well as Task descriptions.", details: "details", project_id: wtbproj01.id, team_id: wtbproj01.team_id, index: 0)
-wtbtask02 = Task.create!(title: "Mark Tasks completed by clicking the check box to the left end of the Task box.", details: "details", project_id: wtbproj01.id, team_id: wtbproj01.team_id, index: 1)
-wtbtask03 = Task.create!(title: "Tasks can be deleted with the x button on the right end of the Task box.", details: "details", project_id: wtbproj01.id, team_id: wtbproj01.team_id, index: 2)
+wtbtask02 = Task.create!(title: "Mark Tasks completed by clicking the check box to the left of the Task box.", details: "details", project_id: wtbproj01.id, team_id: wtbproj01.team_id, index: 1)
+wtbtask03 = Task.create!(title: "Tasks can be deleted with the x button on the right of the Task box.", details: "details", project_id: wtbproj01.id, team_id: wtbproj01.team_id, index: 2)
 
 wtbtask04 = Task.create!(title: "Projects can be dragged and dropped into a new order.", details: "details", project_id: wtbproj02.id, team_id: wtbproj02.team_id, index: 0)
 wtbtask05 = Task.create!(title: "You can also try to drag and drop Tasks both to reorder them and move them to a different Project!.", details: "details", project_id: wtbproj02.id, team_id: wtbproj02.team_id, index: 1)
