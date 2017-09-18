@@ -11,6 +11,8 @@ const TaskReducer = (state = [], action) => {
 
     // maybe structure this slice of state as an array instead of an object.
 
+    // sorta works but obvs broke some stuff. fix in morning.
+
   switch (action.type) {
     case RECEIVE_TASK:
     let newTask = {[action.task.id]: action.task };
