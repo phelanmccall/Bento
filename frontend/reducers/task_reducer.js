@@ -9,6 +9,8 @@ import { CLEAR_STORE } from '../actions/session_actions';
 const TaskReducer = (state = {}, action) => {
   Object.freeze(state);
 
+    // maybe structure this slice of state as an array instead of an object.
+
   switch (action.type) {
     case RECEIVE_TASK:
     let newTask = {[action.task.id]: action.task };
