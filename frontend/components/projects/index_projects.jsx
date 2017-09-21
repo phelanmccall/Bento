@@ -30,6 +30,7 @@ class ProjectIndex extends React.Component {
   render () {
     const { projects, updateProject, destroyProject, } = this.props;
 
+    console.log( projects, "There shouldn't be tasks yet?");
     return (
       <div className="project-index-wrapper">
 

@@ -2,6 +2,13 @@ export const getAllTasksFromProjects = (projectId) => {
   return $.ajax({
     method: 'GET',
     url: '/api/tasks',
+    dataType: 'JSON',
+    data: {
+      task: {
+        project_id: projectId,
+        yo: 3
+      }
+    }
   });
 };
 

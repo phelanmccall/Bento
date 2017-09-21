@@ -20,7 +20,6 @@ class ProjectIndexItem extends React.Component {
       title: this.props.project.title,
       creator_id: this.props.project.creator_id,
       manager: this.props.project.manager,
-      tasks: this.props.project.tasks,
       id: this.props.project.id,
       index: this.props.index,
     }
