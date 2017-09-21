@@ -17,6 +17,8 @@ const TaskReducer = (state = [], action) => {
 
     // tasks: {proj1: [{t1}, {t2}, {t3}]} (only from current team. selector for this.)
 
+    // still needs to be worked on some more
+
   switch (action.type) {
     case RECEIVE_TASK:
     let newTask = {[action.task.id]: action.task };
