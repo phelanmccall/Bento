@@ -27,28 +27,30 @@ const TaskReducer = (state = [], action) => {
     case RECEIVE_ALL_TASKS:
       let tasks = action.tasks
       let arr = Object.keys(tasks).map(function (key) { return tasks[key]; });
+      let projectsObject = {}
       let new_arr = [];
       arr.filter(task => {
-        // if (task.project_id === projectId) {
-          new_arr.push(task)
-        // }
+        console.error(task, "the TASK!");
+        if (projectsObject[task.project_id] === undefined) {
+          console.log(projectsObject, "projectsObject IF");
+          console.log(projectsObject[task.project_id], "IF projectsObject[task.project_id]");
+          projectsObject[task.project_id] = [task]
+        } else {
+          console.log(projectsObject, "projectsObject ELSE");
+          console.log(projectsObject[task.project_id], "ELSE statement projectsObject[task.project_id]");
+          projectsObject[task.project_id] = projectsObject[task.project_id].concat(task)
+        }
       });
-
-      return new_arr;
-
-      //  getting all tasks in each project again, but I know how to fix this issue now.
-
-      console.log(action.tasks, "RECEIVE ALL TASKS");
-      return action.tasks;
+      return projectsObject;
     case REMOVE_TASK:
       let nextState = merge([], state);
       delete nextState[action.task.id];
       console.log(nextState, "REMOVE TASK");
+      console.log("nextState:", nextState);
       return nextState;
     case CLEAR_STORE:
       return [];
     default:
-      console.log(state, "DEFAULT");
       return state;
   }
 };
