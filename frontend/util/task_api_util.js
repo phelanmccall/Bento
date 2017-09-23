@@ -3,12 +3,7 @@ export const getAllTasksFromProjects = (projectId) => {
     method: 'GET',
     url: '/api/tasks',
     dataType: 'JSON',
-    data: {
-      task: {
-        project_id: projectId,
-        yo: 3
-      }
-    }
+    
   });
 };
 
