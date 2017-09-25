@@ -10,7 +10,7 @@ export const SelectorAllProjects = (projects) => {
 export const SelectorAllTasks = (tasks, projectId) => {
   // console.log(Array.isArray(tasks), "tasks.isArray");
   // if (Array.isArray(tasks)) { return tasks }
-  console.log(tasks, projectId, "===[[[[[[[SELECTOR]]]]]]]===");
+  // console.log(tasks, projectId, "===[[[[[[[SELECTOR]]]]]]]===");
   let arr = Object.keys(tasks).map(function (key) { return tasks[key]; });
   let new_arr = [];
   arr.filter(task => {

@@ -5,7 +5,11 @@ import CreateProject from './create_project';
 
 import ProjectIndexItemContainer from '../projects/index_projects_item_container';
 
-import { getAllProjects, updateProject, destroyProject } from '../../actions/project_actions';
+import {
+  getAllProjects,
+  updateProject,
+  destroyProject 
+} from '../../actions/project_actions';
 
 import CreateProjectContainer from './create_project_container';
 
@@ -49,7 +53,7 @@ class ProjectIndex extends React.Component {
                 projectId={ project.id }
               />
 
-          )}
+            )}
 
             <div
               className="create-project-wrapper">

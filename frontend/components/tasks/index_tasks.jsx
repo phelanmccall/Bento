@@ -1,48 +1,31 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import CreateTask from './create_task';
 import TaskIndexItemsContainer from './index_tasks_items_container';
 import CreateTaskContainer from '../tasks/create_task_container';
-import { DragSource, DropTarget } from 'react-dnd';
+
+import {
+  deleteTask,
+  updateTask,
+} from '../../actions/task_actions';
+
 import { ItemTypes } from "../../util/dnd_constants.js";
-import { deleteTask, updateTask } from '../../actions/task_actions';
-import update from 'react/lib/update';
+
+import {
+  DragSource,
+  DropTarget,
+} from 'react-dnd';
 
 class TaskIndex extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      tasks: props.tasks
+      tasks: props.tasks,
     }
   }
 
   componentDidMount () {
-    // console.log("task index did MOUNT");
       this.props.getAllTasksFromProjects(this.props.projectId);
-    // this.setState(
-    //   { tasks: this.props.tasks }
-    // )
-  }
-
-  componentWillUpdate () {
-    // console.log("task index WILL update");
-  }
-
-  componentDidUpdate () {
-    // console.log("task index DID update");
-  }
-
-  componentWillReceiveProps(nextProps) {
-    // if (nextProps !== this.props) {
-    //   this.props.getAllTasksFromProjects(this.props.projectId);
-    // }
-    // console.log("task index WILL Receive props");
-    // this.setState(
-    //   { tasks: this.state }
-    // )
-    // this.render();
-    // console.log(this.state, "State after props");
-
   }
 
   render () {
@@ -55,7 +38,7 @@ class TaskIndex extends React.Component {
 
         <section className="indices-section">
           <ul className="task-index">
-            { tasks && tasks[projectId].map((task, indexOfTask) =>
+            { tasks && tasks.map((task, indexOfTask) =>
               {
                 return <TaskIndexItemsContainer
                   className="task-index-item"
