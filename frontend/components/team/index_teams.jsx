@@ -39,11 +39,15 @@ class TeamIndex extends React.Component {
 
           <ul className="team-index-ul">
             {teams && Object.values(teams).map((team, idx) => (
-              
-              <li className="team-index-list-item" key={`team-${idx}`} >
+
+              <li className="team-index-list-item" key={ `team-${idx}` } >
                 <NavLink
-                  className={team ? "team-index-link" : ""}
-                  activeClassName={team ? "reactive" : ""} to={team ? `/api/teams/${team.id}` : `/api/teams/`}>{team ? team.team_name : ""}</NavLink>
+                  className={ team ? "team-index-link" : "" }
+                  activeClassName={ team ? "reactive" : "" }
+                  to={ team ? `/api/teams/${team.id}` : `/api/teams/` }
+                >
+                  { team ? team.team_name : "" }
+                </NavLink>
               </li>
             )
           )}

@@ -7,11 +7,9 @@ import ProjectIndexItem from '../projects/index_projects_items';
 import { SelectorAllTasks } from '../../reducers/selectors';
 
 const mapStateToProps = (props, { projectId } ) => {
-
   return {
     tasks: SelectorAllTasks(props.tasks, projectId),
   }
-
 };
 
 const mapDispatchToProps = (dispatch) => ({

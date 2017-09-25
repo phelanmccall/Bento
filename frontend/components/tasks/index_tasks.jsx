@@ -48,12 +48,14 @@ class TaskIndex extends React.Component {
   render () {
     const { tasks, projectId, updateTask, } = this.props;
 
+    console.log(tasks, "Render function tasks");
+    console.log(projectId, "Render function p ID");
     return (
       <div className="task-index-wrapper">
 
         <section className="indices-section">
           <ul className="task-index">
-            { tasks && tasks.map((task, indexOfTask) =>
+            { tasks && tasks[projectId].map((task, indexOfTask) =>
               {
                 return <TaskIndexItemsContainer
                   className="task-index-item"

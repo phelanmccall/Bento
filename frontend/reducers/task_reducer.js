@@ -32,12 +32,12 @@ const TaskReducer = (state = [], action) => {
       arr.filter(task => {
         console.error(task, "the TASK!");
         if (projectsObject[task.project_id] === undefined) {
-          console.log(projectsObject, "projectsObject IF");
-          console.log(projectsObject[task.project_id], "IF projectsObject[task.project_id]");
+          // console.log(projectsObject, "projectsObject IF");
+          // console.log(projectsObject[task.project_id], "IF projectsObject[task.project_id]");
           projectsObject[task.project_id] = [task]
         } else {
-          console.log(projectsObject, "projectsObject ELSE");
-          console.log(projectsObject[task.project_id], "ELSE statement projectsObject[task.project_id]");
+          // console.log(projectsObject, "projectsObject ELSE");
+          // console.log(projectsObject[task.project_id], "ELSE statement projectsObject[task.project_id]");
           projectsObject[task.project_id] = projectsObject[task.project_id].concat(task)
         }
       });

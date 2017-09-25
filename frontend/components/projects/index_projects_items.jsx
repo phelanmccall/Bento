@@ -87,7 +87,7 @@ class ProjectIndexItem extends React.Component {
 
           className="pli-task-index-wrapper"
           tasks={ Array.from(this.props.tasks) }
-          projectId={ idOfProject }
+          projectId={ idOfProject } 
           help={"This is here!"}
           />
       </li>
