@@ -7,15 +7,7 @@ export const SelectorAllProjects = (projects) => {
 };
 
 export const SelectorAllTasks = (tasks, projectId) => {
-  let arr = Object.keys(tasks)
-    .map(function (key) { return tasks[key]; });
-
-  let new_arr = [];
-  arr.filter((task) => {
-    if (task.project_id === projectId) {
-      new_arr.push(task)
-    }
-  });
-
-  return new_arr;
+  // Just reduced a massive selector to a single line!
+  return tasks[projectId];
 };
+//

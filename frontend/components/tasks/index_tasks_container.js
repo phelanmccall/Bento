@@ -11,10 +11,8 @@ import TaskIndex from './index_tasks';
 import { SelectorAllTasks } from '../../reducers/selectors';
 
 const mapStateToProps = (props, { tasks, projectId, } ) => {
-  // console.log(props.tasks, "props.tasks");
-  console.log(props, "props", props.tasks, "props.tasks");
-  // console.log(tasks, "tasks");
-  // console.log(projectId, "projectId");
+  console.log(props.tasks, "props.tasks");
+  console.error(projectId, "projectId");
   console.log(SelectorAllTasks(props.tasks, projectId), "SelectorAllTasks(props.tasks, projectId)");
   return {
     tasks: SelectorAllTasks(props.tasks, projectId),
