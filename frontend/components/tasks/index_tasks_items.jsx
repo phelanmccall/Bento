@@ -19,6 +19,92 @@ import {
   DragLayer,
 } from 'react-dnd';
 
+
+
+const taskSource = {
+  beginDrag(props, monitor, component) {
+    console.log(props, 'p', component, 'c');
+    return {
+      id: props.task.id,
+      project_id: props.task.project_id,
+      index: props.task.index,
+    };
+  },
+
+  isDragging(props, monitor) {
+    return props.task.id === monitor.getItem().id;
+  },
+
+  // endDrag(props, monitor) {
+  //   if (!monitor.didDrop()) {
+  //     return;
+  //   } else {
+  //     const item = monitor.getItem();
+  //     const dropResult = monitor.getDropResult();
+
+  //   }
+    // const { id: droppedId } = monitor.getItem();
+    // const didDrop = monitor.didDrop();
+    // const task = Object.assign({project_id: props.task.project_id}, monitor.getItem());
+
+    // if (didDrop) {
+    //   props.updateTask(task);
+      // props.updateProject(task.project_id);
+    // }
+  // },
+
+};
+
+function collectSource(connect, monitor) {
+  return {
+    connectDragSource: connect.dragSource(),
+    isDragging: monitor.isDragging(),
+  };
+};
+
+const taskTarget = {
+  hover(props, monitor, component) {
+    // console.log(monitor.getItem().id, 'mgi');
+    console.log(props.task.id, 'hover id');
+    console.log(props.tasks, 'props tasks');
+    const dragId = monitor.getItem().id;
+    const hoverId = props.task.id;
+
+    /*
+      TODO So we have props.tasks which is the array of all tasks of the project of the task being hovered.
+      TODO We need a slicey method to basically filter out the task from hovered id from the hovered array,
+      TODO and slot in the task from the XXX Drag id XXX, slicing it out of it's own monitor.getitem.projectid
+      TODO array if the hover proj id (from props) isn't equal to the monitor proj id (from getItem)
+    */
+
+    // TOTALLY DOABLE! FIXME
+
+    // if (dragIdx === hoverIdx) {
+    //   return;
+    // } else {
+    //   const tasky = Object
+    //     .assign({}, monitor.getItem(), { index: props.task.index });
+    //   props.updateTask(tasky);
+    //
+    //   monitor.getItem().index = props.task.index;
+    //   component.forceUpdate();
+    // }
+  },
+  // drop(props, monitor, component) {
+      // return props;
+  // },
+};
+
+function collectTarget(connect, monitor) {
+  return {
+    connectDropTarget: connect.dropTarget(),
+    // highlighted: monitor.canDrop(),
+    hovered: monitor.isOver(),
+  };
+};
+
+// TaskIndexItem Class_____________________________________________________ NB :
+
 class TaskIndexItem extends React.Component {
   constructor(props) {
     super(props);
@@ -102,12 +188,21 @@ class TaskIndexItem extends React.Component {
     }
   }
 
+// TaskIndexItem render__________________________________________________ TODO :
+
   render () {
-    const { task, project_id } = this.props;
+    const {
+      task,
+      project_id,
+      hovered,
+      connectDragSource,
+      connectDropTarget,
+      isDragging,
+    } = this.props;
 
     const opacity = 1;
 
-    return (
+    return connectDropTarget(connectDragSource(
       <li
         className={`${this.state.checked ? 'task-item-true' : 'task-item-false'}`}
         style={{ opacity }}
@@ -130,8 +225,16 @@ class TaskIndexItem extends React.Component {
         >x</button>
 
       </li>
-    );
+    ));
   }
 }
 
-export default (TaskIndexItem);
+export default DropTarget(
+  ItemTypes.TASK,
+  taskTarget,
+  collectTarget
+)(DragSource(
+  ItemTypes.TASK,
+  taskSource,
+  collectSource
+)(TaskIndexItem));

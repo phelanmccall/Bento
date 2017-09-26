@@ -15,7 +15,13 @@ const TaskReducer = (state = {}, action) => {
       // let newTask = {[action.task.project_id]: action.task };
       let receivedState = merge({}, state);
       console.log(receivedState[action.task.project_id], 'receivedState');
-      receivedState[action.task.project_id].push(action.task);
+
+      if (receivedState[action.task.project_id] === undefined) {
+        receivedState[action.task.project_id] = [action.task];
+      } else {
+        receivedState[action.task.project_id].push(action.task);
+      }
+      
       return merge({}, state, receivedState);
     case RECEIVE_ALL_TASKS:
       let tasks = action.tasks;
