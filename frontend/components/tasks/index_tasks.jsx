@@ -24,15 +24,17 @@ class TaskIndex extends React.Component {
     }
   }
 
-  componentDidMount () {
+  componentDidMount() {
       this.props.getAllTasksFromProjects(this.props.projectId);
   }
 
-  render () {
+  // componentWillReceiveProps() {
+  //   this.props.getAllTasksFromProjects(this.props.projectId);
+  // }
+
+  render() {
     const { tasks, projectId, updateTask, } = this.props;
 
-    // console.log(this.props, "Render function tasks");
-    // console.log(projectId, "Render function p ID");
     return (
       <div className="task-index-wrapper">
 

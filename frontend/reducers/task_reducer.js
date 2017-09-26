@@ -8,13 +8,15 @@ import { CLEAR_STORE } from '../actions/session_actions';
 
 const TaskReducer = (state = {}, action) => {
   Object.freeze(state);
-  
+
   switch (action.type) {
     case RECEIVE_TASK:
       // let newTask = {[action.task.id]: action.task };
-      let newTask = {[action.task.project_id]: action.task };
-
-      return merge({}, state, newTask);
+      // let newTask = {[action.task.project_id]: action.task };
+      let receivedState = merge({}, state);
+      console.log(receivedState[action.task.project_id], 'receivedState');
+      receivedState[action.task.project_id].push(action.task);
+      return merge({}, state, receivedState);
     case RECEIVE_ALL_TASKS:
       let tasks = action.tasks;
       let taskArray = Object.keys(tasks)
@@ -34,9 +36,18 @@ const TaskReducer = (state = {}, action) => {
 
       return projectsObject;
     case REMOVE_TASK:
-      let nextState = merge({}, state);
-      delete nextState[action.task.project_id][action.task.id];
-      return nextState;
+      // Have to do some funky stuff since we are working with arrays in objects
+      let prevState = merge({}, state);
+      let projectTaskArray = prevState[action.task.project_id];
+      let tasksMinusRemoved = [];
+      projectTaskArray.filter((task) => {
+        if (task.id !== action.task.id) {
+          tasksMinusRemoved.push(task)
+        }
+      });
+
+      prevState[action.task.project_id] = tasksMinusRemoved;
+      return prevState;
     case CLEAR_STORE:
       return [];
     default:
