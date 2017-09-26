@@ -6,34 +6,35 @@ import {
 } from '../actions/task_actions';
 import { CLEAR_STORE } from '../actions/session_actions';
 
-const TaskReducer = (state = [], action) => {
+const TaskReducer = (state = {}, action) => {
   Object.freeze(state);
-
+  console.log(action, action.task, 'action, action.task');
   switch (action.type) {
     case RECEIVE_TASK:
-      let newTask = {[action.task.id]: action.task };
-      return merge([], state, newTask);
+      // let newTask = {[action.task.id]: action.task };
+      let newTask = {[action.task.project_id]: action.task };
+
+      return merge({}, state, newTask);
     case RECEIVE_ALL_TASKS:
-      let tasks = action.tasks
-      let taskArray = Object.keys(tasks).map(function (key) { return tasks[key]; });
-      let projectsObject = {}
+      let tasks = action.tasks;
+      let taskArray = Object.keys(tasks)
+        .map(function (key) { return tasks[key]; });
+
+      let projectsObject = {};
       let filteredTaskArray = [];
-      taskArray.filter(task => {
-        console.error(task, "the TASK! (from filter function in receive all reducer)");
-        if (projectsObject[task.project_id] === undefined) {
-          // console.log(projectsObject, "projectsObject IF");
-          // console.log(projectsObject[task.project_id], "IF projectsObject[task.project_id]");
-          projectsObject[task.project_id] = [task]
+      taskArray.filter((task) => {
+        let taskProjectId = task.project_id;
+        if (projectsObject[taskProjectId] === undefined) {
+          projectsObject[taskProjectId] = [task];
         } else {
-          // console.log(projectsObject, "projectsObject ELSE");
-          // console.log(projectsObject[task.project_id], "ELSE statement projectsObject[task.project_id]");
-          projectsObject[task.project_id] = projectsObject[task.project_id]
+          projectsObject[taskProjectId] = projectsObject[taskProjectId].concat(task);
         }
       });
+
       return projectsObject;
     case REMOVE_TASK:
-      let nextState = merge([], state);
-      delete nextState[action.task.id];
+      let nextState = merge({}, state);
+      delete nextState[action.task.project_id][action.task.id];
       return nextState;
     case CLEAR_STORE:
       return [];

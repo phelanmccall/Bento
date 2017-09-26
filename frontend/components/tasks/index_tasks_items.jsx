@@ -1,11 +1,23 @@
 import React from 'react';
-import { Route, NavLink, Link } from 'react-router-dom';
-import { RECEIVE_TASK, REMOVE_TASK, updateTask, deleteTask } from '../../actions/task_actions';
+import {
+  Route,
+  NavLink,
+  Link,
+} from 'react-router-dom';
+
+import {
+  updateTask,
+  deleteTask,
+} from '../../actions/task_actions';
+
 import HTML5Backend from 'react-dnd-html5-backend';
-import { DragDropContext, DragSource, DropTarget, DragLayer } from 'react-dnd';
 import { ItemTypes } from "../../util/dnd_constants.js";
-import update from 'react/lib/update';
-import { connect } from 'react-redux';
+import {
+  DragDropContext,
+  DragSource,
+  DropTarget,
+  DragLayer,
+} from 'react-dnd';
 
 class TaskIndexItem extends React.Component {
   constructor(props) {
@@ -27,18 +39,6 @@ class TaskIndexItem extends React.Component {
       team_id: null,
     }
   }
-
-  // componentWillUpdate () {
-  //   console.log("__titem, WILL UPDATE");
-  // }
-  //
-  // componentDidUpdate () {
-  //   console.log("__titem, DID UPDATE");
-  // }
-  //
-  // componentWillReceiveProps(nextProps) {
-  //   console.log("__titem, WILL RECEIVE PROPS");
-  // }
 
   handleDelete(e) {
     e.preventDefault();
@@ -103,24 +103,31 @@ class TaskIndexItem extends React.Component {
   }
 
   render () {
-
     const { task, project_id, deleteTask } = this.props;
 
-
     const opacity = 1;
+
     return (
       <li
-        className={ `${this.state.checked ? "task-item-true" : "task-item-false"}`}
+        className={`${this.state.checked ? 'task-item-true' : 'task-item-false'}`}
         style={{ opacity }}
+      >
+
+        <div
+          className="little-check-box"
+          className={`${this.state.checked ? 'check-true' : 'check-false'}`}
+          onClick={this.handleCheck}
         >
+          <div className="hover-check">✔️</div>
+        </div>
 
-        <div className="little-check-box"
+        <div className="task-title">{ task.title }</div>
 
-          className={ `${this.state.checked ? "check-true" : "check-false"}` }
-          onClick={ this.handleCheck }
-        ><div className="hover-check">✔️</div></div>
-      <div className="task-title">{ task.title }</div>
-      <button id={task.id} onClick={ this.handleDelete } className="task-delete">x</button>
+        <button
+          id={task.id}
+          onClick={this.handleDelete}
+          className="task-delete"
+        >x</button>
 
       </li>
     );

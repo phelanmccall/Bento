@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Route, Link, withRouter } from 'react-router-dom';
+import {
+  Route,
+  Link,
+  withRouter
+} from 'react-router-dom';
 import merge from 'lodash/merge';
 
 class CreateProject extends React.Component {
@@ -8,7 +12,7 @@ class CreateProject extends React.Component {
     super(props);
 
     this.state = {
-      title: "",
+      title: '',
       creator_id: this.props.currentUser.id,
       team_id: null,
       index: this.props.index,
@@ -20,7 +24,7 @@ class CreateProject extends React.Component {
 
   setTitle(e) {
     e.preventDefault();
-    const title = e.target.value ? e.target.value : "";
+    const title = e.target.value ? e.target.value : '';
     this.setState({ title });
   }
 
@@ -37,7 +41,7 @@ class CreateProject extends React.Component {
 
     this.props.createProject(newProject);
     this.setState({
-      title: "",
+      title: '',
       creator_id: this.props.currentUser.id,
       team_id: null,
       index: this.props.index,
@@ -51,16 +55,15 @@ class CreateProject extends React.Component {
       <section className="create-container">
         <form
           className="new-form"
-          onSubmit={ this.handleSubmit }
+          onSubmit={this.handleSubmit}
         >
           <input
             className="create-project-input"
             placeholder="+ create new project"
             type="text"
-            value={ this.state.title }
-            onChange={ this.setTitle }
+            value={this.state.title}
+            onChange={this.setTitle}
           />
-
         </form>
       </section>
     );

@@ -1,6 +1,9 @@
 import { connect } from 'react-redux';
 
-import { deleteProject, updateProject } from '../../actions/project_actions';
+import {
+  deleteProject,
+  updateProject,
+} from '../../actions/project_actions';
 
 import ProjectIndexItem from '../projects/index_projects_items';
 

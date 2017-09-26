@@ -1,11 +1,18 @@
 import React from 'react';
-import { Route, NavLink, Link } from 'react-router-dom';
+import {
+  Route,
+  NavLink,
+  Link,
+} from 'react-router-dom';
 
 import CreateTaskContainer from '../tasks/create_task_container';
 
 import TaskIndexContainer from '../tasks/index_tasks_container';
 
-import { updateProject, destroyProject } from '../../actions/project_actions';
+import {
+  updateProject,
+  destroyProject,
+} from '../../actions/project_actions';
 
 
 class ProjectIndexItem extends React.Component {
@@ -23,7 +30,6 @@ class ProjectIndexItem extends React.Component {
       id: this.props.project.id,
       index: this.props.index,
     }
-
   }
 
   handleDelete(e) {
@@ -35,7 +41,7 @@ class ProjectIndexItem extends React.Component {
 
   handleInput(e) {
     e.preventDefault();
-    const title = e.target.value ? e.target.value : ""
+    const title = e.target.value ? e.target.value : ''
     this.setState({title})
   }
 
@@ -67,10 +73,12 @@ class ProjectIndexItem extends React.Component {
     const idOfProject = project.id;
 
     const opacity = 1;
-
+    console.log(this.props, 'What is this??? tasks in pr idx itm');
     return (
-      <li  style={{ opacity }} className={`project-list-item`}>
-
+      <li
+        style={{ opacity }}
+        className="project-list-item"
+      >
         <input
           className="project-title-live-input"
           type="text"
@@ -80,16 +88,17 @@ class ProjectIndexItem extends React.Component {
           onFocus={this.handleInput}
           onKeyPress={this.handleEnter}
         />
-      <button id={project.id} onClick={ this.handleDelete } className="task-delete">x</button>
+        <button
+          id={project.id}
+          onClick={this.handleDelete}
+          className="task-delete"
+        >x</button>
 
-
-      <TaskIndexContainer
-
+        <TaskIndexContainer
           className="pli-task-index-wrapper"
-          tasks={ Array.from(this.props.tasks) }
-          projectId={ idOfProject } 
-          help={"This is here!"}
-          />
+          tasks={this.props.tasks}
+          projectId={idOfProject}
+        />
       </li>
     );
   }

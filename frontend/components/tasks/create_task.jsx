@@ -8,8 +8,8 @@ class CreateTask extends React.Component {
     super(props);
 
     this.state = {
-      title: "",
-      details: "",
+      title: '',
+      details: '',
       project_id: this.props.projectId,
       checked: false,
       index: this.props.index,
@@ -22,7 +22,7 @@ class CreateTask extends React.Component {
 
   setTitle(e) {
     e.preventDefault();
-    const title = e.target.value ? e.target.value : "";
+    const title = e.target.value ? e.target.value : '';
     this.setState({ title });
   }
 
@@ -41,10 +41,10 @@ class CreateTask extends React.Component {
     this.props.createTask(newTask);
 
     this.setState({
-      title: "",
+      title: '',
       checked: false,
       index: this.props.index,
-      details: "",
+      details: '',
     });
   }
 
@@ -55,7 +55,7 @@ class CreateTask extends React.Component {
       <section className="create-container">
         <form
           className="new-form"
-          onSubmit={ this.handleSubmit }
+          onSubmit={this.handleSubmit}
         >
           <div
           className="create-task-title-input-wrapper">
@@ -63,8 +63,8 @@ class CreateTask extends React.Component {
               className="create-task-input"
               type="text"
               placeholder="+ create new task"
-              value={ this.state.title }
-              onChange={ this.setTitle }
+              value={this.state.title}
+              onChange={this.setTitle}
             />
           </div>
 

@@ -1,10 +1,14 @@
 import { connect } from 'react-redux';
 
-import { getSingleTask, getAllTasksFromProjects, RECEIVE_TASK, REMOVE_TASK, getAllTasks, deleteTask, updateTask } from '../../actions/task_actions';
-import { updateProject} from '../../actions/project_actions';
+import {
+  getAllTasksFromProjects,
+  deleteTask,
+  updateTask,
+} from '../../actions/task_actions';
+
 import TaskIndexItems from './index_tasks_items'
 
-const mapStateToProps = (state , props) => {
+const mapStateToProps = (state, props) => {
   return {
   state: state,
   id: props.task.id,
@@ -19,7 +23,6 @@ const mapDispatchToProps = (dispatch) => ({
   getAllTasksFromProjects: (projectId) => dispatch(getAllTasksFromProjects(projectId)),
   updateTask: (task) => dispatch(updateTask(task)),
   deleteTask: (id) => dispatch(deleteTask(id)),
-  updateProject: (project) => dispatch(updateProject(project)),
 });
 
 export default connect(
