@@ -103,7 +103,7 @@ class TaskIndexItem extends React.Component {
   }
 
   render () {
-    const { task, project_id, deleteTask } = this.props;
+    const { task, project_id } = this.props;
 
     const opacity = 1;
 

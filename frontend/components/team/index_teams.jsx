@@ -12,7 +12,10 @@ class TeamIndex extends React.Component {
 
   componentDidMount () {
     this.props.fetchAllTeams(this.props.currentUser.id);
-    this.props.history.push(`/api/teams/${1}`)
+    if (this.props.history.location.pathname !== `/api/teams/${1}`) {
+      this.props.history.push(`/api/teams/${1}`)
+    }
+    
   }
 
   componentWillReceiveProps(nextProps) {

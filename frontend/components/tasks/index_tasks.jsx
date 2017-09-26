@@ -31,7 +31,7 @@ class TaskIndex extends React.Component {
   render () {
     const { tasks, projectId, updateTask, } = this.props;
 
-    // console.log(tasks, "Render function tasks");
+    // console.log(this.props, "Render function tasks");
     // console.log(projectId, "Render function p ID");
     return (
       <div className="task-index-wrapper">

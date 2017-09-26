@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { 
+import {
   getAllTasksFromProjects,
   deleteTask,
   updateTask,
@@ -12,12 +12,12 @@ import { SelectorAllTasks } from '../../reducers/selectors';
 
 const mapStateToProps = (props, { tasks, projectId, } ) => {
   // console.log(props.tasks, "props.tasks");
-  // console.log(props, "props");
+  console.log(props, "props", props.tasks, "props.tasks");
   // console.log(tasks, "tasks");
   // console.log(projectId, "projectId");
-  // console.log(SelectorAllTasks(props.tasks, projectId), "SelectorAllTasks(props.tasks, projectId)");
+  console.log(SelectorAllTasks(props.tasks, projectId), "SelectorAllTasks(props.tasks, projectId)");
   return {
-    tasks: SelectorAllTasks(tasks, projectId),
+    tasks: SelectorAllTasks(props.tasks, projectId),
   }
 };
 

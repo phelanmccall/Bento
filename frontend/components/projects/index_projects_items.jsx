@@ -71,9 +71,8 @@ class ProjectIndexItem extends React.Component {
 
     const { state, project, index } = this.props;
     const idOfProject = project.id;
-
     const opacity = 1;
-    console.log(this.props, 'What is this??? tasks in pr idx itm');
+
     return (
       <li
         style={{ opacity }}
