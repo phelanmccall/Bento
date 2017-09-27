@@ -20,8 +20,6 @@ import {
   DragLayer,
 } from 'react-dnd';
 
-
-
 const taskSource = {
   beginDrag(props, monitor, component) {
     console.log(props, 'p', component, 'c');
@@ -35,25 +33,6 @@ const taskSource = {
   isDragging(props, monitor) {
     return props.task.id === monitor.getItem().id;
   },
-
-  // endDrag(props, monitor) {
-  //   if (!monitor.didDrop()) {
-  //     return;
-  //   } else {
-  //     const item = monitor.getItem();
-  //     const dropResult = monitor.getDropResult();
-
-  //   }
-    // const { id: droppedId } = monitor.getItem();
-    // const didDrop = monitor.didDrop();
-    // const task = Object.assign({project_id: props.task.project_id}, monitor.getItem());
-
-    // if (didDrop) {
-    //   props.updateTask(task);
-      // props.updateProject(task.project_id);
-    // }
-  // },
-
 };
 
 function collectSource(connect, monitor) {
@@ -65,15 +44,27 @@ function collectSource(connect, monitor) {
 
 const taskTarget = {
   hover(props, monitor, component) {
-    console.clear();
-    console.log(`%c${props.task.id} hover id`, "color: pink; font-style: italic; background-color: black; padding: 2px");
-    console.group("%cprops tasks:", "color: red; font-style: italic; background-color: black; padding: 2px");
-    console.table(props.tasks);
-    console.groupEnd();
-    console.log(`%c${monitor.getItem().id} drag id`, "color: chartreuse; font-style: italic; background-color: black; padding: 2px");
+    // console.clear();
+    // console.log(`%c${props.task.id} hover id`, "color: pink; font-style: italic; background-color: black; padding: 2px");
+    // console.group("%cprops tasks:", "color: red; font-style: italic; background-color: black; padding: 2px");
+    // console.table(props.tasks);
+    // console.log(monitor.getItem());
+    // console.groupEnd();
+    // console.log(`%c${monitor.getItem()} drag id`, "color: chartreuse; font-style: italic; background-color: black; padding: 2px");
 
+    const dragTask = monitor.getItem();
     const dragId = monitor.getItem().id;
     const hoverId = props.task.id;
+
+    // if (dragTask.project_id !== props.task.project_id) {
+    //   const task = Object.assign({}, monitor.getItem(), { project_id: props.task.project_id });
+    //
+    //   monitor.getItem().project_id = props.task.project_id;
+    //   props.updateTask(task);
+    //
+    //   component.setState({ project_id: props.task.project_id });
+    //   return;
+    // }
 
     /**
      * TODO So we have props.tasks which is the array of all tasks of the
@@ -212,7 +203,7 @@ class TaskIndexItem extends React.Component {
       isDragging,
     } = this.props;
 
-    const opacity = 1;
+    const opacity = isDragging ? 0 : 1;
 
     return connectDropTarget(connectDragSource(
       <li

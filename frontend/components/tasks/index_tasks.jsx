@@ -14,6 +14,31 @@ import {
   DropTarget,
 } from 'react-dnd';
 
+const taskTarget = {
+  hover(props, monitor, component) {
+    const dragTask = monitor.getItem();
+
+    if (dragTask.project_id !== props.projectId) {
+      const task = Object
+        .assign({}, monitor.getItem(), { project_id: props.projectId });
+
+      monitor.getItem().project_id = props.projectId;
+      props.updateTask(task);
+
+      component.setState({ project_id: props.projectId });
+
+      setTimeout(() => props.getAllTasksFromProjects(props.projectId), 35);
+      return;
+    }
+  },
+};
+
+function collectTarget(connect, monitor) {
+  return {
+    connectDropTarget: connect.dropTarget()
+  };
+}
+
 class TaskIndex extends React.Component {
   constructor(props) {
     super(props);
@@ -28,13 +53,18 @@ class TaskIndex extends React.Component {
   }
 
   // componentWillReceiveProps() {
+  //
+  //   this.props.getAllTasksFromProjects(this.props.projectId);
+  // }
+
+  // componentWillReceiveProps() {
   //   this.props.getAllTasksFromProjects(this.props.projectId);
   // }
 
   render() {
-    const { tasks, projectId, updateTask, } = this.props;
+    const { tasks, projectId, updateTask, connectDropTarget} = this.props;
 
-    return (
+    return connectDropTarget(
       <div className="task-index-wrapper">
         <section className="indices-section">
           <ul className="task-index">
@@ -68,4 +98,8 @@ class TaskIndex extends React.Component {
   }
 }
 
-export default (TaskIndex);
+export default DropTarget(
+  ItemTypes.TASK,
+  taskTarget,
+  collectTarget
+)(TaskIndex);
