@@ -12,7 +12,7 @@ const sessionLinks = () => (
         activeClassName="reactive"
         className="login-button"
         to="/login">
-        log in<div className="nest"> { "" }</div>
+        log in<div className="nest"> { '' }</div>
       </NavLink>
 
       <div className="spacer special-space"></div>
@@ -21,7 +21,7 @@ const sessionLinks = () => (
         activeClassName="reactive"
         className="signup-button"
         to="/signup">
-        sign up<div className="nest"> { "" }</div>
+        sign up<div className="nest"> { '' }</div>
       </NavLink>
 
       <div className="spacer"></div>

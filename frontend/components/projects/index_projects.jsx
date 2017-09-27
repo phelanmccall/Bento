@@ -8,7 +8,7 @@ import ProjectIndexItemContainer from '../projects/index_projects_item_container
 import {
   getAllProjects,
   updateProject,
-  destroyProject 
+  destroyProject
 } from '../../actions/project_actions';
 
 import CreateProjectContainer from './create_project_container';
@@ -31,7 +31,7 @@ class ProjectIndex extends React.Component {
     }
   }
 
-  render () {
+  render() {
     const { projects, updateProject, destroyProject, } = this.props;
 
     return (
@@ -43,26 +43,27 @@ class ProjectIndex extends React.Component {
 
             </div>
 
-            { projects && projects.sort((a,b) => a.index - b.index).map((project, idx) =>
-              <ProjectIndexItemContainer
-                className="project-index-item" key={ project.id }
-                project={ project }
-                updateProject={ this.props.updateProject }
-                destroyProject={ this.props.destroyProject }
-                index={ idx }
-                projectId={ project.id }
-              />
+            { projects && projects.sort((a,b) => a.index - b.index)
+              .map((project, idx) =>
+                <ProjectIndexItemContainer
+                  className="project-index-item"
+                  project={ project }
+                  updateProject={ this.props.updateProject }
+                  destroyProject={ this.props.destroyProject }
+                  index={ idx }
+                  projectId={ project.id }
+                  key={ project.id }
+                />
+              )
+            }
 
-            )}
-
-            <div
-              className="create-project-wrapper">
+            <div className="create-project-wrapper">
               <CreateProjectContainer />
             </div>
           </ul>
         </section>
       </div>
-    )
+    );
   }
 }
 

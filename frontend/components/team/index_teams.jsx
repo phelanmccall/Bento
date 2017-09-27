@@ -1,21 +1,27 @@
 import React from 'react';
-import { NavLink, Link, withRouter } from 'react-router-dom';
 import IndexProjectContainer from '../projects/index_projects_container';
-import { clearTeams, destroyTeam } from '../../actions/team_actions'
 import TeamFormContainer from '../team/team_form_container';
+import {
+  NavLink,
+  Link,
+  withRouter,
+} from 'react-router-dom';
+
+import {
+  clearTeams,
+  destroyTeam,
+} from '../../actions/team_actions'
 
 class TeamIndex extends React.Component {
   constructor(props) {
     super(props);
-
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.props.fetchAllTeams(this.props.currentUser.id);
     if (this.props.history.location.pathname !== `/api/teams/${1}`) {
-      this.props.history.push(`/api/teams/${1}`)
+      this.props.history.push(`/api/teams/`)
     }
-    
   }
 
   componentWillReceiveProps(nextProps) {
@@ -24,41 +30,44 @@ class TeamIndex extends React.Component {
     }
   }
 
-  render () {
+  render() {
     const { teams } = this.props;
 
 
     function buttonHideTeam(obj) {
+
     }
-    const display = "flex";
+
+    const display = 'flex';
 
     return (
       <div className="HideWrapper">
-        <div id="workz" style={ { display } }className="team-index-initial-wrapper">
-
+        <div
+          id="workz"
+          style={{ display }}
+          className="team-index-initial-wrapper"
+        >
           <div className="in-team-team-form-wrapper">
             <TeamFormContainer />
           </div>
 
           <ul className="team-index-ul">
             {teams && Object.values(teams).map((team, idx) => (
-
               <li className="team-index-list-item" key={ `team-${idx}` } >
                 <NavLink
-                  className={ team ? "team-index-link" : "" }
-                  activeClassName={ team ? "reactive" : "" }
-                  to={ team ? `/api/teams/${team.id}` : `/api/teams/` }
+                  className={team ? "team-index-link" : ''}
+                  activeClassName={team ? "reactive" : ''}
+                  to={team ? `/api/teams/${team.id}` : `/api/teams/`}
                 >
-                  { team ? team.team_name : "" }
+                  { team ? team.team_name : '' }
                 </NavLink>
               </li>
-            )
-          )}
+            ))}
           </ul>
 
         </div>
       </div>
-    )
+    );
   }
 }
 

@@ -1,4 +1,7 @@
 import React from 'react';
+import HTML5Backend from 'react-dnd-html5-backend';
+import { ItemTypes } from "../../util/dnd_constants.js";
+
 import {
   Route,
   NavLink,
@@ -10,8 +13,6 @@ import {
   deleteTask,
 } from '../../actions/task_actions';
 
-import HTML5Backend from 'react-dnd-html5-backend';
-import { ItemTypes } from "../../util/dnd_constants.js";
 import {
   DragDropContext,
   DragSource,
@@ -64,18 +65,29 @@ function collectSource(connect, monitor) {
 
 const taskTarget = {
   hover(props, monitor, component) {
-    // console.log(monitor.getItem().id, 'mgi');
-    console.log(props.task.id, 'hover id');
-    console.log(props.tasks, 'props tasks');
+    console.clear();
+    console.log(`%c${props.task.id} hover id`, "color: pink; font-style: italic; background-color: black; padding: 2px");
+    console.group("%cprops tasks:", "color: red; font-style: italic; background-color: black; padding: 2px");
+    console.table(props.tasks);
+    console.groupEnd();
+    console.log(`%c${monitor.getItem().id} drag id`, "color: chartreuse; font-style: italic; background-color: black; padding: 2px");
+
     const dragId = monitor.getItem().id;
     const hoverId = props.task.id;
 
+    /**
+     * TODO So we have props.tasks which is the array of all tasks of the
+     * project of the task being hovered. We need a slicey method to basically
+     * filter out the task from hovered id from the hovered array, and slot in
+     * the task from the XXX Drag id XXX, slicing it out of it's own
+     * monitor.getitem.projectid array if the hover proj id (from props) isn't
+     * equal to the monitor proj id (from getItem)
+     */
+
     /*
-      TODO So we have props.tasks which is the array of all tasks of the project of the task being hovered.
-      TODO We need a slicey method to basically filter out the task from hovered id from the hovered array,
-      TODO and slot in the task from the XXX Drag id XXX, slicing it out of it's own monitor.getitem.projectid
-      TODO array if the hover proj id (from props) isn't equal to the monitor proj id (from getItem)
-    */
+     *  FIXME also, remember, we have to keep it stateful! So will have to
+     * update the positioning from the array indices.
+     */
 
     // TOTALLY DOABLE! FIXME
 
@@ -154,8 +166,8 @@ class TaskIndexItem extends React.Component {
 
   handleInput(e) {
     e.preventDefault();
-    const title = e.target.value ? e.target.value : ""
-    this.setState({title})
+    const title = e.target.value ? e.target.value : '';
+    this.setState({ title });
   }
 
   handleUpdateTask (e) {

@@ -9,7 +9,7 @@ class TeamForm extends React.Component {
 
     this.state = {
       owner_id: this.props.currentUser.id,
-      team_name: "",
+      team_name: '',
     }
 
     this.setTeamName = this.setTeamName.bind(this);
@@ -18,7 +18,7 @@ class TeamForm extends React.Component {
 
   setTeamName(e) {
     e.preventDefault();
-    const team_name = e.target.value ? e.target.value : "";
+    const team_name = e.target.value ? e.target.value : '';
     this.setState({ team_name });
   }
 
@@ -38,7 +38,7 @@ class TeamForm extends React.Component {
     );
 
     this.setState({
-      team_name: ""
+      team_name: ''
     });
   }
 

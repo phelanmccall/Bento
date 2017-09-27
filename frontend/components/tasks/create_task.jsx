@@ -1,7 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Route, Link, withRouter } from 'react-router-dom';
 import merge from 'lodash/merge';
+import {
+  Route,
+  Link,
+  withRouter,
+} from 'react-router-dom';
 
 class CreateTask extends React.Component {
   constructor(props) {
@@ -48,8 +52,7 @@ class CreateTask extends React.Component {
     });
   }
 
-  render () {
-
+  render() {
 
     return (
       <section className="create-container">
@@ -57,8 +60,7 @@ class CreateTask extends React.Component {
           className="new-form"
           onSubmit={this.handleSubmit}
         >
-          <div
-          className="create-task-title-input-wrapper">
+          <div className="create-task-title-input-wrapper">
             <input
               className="create-task-input"
               type="text"
@@ -74,7 +76,6 @@ class CreateTask extends React.Component {
       </section>
     );
   }
-
 }
 
 export default withRouter(CreateTask);

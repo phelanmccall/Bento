@@ -29,7 +29,7 @@ class ProjectIndexItem extends React.Component {
       manager: this.props.project.manager,
       id: this.props.project.id,
       index: this.props.index,
-    }
+    };
   }
 
   handleDelete(e) {
@@ -41,8 +41,8 @@ class ProjectIndexItem extends React.Component {
 
   handleInput(e) {
     e.preventDefault();
-    const title = e.target.value ? e.target.value : ''
-    this.setState({title})
+    const title = e.target.value ? e.target.value : '';
+    this.setState({title});
   }
 
   handleUpdateProject (e) {
@@ -55,7 +55,7 @@ class ProjectIndexItem extends React.Component {
     this.props.updateProject(obj);
   }
 
-  handleEnter (e) {
+  handleEnter(e) {
     if (e.key === 'Enter') {
       const obj = {
         title: this.state.title,
@@ -67,7 +67,7 @@ class ProjectIndexItem extends React.Component {
     }
   }
 
-  render () {
+  render() {
 
     const { state, project, index } = this.props;
     const idOfProject = project.id;
