@@ -12,7 +12,6 @@ import {
 
 const taskSource = {
   beginDrag(props, monitor, component) {
-    console.log(props, 'p', component, 'c');
     return {
       id: props.task.id,
       project_id: props.task.project_id,
@@ -45,16 +44,6 @@ const taskTarget = {
     const dragTask = monitor.getItem();
     const dragId = monitor.getItem().id;
     const hoverId = props.task.id;
-
-    // if (dragTask.project_id !== props.task.project_id) {
-    //   const task = Object.assign({}, monitor.getItem(), { project_id: props.task.project_id });
-    //
-    //   monitor.getItem().project_id = props.task.project_id;
-    //   props.updateTask(task);
-    //
-    //   component.setState({ project_id: props.task.project_id });
-    //   return;
-    // }
 
     /**
      * TODO So we have props.tasks which is the array of all tasks of the
@@ -107,7 +96,7 @@ class TaskIndexItem extends React.Component {
     this.handleInput = this.handleInput.bind(this);
     this.handleUpdateTask = this.handleUpdateTask.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
-    
+
     this.state = {
       id: this.props.task.id,
       title: this.props.task.title,

@@ -12,7 +12,6 @@ const TaskReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_TASK: {
       const receivedState = merge({}, state);
-      console.log(receivedState[action.task.project_id], 'receivedState');
 
       if (receivedState[action.task.project_id] === undefined) {
         receivedState[action.task.project_id] = [action.task];
