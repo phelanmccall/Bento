@@ -8,7 +8,7 @@ import {
   updateTask,
 } from '../../actions/task_actions';
 
-const mapStateToProps = (props, { tasks, projectId, } ) => {
+const mapStateToProps = (props, { tasks, projectId } ) => {
   return {
     tasks: SelectorAllTasks(props.tasks, projectId),
   }

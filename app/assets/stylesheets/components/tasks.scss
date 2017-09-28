@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .task-delete {
-  color: rgba(0,0,0,0.4);
+  color: rgb(165, 165, 165);
   background-color: transparent;
   padding: 10px;
   padding-top: unset;
@@ -22,4 +22,13 @@
   color: black;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.task-index li:hover {
+  cursor: grab;
+  cursor: -webkit-grab;
+}
+.task-index li:active, .task-index li:focus {
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
 }

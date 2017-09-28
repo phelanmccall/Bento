@@ -78,6 +78,12 @@ class ProjectIndexItem extends React.Component {
         style={{ opacity }}
         className="project-list-item"
       >
+        <button
+        id={project.id}
+        onClick={this.handleDelete}
+        className="task-delete"
+        >x</button>
+      
         <input
           className="project-title-live-input"
           type="text"
@@ -87,11 +93,6 @@ class ProjectIndexItem extends React.Component {
           onFocus={this.handleInput}
           onKeyPress={this.handleEnter}
         />
-        <button
-          id={project.id}
-          onClick={this.handleDelete}
-          className="task-delete"
-        >x</button>
 
         <TaskIndexContainer
           className="pli-task-index-wrapper"

@@ -1,18 +1,8 @@
 import React from 'react';
 import HTML5Backend from 'react-dnd-html5-backend';
 import { ItemTypes } from "../../util/dnd_constants.js";
-
-import {
-  Route,
-  NavLink,
-  Link,
-} from 'react-router-dom';
-
-import {
-  updateTask,
-  deleteTask,
-} from '../../actions/task_actions';
-
+import { Route, NavLink, Link } from 'react-router-dom';
+import { updateTask, deleteTask } from '../../actions/task_actions';
 import {
   DragDropContext,
   DragSource,
@@ -117,7 +107,7 @@ class TaskIndexItem extends React.Component {
     this.handleInput = this.handleInput.bind(this);
     this.handleUpdateTask = this.handleUpdateTask.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
-
+    
     this.state = {
       id: this.props.task.id,
       title: this.props.task.title,
@@ -125,7 +115,7 @@ class TaskIndexItem extends React.Component {
       checked: this.props.task.checked,
       index : this.props.index,
       details: this.props.task.details,
-      team_id: null,
+      team_id: this.props.task.team_id,
     }
   }
 
@@ -149,7 +139,7 @@ class TaskIndexItem extends React.Component {
       details: this.state.details,
       id: this.state.id,
       index : this.state.index,
-      team_id: null,
+      team_id: this.state.team_id,
     };
 
     this.props.updateTask(obj);
@@ -169,7 +159,7 @@ class TaskIndexItem extends React.Component {
       details: this.state.details,
       id: this.state.id,
       index : this.state.index,
-      team_id: null,
+      team_id: this.state.team_id,
     };
 
     this.props.updateTask(obj);
@@ -204,6 +194,7 @@ class TaskIndexItem extends React.Component {
     } = this.props;
 
     const opacity = isDragging ? 0 : 1;
+    const cursor = isDragging ? "-webkit-grabbing" : "-webkit-grab";
 
     return connectDropTarget(connectDragSource(
       <li
@@ -212,7 +203,6 @@ class TaskIndexItem extends React.Component {
       >
 
         <div
-          className="little-check-box"
           className={`${this.state.checked ? 'check-true' : 'check-false'}`}
           onClick={this.handleCheck}
         >

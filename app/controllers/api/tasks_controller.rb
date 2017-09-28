@@ -3,7 +3,6 @@ class Api::TasksController < ApplicationController
 
   def index
     @tasks = Task.all
-
     render '/api/tasks/index'
   end
 
@@ -31,10 +30,6 @@ class Api::TasksController < ApplicationController
   end
 
   def destroy
-    p params
-    p "ABOVE WERE PARAMS"
-    p params[:id]
-    p "ABOVE WAS w ID"
     @task = Task.find(params[:id])
     @task.destroy
     render 'api/tasks/show'

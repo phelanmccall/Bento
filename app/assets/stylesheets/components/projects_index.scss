@@ -22,8 +22,8 @@
 }
 
 .project-list-item {
-  cursor: -webkit-grab;
-  cursor: grab;
+  // cursor: -webkit-grab;
+  // cursor: grab;
   width: 300px;
   min-width: 300px;
   max-width: 300px;
@@ -44,13 +44,13 @@
   }
 
   .task-title {
-    cursor: -webkit-grab;
-    cursor: grab;
+    // cursor: -webkit-grab;
+    // cursor: grab;
   }
 
   .task-item-false, .task-item-true {
-    cursor: -webkit-grab;
-    cursor: grab;
+    // cursor: -webkit-grab;
+    // cursor: grab;
   }
 
   a.task-title:hover {
@@ -59,8 +59,8 @@
 }
 
 .grabbing {
-  cursor: -webkit-grabbing !important;
-  cursor: grabbing !important;
+  // cursor: -webkit-grabbing !important;
+  // cursor: grabbing !important;
 }
 
 .project-title-live-input {
@@ -177,8 +177,8 @@
 }
 
 .task-list-item:active, .task-list-item:focus {
-  cursor: -webkit-grabbing;
-  cursor: grabbing;
+  // cursor: -webkit-grabbing;
+  // cursor: grabbing;
 }
 
 
@@ -277,6 +277,7 @@
 .hover-check:hover {
   text-decoration: none;
   opacity: 1;
+  cursor: pointer;
 }
 
 
@@ -326,4 +327,14 @@
 .create-project-button:hover {
   box-shadow: 2px 1px 3px rgba(249, 157, 157, 0.5);
   -webkit-animation: wiggle 0.1s ease-in-out 0.1s alternate 3;
+}
+
+.project-list-item > button {
+  font-weight: 200;
+    font-size: 12px;
+    font-family: arial;
+    margin-left: 269px;
+    margin-top: 15px;
+    position: absolute;
+    padding-bottom: 1px;
 }
