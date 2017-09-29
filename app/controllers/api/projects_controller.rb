@@ -3,7 +3,6 @@ class Api::ProjectsController < ApplicationController
 
   def index
     @projects = Project.where(team_id: project_params[:team_id])
-
     render '/api/projects/index'
   end
 

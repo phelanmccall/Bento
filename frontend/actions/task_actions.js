@@ -20,8 +20,8 @@ export const removeTask = task => ({
   task
 });
 
-export const getAllTasksFromProjects = (projectId) => dispatch => {
-  return APIUtil.getAllTasksFromProjects(projectId).then(tasks => {
+export const getAllTasksFromProjects = (teamId) => dispatch => {
+  return APIUtil.getAllTasksFromProjects(teamId).then(tasks => {
     dispatch(receiveAllTasks(tasks));
   })
 }

@@ -1,7 +1,13 @@
-export const getAllTasksFromProjects = (projectId) => {
+export const getAllTasksFromProjects = (teamId) => {
   return $.ajax({
     method: 'GET',
     url: '/api/tasks',
+    dataType: 'JSON',
+    data: {
+      task: {
+        team_id: teamId,
+      }
+    },
   });
 };
 

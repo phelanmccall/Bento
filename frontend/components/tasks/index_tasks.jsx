@@ -17,9 +17,12 @@ const taskTarget = {
       monitor.getItem().project_id = props.projectId;
       props.updateTask(task);
 
-      component.setState({ project_id: props.projectId });
+      component.setState({
+        project_id: props.projectId,
+        team_id: props.teamId,
+      });
 
-      setTimeout(() => props.getAllTasksFromProjects(props.projectId), 35);
+      setTimeout(() => props.getAllTasksFromProjects(props.teamId), 45);
       return;
     }
   },
@@ -41,11 +44,11 @@ class TaskIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getAllTasksFromProjects(this.props.projectId);
+    this.props.getAllTasksFromProjects(this.props.teamId);
   }
 
   render() {
-    const { tasks, projectId, updateTask, connectDropTarget} = this.props;
+    const { tasks, teamId, projectId, updateTask, connectDropTarget} = this.props;
     let createIndex = 0;
 
     return connectDropTarget(
@@ -53,10 +56,7 @@ class TaskIndex extends React.Component {
         <section className="indices-section">
           <ul className="task-index">
             { tasks && tasks.map((task, indexOfTask) => {
-              console.log(`%c${ indexOfTask }`, "color: cyan; background-color: black;", tasks);
               createIndex = indexOfTask + 1;
-              console.error(tasks[indexOfTask], "TASKSKSKSKSKKS");
-              
                 return (
                   <TaskIndexItemsContainer
                     className="task-index-item"

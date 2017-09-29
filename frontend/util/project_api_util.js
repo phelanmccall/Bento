@@ -5,9 +5,9 @@ export const getAllProjects = (teamId) => {
     dataType: 'JSON',
     data: {
       project: {
-        team_id: teamId
+        team_id: teamId,
       }
-    }
+    },
   });
 };
 

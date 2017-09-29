@@ -7,7 +7,7 @@ import {
   updateTask,
 } from '../../actions/task_actions';
 
-const mapStateToProps = (props, { tasks, projectId } ) => {
+const mapStateToProps = (props, { tasks, projectId, teamId, match } ) => {
   return {
     tasks: SelectorAllTasks(props.tasks, projectId),
   }
@@ -15,8 +15,8 @@ const mapStateToProps = (props, { tasks, projectId } ) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getAllTasksFromProjects: (projectId) => dispatch (
-      getAllTasksFromProjects(projectId)
+    getAllTasksFromProjects: (teamId) => dispatch (
+      getAllTasksFromProjects(teamId)
     ),
     updateTask: (task) => dispatch(updateTask(task)),
     destroyTask: (id) => dispatch(deleteTask(id)),

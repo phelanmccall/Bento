@@ -71,6 +71,7 @@ class ProjectIndexItem extends React.Component {
 
     const { state, project, index } = this.props;
     const idOfProject = project.id;
+    const teamOfProject = project.team_id;
     const opacity = 1;
 
     return (
@@ -83,7 +84,7 @@ class ProjectIndexItem extends React.Component {
         onClick={this.handleDelete}
         className="task-delete"
         >x</button>
-      
+
         <input
           className="project-title-live-input"
           type="text"
@@ -98,6 +99,7 @@ class ProjectIndexItem extends React.Component {
           className="pli-task-index-wrapper"
           tasks={this.props.tasks}
           projectId={idOfProject}
+          teamId={teamOfProject}
         />
       </li>
     );
