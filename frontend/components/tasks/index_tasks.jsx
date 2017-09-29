@@ -22,6 +22,10 @@ const taskTarget = {
         team_id: props.teamId,
       });
 
+      /** This funky timeout makes sure tasks imperceptibly disappear from their
+       * previous locations when the user drags them to a new project
+       */
+
       setTimeout(() => props.getAllTasksFromProjects(props.teamId), 45);
       return;
     }
