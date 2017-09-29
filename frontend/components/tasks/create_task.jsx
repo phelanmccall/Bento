@@ -10,7 +10,6 @@ import {
 class CreateTask extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       title: '',
       details: '',
@@ -37,7 +36,7 @@ class CreateTask extends React.Component {
       title: this.state.title,
       project_id: this.state.project_id,
       checked: this.state.checked,
-      index : this.state.index,
+      index : this.props.index,
       details: this.state.details,
       team_id: parseInt(this.props.match.params.teamId),
     };
@@ -53,6 +52,7 @@ class CreateTask extends React.Component {
   }
 
   render() {
+    console.log("%cin Create Task Component", "color: red; background-color: black;", this.props, this.state);
 
     return (
       <section className="create-container">

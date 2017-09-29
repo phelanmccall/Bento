@@ -100,7 +100,7 @@ class TaskIndexItem extends React.Component {
       details: this.props.task.details,
       team_id: this.props.task.team_id,
     }
-    this.props.updateTask(this.state);
+    // this.props.updateTask(this.state);
   }
 
   handleDelete(e) {

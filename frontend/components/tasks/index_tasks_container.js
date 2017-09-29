@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import TaskIndex from './index_tasks';
 import { SelectorAllTasks } from '../../reducers/selectors';
-
 import {
   getAllTasksFromProjects,
   deleteTask,
