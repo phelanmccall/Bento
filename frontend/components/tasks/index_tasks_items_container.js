@@ -8,6 +8,7 @@ import {
 } from '../../actions/task_actions';
 
 const mapStateToProps = (state, props) => {
+  
   return {
     id: props.task.id,
     project_id: props.task.project_id,

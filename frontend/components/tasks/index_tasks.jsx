@@ -41,7 +41,7 @@ class TaskIndex extends React.Component {
   }
 
   componentDidMount() {
-      this.props.getAllTasksFromProjects(this.props.projectId);
+    this.props.getAllTasksFromProjects(this.props.projectId);
   }
 
   render() {
@@ -60,7 +60,7 @@ class TaskIndex extends React.Component {
                   className="task-index-item"
                   task={task}
                   index={indexOfTask}
-                  tasks= {tasks}
+                  tasks={tasks}
                   updateTask={this.props.updateTask}
                   destroyTask={this.props.destroyTask}
                   key={task.id}

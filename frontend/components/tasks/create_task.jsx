@@ -52,26 +52,20 @@ class CreateTask extends React.Component {
   }
 
   render() {
-    console.log("%cin Create Task Component", "color: red; background-color: black;", this.props, this.state);
-
     return (
       <section className="create-container">
         <form
           className="new-form"
           onSubmit={this.handleSubmit}
         >
-          <div className="create-task-title-input-wrapper">
-            <input
-              className="create-task-input"
-              type="text"
-              placeholder="+ create new task"
-              value={this.state.title}
-              onChange={this.setTitle}
-            />
-          </div>
-
+          <input
+            className="create-task-input"
+            type="text"
+            placeholder="+ create new task"
+            value={this.state.title}
+            onChange={this.setTitle}
+          />
           <br />
-
         </form>
       </section>
     );
