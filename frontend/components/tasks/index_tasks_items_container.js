@@ -12,7 +12,7 @@ const mapStateToProps = (state, props) => {
     id: props.task.id,
     project_id: props.task.project_id,
     details: props.task.details,
-    index: props.task.index,
+    index: props.index,
     tasks: props.tasks,
   };
 };

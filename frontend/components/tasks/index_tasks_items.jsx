@@ -3,12 +3,7 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import { ItemTypes } from "../../util/dnd_constants.js";
 import { Route, NavLink, Link } from 'react-router-dom';
 import { updateTask, deleteTask } from '../../actions/task_actions';
-import {
-  DragDropContext,
-  DragSource,
-  DropTarget,
-  DragLayer,
-} from 'react-dnd';
+import { DragDropContext, DragSource, DropTarget, DragLayer } from 'react-dnd';
 
 const taskSource = {
   beginDrag(props, monitor, component) {
@@ -96,16 +91,16 @@ class TaskIndexItem extends React.Component {
     this.handleInput = this.handleInput.bind(this);
     this.handleUpdateTask = this.handleUpdateTask.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
-
     this.state = {
       id: this.props.task.id,
       title: this.props.task.title,
       project_id: this.props.task.project_id,
       checked: this.props.task.checked,
-      index : this.props.index,
+      index: this.props.index,
       details: this.props.task.details,
       team_id: this.props.task.team_id,
     }
+    this.props.updateTask(this.state);
   }
 
   handleDelete(e) {
@@ -127,7 +122,7 @@ class TaskIndexItem extends React.Component {
       checked: !this.state.checked,
       details: this.state.details,
       id: this.state.id,
-      index : this.state.index,
+      index: this.state.index,
       team_id: this.state.team_id,
     };
 
@@ -147,7 +142,7 @@ class TaskIndexItem extends React.Component {
       checked: this.state.checked,
       details: this.state.details,
       id: this.state.id,
-      index : this.state.index,
+      index: this.state.index,
       team_id: this.state.team_id,
     };
 
@@ -162,7 +157,7 @@ class TaskIndexItem extends React.Component {
         checked: this.state.checked,
         details: this.state.details,
         id: this.state.id,
-        index : this.state.index,
+        index: this.state.index,
         team_id: null,
       };
 

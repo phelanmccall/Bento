@@ -70,6 +70,7 @@ class TaskIndex extends React.Component {
           <ul className="task-index">
             { tasks && tasks.map((task, indexOfTask) =>
               {
+                console.log(`%c${ indexOfTask }`, "color: cyan; background-color: black;", tasks);
                 return (
                   <TaskIndexItemsContainer
                     className="task-index-item"
