@@ -21,10 +21,15 @@
   margin-top: 20px;
 }
 
+.create-container {
+  -webkit-animation: 250ms ease-out 0s 1 slideIn;
+}
+
 .project-list-item {
   // cursor: -webkit-grab;
   // cursor: grab;
   -webkit-animation: fadein 500ms;
+  -webkit-animation: 250ms ease-out 0s 1 slideIn;
   width: 300px;
   min-width: 300px;
   max-width: 300px;
@@ -49,10 +54,14 @@
     // cursor: grab;
   }
 
+  .task-index {
+    -webkit-animation: 350ms ease-out 0s 1 slideIn;
+  }
+
   .task-item-false, .task-item-true {
     // cursor: -webkit-grab;
     // cursor: grab;
-    -webkit-animation: fadein 750ms;
+    // -webkit-animation: fadein 750ms;
   }
 
   a.task-title:hover {
@@ -339,4 +348,13 @@
     margin-top: 15px;
     position: absolute;
     padding-bottom: 1px;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-7%);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }
