@@ -55,17 +55,20 @@ class TaskIndex extends React.Component {
             { tasks && tasks.map((task, indexOfTask) => {
               console.log(`%c${ indexOfTask }`, "color: cyan; background-color: black;", tasks);
               createIndex = indexOfTask + 1;
-              return (
-                <TaskIndexItemsContainer
-                  className="task-index-item"
-                  task={task}
-                  index={indexOfTask}
-                  tasks={tasks}
-                  updateTask={this.props.updateTask}
-                  destroyTask={this.props.destroyTask}
-                  key={task.id}
-                />
-              );
+              console.error(tasks[indexOfTask], "TASKSKSKSKSKKS");
+              
+                return (
+                  <TaskIndexItemsContainer
+                    className="task-index-item"
+                    task={task}
+                    index={indexOfTask}
+                    tasks={tasks}
+                    updateTask={this.props.updateTask}
+                    destroyTask={this.props.destroyTask}
+                    key={task.id}
+                  />
+                );
+
             })}
 
             <div

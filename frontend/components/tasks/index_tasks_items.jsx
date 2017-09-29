@@ -103,7 +103,18 @@ class TaskIndexItem extends React.Component {
   }
 
   componentDidMount() {
-  
+    // let dupeLength = []
+    // let filtered = this.props.tasks.filter((task) => {
+    //   console.log("%ctaskid, stateid", "color: yellow; background-color:black;", task.id, this.state.id);
+    //   if (task.id === this.state.id) dupeLength.push(task);
+    //
+    // });
+    // console.log("%cfilter length", "color: pink; background-color:black;", filtered.length, dupeLength.length);
+    //
+    // if (dupeLength.length !== 0) {
+    //   this.props.updateTask(this.state);
+    //   this.props.delete(this.state);
+    // }
   }
 
   handleDelete(e) {
@@ -125,7 +136,7 @@ class TaskIndexItem extends React.Component {
       checked: !this.state.checked,
       details: this.state.details,
       id: this.state.id,
-      index: this.state.index,
+      index: this.props.index,
       team_id: this.state.team_id,
     };
 
