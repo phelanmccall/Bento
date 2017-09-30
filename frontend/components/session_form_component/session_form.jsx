@@ -86,7 +86,7 @@ class SessionForm extends React.Component {
   render () {
     return (
       <div className="container-wrapper">
-
+        <div className="bottom-splash-bar"></div>
         <div className="white-box">
         </div>
         <div className="green-box">

@@ -1,6 +1,5 @@
 
 .team-index-initial-wrapper {
-  background-color: #fee9da;
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -8,12 +7,13 @@
   flex: 1;
   justify-content: space-around;
   align-content: space-around;
-  box-shadow: 0 0 45px 25px #fee9da;
-  padding: 0px 40px;
-  padding-left: 55px;
-  padding-right: 30px;
-  max-width: 240px;
-  z-index: 99;
+  box-shadow: 6px 0px 30px 18px #e1afb1;
+padding: 0px 40px;
+padding-left: 55px;
+padding-right: 30px;
+max-width: 240px;
+z-index: 99;
+background: linear-gradient(90deg, #feeed9 0%, #fed9ca 33%, #edc0ba 66%, #e1afb2 96%);
 }
 
 .in-team-team-form-wrapper {
