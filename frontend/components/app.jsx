@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Link, HashRouter, history } from 'react-router-dom';
 
-import NavbarContainer from './navigation_bar/nav_bar_container.js';
+import NavbarContainer from './navigation_bar/nav_bar_container';
 import SplashContainer from './splash/splash_container';
 import CreateProjectContainer from './projects/create_project_container';
 import SessionFormContainer from './session_form_component/session_form_container';
