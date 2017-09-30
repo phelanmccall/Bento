@@ -46,9 +46,7 @@ const TaskReducer = (state = {}, action) => {
       const projectTaskArray = prevState[action.task.project_id];
       const tasksMinusRemoved = [];
       projectTaskArray.filter((task) => {
-        if (task.id !== action.task.id) {
-          tasksMinusRemoved.push(task)
-        }
+        if (task.id !== action.task.id) tasksMinusRemoved.push(task)
       });
 
       prevState[action.task.project_id] = tasksMinusRemoved;
