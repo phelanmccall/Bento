@@ -7,23 +7,23 @@ export const REMOVE_TASK = "REMOVE_TASK";
 
 export const receiveTask = task => ({
   type: RECEIVE_TASK,
-  task
+  task,
 });
 
 export const receiveAllTasks = tasks => ({
   type: RECEIVE_ALL_TASKS,
-  tasks
+  tasks,
 });
 
 export const removeTask = task => ({
   type: REMOVE_TASK,
-  task
+  task,
 });
 
 export const getAllTasksFromProjects = (teamId) => dispatch => {
   return APIUtil.getAllTasksFromProjects(teamId).then(tasks => {
     dispatch(receiveAllTasks(tasks));
-  })
+  });
 }
 
 export const getSingleTask = (id) => dispatch => {
@@ -31,13 +31,19 @@ export const getSingleTask = (id) => dispatch => {
 }
 
 export const createTask = (newTask) => dispatch => {
-  return APIUtil.createTask(newTask).then(task => dispatch(receiveTask(task)));
+  return APIUtil.createTask(newTask)
+    .then(task => dispatch(receiveTask(task))
+  );
 };
 
 export const updateTask = (task) => dispatch => {
-  return APIUtil.updateTask(task).then(updateThis => dispatch(receiveTask(updateThis)));
+  return APIUtil.updateTask(task)
+    .then(updateThis => dispatch(receiveTask(updateThis))
+  );
 };
 
 export const deleteTask = (id) => dispatch => {
-  return APIUtil.deleteTask(id).then(removeThis => dispatch(removeTask(removeThis)));
+  return APIUtil.deleteTask(id)
+    .then(removeThis => dispatch(removeTask(removeThis))
+  );
 };
