@@ -11,7 +11,7 @@ user02 = User.create!(username: "Waldo", password: "password")
 user03 = User.create!(username: "Atom", password: "password")
 user04 = User.create!(username: "atom", password: "password")
 
-team01 = Team.create!(team_name: "Welcom to Bento!", owner_id: user01.id)
+team01 = Team.create!(team_name: "Welcome to Bento!", owner_id: user01.id)
 team02 = Team.create!(team_name: "Primary Team", owner_id: user01.id)
 team03 = Team.create!(team_name: "Secondary Team", owner_id: user01.id)
 team04 = Team.create!(team_name: "Tertiary Team", owner_id: user01.id)
