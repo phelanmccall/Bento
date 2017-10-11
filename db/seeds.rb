@@ -25,8 +25,8 @@ wtbtask01 = Task.create!(title: "Click into the + create input fields to write T
 wtbtask02 = Task.create!(title: "Mark Tasks completed by clicking the check box to the left of the Task box.", details: "", project_id: wtbproj01.id, team_id: wtbproj01.team_id, index: 1)
 wtbtask03 = Task.create!(title: "Tasks can be deleted with the x button on the right of the Task box.", details: "", project_id: wtbproj01.id, team_id: wtbproj01.team_id, index: 2)
 
-wtbtask04 = Task.create!(title: "Projects can be dragged and dropped into a new order.", details: "", project_id: wtbproj02.id, team_id: wtbproj02.team_id, index: 0)
-wtbtask05 = Task.create!(title: "You can also try to drag and drop Tasks to move them to different Projects!", details: "", project_id: wtbproj02.id, team_id: wtbproj02.team_id, index: 1)
+wtbtask04 = Task.create!(title: "Projects can be updated by clicking into their titles and hitting enter to save.", details: "", project_id: wtbproj02.id, team_id: wtbproj02.team_id, index: 0)
+wtbtask05 = Task.create!(title: "You can try to drag and drop Tasks to move them to different Projects!", details: "", project_id: wtbproj02.id, team_id: wtbproj02.team_id, index: 1)
 wtbtask05 = Task.create!(title: "Looks like this Task is already completed!", details: "", project_id: wtbproj02.id, team_id: wtbproj02.team_id, index: 2, checked: true)
 
 proj01 = Project.create!(title: "Primary Project", creator_id: user01.id, team_id: team02.id, index: 0)
