@@ -40,6 +40,12 @@ class Api::ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:title, :creator_id, :tasks, :team_id, :index)
+    params.require(:project).permit(
+      :title,
+      :creator_id,
+      :tasks,
+      :team_id,
+      :index
+    )
   end
 end

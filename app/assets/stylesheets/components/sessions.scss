@@ -31,7 +31,6 @@
 }
 
 .container-container {
-    /* Pink Base Box */
   height: 588px;
 
   box-sizing: border-box;
@@ -41,8 +40,7 @@
   overflow: hidden;
 }
 
-  .white-box {
-  /* White Box */
+.white-box {
   box-sizing: border-box;
   background-color: rgba(255, 255, 255, 0.0);
   grid-column: 42 / 102;
@@ -52,7 +50,6 @@
 }
 
 .pink-box {
-  /* Pink Box */
   box-sizing: border-box;
   grid-column: 1 / 102;
   grid-row: 6 / 25 ;
@@ -63,7 +60,6 @@
 }
 
 .green-box {
-  /* Green Box */
   box-sizing: border-box;
   background: rgba(239, 255, 174, 0.3);
   grid-column: 66 / 102;
@@ -76,7 +72,6 @@
 }
 
 .yellow-box {
-  /* Yellow Box */
   background: rgba(255, 226, 137, 0.3);
   box-sizing: border-box;
   grid-column: 32 / 66;
@@ -172,7 +167,6 @@
 }
 
 .login-user-input, .login-password-input, .guest-button, .submit-button {
-
   border: 1px solid rgba(255, 255, 255, 0.0);
   box-sizing: border-box;
   display: flex;
@@ -190,7 +184,6 @@
 .login-user-input:active, .login-user-input:focus, .login-password-input:active, .login-password-input:focus{
 }
 .login-user-input::selection, .login-password-input::selection {
-
   background-color: #fce295;
 }
 
@@ -212,8 +205,6 @@ button:focus {
   color: black;
 }
 
-
-
 .login-form-container {
   margin-top: 20px;
   display: flex;
@@ -229,6 +220,7 @@ button:focus {
   align-items: center;
   margin-right: 60px;
 }
+
 .login-form-box {
   display: flex;
   flex-direction: column;
@@ -287,7 +279,6 @@ button:focus {
   }
 }
 
-
 .login-signup-flex-container .login-button:hover > .nest, .login-signup-flex-container .signup-button:hover > .nest {
   transition: all 0.75s ease;
   display: block;
@@ -331,7 +322,6 @@ button:focus {
   display: flex;
   flex-direction: column;
   padding: 50px 15px;
-  /* margin-left: 50%; */
   align-items: flex-end;
 }
 
@@ -342,7 +332,6 @@ button:focus {
 }
 
 .container-container {
-
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -350,7 +339,6 @@ button:focus {
   padding-top: 5px;
   padding-bottom: 340px;
   padding-left: 10px;
-  /* border: aquamarine solid 2px; */
 }
 
 .login-signup-flex-container {

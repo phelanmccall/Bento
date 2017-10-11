@@ -1,6 +1,9 @@
 class Api::MembershipsController < ApplicationController
   def create
-    @membership = Membership.new(user_id: current_user.id, team_id: params[:membership][:team_id])
+    @membership = Membership.new(
+      user_id: current_user.id,
+      team_id: params[:membership][:team_id]
+    )
 
     if @membership.save
       render 'api/memberships/show'
