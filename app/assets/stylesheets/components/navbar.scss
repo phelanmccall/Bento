@@ -139,30 +139,24 @@ img {
 .nav-login-button, .nav-signup-button {
   text-decoration: none;
   font-weight: 400;
-
 }
 
 .nav-login-button, .nav-signup-button, .nav-logout-button {
   display: flex;
-
   font-weight: 400;
   text-decoration: none;
   align-items: center;
-
   color: black;
-
   padding: 10px;
   background: #FCCDCD;
   border: 0px solid rgba(255, 255, 255, 0.5);
   border-radius: 5px;
-
   transition: all 0.25s ease;
 }
 
 .nav-splash-spacer {
   .nav-login-button:hover, .nav-signup-button:hover, .nav-logout-button:hover {
   box-shadow: 4px 4px 8px rgba(249, 157, 157, 0.8);
-
   -webkit-animation: wiggle 0.1s ease-in-out 0.1s alternate 1;
   }
 }
