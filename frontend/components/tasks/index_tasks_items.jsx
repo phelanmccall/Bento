@@ -39,6 +39,9 @@ const taskTarget = {
     const dragTask = monitor.getItem();
     const dragId = monitor.getItem().id;
     const hoverId = props.task.id;
+    // Following line helps assure state change, don't know why
+    // I never tried it before!
+    props.getAllTasksFromProjects(props.teamId)
 
     /**
      * TODO So we have props.tasks which is the array of all tasks of the

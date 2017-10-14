@@ -1,5 +1,22 @@
 // Night skin beginnings
 
+.session-form-containers-wrapper {
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  min-width: 800px;
+  background-image: linear-gradient(135deg, #522e58 0%, #75253b 52%, #632b4a 77%, #084842 100%), url("./Bento-Hero-Shot-7.png");
+  background-blend-mode:hard-light;
+  background-size: 1600px;
+  background-repeat: no-repeat;
+  background-origin: center;
+  background-position: top;
+}
+
+.HideWrapper {
+  display: none;
+}
+
 .header-flex-container {
   position: fixed;
   display: flex;
