@@ -1,6 +1,6 @@
 // Night skin beginnings
 
-.session-form-containers-wrapper {
+.session-form-containers-wrapper .night {
   opacity: 1;
   display: flex;
   justify-content: center;
@@ -13,11 +13,11 @@
   background-position: top;
 }
 
-.HideWrapper {
+.HideWrapper .night {
   display: none;
 }
 
-.header-flex-container {
+.header-flex-container .night {
   position: fixed;
   display: flex;
   justify-content: space-around;
@@ -31,7 +31,7 @@
   color: white;
 }
 
-.header-container {
+.header-container .night {
   display: flex;
   flex: 1;
   justify-content: center;
@@ -40,7 +40,7 @@
   color: white;
 }
 
-.nav-login-button, .nav-signup-button, .nav-logout-button {
+.nav-login-button, .nav-signup-button, .nav-logout-button .night {
   display: flex;
   font-weight: 400;
   text-decoration: none;
@@ -53,7 +53,7 @@
   transition: all 0.25s ease;
 }
 
-.routes-container {
+.routes-container .night {
   background: linear-gradient(90deg, rgba(253, 212, 182, 0.5) 24.57%, rgba(255, 226, 137, 0.5) 60.41%, rgba(239, 255, 174, 0.5) 99.99%);
   /* background-image: url("http://res.cloudinary.com/atomc/image/upload/v1506746807/Sierra-background-Bento-1_jyt8gq.png"); */
   background-size: 1600px;
@@ -70,7 +70,7 @@
   background-size: 1600px;
 }
 
-.team-index-initial-wrapper {
+.team-index-initial-wrapper .night {
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -87,7 +87,7 @@
   background: linear-gradient(90deg, #feeed9 0%, #fed9ca 33%, #edc0ba 66%, #e1afb2 96%);
 }
 
-.project-index-wrapper {
+.project-index-wrapper .night {
   display: flex;
   flex: 1;
   /* background: url("https://9to5mac.files.wordpress.com/2016/11/color-burst-2.jpg"); */
@@ -95,7 +95,7 @@
   /* height: 100vh; */
 }
 
-.project-list-item {
+.project-list-item .night {
   -webkit-animation: fadein 500ms;
   -webkit-animation: 250ms ease-out 0s 1 slideIn;
   width: 300px;
@@ -112,7 +112,7 @@
   font-size: 16px
 }
 
-.project-title-live-input {
+.project-title-live-input .night {
   font-weight: 400;
   font-size: 20px;
   background-color: rgba(0, 0, 0, 0.8);
@@ -124,7 +124,7 @@
   color: white;
 }
 
-.task-item-false {
+.task-item-false .night {
   font-size: 14px;
   font-family: "arial";
   display: flex;
@@ -137,7 +137,7 @@
   color: white;
 }
 
-.create-task-input {
+.create-task-input .night {
   text-align: center;
   background: rgba(0, 0, 0, 0.45);
   border: solid 1px transparent;
@@ -147,7 +147,7 @@
   resize: none
 }
 
-.task-item-true {
+.task-item-true .night {
   font-weight: 200;
   font-size: 14px;
   color: rgba(0, 0, 0, 0.6);
@@ -162,7 +162,7 @@
   color: white;
 }
 
-.create-project-input {
+.create-project-input .night {
   font-weight: 200;
   font-size: 20px;
   background-color: rgba(0, 0, 0, 0.5);
