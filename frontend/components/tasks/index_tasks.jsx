@@ -26,7 +26,7 @@ const taskTarget = {
        * previous locations when the user drags them to a new project
        */
 
-      setTimeout(() => props.getAllTasksFromProjects(props.teamId), 45);
+      setTimeout(() => props.getAllTasksFromProjects(props.teamId), 65);
       return;
     }
   },
@@ -52,7 +52,12 @@ class TaskIndex extends React.Component {
   }
 
   render() {
-    const { tasks, teamId, projectId, updateTask, connectDropTarget} = this.props;
+    const { tasks,
+            teamId,
+            projectId,
+            updateTask,
+            connectDropTarget,
+          } = this.props;
     let createIndex = 0;
 
     return connectDropTarget(
@@ -61,6 +66,7 @@ class TaskIndex extends React.Component {
           <ul className="task-index">
             { tasks && tasks.map((task, indexOfTask) => {
               createIndex = indexOfTask + 1;
+
                 return (
                   <TaskIndexItemsContainer
                     className="task-index-item"
