@@ -1,10 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {
-  Route,
-  Link,
-  withRouter
-} from 'react-router-dom';
+import { Route, Link, withRouter, } from 'react-router-dom';
 import merge from 'lodash/merge';
 
 class CreateProject extends React.Component {
