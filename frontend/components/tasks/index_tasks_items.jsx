@@ -41,7 +41,7 @@ const taskTarget = {
     const hoverId = props.task.id;
     // Following line helps assure state change, don't know why
     // I never tried it before!
-    props.getAllTasksFromProjects(props.teamId)
+    // props.getAllTasksFromProjects(props.teamId)
 
     /**
      * TODO So we have props.tasks which is the array of all tasks of the
@@ -131,8 +131,9 @@ class TaskIndexItem extends React.Component {
   handleCheck(e) {
     e.preventDefault();
 
-    setTimeout(() => this.setState({ checked: !this.state.checked }), 0);
+    setTimeout(() => this.setState({ checked: !this.state.checked }), 65);
 
+    // this.setState({ checked: !this.state.checked });
     let obj = {
       title: this.state.title,
       project_id: this.state.project_id,
@@ -144,6 +145,7 @@ class TaskIndexItem extends React.Component {
     };
 
     this.props.updateTask(obj);
+    // this.props.getAllTasksFromProjects(this.state.team_id);
   }
 
   handleInput(e) {
