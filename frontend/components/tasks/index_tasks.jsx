@@ -75,7 +75,7 @@ class TaskIndex extends React.Component {
                     tasks={tasks}
                     updateTask={this.props.updateTask}
                     destroyTask={this.props.destroyTask}
-                    key={task.id}
+                    key={task.id + indexOfTask}
                   />
                 );
 
