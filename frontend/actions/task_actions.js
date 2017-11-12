@@ -21,24 +21,31 @@ export const removeTask = task => ({
 });
 
 export const getAllTasksFromProjects = (teamId) => dispatch => {
-  return APIUtil.getAllTasksFromProjects(teamId).then(tasks => {
-    dispatch(receiveAllTasks(tasks));
-  });
+  return APIUtil.getAllTasksFromProjects(teamId)
+    .then(tasks => {
+      dispatch(receiveAllTasks(tasks));
+    });
 }
 
 export const getSingleTask = (id) => dispatch => {
-  return APIUtil.getSingleTask(id).then(task => dispatch(receiveTask(task)));
+  return APIUtil.getSingleTask(id)
+  .then(
+    task => dispatch(receiveTask(task))
+  );
 }
 
 export const createTask = (newTask) => dispatch => {
   return APIUtil.createTask(newTask)
-    .then(task => dispatch(receiveTask(task))
-  );
+    .then(
+      task => dispatch(receiveTask(task))
+    );
 };
 
 export const updateTask = (task) => dispatch => {
   return APIUtil.updateTask(task)
-    .then(updateThis => dispatch(receiveTask(updateThis))
+
+  .then(
+    updateThis => dispatch(receiveTask(updateThis))
   );
 };
 
