@@ -1,8 +1,8 @@
 import * as APIUtil from '../util/task_api_util';
 
-export const RECEIVE_TASK = "RECEIVE_TASK";
-export const RECEIVE_ALL_TASKS = "RECEIVE_ALL_TASKS";
-export const REMOVE_TASK = "REMOVE_TASK";
+export const RECEIVE_TASK = 'RECEIVE_TASK';
+export const RECEIVE_ALL_TASKS = 'RECEIVE_ALL_TASKS';
+export const REMOVE_TASK = 'REMOVE_TASK';
 
 
 export const receiveTask = task => ({
@@ -21,36 +21,33 @@ export const removeTask = task => ({
 });
 
 export const getAllTasksFromProjects = (teamId) => dispatch => {
-  return APIUtil.getAllTasksFromProjects(teamId)
-    .then(tasks => {
+  return APIUtil.getAllTasksFromProjects(teamId).then(
+    tasks => {
       dispatch(receiveAllTasks(tasks));
-    });
-}
+    }
+  );
+};
 
 export const getSingleTask = (id) => dispatch => {
-  return APIUtil.getSingleTask(id)
-  .then(
+  return APIUtil.getSingleTask(id).then(
     task => dispatch(receiveTask(task))
   );
-}
+};
 
 export const createTask = (newTask) => dispatch => {
-  return APIUtil.createTask(newTask)
-    .then(
-      task => dispatch(receiveTask(task))
-    );
+  return APIUtil.createTask(newTask).then(
+    task => dispatch(receiveTask(task))
+  );
 };
 
 export const updateTask = (task) => dispatch => {
-  return APIUtil.updateTask(task)
-
-  .then(
+  return APIUtil.updateTask(task).then(
     updateThis => dispatch(receiveTask(updateThis))
   );
 };
 
 export const deleteTask = (id) => dispatch => {
-  return APIUtil.deleteTask(id)
-    .then(removeThis => dispatch(removeTask(removeThis))
+  return APIUtil.deleteTask(id).then(
+    removeThis => dispatch(removeTask(removeThis))
   );
 };
