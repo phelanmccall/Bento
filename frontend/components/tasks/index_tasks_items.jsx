@@ -28,20 +28,10 @@ function collectSource(connect, monitor) {
 
 const taskTarget = {
   hover(props, monitor, component) {
-    // console.clear();
-    // console.log(`%c${props.task.id} hover id`, "color: pink; font-style: italic; background-color: black; padding: 2px");
-    // console.group("%cprops tasks:", "color: red; font-style: italic; background-color: black; padding: 2px");
-    // console.table(props.tasks);
-    // console.log(monitor.getItem());
-    // console.groupEnd();
-    // console.log(`%c${monitor.getItem()} drag id`, "color: chartreuse; font-style: italic; background-color: black; padding: 2px");
 
     const dragTask = monitor.getItem();
     const dragId = monitor.getItem().id;
     const hoverId = props.task.id;
-    // Following line helps assure state change, don't know why
-    // I never tried it before!
-    // props.getAllTasksFromProjects(props.teamId)
 
     /**
      * TODO So we have props.tasks which is the array of all tasks of the
@@ -57,28 +47,16 @@ const taskTarget = {
      * update the positioning from the array indices.
      */
 
-    // TOTALLY DOABLE! FIXME
-
-    // if (dragIdx === hoverIdx) {
-    //   return;
-    // } else {
-    //   const tasky = Object
-    //     .assign({}, monitor.getItem(), { index: props.task.index });
-    //   props.updateTask(tasky);
-    //
-    //   monitor.getItem().index = props.task.index;
-    //   component.forceUpdate();
-    // }
   },
-  // drop(props, monitor, component) {
-      // return props;
-  // },
+  drop(props, monitor, component) {
+      return props;
+  },
 };
 
 function collectTarget(connect, monitor) {
   return {
     connectDropTarget: connect.dropTarget(),
-    // highlighted: monitor.canDrop(),
+    highlighted: monitor.canDrop(),
     hovered: monitor.isOver(),
   };
 };
@@ -131,21 +109,21 @@ class TaskIndexItem extends React.Component {
   handleCheck(e) {
     e.preventDefault();
 
-    setTimeout(() => this.setState({ checked: !this.state.checked }), 65);
+    // setTimeout(() => this.setState({ checked: !this.state.checked }), 65);
 
-    // this.setState({ checked: !this.state.checked });
+    this.setState({ checked: !this.state.checked });
     let obj = {
       title: this.state.title,
       project_id: this.state.project_id,
       checked: !this.state.checked,
       details: this.state.details,
       id: this.state.id,
-      index: this.props.index,
+      index: this.state.index,
       team_id: this.state.team_id,
     };
 
     this.props.updateTask(obj);
-    // this.props.getAllTasksFromProjects(this.state.team_id);
+    this.props.getAllTasksFromProjects(this.state.team_id);
   }
 
   handleInput(e) {
@@ -228,9 +206,9 @@ class TaskIndexItem extends React.Component {
 export default DropTarget(
   ItemTypes.TASK,
   taskTarget,
-  collectTarget
+  collectTarget,
 )(DragSource(
   ItemTypes.TASK,
   taskSource,
-  collectSource
+  collectSource,
 )(TaskIndexItem));
