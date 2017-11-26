@@ -36,6 +36,7 @@ const TaskReducer = (state = {}, action) => {
           projectsObject[taskProjectId] = projectsObject[taskProjectId]
             .concat(task);
         }
+        // Add in normalization here
       });
 
       return projectsObject;
