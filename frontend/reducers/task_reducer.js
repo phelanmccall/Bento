@@ -23,23 +23,25 @@ const TaskReducer = (state = {}, action) => {
     }
     case RECEIVE_ALL_TASKS: {
       const tasks = action.tasks;
-      const taskArray = Object.keys(tasks)
-        .map(function (key) { return tasks[key]; });
 
-      const projectsObject = {};
+      console.log(Object.keys(tasks), 'tasks keys');
+
+      const taskArray = Object.keys(tasks).map((key) => tasks[key]);
+      const projectsObj = {};
       const filteredTaskArray = [];
       taskArray.filter((task) => {
         const taskProjectId = task.project_id;
-        if (projectsObject[taskProjectId] === undefined) {
-          projectsObject[taskProjectId] = [task];
+        if (projectsObj[taskProjectId] === undefined) {
+          projectsObj[taskProjectId] = [task];
         } else {
-          projectsObject[taskProjectId] = projectsObject[taskProjectId]
+          projectsObj[taskProjectId] = projectsObj[taskProjectId]
             .concat(task);
         }
-        // Add in normalization here
       });
 
-      return projectsObject;
+      console.log(projectsObj);
+
+      return projectsObj;
     }
     case REMOVE_TASK: {
       // Have to do some funky stuff since we are working with arrays in objects

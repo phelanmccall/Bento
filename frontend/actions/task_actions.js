@@ -1,9 +1,16 @@
 import * as APIUtil from '../util/task_api_util';
 
+/*
+ * action types
+ */
+
 export const RECEIVE_TASK = 'RECEIVE_TASK';
 export const RECEIVE_ALL_TASKS = 'RECEIVE_ALL_TASKS';
 export const REMOVE_TASK = 'REMOVE_TASK';
 
+/*
+ * action creators
+ */
 
 export const receiveTask = task => ({
   type: RECEIVE_TASK,

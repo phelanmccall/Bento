@@ -78,14 +78,12 @@ class TaskIndex extends React.Component {
                     key={task.id}
                   />
                 );
-
             })}
 
-            <div
-              className="create-task-wrapper">
+            <div className="create-task-wrapper">
               <CreateTaskContainer
                 projectId={this.props.projectId}
-                tasks ={tasks}
+                tasks={tasks}
                 index={createIndex}
               />
             </div>
@@ -99,5 +97,5 @@ class TaskIndex extends React.Component {
 export default DropTarget(
   ItemTypes.TASK,
   taskTarget,
-  collectTarget
+  collectTarget,
 )(TaskIndex);
