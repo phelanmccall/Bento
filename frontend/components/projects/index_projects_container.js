@@ -8,6 +8,8 @@ import {
   updateProject,
 } from '../../actions/project_actions';
 
+import { getAllTasksFromProjects } from '../../actions/task_actions';
+
 const mapStateToProps = ({ projects, match }) => {
   return {
     projects: SelectorAllProjects(projects),
@@ -18,6 +20,9 @@ const mapDispatchToProps = (dispatch) => ({
   getAllProjects: (teamId) => dispatch(getAllProjects(teamId)),
   updateProject: (proj) => dispatch(updateProject(proj)),
   destroyProject: (id) => dispatch(deleteProject(id)),
+  getAllTasksFromProjects: (teamId) => dispatch(
+    getAllTasksFromProjects(teamId)
+  ),
 });
 
 export default connect(

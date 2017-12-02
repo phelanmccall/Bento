@@ -11,6 +11,8 @@ import {
   destroyProject
 } from '../../actions/project_actions';
 
+import { getAllTasksFromProjects } from '../../actions/task_actions';
+
 import CreateProjectContainer from './create_project_container';
 
 import TeamFormContainer from '../team/team_form_container';
@@ -22,12 +24,22 @@ class ProjectIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getAllProjects(parseInt(this.props.match.params.teamId));
+    let teamIdFromURL = this.props.match.params.teamId;
+
+    this.props.getAllProjects(parseInt(teamIdFromURL));
+    this.props.getAllTasksFromProjects(parseInt(teamIdFromURL))
   }
 
   componentWillReceiveProps(nextProps) {
-    if (parseInt(nextProps.match.params.teamId) !== parseInt(this.props.match.params.teamId)) {
-      this.props.getAllProjects(parseInt(nextProps.match.params.teamId));
+    let teamIdFromURL = this.props.match.params.teamId;
+    let nextTeamIdURL = nextProps.match.params.teamId;
+    
+    console.log("%cHere are this.props:", "color: green; background-color: black;", this.props);
+    console.log("%cHere are the nextProps:", "color: red; background-color: black;", nextProps);
+    
+    if (parseInt(nextTeamIdURL) !== parseInt(teamIdFromURL)) {
+      this.props.getAllProjects(parseInt(nextTeamIdURL));
+      this.props.getAllTasksFromProjects(parseInt(nextTeamIdURL));
     }
   }
 

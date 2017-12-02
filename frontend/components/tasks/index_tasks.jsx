@@ -26,7 +26,7 @@ const taskTarget = {
        * previous locations when the user drags them to a new project
        */
 
-      setTimeout(() => props.getAllTasksFromProjects(props.teamId), 65);
+      // setTimeout(() => props.getAllTasksFromProjects(props.teamId), 65);
       return;
     }
   },
@@ -48,7 +48,7 @@ class TaskIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getAllTasksFromProjects(this.props.teamId);
+    // this.props.getAllTasksFromProjects(this.props.teamId);
   }
 
   render() {
