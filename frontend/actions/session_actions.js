@@ -7,40 +7,38 @@ export const CLEAR_STORE = 'CLEAR_STORE';
 
 export const receiveCurrentUser = currentUser => ({
   type: RECEIVE_CURRENT_USER,
-  currentUser
+  currentUser,
 });
 
-export const receiveErrors = errors => ({
+export const receiveErrors = (errors) => ({
   type: RECEIVE_ERRORS,
-  errors
+  errors,
 });
 
-export const clearErrors = errors => ({
-  type: CLEAR_ERRORS
+export const clearErrors = (errors) => ({
+  type: CLEAR_ERRORS,
 });
 
 export const clearStore = () => ({
-  type: CLEAR_STORE
+  type: CLEAR_STORE,
 });
 
-export const signup = user => dispatch => (
-  APIUtil.signup(user).then(user => (
-    dispatch(receiveCurrentUser(user))
-  ), err => (
-    dispatch(receiveErrors(err.responseJSON))
-  ))
-);
+export const signup = (user) => dispatch => {
+  return APIUtil.signup(user).then(
+    user => dispatch(receiveCurrentUser(user)),
+    err => dispatch(receiveErrors(err.responseJSON))
+  );
+};
 
-export const login = user => dispatch => (
-  APIUtil.login(user).then(user => (
-    dispatch(receiveCurrentUser(user))
-  ), err => (
-    dispatch(receiveErrors(err.responseJSON))
-  ))
-);
+export const login = (user) => dispatch => {
+  return APIUtil.login(user).then(
+    user => dispatch(receiveCurrentUser(user)),
+    err => dispatch(receiveErrors(err.responseJSON))
+  );
+};
 
-export const logout = () => dispatch => (
-  APIUtil.logout().then(() => (
-    dispatch(clearStore())
-  ))
-);
+export const logout = () => dispatch => {
+  return APIUtil.logout().then(
+    () => dispatch(clearStore())
+  );
+};
