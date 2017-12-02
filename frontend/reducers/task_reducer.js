@@ -12,7 +12,6 @@ const TaskReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_TASK: {
       const receivedState = merge({}, state);
-
       if (receivedState[action.task.project_id] === undefined) {
         receivedState[action.task.project_id] = [action.task];
       } else {
@@ -23,9 +22,6 @@ const TaskReducer = (state = {}, action) => {
     }
     case RECEIVE_ALL_TASKS: {
       const tasks = action.tasks;
-
-      console.log(Object.keys(tasks), 'tasks keys');
-
       const taskArray = Object.keys(tasks).map((key) => tasks[key]);
       const projectsObj = {};
       const filteredTaskArray = [];
@@ -38,8 +34,6 @@ const TaskReducer = (state = {}, action) => {
             .concat(task);
         }
       });
-
-      console.log(projectsObj);
 
       return projectsObj;
     }
@@ -59,7 +53,7 @@ const TaskReducer = (state = {}, action) => {
       return [];
     default:
       return state;
-  }
+  };
 };
 
 export default TaskReducer;
