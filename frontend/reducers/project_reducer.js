@@ -14,7 +14,22 @@ const ProjectReducer = (state = {}, action) => {
       let newProject = {[action.project.id]: action.project};
       return merge({}, state, newProject);
     case RECEIVE_ALL_PROJECTS:
-      return action.projects;
+      // console.log(action);
+      // console.log(action.projects);
+      let projArray = Object.values(action.projects);
+      // console.log(projArray);
+      let taskArrObj = {};
+      let taskArray = projArray.map((obj) => taskArrObj[obj.id] = obj.tasks);
+
+      // console.log(taskArray);
+      // console.log(taskArrObj);
+
+      let newProjects = action.projects;
+      console.log(taskArrObj);
+      let newTasks = taskArrObj;
+      console.log(merge({}, newProjects));
+      return merge({}, newProjects, newTasks);
+      // return action.projects;
     case REMOVE_PROJECT:
       let nextState = merge({}, state);
       delete nextState[action.project.id];

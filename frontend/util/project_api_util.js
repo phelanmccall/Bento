@@ -6,6 +6,7 @@ export const getAllProjects = (teamId) => {
     data: {
       project: {
         team_id: teamId,
+        tasks: [],
       }
     },
   });

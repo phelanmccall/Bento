@@ -31,7 +31,7 @@ class ProjectIndex extends React.Component {
     let teamIdFromURL = this.props.match.params.teamId;
 
     this.props.getAllProjects(parseInt(teamIdFromURL));
-    this.props.getAllTasksFromProjects(parseInt(teamIdFromURL))
+    // this.props.getAllTasksFromProjects(parseInt(teamIdFromURL))
   }
 
   componentWillReceiveProps(nextProps) {
@@ -41,7 +41,7 @@ class ProjectIndex extends React.Component {
 
     if (parseInt(nextTeamIdURL) !== parseInt(teamIdFromURL)) {
       this.props.getAllProjects(parseInt(nextTeamIdURL));
-      this.props.getAllTasksFromProjects(parseInt(nextTeamIdURL));
+      // this.props.getAllTasksFromProjects(parseInt(nextTeamIdURL));
       // let changed = true;
       // this.setState({changed});
     }// else {
