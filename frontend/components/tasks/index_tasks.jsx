@@ -2,6 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import TaskIndexItemsContainer from './index_tasks_items_container';
 import CreateTaskContainer from '../tasks/create_task_container';
+import { getAllProjects } from '../../actions/project_actions';
 import {
   deleteTask,
   updateTask,
@@ -20,7 +21,10 @@ const taskTarget = {
 
       monitor.getItem().project_id = props.projectId;
       props.updateTask(task);
-      console.log("%cHere are this.state:", "color: green; background-color: black;", task);
+      console.log("%cHere are this.props:", "color: green; background-color: black;", props, task);
+
+      props.getAllProjects(props.teamId);
+      props.getAllTasksFromProjects(task.project_id);
       component.setState({
         project_id: props.projectId,
         team_id: props.teamId,

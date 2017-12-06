@@ -1,13 +1,22 @@
 import { connect } from 'react-redux';
 import TaskIndex from './index_tasks';
 import { SelectorAllTasks } from '../../reducers/selectors';
+import { getAllProjects } from '../../actions/project_actions';
 import {
   getAllTasksFromProjects,
   deleteTask,
   updateTask,
 } from '../../actions/task_actions';
 
-const mapStateToProps = (props, { tasks, projectId, teamId, match } ) => {
+const mapStateToProps = (
+  props,
+  {
+    tasks,
+    projectId,
+    teamId,
+    match,
+  }
+) => {
   return {
     tasks: SelectorAllTasks(props.tasks, projectId),
   }
@@ -15,6 +24,7 @@ const mapStateToProps = (props, { tasks, projectId, teamId, match } ) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    getAllProjects: (teamId) => dispatch(getAllProjects(teamId)),
     getAllTasksFromProjects: (teamId) => dispatch (
       getAllTasksFromProjects(teamId)
     ),
