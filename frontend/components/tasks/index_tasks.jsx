@@ -23,8 +23,10 @@ const taskTarget = {
       props.updateTask(task);
       console.log("%cHere are this.props:", "color: green; background-color: black;", props, task);
 
-      props.getAllProjects(props.teamId);
-      props.getAllTasksFromProjects(task.project_id);
+      // props.getAllProjects(props.teamId);
+
+      // props.getAllTasksFromProjects(props.teamId);
+
       component.setState({
         project_id: props.projectId,
         team_id: props.teamId,
@@ -34,7 +36,7 @@ const taskTarget = {
        * previous locations when the user drags them to a new project
        */
 
-      // setTimeout(() => props.getAllTasksFromProjects(props.teamId), 65);
+      setTimeout(() => props.getAllTasksFromProjects(props.teamId), 65);
       return;
     }
   },
