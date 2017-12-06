@@ -8,7 +8,7 @@ import ProjectIndexItemContainer from '../projects/index_projects_item_container
 import {
   getAllProjects,
   updateProject,
-  destroyProject
+  destroyProject,
 } from '../../actions/project_actions';
 
 import { getAllTasksFromProjects } from '../../actions/task_actions';
@@ -21,6 +21,10 @@ import TeamFormContainer from '../team/team_form_container';
 class ProjectIndex extends React.Component {
   constructor(props) {
     super(props);
+
+    // this.state = {
+    //   changed: false,
+    // };
   }
 
   componentDidMount() {
@@ -33,14 +37,34 @@ class ProjectIndex extends React.Component {
   componentWillReceiveProps(nextProps) {
     let teamIdFromURL = this.props.match.params.teamId;
     let nextTeamIdURL = nextProps.match.params.teamId;
-    
-    console.log("%cHere are this.props:", "color: green; background-color: black;", this.props);
-    console.log("%cHere are the nextProps:", "color: red; background-color: black;", nextProps);
-    
+
+
     if (parseInt(nextTeamIdURL) !== parseInt(teamIdFromURL)) {
       this.props.getAllProjects(parseInt(nextTeamIdURL));
       this.props.getAllTasksFromProjects(parseInt(nextTeamIdURL));
-    }
+      // let changed = true;
+      // this.setState({changed});
+    }// else {
+    //   let changed = false;
+    //   this.setState({changed});
+    // }
+    // if (this.state.changed === true) {
+    //   console.log("HELLOOOOO THEREERERERERERLERLERLELR");
+    // }
+
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    // console.log("%cHere are this.state:", "color: green; background-color: black;", this.state);
+    // console.log("%cHere are the nextState:", "color: red; background-color: black;", nextState);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    // console.log("%cWell hello there! Props received!", "color: yellow; background-color: black;");
+    // console.log("%cHere are this.state:", "color: green; background-color: black;", this.state);
+    // console.log("%cHere are the nextState:", "color: red; background-color: black;", prevState);
+
+    // this.props.getAllTasksFromProjects(parseInt(this.props.match.params.teamId));
   }
 
   render() {

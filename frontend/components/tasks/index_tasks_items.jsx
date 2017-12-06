@@ -32,6 +32,7 @@ const taskTarget = {
     const dragTask = monitor.getItem();
     const dragId = monitor.getItem().id;
     const hoverId = props.task.id;
+  
 
     /**
      * TODO So we have props.tasks which is the array of all tasks of the

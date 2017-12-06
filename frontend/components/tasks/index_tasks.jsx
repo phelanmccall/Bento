@@ -2,7 +2,11 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import TaskIndexItemsContainer from './index_tasks_items_container';
 import CreateTaskContainer from '../tasks/create_task_container';
-import { deleteTask, updateTask } from '../../actions/task_actions';
+import {
+  deleteTask,
+  updateTask,
+  getAllTasksFromProjects,
+} from '../../actions/task_actions';
 import { ItemTypes } from "../../util/dnd_constants.js";
 import { DragSource, DropTarget } from 'react-dnd';
 
@@ -16,7 +20,7 @@ const taskTarget = {
 
       monitor.getItem().project_id = props.projectId;
       props.updateTask(task);
-
+      console.log("%cHere are this.state:", "color: green; background-color: black;", task);
       component.setState({
         project_id: props.projectId,
         team_id: props.teamId,

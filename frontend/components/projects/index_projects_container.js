@@ -11,19 +11,22 @@ import {
 import { getAllTasksFromProjects } from '../../actions/task_actions';
 
 const mapStateToProps = ({ projects, match }) => {
+  // console.log(projects, "Heyaaaaaaahjahahahahha");
   return {
     projects: SelectorAllProjects(projects),
   }
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  getAllProjects: (teamId) => dispatch(getAllProjects(teamId)),
-  updateProject: (proj) => dispatch(updateProject(proj)),
-  destroyProject: (id) => dispatch(deleteProject(id)),
-  getAllTasksFromProjects: (teamId) => dispatch(
-    getAllTasksFromProjects(teamId)
-  ),
-});
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getAllProjects: (teamId) => dispatch(getAllProjects(teamId)),
+    updateProject: (proj) => dispatch(updateProject(proj)),
+    destroyProject: (id) => dispatch(deleteProject(id)),
+    getAllTasksFromProjects: (teamId) => dispatch(
+      getAllTasksFromProjects(teamId)
+    ),
+  }
+};
 
 export default connect(
   mapStateToProps,
