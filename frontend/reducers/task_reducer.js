@@ -25,6 +25,7 @@ const TaskReducer = (state = {}, action) => {
       const taskArray = Object.keys(tasks).map((key) => tasks[key]);
       const projectsObj = {};
       const filteredTaskArray = [];
+      console.log(taskArray, "HERROOOOOO");
       taskArray.filter((task) => {
         const taskProjectId = task.project_id;
         if (projectsObj[taskProjectId] === undefined) {
@@ -34,9 +35,10 @@ const TaskReducer = (state = {}, action) => {
             .concat(task);
         }
       });
+      const taskArrayIds = taskArray.map((task) => task.id);
       const fullState = {};
       fullState['byIds'] = projectsObj;
-      fullState['allIds'] = [Object.keys(projectsObj)];
+      fullState['allIds'] = taskArrayIds;
       return fullState;
     }
     case REMOVE_TASK: {

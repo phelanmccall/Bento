@@ -25,9 +25,9 @@ const ProjectReducer = (state = {}, action) => {
       // console.log(taskArrObj);
 
       let newProjects = action.projects;
-      console.log(taskArrObj);
+      // console.log(taskArrObj);
       let newTasks = taskArrObj;
-      console.log(merge({}, newProjects));
+      // console.log(merge({}, newProjects));
       return merge({}, newProjects);
       // return action.projects;
     case REMOVE_PROJECT:
