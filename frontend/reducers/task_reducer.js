@@ -34,8 +34,10 @@ const TaskReducer = (state = {}, action) => {
             .concat(task);
         }
       });
-
-      return projectsObj;
+      const fullState = {};
+      fullState['byIds'] = projectsObj;
+      fullState['allIds'] = [Object.keys(projectsObj)];
+      return fullState;
     }
     case REMOVE_TASK: {
       // Have to do some funky stuff since we are working with arrays in objects
