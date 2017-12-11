@@ -8,5 +8,5 @@ export const SelectorAllProjects = (projects) => {
 
 export const SelectorAllTasks = (tasks, projectId) => {
   // Just reduced a massive selector to a single line!
-  return tasks[projectId];
+  return tasks.byIds[projectId];
 };
