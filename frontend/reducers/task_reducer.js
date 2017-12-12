@@ -12,15 +12,14 @@ const TaskReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_TASK: {
       const receivedState = merge({}, state);
-      console.log("%cHERE IS receivedState before<<<---:", "color: yellow; background-color: #030303;", receivedState);
 
       if (receivedState.byIds[action.task.project_id] === undefined) {
         receivedState.byIds[action.task.project_id] = [action.task];
+        receivedState.allIds.push(action.task);
       } else {
         receivedState.byIds[action.task.project_id].push(action.task);
+        receivedState.allIds.push(action.task.id);
       }
-
-      console.log("%cHERE IS WHAT receivedState after--->>>", "color: cyan; background-color: #040404;", receivedState);
 
       return merge({}, state, receivedState);
     }
@@ -29,10 +28,9 @@ const TaskReducer = (state = {}, action) => {
       const taskArray = Object.keys(tasks).map((key) => tasks[key]);
       const projectsObj = {};
       const filteredTaskArray = [];
+
       taskArray.filter((task) => {
         const taskProjectId = task.project_id;
-        // console.log("%cHERE IS WHAT task IS NOW:", "color: cyan; background-color: #040404;", task);
-        // console.log("%cHERE IS WHAT projectsObj IS NOW:", "color: yellow; background-color: #040404;", projectsObj);
         if (projectsObj[taskProjectId] === undefined) {
           projectsObj[taskProjectId] = [task];
         } else {
@@ -40,6 +38,7 @@ const TaskReducer = (state = {}, action) => {
             .concat(task);
         }
       });
+
       const taskArrayIds = taskArray.map((task) => task.id);
       const fullState = {};
       fullState['byIds'] = projectsObj;
@@ -50,12 +49,22 @@ const TaskReducer = (state = {}, action) => {
       // Have to do some funky stuff since we are working with arrays in objects
       const prevState = merge({}, state);
       const projectTaskArray = prevState.byIds[action.task.project_id];
+      const prevAllIdArrays = prevState.allIds;
       const tasksMinusRemoved = [];
+      const tasksIdsWithout = [];
+      console.log("%cfHERE WE ARE", "color: pink; background-color:black;", prevAllIdArrays);
+
       projectTaskArray.filter((task) => {
-        if (task.id !== action.task.id) tasksMinusRemoved.push(task)
+        if (task.id !== action.task.id) {
+          tasksMinusRemoved.push(task);
+        }
+      });
+      prevAllIdArrays.forEach((taskId) => {
+        if (taskId !== action.task.id) tasksIdsWithout.push(taskId)
       });
 
       prevState.byIds[action.task.project_id] = tasksMinusRemoved;
+      prevState.allIds = tasksIdsWithout;
       return prevState;
     }
     case CLEAR_STORE:
