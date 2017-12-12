@@ -218,6 +218,10 @@
   opacity: 1;
 }
 
+[class^="task-item-"]{
+  transition: ease 0.35s;
+}
+
 .task-item-true {
   font-weight: 200;
   font-size: 14px;
@@ -257,6 +261,7 @@
 .hover-check {
   text-decoration: none;
   opacity: 0.1;
+  transition: ease 0.35s;
 }
 
 .hover-check:hover {
