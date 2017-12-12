@@ -12,12 +12,15 @@ const TaskReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_TASK: {
       const receivedState = merge({}, state);
-      if (receivedState[action.task.project_id] === undefined) {
+      console.log("%cHERE IS receivedState before<<<---:", "color: yellow; background-color: #030303;", receivedState);
+
+      if (receivedState.byIds[action.task.project_id] === undefined) {
         receivedState.byIds[action.task.project_id] = [action.task];
       } else {
         receivedState.byIds[action.task.project_id].push(action.task);
-        receivedState.byIds[action.task.project_id].push(action.task);
       }
+
+      console.log("%cHERE IS WHAT receivedState after--->>>", "color: cyan; background-color: #040404;", receivedState);
 
       return merge({}, state, receivedState);
     }
@@ -26,12 +29,10 @@ const TaskReducer = (state = {}, action) => {
       const taskArray = Object.keys(tasks).map((key) => tasks[key]);
       const projectsObj = {};
       const filteredTaskArray = [];
-      // console.log("%cHERE IS WHAT tasks IS NOW:", "color: white; background-color: #030303;", tasks);
-      // console.log("%cHERE IS WHAT taskArray IS NOW:", "color: cyan; background-color: #040404;", taskArray);
       taskArray.filter((task) => {
         const taskProjectId = task.project_id;
-        console.log("%cHERE IS WHAT task IS NOW:", "color: cyan; background-color: #040404;", task);
-        console.log("%cHERE IS WHAT projectsObj IS NOW:", "color: yellow; background-color: #040404;", projectsObj);
+        // console.log("%cHERE IS WHAT task IS NOW:", "color: cyan; background-color: #040404;", task);
+        // console.log("%cHERE IS WHAT projectsObj IS NOW:", "color: yellow; background-color: #040404;", projectsObj);
         if (projectsObj[taskProjectId] === undefined) {
           projectsObj[taskProjectId] = [task];
         } else {
