@@ -13,9 +13,10 @@ const TaskReducer = (state = {}, action) => {
     case RECEIVE_TASK: {
       const receivedState = merge({}, state);
       if (receivedState[action.task.project_id] === undefined) {
-        receivedState[action.task.project_id] = [action.task];
+        receivedState.byIds[action.task.project_id] = [action.task];
       } else {
-        receivedState[action.task.project_id].push(action.task);
+        receivedState.byIds[action.task.project_id].push(action.task);
+        receivedState.byIds[action.task.project_id].push(action.task);
       }
 
       return merge({}, state, receivedState);
@@ -25,9 +26,12 @@ const TaskReducer = (state = {}, action) => {
       const taskArray = Object.keys(tasks).map((key) => tasks[key]);
       const projectsObj = {};
       const filteredTaskArray = [];
-      console.log(taskArray, "HERROOOOOO");
+      // console.log("%cHERE IS WHAT tasks IS NOW:", "color: white; background-color: #030303;", tasks);
+      // console.log("%cHERE IS WHAT taskArray IS NOW:", "color: cyan; background-color: #040404;", taskArray);
       taskArray.filter((task) => {
         const taskProjectId = task.project_id;
+        console.log("%cHERE IS WHAT task IS NOW:", "color: cyan; background-color: #040404;", task);
+        console.log("%cHERE IS WHAT projectsObj IS NOW:", "color: yellow; background-color: #040404;", projectsObj);
         if (projectsObj[taskProjectId] === undefined) {
           projectsObj[taskProjectId] = [task];
         } else {
@@ -44,13 +48,13 @@ const TaskReducer = (state = {}, action) => {
     case REMOVE_TASK: {
       // Have to do some funky stuff since we are working with arrays in objects
       const prevState = merge({}, state);
-      const projectTaskArray = prevState[action.task.project_id];
+      const projectTaskArray = prevState.byIds[action.task.project_id];
       const tasksMinusRemoved = [];
       projectTaskArray.filter((task) => {
         if (task.id !== action.task.id) tasksMinusRemoved.push(task)
       });
 
-      prevState[action.task.project_id] = tasksMinusRemoved;
+      prevState.byIds[action.task.project_id] = tasksMinusRemoved;
       return prevState;
     }
     case CLEAR_STORE:
