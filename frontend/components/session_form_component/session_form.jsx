@@ -128,6 +128,7 @@ class SessionForm extends React.Component {
                     <input
                       className="session-password-field"
                       placeholder="username"
+                      autoComplete="username"
                       type="text"
                       value={ this.state.username }
                       onChange={ this.update('username') }
@@ -144,6 +145,7 @@ class SessionForm extends React.Component {
                     <input
                       className="session-password-field"
                       placeholder="password"
+                      autoComplete="current-password"
                       type="password"
                       value={ this.state.password }
                       onChange={ this.update('password') }

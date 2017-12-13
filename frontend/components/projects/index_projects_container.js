@@ -11,7 +11,6 @@ import {
 import { getAllTasksFromProjects } from '../../actions/task_actions';
 
 const mapStateToProps = ({ projects, match }) => {
-  // console.log(projects, "Heyaaaaaaahjahahahahha");
   return {
     projects: SelectorAllProjects(projects),
   }

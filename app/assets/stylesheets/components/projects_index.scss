@@ -69,6 +69,7 @@
   width: 100%;
   text-align: center;
   border: solid 1px rgba(0,0,0,0);
+  transition: ease 0.35s;
 }
 
 .project-title-live-input:hover, .project-title-live-input:active, .project-title-live-input:focus {
@@ -114,6 +115,7 @@
   min-width: 280px;
   max-width: 280px;
   resize: none;
+  transition: ease 0.35s;
 }
 
 .create-task-input:hover, .create-task-input:active, .create-task-input:focus{

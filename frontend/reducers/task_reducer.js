@@ -46,13 +46,13 @@ const TaskReducer = (state = {}, action) => {
       return fullState;
     }
     case REMOVE_TASK: {
+      console.log(state, "HI FAMMMMMMMM");
       // Have to do some funky stuff since we are working with arrays in objects
       const prevState = merge({}, state);
       const projectTaskArray = prevState.byIds[action.task.project_id];
       const prevAllIdArrays = prevState.allIds;
       const tasksMinusRemoved = [];
       const tasksIdsWithout = [];
-      console.log("%cfHERE WE ARE", "color: pink; background-color:black;", prevAllIdArrays);
 
       projectTaskArray.filter((task) => {
         if (task.id !== action.task.id) {

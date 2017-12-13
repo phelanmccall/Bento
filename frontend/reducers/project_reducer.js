@@ -14,7 +14,7 @@ const ProjectReducer = (state = {}, action) => {
       let newProject = {[action.project.id]: action.project};
       return merge({}, state, newProject);
     case RECEIVE_ALL_PROJECTS:
-      // console.log(action);
+      // console.log(action, "HI FAMMMMMMMM");
       // console.log(action.projects);
       let projArray = Object.values(action.projects);
       // console.log(projArray);
