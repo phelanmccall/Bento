@@ -21,7 +21,7 @@ const taskTarget = {
 
       monitor.getItem().project_id = props.projectId;
       props.updateTask(task);
-      console.log("%cHere are this.props:", "color: green; background-color: black;", props, task);
+      // console.log("%cHere are this.props:", "color: green; background-color: black;", props, task);
 
       // props.getAllProjects(props.teamId);
 
