@@ -28,13 +28,6 @@ class CreateProject extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    console.log("YOOOoooooo");
-    console.log("YOOOoooooo");
-    console.log(this.props);
-    console.log(this.state);
-    console.log("YOOOoooooo");
-    console.log("YOOOoooooo");
-
     const newProject = {
       team_id: parseInt(this.props.match.params.teamId),
       creator_id: this.props.currentUser.id,

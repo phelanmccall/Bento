@@ -74,7 +74,9 @@ class TaskIndex extends React.Component {
       <div className="task-index-wrapper">
         <section className="indices-section">
           <ul className="task-index">
-            { tasks && tasks.map((task, indexOfTask) => {
+
+            { tasks && tasks.sort((a,b) => a.index - b.index)
+              .map((task, indexOfTask) => {
               createIndex = indexOfTask + 1;
 
                 return (
