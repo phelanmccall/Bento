@@ -10,8 +10,8 @@ class CreateProject extends React.Component {
     this.state = {
       title: '',
       creator_id: this.props.currentUser.id,
-      team_id: null,
-      index: this.props.index,
+      team_id: parseInt(this.props.match.params.teamId),
+      index: this.props.projectCount,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -28,6 +28,13 @@ class CreateProject extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
+    console.log("YOOOoooooo");
+    console.log("YOOOoooooo");
+    console.log(this.props);
+    console.log(this.state);
+    console.log("YOOOoooooo");
+    console.log("YOOOoooooo");
+
     const newProject = {
       team_id: parseInt(this.props.match.params.teamId),
       creator_id: this.props.currentUser.id,
@@ -36,11 +43,12 @@ class CreateProject extends React.Component {
     };
 
     this.props.createProject(newProject);
+
     this.setState({
       title: '',
       creator_id: this.props.currentUser.id,
-      team_id: null,
-      index: this.props.index,
+      team_id: this.state.team_id,
+      index: this.state.index + 1,
     })
 
   }

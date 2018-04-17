@@ -69,6 +69,7 @@ class ProjectIndex extends React.Component {
 
   render() {
     const { projects, updateProject, destroyProject, } = this.props;
+    const projCount = this.props.projects.length
 
     return (
       <div className="project-index-wrapper">
@@ -93,9 +94,13 @@ class ProjectIndex extends React.Component {
               )
             }
 
-            <div className="create-project-wrapper">
-              <CreateProjectContainer />
-            </div>
+            { projCount &&
+              <div className="create-project-wrapper">
+                <CreateProjectContainer
+                  projectCount={ projCount }
+                />
+              </div>
+            }
           </ul>
         </section>
       </div>

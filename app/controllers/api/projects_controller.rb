@@ -2,7 +2,9 @@ class Api::ProjectsController < ApplicationController
   before_action :require_logged_in
 
   def index
-    @projects = Project.where(team_id: project_params[:team_id])
+    @projects = Project
+      .where(team_id: project_params[:team_id])
+      .order(:index)
     render '/api/projects/index'
   end
 
