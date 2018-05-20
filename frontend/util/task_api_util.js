@@ -15,12 +15,6 @@ export const getSingleTask = (id) => {
   return $.ajax({
     method: 'GET',
     url: `/api/tasks/${id}`,
-    // dataType: 'JSON',
-    // data: {
-    //   projects: {
-    //     tasks: [id],
-    //   },
-    // },
   });
 };
 

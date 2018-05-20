@@ -17,6 +17,40 @@ import CreateProjectContainer from './create_project_container';
 
 import TeamFormContainer from '../team/team_form_container';
 
+import { ItemTypes } from "../../util/dnd_constants.js";
+import { DragSource, DropTarget } from 'react-dnd';
+
+const projectTarget = {
+  hover(props, monitor, component) {
+    const dragProject = monitor.getItem();
+
+    if (dragProject.index !== props.index) {
+      const project = Object
+        .assign({}, monitor.getItem(), { index: props.index });
+
+      monitor.getItem().index = props.index;
+      props.updateProject(project);
+
+      console.log("%cHere are this.props:", "color: pink; background-color: black;", props);
+      console.log("%cHere is the projects:", "color: magenta; background-color: black;", project);
+
+      component.setState({
+        index: props.index,
+        team_id: props.teamId,
+      });
+
+      setTimeout(() => props.getAllProjects(props.teamId), 65);
+      return;
+    }
+  }
+}
+
+function collectTarget(connect, monitor) {
+  return {
+    connectDropTarget: connect.dropTarget()
+  }
+}
+
 
 class ProjectIndex extends React.Component {
   constructor(props) {
@@ -42,36 +76,18 @@ class ProjectIndex extends React.Component {
     if (parseInt(nextTeamIdURL) !== parseInt(teamIdFromURL)) {
       this.props.getAllProjects(parseInt(nextTeamIdURL));
       this.props.getAllTasksFromProjects(parseInt(nextTeamIdURL));
-      // let changed = true;
-      // this.setState({changed});
-    }// else {
-    //   let changed = false;
-    //   this.setState({changed});
-    // }
-    // if (this.state.changed === true) {
-    //   console.log("HELLOOOOO THEREERERERERERLERLERLELR");
-    // }
-
-  }
-
-  componentWillUpdate(nextProps, nextState) {
-    // console.log("%cHere are this.state:", "color: green; background-color: black;", this.state);
-    // console.log("%cHere are the nextState:", "color: red; background-color: black;", nextState);
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    // console.log("%cWell hello there! Props received!", "color: yellow; background-color: black;");
-    // console.log("%cHere are this.state:", "color: green; background-color: black;", this.state);
-    // console.log("%cHere are the nextState:", "color: red; background-color: black;", prevState);
-
-    // this.props.getAllTasksFromProjects(parseInt(this.props.match.params.teamId));
+    }
   }
 
   render() {
-    const { projects, updateProject, destroyProject, } = this.props;
+    const { projects,
+            updateProject,
+            destroyProject,
+            connectDropTarget,
+          } = this.props;
     const projCount = this.props.projects.length ? 0 : this.props.projects.length
 
-    return (
+    return connectDropTarget(
       <div className="project-index-wrapper">
 
         <section className="indices-section">
@@ -108,4 +124,8 @@ class ProjectIndex extends React.Component {
   }
 }
 
-export default (ProjectIndex);
+export default DropTarget(
+  ItemTypes.PROJECT,
+  projectTarget,
+  collectTarget,
+)(ProjectIndex);
