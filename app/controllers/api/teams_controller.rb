@@ -10,21 +10,11 @@ class Api::TeamsController < ApplicationController
       @projects = []
     end
 
-    p 'fuck'
-    p params
-    p team_params
-    p request.env['URL']
-    p 'fuck'
-
     render 'api/teams/projects'
   end
 
   def show
     @team = Team.find(params[:id])
-
-    # unless @team.users.include(team_params[:user_id])
-    #   render json: {base: ['invalid credentials']}, status: 401
-    # end
   end
 
   def create

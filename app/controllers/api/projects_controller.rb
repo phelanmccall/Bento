@@ -9,12 +9,6 @@ class Api::ProjectsController < ApplicationController
         .where(team_id: project_params[:team_id])
         .order(:index)
 
-      p "shit"
-      p current_user.teams.pluck(:id)
-      p project_params[:team_id]
-      p current_user.teams.pluck(:id).include?(project_params[:team_id].to_i)
-      p "shit"
-
       render '/api/projects/index'
     end
   end
@@ -25,11 +19,11 @@ class Api::ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-    # @project.creator_id = current_user.id
-    # @projects = Project
-    #   .where(team_id: project_params[:team_id])
-    #   .order(:index)
-    # @project.index = @projects.last.index + 1 if @projects
+    @project.creator_id = current_user.id
+    @projects = Project
+      .where(team_id: project_params[:team_id])
+      .order(:index)
+    @project.index = @projects.last.index + 1 if @projects
 
     if @project.save
       render 'api/projects/show'

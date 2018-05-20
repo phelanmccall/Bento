@@ -94,7 +94,7 @@ class ProjectIndex extends React.Component {
               )
             }
 
-            { projCount &&
+            {
               <div className="create-project-wrapper">
                 <CreateProjectContainer
                   projectCount={ projCount }
