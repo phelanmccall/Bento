@@ -1,8 +1,16 @@
 import * as APIUtil from '../util/project_api_util';
 
+/*
+ * action types
+ */
+
 export const RECEIVE_PROJECT = "RECEIVE_PROJECT";
 export const RECEIVE_ALL_PROJECTS = "RECEIVE_ALL_PROJECTS";
 export const REMOVE_PROJECT = "REMOVE_PROJECT";
+
+/*
+ * action creators
+ */
 
 export const receiveProject = project => ({
   type: RECEIVE_PROJECT,
