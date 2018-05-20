@@ -7,7 +7,16 @@ export const SelectorAllProjects = (projects) => {
 };
 
 export const SelectorAllTasks = (tasks, projectId) => {
-  // Just reduced a massive selector to a single line!
-  // console.log("%cHere's tasks, and tasks.byIds, and projectId", "color: green; background-color: black;", tasks, tasks.byIds, projectId);
-  return tasks.byIds[projectId];
+  // console.log("%ctasks",
+  //             "color: magenta; background-color: black;",
+  //             tasks);
+  // console.log("%ctasks.byIds",
+  //             "color: pink; background-color: black;",
+  //             tasks.byIds);
+  // console.log("%cprojectId",
+  //             "color: skyblue; background-color: black;",
+  //             projectId);
+  if (tasks.byIds) {
+    return tasks.byIds[projectId];
+  }
 };

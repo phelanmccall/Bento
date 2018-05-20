@@ -1,9 +1,17 @@
 import * as APIUtil from '../util/session_api_util';
 
+/*
+ * action types
+ */
+
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 export const CLEAR_STORE = 'CLEAR_STORE';
+
+/*
+ * action creators
+ */
 
 export const receiveCurrentUser = currentUser => ({
   type: RECEIVE_CURRENT_USER,

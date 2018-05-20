@@ -1,10 +1,8 @@
 class Api::TeamsController < ApplicationController
   def index
     @memberships = Membership.where(user_id: team_params[:user_id])
-    @teams = []
-    @memberships.each do |membership|
-      @teams.push(Team.find(membership.team_id))
-    end
+    @membership_team_ids = @memberships.pluck(:team_id)
+    @teams = Team.where(id: @membership_team_ids)
 
     if !@teams.empty?
       @projects = @teams.first.projects
@@ -12,11 +10,21 @@ class Api::TeamsController < ApplicationController
       @projects = []
     end
 
+    p 'fuck'
+    p params
+    p team_params
+    p request.env['URL']
+    p 'fuck'
+
     render 'api/teams/projects'
   end
 
   def show
     @team = Team.find(params[:id])
+
+    # unless @team.users.include(team_params[:user_id])
+    #   render json: {base: ['invalid credentials']}, status: 401
+    # end
   end
 
   def create
