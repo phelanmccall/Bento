@@ -5,6 +5,7 @@ class Api::TasksController < ApplicationController
     @tasks = Task
       .where(team_id: task_params[:team_id])
       .order(:index)
+      
     render '/api/tasks/index'
   end
 

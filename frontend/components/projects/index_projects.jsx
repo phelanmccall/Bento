@@ -69,7 +69,7 @@ class ProjectIndex extends React.Component {
 
   render() {
     const { projects, updateProject, destroyProject, } = this.props;
-    const projCount = this.props.projects.length
+    const projCount = this.props.projects.length ? 0 : this.props.projects.length
 
     return (
       <div className="project-index-wrapper">

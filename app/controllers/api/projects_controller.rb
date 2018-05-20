@@ -23,7 +23,9 @@ class Api::ProjectsController < ApplicationController
     @projects = Project
       .where(team_id: project_params[:team_id])
       .order(:index)
-    @project.index = @projects.last.index + 1 if @projects
+    if @projects.length > 1 && @project
+      @project.index = @projects.last.index + 1
+    end
 
     if @project.save
       render 'api/projects/show'
