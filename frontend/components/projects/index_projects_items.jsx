@@ -102,6 +102,12 @@ class ProjectIndexItem extends React.Component {
       };
 
       this.props.updateProject(obj);
+      var successor = document.querySelector(`#success-for-${this.state.id}`);
+      successor.style.display = 'block';
+
+      setTimeout(() => (successor.style.opacity = '0', successor.style.display = 'none'), 1500)
+
+      e.currentTarget.blur();
     }
   }
 
@@ -120,6 +126,11 @@ class ProjectIndexItem extends React.Component {
     const idOfProject = project.id;
     const teamOfProject = project.team_id;
     const opacity = 1;
+    const display = 'none';
+    const position = 'absolute';
+    const marginLeft = '95px';
+    const width = '120px';
+
 
     return connectDropTarget(connectDragSource(
       <li
@@ -137,10 +148,14 @@ class ProjectIndexItem extends React.Component {
           type="text"
           value={this.state.title}
           onChange={this.handleInput}
-          onBlur={this.handleInput}
           onFocus={this.handleInput}
           onKeyPress={this.handleEnter}
         />
+
+      <div
+        id={`success-for-${project.id}`}
+        style={{ display, position, marginLeft, width }}
+      > title updated 🍱 </div>
 
         <TaskIndexContainer
           className="pli-task-index-wrapper"

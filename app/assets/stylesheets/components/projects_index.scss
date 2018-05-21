@@ -77,6 +77,11 @@
   border: dashed 1px black;
 }
 
+div[id^="success-for"] {
+  animation: fadeAway 1700ms;
+  // animation: 250ms ease-out 0s 1 slideIn;
+}
+
 .routes-container {
   // background: linear-gradient(90deg, rgba(253, 212, 182, 0.5) 24.57%, rgba(255, 226, 137, 0.5) 60.41%, rgba(239, 255, 174, 0.5) 99.99%);
   background-image: url(http://res.cloudinary.com/atomc/image/upload/v1506746807/Sierra-background-Bento-1_jyt8gq.png);
@@ -336,5 +341,14 @@
   }
   100% {
     transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(7%);
   }
 }

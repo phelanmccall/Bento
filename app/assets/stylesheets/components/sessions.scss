@@ -361,6 +361,21 @@ button:focus {
   to   { opacity: 1; }
   }
 
+@keyframes fadeAway {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+  }
+
 @-webkit-keyframes wiggle {
   from {
      -webkit-transform: rotate(2deg);
