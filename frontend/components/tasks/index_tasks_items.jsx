@@ -71,19 +71,11 @@ class TaskIndexItem extends React.Component {
     super(props);
     this.handleDelete      =  this.handleDelete.bind(this);
     this.handleCheck       =  this.handleCheck.bind(this);
-    this.handleInput       =  this.handleInput.bind(this);
-    this.handleUpdateTask  =  this.handleUpdateTask.bind(this);
-    this.handleEnter       =  this.handleEnter.bind(this);
-    this.state             =  {
-      index:       this.props.index,
-      id:          this.props.task.id,
-      checked:     this.props.task.checked,
-      project_id:  this.props.task.project_id,
-      title:       this.props.task.title,
-      details:     this.props.task.details,
-      team_id:     this.props.task.team_id,
-    }
-    this.state = {...this.props}
+    // this.handleInput       =  this.handleInput.bind(this);
+    // this.handleUpdateTask  =  this.handleUpdateTask.bind(this);
+    // this.handleEnter       =  this.handleEnter.bind(this);
+    this.state = {...this.props};
+    console.log(this.state);
   }
 
   componentDidMount() {
@@ -112,12 +104,11 @@ class TaskIndexItem extends React.Component {
   handleCheck(e) {
     e.preventDefault();
 
-    // this.setState({ checked: !this.state.checked });
 
     let obj = {
       title:       this.props.title,
       project_id:  this.props.project_id,
-      checked:     !this.props.checked,
+      checked:     !(this.props.checked),
       details:     this.props.details,
       id:          this.props.id,
       index:       this.props.index,
@@ -127,41 +118,41 @@ class TaskIndexItem extends React.Component {
     this.props.updateTask(obj);
   }
 
-  handleInput(e) {
-    e.preventDefault();
-    const title = e.target.value ? e.target.value : '';
-    this.setState({ title });
-  }
+  // handleInput(e) {
+  //   e.preventDefault();
+  //   const title = e.target.value ? e.target.value : '';
+  //   this.setState({ title });
+  // }
 
-  handleUpdateTask (e) {
-    const obj = {
-      title:       this.state.title,
-      project_id:  this.state.project_id,
-      checked:     this.state.checked,
-      details:     this.state.details,
-      id:          this.state.id,
-      index:       this.state.index,
-      team_id:     this.state.team_id,
-    };
+  // handleUpdateTask (e) {
+  //   const obj = {
+  //     title:       this.props.task.title,
+  //     project_id:  this.props.task.project_id,
+  //     checked:     this.props.task.checked,
+  //     details:     this.props.task.details,
+  //     id:          this.props.task.id,
+  //     index:       this.props.task.index,
+  //     team_id:     this.props.task.team_id,
+  //   };
+  //
+  //   this.props.updateTask(obj);
+  // }
 
-    this.props.updateTask(obj);
-  }
-
-  handleEnter (e) {
-    if (e.key == 'Enter') {
-      const obj = {
-        title:       this.state.title,
-        project_id:  this.state.project_id,
-        checked:     this.state.checked,
-        details:     this.state.details,
-        id:          this.state.id,
-        index:       this.state.index,
-        team_id:     null,
-      };
-
-      this.props.updateTask(obj);
-    }
-  }
+  // handleEnter (e) {
+  //   if (e.key == 'Enter') {
+  //     const obj = {
+  //       title:       this.props.task.title,
+  //       project_id:  this.props.task.project_id,
+  //       checked:     this.props.task.checked,
+  //       details:     this.props.task.details,
+  //       id:          this.props.task.id,
+  //       index:       this.props.task.index,
+  //       team_id:     null,
+  //     };
+  //
+  //     this.props.updateTask(obj);
+  //   }
+  // }
 
 // TaskIndexItem render__________________________________________________ TODO :
 
