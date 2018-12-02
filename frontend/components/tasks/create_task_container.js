@@ -1,7 +1,7 @@
-import { connect } from 'react-redux';
+import  { connect }     from 'react-redux';
 
-import { createTask } from '../../actions/task_actions';
-import CreateTask from './create_task';
+import  { createTask }  from '../../actions/task_actions';
+import  CreateTask      from './create_task';
 
 const mapStateToProps = ({ session, tasks }, index, createIndex) => {
   return {

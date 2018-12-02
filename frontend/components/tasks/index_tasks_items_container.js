@@ -7,15 +7,15 @@ import {
   updateTask,
 } from '../../actions/task_actions';
 
-const mapStateToProps = (state, props) => {
-
+const mapStateToProps = (_state, props) => {
   return {
-    id: props.task.id,
-    project_id: props.task.project_id,
-    details: props.task.details,
-    index: props.index,
-    tasks: props.tasks,
-    team_id: props.task.team_id,
+    key:         props.task.id,
+    index:       props.index,
+    tasks:       props.tasks,
+    id:          props.task.id,
+    team_id:     props.task.team_id,
+    project_id:  props.task.project_id,
+    checked:     props.task.checked,
   };
 };
 
@@ -23,11 +23,11 @@ const mapDispatchToProps = (dispatch) => ({
   getAllTasksFromProjects: (teamId) => dispatch (
     getAllTasksFromProjects(teamId)
   ),
-  updateTask: (task) => dispatch(updateTask(task)),
-  deleteTask: (id) => dispatch(deleteTask(id)),
+  updateTask:    (task)  =>  dispatch(updateTask(task)),
+  deleteTask:    (id)    =>  dispatch(deleteTask(id)),
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(TaskIndexItems);

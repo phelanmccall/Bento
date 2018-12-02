@@ -20,8 +20,8 @@ const mapDispatchToProps = (dispatch) => {
     getAllTasksFromProjects: (teamId) => dispatch (
       getAllTasksFromProjects(teamId)
     ),
-    updateTask: (task) => dispatch(updateTask(task)),
-    destroyTask: (id) => dispatch(deleteTask(id)),
+    updateTask:     (task)  =>  dispatch(updateTask(task)),
+    destroyTask:    (id)    =>  dispatch(deleteTask(id)),
   };
 };
 

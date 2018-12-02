@@ -14,13 +14,11 @@
 #
 
 class Task < ApplicationRecord
-  validates :title, :project_id, presence: true
-  validates :checked, inclusion: { in: [true, false] }
+  validates :title, :project_id,
+            presence: true
+  validates :checked,
+            inclusion: { in: [true, false] }
 
-  belongs_to :project,
-  foreign_key: :project_id
-
-  belongs_to :team,
-  foreign_key: :team_id
-
+  belongs_to :project,   foreign_key: :project_id
+  belongs_to :team,      foreign_key: :team_id
 end

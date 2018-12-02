@@ -2,10 +2,11 @@ class Api::TasksController < ApplicationController
   before_action :require_logged_in
 
   def index
-    @tasks = Task
-      .where(team_id: task_params[:team_id])
-      .order(:index)
-      
+    @tasks =
+      Task
+        .where(team_id: task_params[:team_id])
+        .order(:index)
+
     render '/api/tasks/index'
   end
 
@@ -32,9 +33,11 @@ class Api::TasksController < ApplicationController
     end
   end
 
+
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
+
     render 'api/tasks/show'
   end
 
@@ -48,7 +51,7 @@ class Api::TasksController < ApplicationController
       :project_id,
       :team_id,
       :checked,
-      :details
+      :details,
     )
   end
 end

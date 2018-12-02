@@ -16,6 +16,13 @@ const TaskReducer = (state = {}, action) => {
       if (receivedState.byIds[action.task.project_id] === undefined) {
         receivedState.byIds[action.task.project_id] = [action.task];
         receivedState.allIds.push(action.task);
+      } else if (receivedState.allIds.includes(action.task.id)) {
+        receivedState.byIds[action.task.project_id] =  receivedState.byIds[action.task.project_id].map((task) => {
+          if (task.id == action.task.id) {
+            return action.task
+          }
+          return task
+        });
       } else {
         receivedState.byIds[action.task.project_id].push(action.task);
         receivedState.allIds.push(action.task.id);
@@ -34,23 +41,23 @@ const TaskReducer = (state = {}, action) => {
         if (projectsObj[taskProjectId] === undefined) {
           projectsObj[taskProjectId] = [task];
         } else {
-          projectsObj[taskProjectId] = projectsObj[taskProjectId]
-            .concat(task);
+          projectsObj[taskProjectId] =
+            projectsObj[taskProjectId].concat(task);
         }
       });
 
-      const taskArrayIds = taskArray.map((task) => task.id);
-      const fullState = {};
-      fullState['byIds'] = projectsObj;
-      fullState['allIds'] = taskArrayIds;
-      return fullState;
+      const taskArrayIds          =  taskArray.map((task) => task.id);
+      const hydratedState         =  {};
+            hydratedState.byIds   =  projectsObj;
+            hydratedState.allIds  =  taskArrayIds;
+      return hydratedState;
     }
     case REMOVE_TASK: {
       const prevState = merge({}, state);
-      const projectTaskArray = prevState.byIds[action.task.project_id];
-      const prevAllIdArrays = prevState.allIds;
-      const tasksMinusRemoved = [];
-      const tasksIdsWithout = [];
+      const projectTaskArray   =  prevState.byIds[action.task.project_id];
+      const prevAllIdArrays    =  prevState.allIds;
+      const tasksMinusRemoved  =  [];
+      const tasksIdsWithout    =  [];
 
       projectTaskArray.filter((task) => {
         if (task.id !== action.task.id) {

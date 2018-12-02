@@ -1,10 +1,12 @@
-json.extract! project, :id, :title, :creator_id, :index, :team_id
+json.extract! project,
+              :id,
+              :title,
+              :creator_id,
+              :index,
+              :team_id
 
 # It's *just* _RUBY!_ — who knew?! (I mean I did... all along)
-make_task_arrays = []
-project.tasks.each do |task|
-  make_task_arrays << task.id
-end
+make_task_arrays = project.tasks.map(&:id)
 
 json.tasks make_task_arrays
 

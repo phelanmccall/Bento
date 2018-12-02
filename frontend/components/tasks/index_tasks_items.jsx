@@ -8,9 +8,9 @@ import { DragDropContext, DragSource, DropTarget, DragLayer } from 'react-dnd';
 const taskSource = {
   beginDrag(props, monitor, component) {
     return {
-      id: props.task.id,
-      project_id: props.task.project_id,
-      index: props.task.index,
+      id:          props.task.id,
+      project_id:  props.task.project_id,
+      index:       props.task.index,
     };
   },
 
@@ -21,26 +21,28 @@ const taskSource = {
 
 function collectSource(connect, monitor) {
   return {
-    connectDragSource: connect.dragSource(),
-    isDragging: monitor.isDragging(),
+    connectDragSource:  connect.dragSource(),
+    isDragging:         monitor.isDragging(),
   };
 };
 
 const taskTarget = {
   hover(props, monitor, component) {
 
-    const dragTask = monitor.getItem();
-    const dragId = monitor.getItem().id;
-    const hoverId = props.task.id;
+    const dragTask  =  monitor.getItem();
+    const dragId    =  monitor.getItem().id;
+    const hoverId   =  props.task.id;
 
 
     /**
-     * TODO So we have props.tasks which is the array of all tasks of the
-     * project of the task being hovered. We need a slicey method to basically
+     * props.tasks is an array of all tasks of the project of the task
+     * being hovered.
+     * We need a slicey method to basically
      * filter out the task from hovered id from the hovered array, and slot in
      * the task from the XXX Drag id XXX, slicing it out of it's own
-     * monitor.getitem.projectid array if the hover proj id (from props) isn't
-     * equal to the monitor proj id (from getItem)
+     * monitor.getitem.projectid array if the
+     * hover proj id (from props) is NOT EQUAL to the monitor proj id
+     * (from getItem)
      */
 
     /*
@@ -49,16 +51,16 @@ const taskTarget = {
      */
 
   },
-  drop(props, monitor, component) {
-      return props;
+  drop(props, _monitor, _component) {
+    return props;
   },
 };
 
 function collectTarget(connect, monitor) {
   return {
-    connectDropTarget: connect.dropTarget(),
-    highlighted: monitor.canDrop(),
-    hovered: monitor.isOver(),
+    connectDropTarget:  connect.dropTarget(),
+    highlighted:        monitor.canDrop(),
+    hovered:            monitor.isOver(),
   };
 };
 
@@ -67,21 +69,21 @@ function collectTarget(connect, monitor) {
 class TaskIndexItem extends React.Component {
   constructor(props) {
     super(props);
-    this.handleDelete = this.handleDelete.bind(this);
-    this.handleCheck = this.handleCheck.bind(this);
-
-    this.handleInput = this.handleInput.bind(this);
-    this.handleUpdateTask = this.handleUpdateTask.bind(this);
-    this.handleEnter = this.handleEnter.bind(this);
-    this.state = {
-      id: this.props.task.id,
-      title: this.props.task.title,
-      project_id: this.props.task.project_id,
-      checked: this.props.task.checked,
-      index: this.props.index,
-      details: this.props.task.details,
-      team_id: this.props.task.team_id,
+    this.handleDelete      =  this.handleDelete.bind(this);
+    this.handleCheck       =  this.handleCheck.bind(this);
+    this.handleInput       =  this.handleInput.bind(this);
+    this.handleUpdateTask  =  this.handleUpdateTask.bind(this);
+    this.handleEnter       =  this.handleEnter.bind(this);
+    this.state             =  {
+      index:       this.props.index,
+      id:          this.props.task.id,
+      checked:     this.props.task.checked,
+      project_id:  this.props.task.project_id,
+      title:       this.props.task.title,
+      details:     this.props.task.details,
+      team_id:     this.props.task.team_id,
     }
+    this.state = {...this.props}
   }
 
   componentDidMount() {
@@ -110,21 +112,19 @@ class TaskIndexItem extends React.Component {
   handleCheck(e) {
     e.preventDefault();
 
-    // setTimeout(() => this.setState({ checked: !this.state.checked }), 65);
+    // this.setState({ checked: !this.state.checked });
 
-    this.setState({ checked: !this.state.checked });
     let obj = {
-      title: this.state.title,
-      project_id: this.state.project_id,
-      checked: !this.state.checked,
-      details: this.state.details,
-      id: this.state.id,
-      index: this.state.index,
-      team_id: this.state.team_id,
+      title:       this.props.title,
+      project_id:  this.props.project_id,
+      checked:     !this.props.checked,
+      details:     this.props.details,
+      id:          this.props.id,
+      index:       this.props.index,
+      team_id:     this.props.team_id,
     };
 
     this.props.updateTask(obj);
-    // this.props.getAllTasksFromProjects(this.state.team_id);
   }
 
   handleInput(e) {
@@ -135,13 +135,13 @@ class TaskIndexItem extends React.Component {
 
   handleUpdateTask (e) {
     const obj = {
-      title: this.state.title,
-      project_id: this.state.project_id,
-      checked: this.state.checked,
-      details: this.state.details,
-      id: this.state.id,
-      index: this.state.index,
-      team_id: this.state.team_id,
+      title:       this.state.title,
+      project_id:  this.state.project_id,
+      checked:     this.state.checked,
+      details:     this.state.details,
+      id:          this.state.id,
+      index:       this.state.index,
+      team_id:     this.state.team_id,
     };
 
     this.props.updateTask(obj);
@@ -150,13 +150,13 @@ class TaskIndexItem extends React.Component {
   handleEnter (e) {
     if (e.key == 'Enter') {
       const obj = {
-        title: this.state.title,
-        project_id: this.state.project_id,
-        checked: this.state.checked,
-        details: this.state.details,
-        id: this.state.id,
-        index: this.state.index,
-        team_id: null,
+        title:       this.state.title,
+        project_id:  this.state.project_id,
+        checked:     this.state.checked,
+        details:     this.state.details,
+        id:          this.state.id,
+        index:       this.state.index,
+        team_id:     null,
       };
 
       this.props.updateTask(obj);
@@ -167,6 +167,7 @@ class TaskIndexItem extends React.Component {
 
   render () {
     const {
+      key,
       task,
       project_id,
       hovered,
@@ -180,23 +181,22 @@ class TaskIndexItem extends React.Component {
 
     return connectDropTarget(connectDragSource(
       <li
-        className={`${this.state.checked ? 'task-item-true' : 'task-item-false'}`}
-        style={{ opacity }}
+        key        =  { `key-${key}` }
+        className  =  {`${task.checked ? 'task-item-true' : 'task-item-false'}`}
+        style      =  {{ opacity }}
       >
-
         <div
-          className={`${this.state.checked ? 'check-true' : 'check-false'}`}
-          onClick={this.handleCheck}
+          id        = {`check-${task.id}`}
+          className = {`${task.checked ? 'check-true' : 'check-false'}`}
+          onClick   = { this.handleCheck }
         >
-          <div className="hover-check">✔️</div>
+          <div className='hover-check'>✔️</div>
         </div>
-
-        <div className="task-title">{ task.title }</div>
-
+        <div className='task-title'>{ task.title }</div>
         <button
-          id={task.id}
-          onClick={this.handleDelete}
-          className="task-delete"
+          id        =  { task.id }
+          onClick   =  { this.handleDelete }
+          className =  'task-delete'
         >x</button>
 
       </li>

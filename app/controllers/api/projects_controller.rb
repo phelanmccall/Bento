@@ -2,12 +2,13 @@ class Api::ProjectsController < ApplicationController
   before_action :require_logged_in
 
   def index
-    if !current_user.teams.pluck(:id).include?(project_params[:team_id].to_i)
+    if current_user.teams.pluck(:id).exclude?(project_params[:team_id].to_i)
       redirect_to "/api/teams/0"
     else
-      @projects = Project
-        .where(team_id: project_params[:team_id])
-        .order(:index)
+      @projects =
+        Project
+          .where(team_id: project_params[:team_id])
+          .order(:index)
 
       render '/api/projects/index'
     end
@@ -18,11 +19,12 @@ class Api::ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(project_params)
-    @project.creator_id = current_user.id
-    @projects = Project
-      .where(team_id: project_params[:team_id])
-      .order(:index)
+    @project             =  Project.new(project_params)
+    @project.creator_id  =  current_user.id
+    @projects            =
+      Project
+        .where(team_id: project_params[:team_id])
+        .order(:index)
     if @projects.length > 1 && @project
       @project.index = @projects.last.index + 1
     end
@@ -47,6 +49,7 @@ class Api::ProjectsController < ApplicationController
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
+
     render 'api/projects/show'
   end
 
@@ -54,11 +57,11 @@ class Api::ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).permit(
-      :title,
       :creator_id,
+      :index,
       :tasks,
       :team_id,
-      :index
+      :title,
     )
   end
 end
