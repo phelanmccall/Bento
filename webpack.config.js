@@ -2,20 +2,18 @@ var path = require("path");
 
 module.exports = {
   context: __dirname,
-  entry: "./frontend/entry.jsx",
+  entry: './frontend/entry.jsx',
+  mode:  'development',
   output: {
     path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
     filename: "bundle.js"
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: [/\.jsx?$/, /\.js?$/],
         exclude: /node_modules/,
         loader: 'babel-loader',
-        query: {
-          presets: ['es2015', 'react']
-        }
       }
     ]
   },
