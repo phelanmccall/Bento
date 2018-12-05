@@ -12,8 +12,8 @@ import { DragDropContext, DragSource, DropTarget, DragLayer } from 'react-dnd';
 const projectSource = {
   beginDrag(props, monitor, component) {
     return {
-      id: props.project.id,
-      index: props.project.index,
+      id:     props.project.id,
+      index:  props.project.index,
     };
   },
 
@@ -24,54 +24,48 @@ const projectSource = {
 
 function collectSource(connect, monitor) {
   return {
-    connectDragSource: connect.dragSource(),
-    isDragging: monitor.isDragging(),
+    connectDragSource:  connect.dragSource(),
+    isDragging:         monitor.isDragging(),
   };
 };
 
 const projectTarget = {
   hover(props, monitor, component) {
-
-    const dragProject = monitor.getItem();
-    const dragId = monitor.getItem().id;
-    const hoverId = props.project.id;
-
+    const dragProject  =  monitor.getItem();
+    const dragId       =  monitor.getItem().id;
+    const hoverId      =  props.project.id;
   },
 
   drop(props, monitor, component) {
-      return props;
+    return props;
   },
 };
 
 function collectTarget(connect, monitor) {
   return {
-    connectDropTarget: connect.dropTarget(),
-    highlighted: monitor.canDrop(),
-    hovered: monitor.isOver(),
+    connectDropTarget:  connect.dropTarget(),
+    highlighted:        monitor.canDrop(),
+    hovered:            monitor.isOver(),
   };
 };
 
-// ProjectIndexItem Class_______________ __________________________________ NB :
+// ProjectIndexItem Class_______________ ______________________________________
 
 class ProjectIndexItem extends React.Component {
   constructor(props) {
     super(props);
-    this.handleDelete = this.handleDelete.bind(this);
-    this.handleInput = this.handleInput.bind(this);
-    this.handleUpdateProject = this.handleUpdateProject.bind(this);
-    this.handleEnter = this.handleEnter.bind(this);
+    this.handleDelete         =  this.handleDelete.bind(this);
+    this.handleInput          =  this.handleInput.bind(this);
+    this.handleEnter          =  this.handleEnter.bind(this);
 
     this.state = {
-      title: this.props.project.title,
-      creator_id: this.props.project.creator_id,
-      manager: this.props.project.manager,
-      id: this.props.project.id,
-      index: this.props.index,
+      title:       this.props.project.title,
     };
   }
 
   handleDelete(e) {
     e.preventDefault();
+
     let id = e.currentTarget.id;
 
     this.props.destroyProject(id);
@@ -79,30 +73,23 @@ class ProjectIndexItem extends React.Component {
 
   handleInput(e) {
     e.preventDefault();
+
     const title = e.target.value ? e.target.value : '';
-    this.setState({title});
-  }
 
-  handleUpdateProject (e) {
-    const obj = {
-      title: this.state.title,
-      creator_id: this.state.creator_id,
-      id: this.state.id,
-    };
-
-    this.props.updateProject(obj);
+    this.setState({ title });
   }
 
   handleEnter(e) {
     if (e.key === 'Enter') {
       const obj = {
-        title: this.state.title,
-        creator_id: this.state.creator_id,
-        id: this.state.id,
+        title:       this.state.title,
+        creator_id:  this.props.project.creator_id,
+        id:          this.props.project.id,
       };
 
       this.props.updateProject(obj);
-      var successor = document.querySelector(`#success-for-${this.state.id}`);
+      var successor =
+        document.querySelector(`#success-for-${this.props.project.id}`);
       successor.style.display = 'block';
 
       setTimeout(() => (successor.style.opacity = '0', successor.style.display = 'none'), 1500)
@@ -111,8 +98,7 @@ class ProjectIndexItem extends React.Component {
     }
   }
 
-// ProjectIndexItem render______________________________s_________________ TODO :
-
+// ProjectIndexItem render___________________________________________________
   render() {
 
     const { state,
@@ -122,34 +108,34 @@ class ProjectIndexItem extends React.Component {
             connectDragSource,
             connectDropTarget,
             isDragging,
-          } = this.props;
-    const idOfProject = project.id;
-    const teamOfProject = project.team_id;
-    const opacity = 1;
-    const display = 'none';
-    const position = 'absolute';
-    const marginLeft = '95px';
-    const width = '120px';
+          }              =  this.props;
+    const idOfProject    =  project.id;
+    const teamOfProject  =  project.team_id;
+    const opacity        =  1;
+    const display        =  'none';
+    const position       =  'absolute';
+    const marginLeft     =  '95px';
+    const width          =  '120px';
 
 
     return connectDropTarget(connectDragSource(
       <li
-        style={{ opacity }}
-        className="project-list-item"
+        style      =  {{ opacity }}
+        className  =  'project-list-item'
       >
         <button
-        id={project.id}
-        onClick={this.handleDelete}
-        className="task-delete"
+        id         =  { project.id }
+        onClick    =  { this.handleDelete }
+        className  =  'task-delete'
         >x</button>
 
         <input
-          className="project-title-live-input"
-          type="text"
-          value={this.state.title}
-          onChange={this.handleInput}
-          onFocus={this.handleInput}
-          onKeyPress={this.handleEnter}
+          className   =  'project-title-live-input'
+          type        =  'text'
+          value       =  { this.state.title }
+          onChange    =  { this.handleInput }
+          onFocus     =  { this.handleInput }
+          onKeyPress  =  { this.handleEnter }
         />
 
       <div
@@ -158,10 +144,10 @@ class ProjectIndexItem extends React.Component {
       > title updated 🍱 </div>
 
         <TaskIndexContainer
-          className="pli-task-index-wrapper"
-          tasks={this.props.tasks}
-          projectId={idOfProject}
-          teamId={teamOfProject}
+          className  =  'pli-task-index-wrapper'
+          tasks      =  { this.props.tasks }
+          projectId  =  { idOfProject }
+          teamId     =  { teamOfProject }
         />
       </li>
     ));

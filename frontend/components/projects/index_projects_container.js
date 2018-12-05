@@ -18,9 +18,9 @@ const mapStateToProps = ({ projects, match }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getAllProjects: (teamId) => dispatch(getAllProjects(teamId)),
-    updateProject: (proj) => dispatch(updateProject(proj)),
-    destroyProject: (id) => dispatch(deleteProject(id)),
+    getAllProjects:  (teamId)  =>  dispatch(getAllProjects(teamId)),
+    updateProject:   (proj)    =>  dispatch(updateProject(proj)),
+    destroyProject:  (id)      =>  dispatch(deleteProject(id)),
     getAllTasksFromProjects: (teamId) => dispatch(
       getAllTasksFromProjects(teamId)
     ),

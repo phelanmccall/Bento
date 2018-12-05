@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import   React                 from 'react';
+import   { Link, withRouter }  from 'react-router-dom';
 
-import SplashContainer from '../splash/splash_container'
+import   SplashContainer       from '../splash/splash_container'
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -14,15 +14,14 @@ class SessionForm extends React.Component {
     const renderGuest = () => {
       return (
         <button
-          className="guest-button-solo"
-          onClick={ this.handleGuestLogin }>
-            guest
-        </button>
+          className='guest-button-solo'
+          onClick={ this.handleGuestLogin }
+        >guest</button>
       )
     }
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleGuestLogin = this.handleGuestLogin.bind(this);
+    this.handleSubmit      =  this.handleSubmit.bind(this);
+    this.handleGuestLogin  =  this.handleGuestLogin.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -43,14 +42,19 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+
     const user = this.state;
+
     this.props.processForm({user});
   }
 
   handleGuestLogin(e) {
     e.preventDefault();
-    const user = {username: "guest", password: "password"};
-    this.props.guestLogin({user});
+
+    const user = {username: 'guest',
+                  password: 'password'};
+
+    this.props.guestLogin({ user });
     this.props.history.push(`/api/teams/1`)
   }
 
@@ -60,37 +64,36 @@ class SessionForm extends React.Component {
     const user = this.state;
       };
 
-      this.props.processForm({user});
+      this.props.processForm({ user });
   }
 
   navLink() {
     if (this.props.formType === 'login') {
-      return <Link to="/signup">sign up instead</Link>;
+      return <Link to='/signup'>sign up instead</Link>;
     } else {
-      return <Link to="/login">log in instead</Link>;
+      return <Link to='/login'>log in instead</Link>;
     }
   }
 
   renderErrors() {
     return(
-      <ul className="login-errors">
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
+      <ul className='login-errors'>
+        { this.props.errors.map((error, i) => (
+          <li key={ `error-${i}` }>
+            { error }
           </li>
-        ))}
+        )) }
       </ul>
     );
   }
 
   render () {
     return (
-      <div className="container-wrapper">
-        <div className="bottom-splash-bar"></div>
-        <div className="white-box">
-        </div>
-        <div className="green-box">
-          <div className="green-box-text-wrapper">
+      <div className='container-wrapper'>
+        <div className='bottom-splash-bar'></div>
+        <div className='white-box'></div>
+        <div className='green-box'>
+          <div className='green-box-text-wrapper'>
             share tasks with <br />
             your team,  <br />
             significant other,  <br />
@@ -98,41 +101,40 @@ class SessionForm extends React.Component {
           </div>
         </div>
 
-        <div className="yellow-box">
-          <div className="yellow-box-text-wrapper">
-          </div>
+        <div className='yellow-box'>
+          <div className='yellow-box-text-wrapper'></div>
         </div>
-        <div className="pink-box">
-          <div className="pink-box-text-wrapper">
+        <div className='pink-box'>
+          <div className='pink-box-text-wrapper'>
             compartmentalizing <br />
             your daily tasks <br />
             just got easier
           </div>
         </div>
-        <div className="container-container">
+        <div className='container-container'>
           <SplashContainer />
 
-          <div className="non-splash-container">
-            <div className="error-box">
+          <div className='non-splash-container'>
+            <div className='error-box'>
               { this.renderErrors() }
             </div>
 
-            <div className="login-form">
+            <div className='login-form'>
               <form
-                onSubmit={ this.handleSubmit }
-                className="login-form-box"
+                onSubmit   =  { this.handleSubmit }
+                className  =  'login-form-box'
               >
                 <br />
-                <div className="label-input-username">
+                <div className='label-input-username'>
                   <label> Username
                     <input
-                      className="session-password-field"
-                      placeholder="username"
-                      autoComplete="username"
-                      type="text"
-                      value={ this.state.username }
-                      onChange={ this.update('username') }
-                      className="login-user-input"
+                      className     =  'session-password-field'
+                      placeholder   =  'username'
+                      autoComplete  =  'username'
+                      type          =  'text'
+                      value         =  { this.state.username }
+                      onChange      =  { this.update('username') }
+                      className     =  'login-user-input'
                       autoFocus
                     />
                   </label>
@@ -140,38 +142,40 @@ class SessionForm extends React.Component {
 
                 <br />
 
-                <div className="label-input-password">
+                <div className='label-input-password'>
                   <label> Password
                     <input
-                      className="session-password-field"
-                      placeholder="password"
-                      autoComplete="current-password"
-                      type="password"
-                      value={ this.state.password }
-                      onChange={ this.update('password') }
-                      className="login-password-input"
+                      className     =  'session-password-field'
+                      placeholder   =  'password'
+                      autoComplete  =  'current-password'
+                      type          =  'password'
+                      value         =  { this.state.password }
+                      onChange      =  { this.update('password') }
+                      className     =  'login-password-input'
                     />
                   </label>
                 </div>
-                <div className="login-form-container">
-                  <div className="sub-guest-buttons">
+                <div className='login-form-container'>
+                  <div className='sub-guest-buttons'>
                     <input
-                      className="submit-button"
-                      type="submit"
-                      value={ this.props.formType === 'login' ? 'log in' : 'create account' }
+                      className  =  'submit-button'
+                      type       =  'submit'
+                      value      =  {
+                        this.props.formType === 'login'
+                          ? 'log in'
+                          : 'create account'
+                        }
                       />
                     <button
-                      className="guest-button"
-                      onClick={ this.handleGuestLogin }>
-                        guest
-                    </button>
+                      className='guest-button'
+                      onClick={ this.handleGuestLogin }
+                    >guest</button>
                   </div>
                 </div>
 
                 <br />
                 </form>
             </div>
-
 
           </div>
 

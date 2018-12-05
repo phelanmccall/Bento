@@ -16,8 +16,8 @@ const mapStateToProps = (props, { projectId }) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  updateProject: (project) => dispatch(updateProject(project)),
-  destroyProject: (id) => dispatch(deleteProject(id)),
+  updateProject:   (project)  =>  dispatch(updateProject(project)),
+  destroyProject:  (id)       =>  dispatch(deleteProject(id)),
 });
 
 export default connect(
