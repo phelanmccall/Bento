@@ -86,7 +86,7 @@ class Api::MembershipsController < ApplicationController
   
 ### Dark Mode (previously "night skin") preview:
   
-  ![Image](.docs/Bento-Team-View-Night-Skin.png)
+  ![Image](./docs/Bento-Team-View-Night-Skin.png)
 
 ### Drag & Drop with react-dnd
 
