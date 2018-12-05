@@ -82,11 +82,20 @@ class Api::MembershipsController < ApplicationController
 ### Future Roadmap
 
   Bento has several additional planned features with productivity and thorough UI/UX mechanisms in mind that will be developed over time as a passion project outside this initial exercise. The design is for a minimalist, pleasant organizational experience that takes as little time as possible to interact with, with maximum effect of data absorption.
+  
+  
+### Dark Mode (previously "night skin") preview:
+  
+  ![Image](.docs/Bento-Team-View-Night-Skin.png)
+
+### Drag & Drop with react-dnd
+
+  ![Image](./docs/Bento-dnd-demonstration.gif)
 
 #### Particular planned features
 
   * wrapping with [Electron][electron] to make a simple cross-platform desktop application from the skeleton of the web application
-  * a night skin, partly implemented but not yet launched, allowing a quick native dark profile to load for low-light working conditions
+  * [x] a night skin, partly implemented but not yet launched, allowing a quick native dark profile to load for low-light working conditions
   * native drag and drop for more dynamic ordering of Teams, Projects, and Tasks
   * Mouseover details view for Tasks
   * email invite share to allow users to control their own team memberships
