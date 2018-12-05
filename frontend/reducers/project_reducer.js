@@ -1,4 +1,5 @@
 import merge from 'lodash/merge';
+
 import {
   RECEIVE_PROJECT,
   RECEIVE_ALL_PROJECTS,
@@ -11,19 +12,17 @@ const ProjectReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_PROJECT:
-      let newProject = {[action.project.id]: action.project};
+      let newProject = { [action.project.id]: action.project };
+
       return merge({}, state, newProject);
     case RECEIVE_ALL_PROJECTS:
-      let projArray = Object.values(action.projects);
-      let taskArrObj = {};
-      let taskArray = projArray.map((obj) => taskArrObj[obj.id] = obj.tasks);
+      let newProjects  =  action.projects;
 
-      let newProjects = action.projects;
-      let newTasks = taskArrObj;
       return merge({}, newProjects);
     case REMOVE_PROJECT:
       let nextState = merge({}, state);
       delete nextState[action.project.id];
+
       return nextState;
     case CLEAR_STORE:
       return {};
@@ -32,4 +31,5 @@ const ProjectReducer = (state = {}, action) => {
   }
 };
 
+// simply assigns key in state (from root reducer) to returned obj
 export default ProjectReducer;

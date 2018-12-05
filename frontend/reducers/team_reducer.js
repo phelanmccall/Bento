@@ -18,9 +18,9 @@ const teamsReducer = (state = initialState, action) => {
       if (action.teams.length !== 0) {
         action.teams.forEach((team) => {
           newState[team.id] = {
-            id: team.id,
-            owner_id: team.owner_id,
-            team_name: team.team_name
+            id:         team.id,
+            owner_id:   team.owner_id,
+            team_name:  team.team_name
           }
         });
         return newState;
@@ -29,15 +29,14 @@ const teamsReducer = (state = initialState, action) => {
         return newState;
       }
 
-
       return newState;
     case RECEIVE_TEAM:
       newState = merge({}, state);
 
       newState[action.team.id] = {
-        id: action.team.id,
-        owner_id: action.team.owner_id,
-        team_name: action.team.team_name
+        id:         action.team.id,
+        owner_id:   action.team.owner_id,
+        team_name:  action.team.team_name
       };
 
       newState.currentTeam = action.team.id;

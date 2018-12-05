@@ -1,4 +1,5 @@
 import merge from 'lodash/merge';
+
 import {
   RECEIVE_TASK,
   RECEIVE_ALL_TASKS,
