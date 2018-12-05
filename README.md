@@ -1,6 +1,8 @@
 # Bento
 
-  [Bento][live-link] is an organization and task management tool designed for creatives and small-to-medium structured companies, inspired by [Asana][asana] & [Trello][trello]. Bento uses React/Redux, a PostGreSQL database, and Ruby on Rails, living as a full-stack, single-page web application.
+  [Bento][live-link] is an organization and task management tool designed for creatives and small-to-medium structured companies, inspired by [Asana][asana] & [Trello][trello]. Bento uses React/Redux, a PostGreSQL database, and Ruby on Rails, living as a full-stack, single-page web application. **Update:**
+  
+  **(end of) 2018 updates:** Bento is under continuous (part-time) development. With macOS Mojave introduced, we'll be front-loading the deploy of native dark mode (heretofore described as "the night skin" below). Quality of life and performance improvements are pending rollout. Some helpful comments have been added to describe the implementation of this stack (PRRR, described below) to other developers new to PRRR (or looking to brush up), with more to follow. Bento is now up-to-date with *Rails* latest, *Webpack* latest, and bleeding-edge *ECMAScript*, all being updated piece-by-piece throughout codebase.
 
 ## Features
 
