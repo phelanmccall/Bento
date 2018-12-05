@@ -1,15 +1,13 @@
-import  React                       from 'react';
-import  { Route }                   from 'react-router-dom';
-import  TaskIndexItemsContainer     from './index_tasks_items_container';
-import  CreateTaskContainer         from '../tasks/create_task_container';
-import  { getAllProjects }          from '../../actions/project_actions';
-import  {
-  deleteTask,
-  updateTask,
-  getAllTasksFromProjects,
-}                                   from '../../actions/task_actions';
-import  { ItemTypes }               from '../../util/dnd_constants.js';
-import  { DragSource, DropTarget }  from 'react-dnd';
+import  React                        from 'react';
+import  { Route }                    from 'react-router-dom';
+import  TaskIndexItemsContainer      from './index_tasks_items_container';
+import  CreateTaskContainer          from '../tasks/create_task_container';
+import  { getAllProjects }           from '../../actions/project_actions';
+import  { deleteTask,
+          updateTask,
+          getAllTasksFromProjects }  from '../../actions/task_actions';
+import  { ItemTypes }                from '../../util/dnd_constants.js';
+import  { DragSource, DropTarget }   from 'react-dnd';
 
 const taskTarget = {
   hover(props, monitor, component) {
@@ -23,8 +21,8 @@ const taskTarget = {
       props.updateTask(task);
 
       component.setState({
-        project_id: props.projectId,
-        team_id: props.teamId,
+        project_id:  props.projectId,
+        team_id:     props.teamId,
       });
 
 /** This funky timeout makes sure tasks imperceptibly disappear from their

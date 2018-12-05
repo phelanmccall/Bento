@@ -1,13 +1,18 @@
-import React from 'react';
-import { Route, NavLink, Link } from 'react-router-dom';
+import  React                     from 'react';
+import  { Route, NavLink, Link }  from 'react-router-dom';
 
-import CreateTaskContainer from '../tasks/create_task_container';
-import TaskIndexContainer from '../tasks/index_tasks_container';
+import  CreateTaskContainer       from '../tasks/create_task_container';
+import  TaskIndexContainer        from '../tasks/index_tasks_container';
 
-import HTML5Backend from 'react-dnd-html5-backend';
-import { ItemTypes } from "../../util/dnd_constants.js";
-import { updateProject, destroyProject } from '../../actions/project_actions';
-import { DragDropContext, DragSource, DropTarget, DragLayer } from 'react-dnd';
+import  HTML5Backend              from 'react-dnd-html5-backend';
+import  { ItemTypes }             from "../../util/dnd_constants.js";
+import  { updateProject,
+          destroyProject,
+          getAllProjects }        from '../../actions/project_actions';
+import  { DragDropContext,
+          DragSource,
+          DropTarget,
+          DragLayer }             from 'react-dnd';
 
 const projectSource = {
   beginDrag(props, monitor, component) {
@@ -31,14 +36,74 @@ function collectSource(connect, monitor) {
 
 const projectTarget = {
   hover(props, monitor, component) {
-    const dragProject  =  monitor.getItem();
-    const dragId       =  monitor.getItem().id;
-    const hoverId      =  props.project.id;
+    const dragProject   =  monitor.getItem();
+    const dragId        =  monitor.getItem().id;
+    const dragIndex     =  monitor.getItem().index;
+    const hoverProject  =  props.project;
+    const hoverId       =  props.project.id;
+    const hoverIndex    =  props.project.index;
+
+    if (dragProject.index !== props.project.index) {
+      const dragProjectToUpdate   =
+        Object
+          .assign({},
+                  dragProject,
+                  { index: hoverIndex });
+      const hoverProjectToUpdate  =
+        Object
+          .assign({},
+                  hoverProject,
+                  { index: dragIndex });
+
+      // console.log('drag idx:', dragIndex);
+      // console.log(dragProjectToUpdate);
+      // console.log('hover idx:', hoverIndex);
+      // console.log(hoverProjectToUpdate);
+
+      // props.updateProject(dragProjectToUpdate);
+      // setTimeout(() => props.updateProject(hoverProjectToUpdate));
+      // setTimeout(() => props.getAllProjects(props.teamId), 65);
+
+      // component.setState({
+      //   index:       props.index,
+      //   team_id:     props.teamId,
+      // });
+
+    }
   },
 
+
   drop(props, monitor, component) {
-    return props;
-  },
+    // return props;
+    const dragProject   =  monitor.getItem();
+    const dragId        =  monitor.getItem().id;
+    const dragIndex     =  monitor.getItem().index;
+    const hoverProject  =  props.project;
+    const hoverId       =  props.project.id;
+    const hoverIndex    =  props.project.index;
+
+    if (dragProject.index !== props.project.index) {
+      const dragProjectToUpdate   =
+        Object
+          .assign({},
+                  dragProject,
+                  { index: hoverIndex });
+      const hoverProjectToUpdate  =
+        Object
+          .assign({},
+                  hoverProject,
+                  { index: dragIndex });
+
+
+        // console.log('drag idx:', dragIndex);
+        // console.log(dragProjectToUpdate);
+        // console.log('hover idx:', hoverIndex);
+        // console.log(hoverProjectToUpdate);
+
+    props.updateProject(dragProjectToUpdate);
+    setTimeout(() => props.updateProject(hoverProjectToUpdate), 65);
+  }
+},
 };
 
 function collectTarget(connect, monitor) {

@@ -5,6 +5,7 @@ import { SelectorAllTasks } from '../../reducers/selectors';
 import {
   deleteProject,
   updateProject,
+  getAllProjects,
 } from '../../actions/project_actions';
 
 const mapStateToProps = (props, { projectId }) => {
@@ -18,6 +19,7 @@ const mapStateToProps = (props, { projectId }) => {
 const mapDispatchToProps = (dispatch) => ({
   updateProject:   (project)  =>  dispatch(updateProject(project)),
   destroyProject:  (id)       =>  dispatch(deleteProject(id)),
+  getAllProjects:  (teamId)   =>  dispatch(getAllProjects(teamId)),
 });
 
 export default connect(
