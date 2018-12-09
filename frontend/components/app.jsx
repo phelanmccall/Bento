@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Link, HashRouter, history } from 'react-router-dom';
+import { Route, Link, HashRouter, Switch, history } from 'react-router-dom';
 
 import NavbarContainer from './navigation_bar/nav_bar_container';
 import SplashContainer from './splash/splash_container';
@@ -55,7 +55,7 @@ class App extends React.Component {
     </div>
     <div className="routes-container">
 
-      <switch>
+      <Switch>
         <div className="auth-routes-div">
           <div className="session-form-containers-wrapper">
             <div className="session-form-containers">
@@ -76,7 +76,7 @@ class App extends React.Component {
           <ProtectedRoute path="/" component={ IndexTeamContainer } />
           <ProtectedRoute exact path="/api/teams/:teamId" component={ IndexProjectContainer } />
         </div>
-      </switch>
+      </Switch>
     </div>
 
   </div>
