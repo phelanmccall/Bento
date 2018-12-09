@@ -39,6 +39,7 @@ class TeamIndex extends React.Component {
 
     const display = 'flex';
 
+    console.log(this.props);
     return (
       <div className="HideWrapper">
         <div
@@ -54,6 +55,7 @@ class TeamIndex extends React.Component {
             {teams && Object.values(teams).map((team, idx) => (
               <li className="team-index-list-item" key={ `team-${idx}` }>
                 <NavLink
+                  key={team ? `/api/teams/${team.id}` : `1`}
                   className={team ? "team-index-link" : ''}
                   activeClassName={team ? "reactive" : ''}
                   to={team ? `/api/teams/${team.id}` : `/api/teams/`}

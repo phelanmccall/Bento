@@ -10,7 +10,7 @@ import {
 
 import { getAllTasksFromProjects } from '../../actions/task_actions';
 
-const mapStateToProps = ({ projects, match }) => {
+const mapStateToProps = ({ projects }) => {
   return {
     projects: SelectorAllProjects(projects),
   }

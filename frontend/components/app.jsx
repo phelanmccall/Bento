@@ -55,28 +55,39 @@ class App extends React.Component {
     </div>
     <div className="routes-container">
 
-      <Switch>
+      <div>
         <div className="auth-routes-div">
           <div className="session-form-containers-wrapper">
             <div className="session-form-containers">
               <AuthRoute
-                path="/login"
-                component={ SessionFormContainer }
+                path       =  "/login"
+                component  =  { SessionFormContainer }
+                props = {this.prop}
               />
 
               <AuthRoute
-                path="/signup"
-                component={ SessionFormContainer }
+                path       =  "/signup"
+                component  =  { SessionFormContainer }
+                props = {this.prop}
               />
             </div>
           </div>
         </div>
 
         <div className="protected-routes-container">
-          <ProtectedRoute path="/" component={ IndexTeamContainer } />
-          <ProtectedRoute exact path="/api/teams/:teamId" component={ IndexProjectContainer } />
+          <ProtectedRoute
+            path        =  "/"
+            component   =  { IndexTeamContainer }
+            props = {this.prop}
+          />
+
+          <ProtectedRoute
+            exact path  =  "/api/teams/:teamId"
+            component   =  { IndexProjectContainer }
+            props = {this.prop}
+          />
         </div>
-      </Switch>
+      </div>
     </div>
 
   </div>

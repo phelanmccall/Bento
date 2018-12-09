@@ -29,14 +29,16 @@ class ProjectIndex extends React.Component {
 
   componentDidMount() {
     let teamIdFromURL = this.props.match.params.teamId;
-
+    console.log('teamIdFromURL', teamIdFromURL);
     this.props.getAllProjects(parseInt(teamIdFromURL));
     this.props.getAllTasksFromProjects(parseInt(teamIdFromURL))
   }
 
   componentWillReceiveProps(nextProps) {
     let teamIdFromURL = this.props.match.params.teamId;
+    console.log('teamIdFromURL', teamIdFromURL);
     let nextTeamIdURL = nextProps.match.params.teamId;
+    console.log('nextTeamIdURL', nextTeamIdURL);
 
 
     if (parseInt(nextTeamIdURL) !== parseInt(teamIdFromURL)) {
@@ -69,7 +71,9 @@ class ProjectIndex extends React.Component {
 
   render() {
     const { projects, updateProject, destroyProject, } = this.props;
-    const projCount = this.props.projects.length ? 0 : this.props.projects.length
+    const projCount = this.props.projects.length
+                        ? 0
+                        : this.props.projects.length
 
     return (
       <div className="project-index-wrapper">
@@ -83,18 +87,18 @@ class ProjectIndex extends React.Component {
             { projects && projects.sort((a,b) => a.index - b.index)
               .map((project, idx) =>
                 <ProjectIndexItemContainer
+                  key={`ProjectIndexItemContainer-${project.id}`}
                   className="project-index-item"
                   project={ project }
                   updateProject={ this.props.updateProject }
                   destroyProject={ this.props.destroyProject }
                   index={ idx }
                   projectId={ project.id }
-                  key={ project.id }
                 />
               )
             }
 
-            { 
+            {
               <div className="create-project-wrapper">
                 <CreateProjectContainer
                   projectCount={ projCount }

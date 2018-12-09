@@ -38,7 +38,7 @@ class CreateTask extends React.Component {
       checked:     this.state.checked,
       index :      this.props.index,
       details:     this.state.details,
-      team_id:     parseInt(this.props.match.params.teamId),
+      team_id:     parseInt(15),
     };
 
     this.props.createTask(newTask);

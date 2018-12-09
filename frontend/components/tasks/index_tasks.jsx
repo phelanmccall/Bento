@@ -73,7 +73,7 @@ class TaskIndex extends React.Component {
 
                 return (
                   <TaskIndexItemsContainer
-                    key = {task.id}
+                    key          =  {`TaskIndexItemsContainer-${task.id}`}
                     className    =  'task-index-item'
                     task         =  { task }
                     index        =  { indexOfTask }

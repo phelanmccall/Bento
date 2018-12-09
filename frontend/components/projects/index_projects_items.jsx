@@ -4,13 +4,11 @@ import  { Route, NavLink, Link }  from 'react-router-dom';
 import  CreateTaskContainer       from '../tasks/create_task_container';
 import  TaskIndexContainer        from '../tasks/index_tasks_container';
 
-import  HTML5Backend              from 'react-dnd-html5-backend';
 import  { ItemTypes }             from "../../util/dnd_constants.js";
 import  { updateProject,
           destroyProject,
           getAllProjects }        from '../../actions/project_actions';
-import  { DragDropContext,
-          DragSource,
+import  { DragSource,
           DropTarget,
           DragLayer }             from 'react-dnd';
 
@@ -55,8 +53,8 @@ const projectTarget = {
                   hoverProject,
                   { index: dragIndex });
 
-      // console.log('drag idx:', dragIndex);
-      // console.log(dragProjectToUpdate);
+      console.log('drag idx:', dragIndex);
+      console.log(dragProjectToUpdate);
       // console.log('hover idx:', hoverIndex);
       // console.log(hoverProjectToUpdate);
 
@@ -78,30 +76,30 @@ const projectTarget = {
     const dragProject   =  monitor.getItem();
     const dragId        =  monitor.getItem().id;
     const dragIndex     =  monitor.getItem().index;
-    const hoverProject  =  props.project;
-    const hoverId       =  props.project.id;
-    const hoverIndex    =  props.project.index;
+    const dropProject   =  props.project;
+    const dropId        =  props.project.id;
+    const dropIndex     =  props.project.index;
 
-    if (dragProject.index !== props.project.index) {
+    if (dragIndex !== dropIndex) {
       const dragProjectToUpdate   =
         Object
           .assign({},
                   dragProject,
-                  { index: hoverIndex });
-      const hoverProjectToUpdate  =
+                  { index: dropIndex });
+      const dropProjectToUpdate  =
         Object
           .assign({},
-                  hoverProject,
+                  dropProject,
                   { index: dragIndex });
 
 
-        // console.log('drag idx:', dragIndex);
-        // console.log(dragProjectToUpdate);
-        // console.log('hover idx:', hoverIndex);
-        // console.log(hoverProjectToUpdate);
+        console.log('drag idx:', dragIndex);
+        console.log(dragProjectToUpdate);
+        // console.log('drop idx:', dropIndex);
+        // console.log(dropProjectToUpdate);
 
     props.updateProject(dragProjectToUpdate);
-    setTimeout(() => props.updateProject(hoverProjectToUpdate), 65);
+    setTimeout(() => props.updateProject(dropProjectToUpdate), 65);
   }
 },
 };
@@ -185,6 +183,7 @@ class ProjectIndexItem extends React.Component {
 
     return connectDropTarget(connectDragSource(
       <li
+        key        =  { `ProjectIndexItem-${project.id}` }
         style      =  {{ opacity }}
         className  =  'project-list-item'
       >
@@ -209,6 +208,7 @@ class ProjectIndexItem extends React.Component {
       > title updated 🍱 </div>
 
         <TaskIndexContainer
+          key        =  { `TaskIndexContainer-${project.id}` }
           className  =  'pli-task-index-wrapper'
           tasks      =  { this.props.tasks }
           projectId  =  { idOfProject }

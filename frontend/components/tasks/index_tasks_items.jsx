@@ -1,9 +1,8 @@
 import React from 'react';
-import HTML5Backend from 'react-dnd-html5-backend';
 import { ItemTypes } from "../../util/dnd_constants.js";
 import { Route, NavLink, Link } from 'react-router-dom';
 import { updateTask, deleteTask } from '../../actions/task_actions';
-import { DragDropContext, DragSource, DropTarget, DragLayer } from 'react-dnd';
+import { DragSource, DropTarget, DragLayer } from 'react-dnd';
 
 const taskSource = {
   beginDrag(props, monitor, component) {
@@ -158,7 +157,6 @@ class TaskIndexItem extends React.Component {
 
   render () {
     const {
-      key,
       task,
       project_id,
       hovered,
@@ -172,7 +170,7 @@ class TaskIndexItem extends React.Component {
 
     return connectDropTarget(connectDragSource(
       <li
-        key        =  { `key-${key}` }
+        key        =  { `TaskIndexItem-${task.id}` }
         className  =  {`${task.checked ? 'task-item-true' : 'task-item-false'}`}
         style      =  {{ opacity }}
       >
