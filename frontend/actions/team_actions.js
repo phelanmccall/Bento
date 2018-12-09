@@ -55,7 +55,7 @@ export const updateTeam = (team) => (dispatch) => {
 };
 
 export const removeTeam = (id) => (dispatch) => {
-  return APIUtil.removeTeam(id).then(
+  return APIUtil.deleteTeam(id).then(
     resp => dispatch(removeTeam(resp.id))
   );
 };

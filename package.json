@@ -2,21 +2,26 @@
   "name": "Bento",
   "version": "1.0.0",
   "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/atom-c/bento.git"
+  },
   "main": "index.js",
   "scripts": {
-    "postinstall": "webpack"
+    "postinstall": "webpack",
+    "ww": "webpack --watch --mode=development"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "react": "^15.6.1",
-    "react-beautiful-dnd": "^2.2.4",
-    "react-dnd": "^2.4.0",
-    "react-dnd-html5-backend": "^2.4.1",
-    "react-dom": "^15.6.1",
+    "react": "^16.6.3",
+    "react-dnd": "^7.0.2",
+    "react-dnd-html5-backend": "^7.0.2",
+    "react-dom": "^16.6.3",
     "react-redux": "^5.0.5",
-    "react-router-dom": "^4.1.2",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0"
@@ -30,8 +35,8 @@
     "@babel/preset-env": "^7.1.6",
     "@babel/preset-react": "^7.0.0",
     "babel-core": "^7.0.0-0",
-    "babel-loader": "^7.1.5",
-    "webpack": "^4.26.1",
+    "babel-loader": "^8.0.4",
+    "webpack": "^4.27.1",
     "webpack-cli": "^3.1.2"
   }
 }
