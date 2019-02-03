@@ -1,10 +1,10 @@
 class Api::TeamsController < ApplicationController
   def index
-    @memberships = Membership.where(user_id: team_params[:user_id])
-    @membership_team_ids = @memberships.pluck(:team_id)
-    @teams = Team.where(id: @membership_team_ids)
+    @memberships          =  Membership.where(user_id: team_params[:user_id])
+    @membership_team_ids  =  @memberships.pluck(:team_id)
+    @teams                =  Team.where(id: @membership_team_ids)
 
-    if !@teams.empty?
+    if @teams.present?
       @projects = @teams.first.projects
     else
       @projects = []
@@ -40,12 +40,16 @@ class Api::TeamsController < ApplicationController
   def destroy
     @team = Team.find(params[:id])
     @team.destroy
+
     render 'api/teams/show'
   end
 
   private
 
   def team_params
-    params.require(:team).permit(:team_name, :owner_id, :user_id, :projects)
+    params.require(:team).permit(:team_name,
+                                  :owner_id,
+                                  :user_id,
+                                  :projects)
   end
 end

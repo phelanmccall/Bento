@@ -27,7 +27,7 @@ export const createProject = (project) => {
   });
 };
 
-export const updateProject = (project) => {
+export const patchProject = (project) => {
   return $.ajax({
     method: 'PATCH',
     url: `/api/projects/${project.id}`,

@@ -8,7 +8,7 @@ class Api::ProjectsController < ApplicationController
       @projects =
         Project
           .where(team_id: project_params[:team_id])
-          .order(:index)
+          .reorder(:index)
 
       render '/api/projects/index'
     end
@@ -38,6 +38,7 @@ class Api::ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
+    assign_indices(@project.team_id)
     if @project.update_attributes(project_params)
       render 'api/projects/show'
     else
@@ -55,8 +56,26 @@ class Api::ProjectsController < ApplicationController
 
   private
 
+  def assign_indices(team_id)
+    current_order =
+      Team.find(team_id).projects.reorder(index: :asc).pluck(:id)
+    proj_idx      =  @project.index
+    new_idx       =  project_params[:index].to_i
+    projects_without_current_project =
+      current_order[0...proj_idx] + current_order[(proj_idx + 1)..-1]
+    new_order =
+      projects_without_current_project[0...new_idx] +
+        [@project.id] +
+        projects_without_current_project[new_idx..-1]
+
+    new_order.each_with_index do |proj_id, idx|
+      Project.find(proj_id).update(index: idx)
+    end
+  end
+
   def project_params
     params.require(:project).permit(
+      :id,
       :creator_id,
       :index,
       :tasks,

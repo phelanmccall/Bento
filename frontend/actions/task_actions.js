@@ -11,7 +11,7 @@ export const REMOVE_TASK        =  'REMOVE_TASK';
 
 /*
  * action creators
- * take the action type, and a payload
+ * take the action type, and a payload, return an action (pojo, with type)
  */
 
 const receiveTask = task => ({

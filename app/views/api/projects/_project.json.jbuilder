@@ -5,7 +5,6 @@ json.extract! project,
               :index,
               :team_id
 
-# It's *just* _RUBY!_ — who knew?! (I mean I did... all along)
 make_task_arrays = project.tasks.pluck(:id)
 
 json.tasks make_task_arrays
@@ -21,3 +20,7 @@ json.tasks make_task_arrays
 
 # => OG way this was written commented above, very explicit and a bit
 #    heavy-handed approach for the cleaner bit now in place
+
+
+
+# .sort((a,b) => a.index - b.index)

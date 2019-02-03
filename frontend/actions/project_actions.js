@@ -4,9 +4,9 @@ import * as APIUtil from '../util/project_api_util';
  * action types
  */
 
-export const RECEIVE_PROJECT = "RECEIVE_PROJECT";
-export const RECEIVE_ALL_PROJECTS = "RECEIVE_ALL_PROJECTS";
-export const REMOVE_PROJECT = "REMOVE_PROJECT";
+export const RECEIVE_PROJECT       =  'RECEIVE_PROJECT';
+export const RECEIVE_ALL_PROJECTS  =  'RECEIVE_ALL_PROJECTS';
+export const REMOVE_PROJECT        =  'REMOVE_PROJECT';
 
 /*
  * action creators
@@ -14,17 +14,17 @@ export const REMOVE_PROJECT = "REMOVE_PROJECT";
 
 export const receiveProject = project => ({
   type: RECEIVE_PROJECT,
-  project
+  project,
 });
 
 export const receiveAllProjects = projects => ({
   type: RECEIVE_ALL_PROJECTS,
-  projects
+  projects,
 });
 
 export const removeProject = project => ({
   type: REMOVE_PROJECT,
-  project
+  project,
 });
 
 export const getAllProjects = (teamId) => dispatch => {
@@ -46,12 +46,12 @@ export const createProject = (newProject) => dispatch => {
 };
 
 export const updateProject = (proj) => dispatch => {
-  return APIUtil.updateProject(proj).then(
+  return APIUtil.patchProject(proj).then(
     updateThis => dispatch(receiveProject(updateThis))
   );
 };
 
-export const deleteProject = (id) => dispatch => {
+export const destroyProject = (id) => dispatch => {
   return APIUtil.deleteProject(id).then(
     removeThis => dispatch(removeProject(removeThis))
   );

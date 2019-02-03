@@ -3,6 +3,8 @@
     json.partial! 'project',
                   project: project
   end
+
+  json.indicesOrder @projects.pluck(:id).uniq
 end
 
 # @projects = Project
