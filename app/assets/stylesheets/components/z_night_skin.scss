@@ -145,24 +145,12 @@ h1 {
 }
 
 .project-list-item {
-  display           : inline-block                !important;
-  box-sizing        : border-box                  !important;
-  width             : 300px                       !important;
-  min-width         : 300px                       !important;
-  max-width         : 300px                       !important;
-  min-height        : 700px                       !important;
-  margin            : 0 10px                      !important;
   background        : linear-gradient(
                         rgba(50, 49, 77, 0.75) 24.57%,
                         rgba(56, 64, 79, 0.64) 60.41%,
                         rgba(172, 212, 255, 0) 99.99%
                       );
   background-color  : rgba(0, 0, 0, 0.2)          !important;
-  text-align        : center                      !important;
-  vertical-align    : top                         !important;
-  font-size         : 16px;
-  -webkit-animation : 250ms ease-out 0s 1 slideIn !important;
-  -webkit-animation : fadein 500ms                !important;
 }
 
 .project-title-live-input {

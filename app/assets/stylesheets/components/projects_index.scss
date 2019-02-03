@@ -31,8 +31,8 @@
 }
 
 .project-list-item {
-  -webkit-animation: fadein 500ms;
-  -webkit-animation: 250ms ease-out 0s 1 slideIn;
+  // -webkit-animation: fadein 500ms;
+  animation: 250ms ease-out 0s 1 slideIn;
   width: 300px;
   min-width: 300px;
   max-width: 300px;
