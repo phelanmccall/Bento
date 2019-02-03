@@ -3,35 +3,35 @@ import { Link } from 'react-router-dom';
 
 const navSessionLinks = () => (
 
-    <nav className="nav-login-signup-flex-container">
-      <div className="spacer"></div>
+    <nav className='nav-login-signup-flex-container'>
+      <div className='spacer'></div>
 
       <Link
-        className="nav-login-button"
-        to="/login">
+        className='nav-login-button'
+        to='/login'>
         log in
       </Link>
 
-      <div className="spacer"></div>
+      <div className='spacer'></div>
 
       <Link
-        className="nav-signup-button"
-        to="/signup">
+        className='nav-signup-button'
+        to='/signup'>
         sign up
       </Link>
 
-      
 
-      <div className="spacer"></div>
+
+      <div className='spacer'></div>
   </nav>
 
 );
 
 const navGreet = (currentUser, logout) => (
-	<hgroup className="nav-header-logout-container">
+	<hgroup className='nav-header-logout-container'>
 
     <button
-      className="nav-logout-button"
+      className='nav-logout-button'
       onClick={ logout }>
       log out
     </button>

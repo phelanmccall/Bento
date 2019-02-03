@@ -5,40 +5,40 @@ import CreateProjectContainer from '../projects/create_project_container'
 
 const sessionLinks = () => (
 
-    <nav className="login-signup-flex-container">
-      <div className="spacer"></div>
+    <nav className='login-signup-flex-container'>
+      <div className='spacer'></div>
 
       <NavLink
-        activeClassName="reactive"
-        className="login-button"
-        to="/login">
-        log in<div className="nest"> { '' }</div>
+        activeClassName='reactive'
+        className='login-button'
+        to='/login'>
+        log in<div className='nest'> { '' }</div>
       </NavLink>
 
-      <div className="spacer special-space"></div>
+      <div className='spacer special-space'></div>
 
       <NavLink
-        activeClassName="reactive"
-        className="signup-button"
-        to="/signup">
-        sign up<div className="nest"> { '' }</div>
+        activeClassName='reactive'
+        className='signup-button'
+        to='/signup'>
+        sign up<div className='nest'> { '' }</div>
       </NavLink>
 
-      <div className="spacer"></div>
+      <div className='spacer'></div>
     </nav>
 
 );
 
 const greet = (currentUser, logout) => (
-	<hgroup className="header-logout-container">
+	<hgroup className='header-logout-container'>
 
     <button
-      className="logout-button"
+      className='logout-button'
       onClick={ logout }>
       log out
     </button>
 
-    <div className="create-project-container">
+    <div className='create-project-container'>
       <CreateProjectContainer />
     </div>
 
