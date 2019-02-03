@@ -8,24 +8,23 @@ class TeamForm extends React.Component {
     super(props);
 
     this.state = {
-      owner_id: this.props.currentUser.id,
-      team_name: '',
+      owner_id:   this.props.currentUser.id,
+      team_name:  '',
     }
 
-    this.setTeamName = this.setTeamName.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.paintTeamName  =  this.paintTeamName  .bind(this);
+    this.handleSubmit   =  this.handleSubmit   .bind(this);
   }
 
-  setTeamName(e) {
+  paintTeamName(e) {
     e.preventDefault();
     const team_name = e.target.value ? e.target.value : '';
+
     this.setState({ team_name });
   }
 
   handleSubmit (e) {
-
     e.preventDefault();
-
     const newTeam = this.state;
 
     this.props.createTeam(newTeam).then(
@@ -44,21 +43,20 @@ class TeamForm extends React.Component {
 
   render() {
     return (
-      <div className="create-team-wrapper">
-        <div className="team-form-wrapper">
-          <form className="team-form"
-            onSubmit={ this.handleSubmit }>
-
-              <input
-                className="team-name-input"
-                type="text"
-                placeholder="+ create new team"
-                value={ this.state.team_name }
-                onChange={this.setTeamName}
-              />
+      <div className='create-team-wrapper'>
+        <div className='team-form-wrapper'>
+          <form className  =  'team-form'
+                onSubmit   =  { this.handleSubmit }
+          >
+            <input
+              className    =  'team-name-input'
+              type         =  'text'
+              placeholder  =  '+ create new team'
+              value        =  { this.state.team_name }
+              onChange     =  { this.paintTeamName }
+            />
             <br />
-
-
+          
           </form>
         </div>
       </div>

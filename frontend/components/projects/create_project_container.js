@@ -7,8 +7,7 @@ const mapStateToProps = ({ session, projects, teams, tasks }) => {
   return {
     currentUser: session.currentUser,
     currentTeam: teams.currentTeam,
-    projects,
-    tasks,
+    projects:    projects,
   }
 };
 

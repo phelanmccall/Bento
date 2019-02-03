@@ -1,13 +1,14 @@
+// React always required for JSX; compiles to React.createElement()
 import  React                     from 'react';
 import  { Route, NavLink, Link }  from 'react-router-dom';
 
 import  CreateTaskContainer       from '../tasks/create_task_container';
 import  TaskIndexContainer        from '../tasks/index_tasks_container';
 
-import  { ItemTypes }             from "../../util/dnd_constants.js";
-import  { updateProject,
-          destroyProject,
-          getAllProjects }        from '../../actions/project_actions';
+import  { ItemTypes }             from '../../util/dnd_constants.js';
+// import  { updateProject,
+//           destroyProject,
+//           getAllProjects }        from '../../actions/project_actions';
 import  { DragSource,
           DropTarget,
           DragLayer }             from 'react-dnd';
@@ -35,44 +36,77 @@ function collectSource(connect, monitor) {
 const projectTarget = {
   hover(props, monitor, component) {
     const dragProject   =  monitor.getItem();
-    const dragId        =  monitor.getItem().id;
+    // const dragId        =  monitor.getItem().id;
     const dragIndex     =  monitor.getItem().index;
-    const hoverProject  =  props.project;
-    const hoverId       =  props.project.id;
+    // const hoverProject  =  props.project;
+    // const hoverId       =  props.project.id;
     const hoverIndex    =  props.project.index;
-
-    if (dragProject.index !== props.project.index) {
-      const dragProjectToUpdate   =
-        Object
-          .assign({},
-                  dragProject,
-                  { index: hoverIndex });
-      const hoverProjectToUpdate  =
-        Object
-          .assign({},
-                  hoverProject,
-                  { index: dragIndex });
-
-      console.log('drag idx:', dragIndex);
-      console.log(dragProjectToUpdate);
-      // console.log('hover idx:', hoverIndex);
-      // console.log(hoverProjectToUpdate);
-
-      // props.updateProject(dragProjectToUpdate);
-      // setTimeout(() => props.updateProject(hoverProjectToUpdate));
-      // setTimeout(() => props.getAllProjects(props.teamId), 65);
-
-      // component.setState({
-      //   index:       props.index,
-      //   team_id:     props.teamId,
-      // });
-
-    }
+    props.gimmeStateProjs(props.order, dragIndex, hoverIndex, dragProject.id);
+    //
+    // if (dragIndex !== hoverIndex) {
+    //   const dragProjectToUpdate   =
+    //     Object
+    //       .assign({},
+    //               dragProject,
+    //               { index: hoverIndex });
+    //   const hoverProjectToUpdate  =
+    //     Object
+    //       .assign({},
+    //               hoverProject,
+    //               { index: dragIndex });
+    //
+    //   // console.log('drag idx:', dragIndex);
+    //   // console.log(dragProjectToUpdate);
+    //   // console.log('hover idx:', hoverIndex);
+    //   // console.log(hoverProjectToUpdate);
+    //
+    //   // props.updateProject(dragProjectToUpdate);
+    //   // setTimeout(() => props.updateProject(hoverProjectToUpdate));
+    //   // setTimeout(() => props.getAllProjects(props.teamId), 65);
+    //
+    //   // component.setState({
+    //   //   index:       props.index,
+    //   //   team_id:     props.teamId,
+    //   // });
+    //
+    // }
+      // setTimeout(() => props.getAllProjects, 65);
+      // return props;
+      // const dragIndex     =  monitor.getItem().index;
+      // const hoverIndex    =  props.project.index;
+      //
+      //
+      // if (dragIndex !== hoverIndex) {
+      //   const dragProject   =  monitor.getItem();
+      //   const dragId        =  monitor.getItem().id;
+      //   const hoverProject  =  props.project;
+      //   const hoverId       =  props.project.id;
+      //   console.log('%ccomponent',
+      //               'color: pink; background-color: black;',
+      //               component);
+      //   const dragProjectToUpdate   =  { ...dragProject, index: hoverIndex };
+      //   const hoverProjectToUpdate  =  { ...hoverProject, index: dragIndex };
+      //
+      //     console.log('drag idx:',
+      //                 dragIndex);
+      //     console.log('%cdragProjectToUpdate',
+      //                 'color:blue; background:red',
+      //                 dragProjectToUpdate);
+      //     console.log('hover idx:',
+      //                 hoverIndex);
+      //     console.log('%choverProjectToUpdate',
+      //                 'color:red; background:blue',
+      //                 hoverProjectToUpdate);
+      //   // monitor.getItem().index = props.index;
+      //   // props.updateProject(dragProjectToUpdate);
+      //   // setTimeout(() => props.getAllProjects(props.project.team_id), 130);
+      // }
+      //
+      // return props;
   },
 
 
   drop(props, monitor, component) {
-    // return props;
     const dragProject   =  monitor.getItem();
     const dragId        =  monitor.getItem().id;
     const dragIndex     =  monitor.getItem().index;
@@ -80,28 +114,34 @@ const projectTarget = {
     const dropId        =  props.project.id;
     const dropIndex     =  props.project.index;
 
+    console.log('%ccomponent',
+                'color: pink; background-color: black;',
+                component);
+
     if (dragIndex !== dropIndex) {
-      const dragProjectToUpdate   =
-        Object
-          .assign({},
-                  dragProject,
-                  { index: dropIndex });
-      const dropProjectToUpdate  =
-        Object
-          .assign({},
-                  dropProject,
-                  { index: dragIndex });
+      const dragProjectToUpdate  =  { ...dragProject, index: dropIndex };
+      const dropProjectToUpdate  =  { ...dropProject, index: dragIndex };
 
+        console.log('drag idx:',
+                    dragIndex);
+        console.log('%cdragProjectToUpdate',
+                    'color:blue; background:red',
+                    dragProjectToUpdate);
+        console.log('drop idx:',
+                    dropIndex);
+        console.log('%cdropProjectToUpdate',
+                    'color:red; background:blue',
+                    dropProjectToUpdate);
+      // component.setState(()=> {
+      //   indicesOrder: []
+      // });
+      props.updateProject(dragProjectToUpdate);
 
-        console.log('drag idx:', dragIndex);
-        console.log(dragProjectToUpdate);
-        // console.log('drop idx:', dropIndex);
-        // console.log(dropProjectToUpdate);
+      setTimeout(() => props.getAllProjects(props.project.team_id), 175);
+    }
 
-    props.updateProject(dragProjectToUpdate);
-    setTimeout(() => props.updateProject(dropProjectToUpdate), 65);
-  }
-},
+    return props;
+  },
 };
 
 function collectTarget(connect, monitor) {
@@ -117,12 +157,13 @@ function collectTarget(connect, monitor) {
 class ProjectIndexItem extends React.Component {
   constructor(props) {
     super(props);
-    this.handleDelete         =  this.handleDelete.bind(this);
-    this.handleInput          =  this.handleInput.bind(this);
-    this.handleEnter          =  this.handleEnter.bind(this);
+    this.handleDelete  =  this.handleDelete.bind(this);
+    this.handleInput   =  this.handleInput.bind(this);
+    this.handleEnter   =  this.handleEnter.bind(this);
 
     this.state = {
       title:       this.props.project.title,
+      // order:
     };
   }
 
@@ -150,6 +191,7 @@ class ProjectIndexItem extends React.Component {
         id:          this.props.project.id,
       };
 
+      console.log('%cthis.props @handleEnter', 'border: 2px dashed white', this.props);
       this.props.updateProject(obj);
       var successor =
         document.querySelector(`#success-for-${this.props.project.id}`);
@@ -174,17 +216,20 @@ class ProjectIndexItem extends React.Component {
           }              =  this.props;
     const idOfProject    =  project.id;
     const teamOfProject  =  project.team_id;
-    const opacity        =  1;
     const display        =  'none';
     const position       =  'absolute';
     const marginLeft     =  '95px';
     const width          =  '120px';
-
+    const opacity  =  isDragging ? 0 : 1;
+    const cursor   =  isDragging ? '-webkit-grabbing !important' : '-webkit-grab !important';
+    // const animation = hovered
+    //   ? 'animation: 250ms ease-out 0s 1 slideOut'
+    //   : 'animation: 250ms ease-out 0s 1 slideIn'
+    const border = hovered ? '1px solid red' : '1px solid green'
 
     return connectDropTarget(connectDragSource(
       <li
-        key        =  { `ProjectIndexItem-${project.id}` }
-        style      =  {{ opacity }}
+        style      =  {{ opacity, border }}
         className  =  'project-list-item'
       >
         <button
@@ -208,7 +253,6 @@ class ProjectIndexItem extends React.Component {
       > title updated 🍱 </div>
 
         <TaskIndexContainer
-          key        =  { `TaskIndexContainer-${project.id}` }
           className  =  'pli-task-index-wrapper'
           tasks      =  { this.props.tasks }
           projectId  =  { idOfProject }

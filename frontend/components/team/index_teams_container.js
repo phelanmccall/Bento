@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { fetchAllTeams, deleteTeam, updateTeamj, clearTeams } from '../../actions/team_actions';
 import TeamIndex from './index_teams'
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = ({...state}) => ({
   teams:        state.teams,
   currentTeam:  state.teams.currentTeam,
   currentUser:  state.session.currentUser,

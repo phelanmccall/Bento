@@ -20,10 +20,10 @@ const taskTarget = {
       monitor.getItem().project_id = props.projectId;
       props.updateTask(task);
 
-      component.setState({
-        project_id:  props.projectId,
-        team_id:     props.teamId,
-      });
+      // component.setState({
+      //   project_id:  props.projectId,
+      //   team_id:     props.teamId,
+      // });
 
 /** This funky timeout makes sure tasks imperceptibly disappear from their
  *  previous locations when the user drags them to a new project

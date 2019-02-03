@@ -8,6 +8,13 @@ import {
 } from '../../actions/task_actions';
 
 const mapStateToProps = (_state, props) => {
+  console.log('%cprops at TaskItemContainer',
+              'background-color: #000; color: #34F334; border:1px solid teal',
+              props);
+  console.log('%c_state at TaskItemContainer',
+              'background-color: #000; color: #34F334; border:1px solid teal',
+              _state);
+
   // pass down through props whatever is needed
   return {
     key:         props.task.id,
